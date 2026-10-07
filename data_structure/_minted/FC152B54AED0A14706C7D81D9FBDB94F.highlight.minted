@@ -1,0 +1,7 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{Role}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{hp}\PYG{p}{;}\PYG{+w}{             }\PYG{c+c1}{// 生命值}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{attack\PYGZus{}power}\PYG{p}{;}\PYG{+w}{   }\PYG{c+c1}{// 攻击力}
+\PYG{+w}{    }\PYG{c+c1}{// ...              // 其他}
+\PYG{p}{\PYGZcb{};}
+\end{MintedVerbatim}

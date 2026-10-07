@@ -1,0 +1,52 @@
+
+void Rearrange(NODE *head) {
+    if(head == NULL || head->next == NULL)
+        return;
+
+    // 双指针寻找链表中点，slow最终指向第一部分的最后一个节点
+    NODE *slow = head;
+    NODE *fast = head;
+    while(fast->next != NULL &&
+          fast->next->next != NULL) {
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+    /* 将链表“砍成两半”
+     * 第一部分:
+     * head->next ... slow
+     * 第二部分:
+     * second-> ...
+     */
+    NODE *second = slow->next;  // second即第二部分的“第一个节点”。注意：第二部分事实上是一个“不带头结点”的单链表，其第一个节点就是second指向的数据节点。
+    slow->next = NULL;
+    /*
+     * 第二步：
+     * 逆置第二部分链表
+     */
+    NODE *prev = NULL;
+    NODE *cur = second;
+    while(cur != NULL) {
+        NODE *next = cur->next;
+        cur->next = prev;
+        prev = cur;
+        cur = next;
+    }
+    second = prev;
+    /*
+     * 第三步：
+     * 交替合并两个链表
+     */
+    NODE *first = head->next;
+    NODE *p = first;    // 动态维护p，让其始终指向第一部分的插入位置
+    NODE *q = second;   // 动态维护q，让其始终指向第二部分的待插节点
+    while(p != NULL && q != NULL) {
+        NODE *pNext = p->next;
+        NODE *qNext = q->next;
+        // 插入q节点
+        p->next = q;
+        q->next = pNext;
+        // 推移p和q两个指针，准备插入下一个节点
+        p = pNext;
+        q = qNext;
+    }
+}

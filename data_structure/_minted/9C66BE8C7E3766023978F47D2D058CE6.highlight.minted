@@ -1,0 +1,7 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{ListNode}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{ElemType}\PYG{+w}{ }\PYG{n}{data}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{// 该节点的数据元素}
+\PYG{+w}{    }\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{ListNode}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{next\PYGZus{}node}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// 下一个节点的地址}
+\PYG{+w}{    }\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{ListNode}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{prior\PYGZus{}node}\PYG{p}{;}\PYG{+w}{    }\PYG{c+c1}{// 新增：前驱节点的地址}
+\PYG{p}{\PYGZcb{}}\PYG{p}{;}
+\end{MintedVerbatim}

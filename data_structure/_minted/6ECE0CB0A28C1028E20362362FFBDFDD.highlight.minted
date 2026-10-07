@@ -1,0 +1,5 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{if}\PYG{p}{(}\PYG{n}{rear}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{MaxSize}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{    }\PYG{c+c1}{// 若MaxSize为100，MaxSize\PYGZhy{}1为最大下标99}
+\PYG{+w}{    }\PYG{n}{rear}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{rear}\PYG{+w}{ }\PYG{o}{\PYGZpc{}}\PYG{+w}{ }\PYG{n}{MaxSize}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

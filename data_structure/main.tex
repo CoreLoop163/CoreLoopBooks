@@ -1,0 +1,696 @@
+\documentclass[oneside]{ctexbook}
+
+% ============================================================
+% CoreLoop 数据结构 —— 书籍级排版基础配置
+% 编译方式：XeLaTeX（需要启用 shell-escape）
+% 例如：latexmk -xelatex -shell-escape main.tex
+% ============================================================
+
+% ---------- 基础 ----------
+\usepackage{emptypage}
+\usepackage{enumitem}
+\usepackage{environ}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{amsmath,amssymb}
+\usepackage{microtype}
+\usepackage[most]{tcolorbox}
+\usepackage{minted}
+\usepackage{tikz}
+\usetikzlibrary{trees}
+\usetikzlibrary{positioning}
+\usepackage{hyperref}
+\usepackage{textcomp}
+\usepackage{circledsteps}
+\usepackage{caption}
+\captionsetup[figure]{
+    labelsep=space
+}
+
+% 通过\uline, \uwave为文字添加下划线、下波浪线
+\usepackage[normalem]{ulem}
+
+% tcolorbox 的 minted 支持
+\tcbuselibrary{minted,skins,breakable}
+
+% ---------- 字体 ----------
+% ctex 会自动处理中文字体。
+% 这里显式指定一个常见的 CJK 字体，便于跨机器时理解配置。
+% 如果你的 Windows 上没有 Noto Serif CJK SC，可删除这两行，让 ctex 自动选择。
+% \setCJKmainfont{Noto Serif CJK SC}
+% \setCJKsansfont{Noto Sans CJK SC}
+
+% ---------- 页面 ----------
+\usepackage[a4paper,margin=2.4cm,headheight=15pt]{geometry}
+
+% ---------- 颜色 ----------
+% 正文与代码都尽量克制，不做成 IDE 风格。
+\definecolor{codebg}{RGB}{248,248,248}
+\definecolor{codeborder}{RGB}{218,218,218}
+\definecolor{codelinenum}{RGB}{125,135,145}
+\definecolor{codekeyword}{RGB}{35,90,155}
+\definecolor{codestring}{RGB}{45,135,85}
+\definecolor{codecomment}{RGB}{110,110,110}
+
+% 定义块：偏蓝
+\definecolor{defbg}{RGB}{244,248,253}
+\definecolor{defborder}{RGB}{120,160,205}
+\definecolor{deftitle}{RGB}{35,90,145}
+
+% 思考块：偏暖黄
+\definecolor{thinkbg}{RGB}{253,249,238}
+\definecolor{thinkborder}{RGB}{205,175,95}
+\definecolor{thinktitle}{RGB}{145,105,30}
+
+% 普通提示块：偏灰绿
+\definecolor{notebg}{RGB}{246,249,247}
+\definecolor{noteborder}{RGB}{145,175,155}
+\definecolor{notetitle}{RGB}{55,105,70}
+
+% 直觉解释块
+\definecolor{intuitionbg}{RGB}{248,248,248}
+\definecolor{intuitionline}{RGB}{90,90,90}
+\definecolor{intuitiontext}{RGB}{50,50,50}
+
+% ============================================================
+% 概念展示块
+% ============================================================
+\definecolor{bulkbg}{RGB}{248,248,248}
+\definecolor{bulkborder}{RGB}{220,220,220}
+
+% \newcommand{} 表示创建一个新的latex命令, {}里面的\term就是创建的新命令。定义后，后面就可以使用：\term{数据结构}，\term{线性表}等。
+% [1]表示这个命令接受一个参数。#1表示第一个参数的内容。如：\term{数据结构}，则#1会被替换为“数据结构”。
+% \textbf{}这是latex的粗体命令，如：\texbf{数据结构}，编译后就会输出粗体的“数据结构”这几个字。
+\newcommand{\term}[1]{\textbf{#1}}
+
+\newcommand{\figref}[1]{%
+    \hyperref[#1]{图~\ref*{#1}（第~\pageref*{#1}~页）}%
+}
+
+\newcommand{\coderef}[1]{%
+    \hyperref[#1]{代码~\ref*{#1}（第~\pageref*{#1}~页）}%
+}
+
+% ---------- 超链接 ----------
+\hypersetup{
+    colorlinks=true,
+    linkcolor=deftitle,
+    urlcolor=deftitle,
+    citecolor=deftitle,
+    pdftitle={数据结构},
+    pdfauthor={CoreLoop}
+}
+
+% 行号样式
+\renewcommand{\theFancyVerbLine}{%
+    \scriptsize\color{codelinenum}\arabic{FancyVerbLine}%
+}
+
+% 定义一个名为 cppcode 的新环境。
+%
+% 以后可以这样使用：
+%
+% \begin{cppcode}
+% int main() {
+%     return 0;
+% }
+% \end{cppcode}
+% 这个环境由 tcolorbox 提供外层盒子，
+% 内部使用 minted 负责 C++ 代码的排版和语法高亮。
+% 使用 minted，因此中文字符串可以直接写。
+\newtcblisting{cppcode}{
+    enhanced,
+    breakable,      % 允许代码框跨页
+    listing engine=minted,  % 指定代码的排版引擎使用minted
+    minted language=cpp,    % 指定 minted 使用 C++ 语言进行语法高亮。
+    % minted参数 
+    minted options={
+        fontsize=\small,    % 设置代码字体大小，\small为比正文略小
+        fontfamily=DejaVu Sans Mono,
+        baselinestretch=1.15,   % % 设置代码行距相对于正常行距的倍率。
+        linenos,    % 显示代码行号。
+        numbersep=7pt,     % % 设置“行号”和“代码正文”之间的距离。
+        breaklines,     % 当一行代码太长时，允许自动换行。
+        autogobble,
+        tabsize=4,   % 设置 Tab 字符对应的空格宽度。tabsize=4 表示一个 Tab 按 4 个空格的宽度排版。
+        escapeinside=@@
+    },
+    colback=codebg,     % 设置代码框内部的背景颜色。
+    colframe=codeborder,    % 设置代码框边框的颜色。
+    boxrule=0.55pt,     % 设置代码框边框线的粗细。
+    arc=2pt,    % 设置代码框四个角的圆角半径。
+    left=15pt,   % 左侧页边距，即左侧边框与代码内容之间的空白距离。
+    right=7pt,
+    top=7pt,
+    bottom=7pt,
+    listing only,
+    before skip=1em,
+    after skip=1em
+}
+
+% ============================================================
+% 带高亮的 C++ 代码块
+% ============================================================
+\NewTCBListing{cppcodeHighlight}{ O{} }{
+    enhanced,
+    breakable,
+    listing engine=minted,
+    minted language=cpp,
+    minted options={
+        fontsize=\small,
+        fontfamily=DejaVu Sans Mono,
+        baselinestretch=1.15,
+        linenos,
+        numbersep=7pt,
+        breaklines,
+        autogobble,
+        tabsize=4,
+        escapeinside=@@
+    },
+    % 这里不要写进 minted options
+    % 而是通过 minted options app 追加
+    minted options app/.expanded={
+        highlightlines={#1},
+        highlightcolor=yellow!20
+    },
+    colback=codebg,
+    colframe=codeborder,
+    boxrule=0.55pt,
+    arc=2pt,
+    left=15pt,
+    right=7pt,
+    top=7pt,
+    bottom=7pt,
+    listing only,
+    before skip=1em,
+    after skip=1em
+}
+
+% ============================================================
+% 带编号的 C++ 代码块
+% ============================================================
+% 不显示行号：在[]里加一个参数：showlinenumber=false
+\tcbset{
+    codetitle/.store in=\cppcodetitle,
+    showlinenumber/.is choice,
+    showlinenumber/true/.code={
+        \def\cpp@linenos{linenos}
+    },
+    showlinenumber/false/.code={
+        \def\cpp@linenos{}
+    }
+}
+\newtcblisting[
+    auto counter,
+    number within=chapter
+]{cppcodeNum}[1][]{
+    % ---------- 默认值 ----------
+    codetitle={},
+    showlinenumber=true,
+    % ---------- 用户参数 ----------
+    #1,
+    enhanced,
+    breakable,
+    listing engine=minted,
+    minted language=cpp,
+    minted options={
+        fontsize=\small,
+        fontfamily=DejaVu Sans Mono,
+        baselinestretch=1.15,
+        \cpp@linenos,
+        numbersep=7pt,
+        breaklines,
+        autogobble,
+        tabsize=4
+    },
+    colback=codebg,
+    colframe=codeborder,
+    boxrule=0.55pt,
+    arc=2pt,
+    left=15pt,
+    right=7pt,
+    top=15pt,
+    bottom=7pt,
+    listing only,
+    before skip=1em,
+    after skip=1em,
+    % ---------- 代码标题 ----------
+    title={
+        代码~\thetcbcounter
+        \ifstrempty{\cppcodetitle}
+            {}
+            {\quad \cppcodetitle}
+    },
+    fonttitle=\bfseries\normalsize,
+    coltitle=codekeyword,
+    attach boxed title to top left={
+        xshift=10pt,
+        yshift=-\tcboxedtitleheight/2
+    },
+    boxed title style={
+        colback=codebg,
+        colframe=codeborder,
+        boxrule=0.55pt,
+        arc=2pt,
+        left=6pt,
+        right=6pt,
+        top=2pt,
+        bottom=2pt
+    }
+}
+
+% ============================================================
+% 定义块
+% 用法：
+% \begin{definitionbox}{数组}
+%   ...
+% \end{definitionbox}
+% ============================================================
+\newtcolorbox{definitionbox}{
+    enhanced,
+    breakable,      % 允许盒子跨页。如果定义内容很多，不会被强制挤在一页。
+    colback=defbg,  % 盒子内部背景颜色。
+    colframe=defborder, % 盒子边框颜色。
+    boxrule=0.7pt,  % 边框线宽。
+    arc=2pt,    % 圆角半径。
+    left=11pt,  % 内容距离左边框的距离。
+    right=11pt,
+    top=15pt,
+    bottom=9pt,
+    before skip=1em,    % 盒子与前面正文之间的距离。
+    after skip=1em,     % 盒子与后面正文之间的距离。
+    title={定义},       % 设置标题文字。
+    fonttitle=\bfseries\large,  % 标题字体样式。\bfseries表示加粗，\Large表示某个字体大小（大号字体）。
+    coltitle=deftitle,  % 标题文字颜色
+    % 将标题框（定义二字所在的框）移动到主框左上角。
+    %
+    % xshift:
+    %   水平方向移动
+    %
+    % yshift:
+    %   垂直方向移动
+    %
+    % \tcboxedtitleheight:
+    %   自动获取标题框高度。
+    attach boxed title to top left={xshift=10pt,yshift=-\tcboxedtitleheight/2},
+    boxed title style={
+        colback=defbg,          % 标题小框背景色。
+        colframe=defborder,     % 标题小框边框颜色。
+        boxrule=0.7pt,          % 标题小框边框粗细。
+        arc=2pt,                % 标题小框圆角。
+        left=6pt,               % 标题文字距离左边框。
+        right=6pt,              % 标题文字距离右边框。
+        top=1pt,
+        bottom=1pt
+    }
+}
+
+% ============================================================
+% 直觉解释块
+%
+% 用法：
+%
+% \begin{intuitionbox}
+% 数据结构，就是我们研究和处理的一个个“东西”。
+% \end{intuitionbox}
+%
+% ============================================================
+
+\newtcolorbox{intuitionbox}{
+    enhanced,
+    breakable,
+    colback=intuitionbg,
+    frame hidden,
+    borderline west={3pt}{0pt}{intuitionline},
+    left=12pt,
+    right=12pt,
+    top=8pt,
+    bottom=8pt,
+    before skip=1em,
+    after skip=1em,
+    fontupper=\small,
+    colupper=intuitiontext
+}
+
+% ============================================================
+% 思考块
+% 用法：
+% \begin{thinkbox}{想一想}
+%   ...
+% \end{thinkbox}
+% ============================================================
+\newtcolorbox{thinkbox}{
+    enhanced,
+    breakable,
+    colback=thinkbg,
+    colframe=thinkborder,
+    boxrule=0.7pt,
+    arc=2pt,
+    left=7pt,
+    right=7pt,
+    top=10pt,
+    bottom=6pt,
+    before skip=1em,
+    after skip=1em,
+    title={思考},
+    fonttitle=\bfseries\normalsize,
+    coltitle=thinktitle,
+    attach boxed title to top left={xshift=10pt,yshift=-\tcboxedtitleheight/2},
+    boxed title style={
+        colback=thinkbg,
+        colframe=thinkborder,
+        boxrule=0.7pt,
+        arc=2pt,
+        left=4pt,
+        right=4pt,
+        top=0pt,
+        bottom=0pt
+    }
+}
+
+% ============================================================
+% 思维拓展块 Insight
+% ============================================================
+\definecolor{insightbg}{RGB}{246,246,252}
+\definecolor{insightborder}{RGB}{140,140,190}
+\definecolor{insighttitle}{RGB}{80,80,150}
+
+\newtcolorbox{insightbox}{
+    enhanced,
+    breakable,
+    colback=insightbg,
+    colframe=insightborder,
+    boxrule=0.7pt,
+    arc=2pt,
+    left=7pt,
+    right=7pt,
+    top=11pt,
+    bottom=6pt,
+    before skip=1em,
+    after skip=1em,
+    title={*思维拓展},
+    fonttitle=\bfseries\normalsize,
+    fontupper=\small,
+    coltitle=insighttitle,
+    attach boxed title to top left={
+        xshift=10pt,
+        yshift=-\tcboxedtitleheight/2
+    },
+    boxed title style={
+        colback=insightbg,
+        colframe=insightborder,
+        boxrule=0.7pt,
+        arc=2pt,
+        left=5pt,
+        right=5pt,
+        top=0pt,
+        bottom=0pt
+    }
+}
+
+% ============================================================
+% 普通提示块（额外给你一个可选样式）
+% ============================================================
+\newtcolorbox{notebox}[1]{
+    enhanced,
+    breakable,
+    colback=notebg,
+    colframe=noteborder,
+    boxrule=0.6pt,
+    arc=2pt,
+    left=12pt,
+    right=12pt,
+    top=9pt,
+    bottom=9pt,
+    before skip=1em,
+    after skip=1em,
+    title={#1},
+    fonttitle=\bfseries,
+    coltitle=notetitle,
+    boxed title style={
+        colback=notebg,
+        colframe=noteborder,
+        boxrule=0.6pt,
+        arc=2pt
+    }
+}
+
+% ============================================================
+% 概念展示块
+%
+% 用法：
+%
+% \begin{bulk}
+% 节点A → 节点B → 节点C
+% \end{bulk}
+%
+% ============================================================
+\newtcolorbox{bulk}{
+    enhanced,
+    breakable,
+    colback=bulkbg,
+    colframe=bulkborder,
+    boxrule=0.6pt,
+    arc=8pt,
+    left=10pt,
+    right=10pt,
+    top=7pt,
+    bottom=7pt,
+    before skip=1em,
+    after skip=1em,
+    fontupper=\small
+}
+
+% ============================================================
+% 书签 / 内容跳转标记
+% 用法：
+%
+% \bookmark{label}{标题}
+%
+% 例如：
+% \bookmark{bookmark:array}{顺序表的实现}
+%
+% 引用：
+%
+% \bookmarkref{bookmark:array}{顺序表的实现}
+%
+% 效果：
+% ─────────── 顺序表的实现 ───────────
+%
+% 如果已经看懂了，请直接跳至【顺序表的实现】处（第 15 页）。
+% ============================================================
+\newcommand{\bookmark}[2]{%
+    \par
+    \medskip
+    \noindent
+    \makebox[\textwidth]{%
+        \leaders\hrule height 0.5pt\hfill
+        \quad
+        \textbf{#2}
+        \quad
+        \leaders\hrule height 0.5pt\hfill
+    }%
+    \label{#1}%
+    \par
+    \medskip
+}
+
+\newcommand{\bookmarkref}[2]{%
+    \hyperref[#1]{---#2---}（第~\pageref{#1}~页）%
+}
+
+% 有序列表编号。使用方式：
+% \minisection{1. 顺序存储}
+% 这里介绍顺序存储……
+% \minisection{2. 链式存储}
+% 这里介绍链式存储……
+\newcommand{\minisection}[1]{%
+    \par\medskip
+    \noindent\textbf{#1}
+    \par\smallskip
+}
+
+% =========================================================
+% 习题与习题答案
+% =========================================================
+
+% ---------------------------------------------------------
+% xsim
+%
+% use-files：
+% 将习题和答案正文写入外部 .tex 文件，
+% 因此可以安全使用 minted / verbatim。
+%
+% blank：
+% 不使用 xsim 默认的 exercise / solution 环境，
+% 我们自己定义 exercise / exerciseanswer。
+% ---------------------------------------------------------
+
+\usepackage[use-files,blank]{xsim}
+% =========================================================
+% 定义习题类型
+% =========================================================
+\DeclareExerciseType{bookexercise}{
+    exercise-env      = exercise,
+    solution-env      = exerciseanswer,
+    exercise-name     = 习题,
+    exercises-name    = 习题,
+    solution-name     = 习题参考答案,
+    solutions-name    = 习题参考答案,
+    exercise-template = book-exercise,
+    solution-template = book-solution,
+    exercise-heading  = \subsection*,
+    solution-heading  = \subsection*
+}
+
+% =========================================================
+% 习题环境模板
+% =========================================================
+\DeclareExerciseEnvironmentTemplate{book-exercise}{
+    \par
+    \medskip
+    \noindent
+    \textbf{习题 \GetExerciseProperty{counter}}%
+    \quad
+    \IfExistSolutionTF{
+        （参考答案见习题
+        \GetExerciseProperty{counter}~参考答案，第
+        \pageref{exercise-answer:\ExerciseID}页）
+    }{}
+    \par
+    \medskip
+    \label{exercise:\ExerciseID}
+}{
+    \par
+    \medskip
+}
+
+
+% =========================================================
+% 习题答案环境模板
+% =========================================================
+
+\DeclareExerciseEnvironmentTemplate{book-solution}{
+    \clearpage
+    \phantomsection
+    \label{exercise-answer:\ExerciseID}
+    \noindent
+    \textbf{习题 \GetExerciseProperty{counter}~参考答案}
+    \par
+    \medskip
+}{
+    \par
+    \medskip
+}
+
+
+% =========================================================
+% xsim 设置
+% =========================================================
+
+\xsimsetup{
+    exercise/print = true,
+    print-solutions/headings = false
+}
+
+
+% =========================================================
+% 打印所有习题答案
+% =========================================================
+
+\newcommand{\printanswers}{%
+    \clearpage
+    \chapter*{习题参考答案}
+    \addcontentsline{toc}{chapter}{习题参考答案}
+    \markboth{习题参考答案}{习题参考答案}
+    \printsolutionstype[
+        headings = false
+    ]{bookexercise}%
+}
+
+% ============================================================
+% 树结构节点样式
+% ============================================================
+\tikzset{
+    treenode/.style={
+        font=\small,
+        align=center,
+        inner sep=2pt
+    }
+}
+
+% ============================================================
+% 图结构节点样式
+% ============================================================
+
+\tikzset{
+    graphnode/.style={
+        font=\small,
+        inner sep=2pt
+    }
+}
+
+% ============================================================
+% 图片与表格的默认设置
+% ============================================================
+\setlength{\tabcolsep}{7pt}
+\renewcommand{\arraystretch}{1.25}
+
+\newcommand{\bookfigure}[4]{%
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=#2\textwidth]{#1}
+        \caption{#3}
+        \label{#4}
+    \end{figure}%
+}
+
+% ============================================================
+% 文档信息
+% ============================================================
+\title{数据结构}
+\author{CoreLoop}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\frontmatter
+
+\chapter*{写给读者}
+
+本书假设大家已经有了比较好的C语言基础，但作者也会在某些合适的地方强调某些C语言的知识点。
+
+如果你对本书中的内容存在疑问，欢迎联系作者。【联系方式】
+
+许多地方添加一些内容，能够对正文有很好的补充及/或帮助大家理解的作用，但是为了保证在本书中不过分多地引入与《数据结构》本身无关的内容，作者并未给出这些“DLC”。
+如果想要了解，请参考我的视频。
+
+重要提示：本书出现的所有“思维拓展”块都“可！以！完！全！跳！过！”，作者保证读者不会错过任何《数据结构》本身的内容。但是从逻辑上说，“可以”跳过，换句话说就是“可以”不跳过。
+大家可以根据最适合自己的方式选择是否阅读。笔者给大家的建议是：先看一遍，如果看懂了，相信会是很大的收获；如果没看懂，立即跳过。
+
+
+知识绝不会少，但更重要的是思考。
+
+\tableofcontents
+
+\mainmatter
+
+% \input{chapters/intro}
+
+% \input{chapters/style-test}
+
+% \input{chapters/list}
+
+\input{chapters/ch1_intro.tex}
+\input{chapters/chapter2/ch2_list.tex}
+\input{chapters/chapter3/ch3_stack_and_queue.tex}
+
+% 输出习题答案
+\printanswers
+
+
+\end{document}

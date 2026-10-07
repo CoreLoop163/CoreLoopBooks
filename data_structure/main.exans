@@ -1,0 +1,7 @@
+\clearpage
+\phantomsection
+\label{exercise-answer:1} 
+\noindent\textbf{习题~1~答案} 
+\par\medskip
+1. 事实上，这种存储方式下，还需要一个字段capacity标记当前已动态分配的空间总量： \begin {cppcode} struct SeqList { ElemType* data; // 数组起始地址 int current_size; // 当前表中的元素数量 int capacity; // 当前已分配的数组容量 }; \end {cppcode} 例如：capacity = 100，current\_size = 80表示分配了100个位置的内存空间，目前使用了80个，还剩20个。操作方面，显然初始化动态分配版本的顺序表需要 为data分配一个初始空间，初始分配多大你可以自己定义。除初始化外，这里我们仅指出一个重点操作：插入。 \par 回忆静态存储的顺序表，若表满，只能拒绝插入（当然你可以规定淘汰算法，接受新值淘汰旧值，这取决于你，但静态存储已经无法存储更多了）。而动态存储版本， 当已分配空间满了的时候，我们可以申请一块更大的内存空间，将已有表中数据整体拷贝过去，并接受新元素。C++中的std::vector就采用了类似机制实现。 \par  
+\par\medskip
