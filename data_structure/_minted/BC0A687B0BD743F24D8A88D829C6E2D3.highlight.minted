@@ -1,0 +1,6 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{TreeNode}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{ElemType}\PYG{+w}{ }\PYG{n}{data}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{std}\PYG{o}{:}\PYG{o}{:}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{TreeNode}\PYG{o}{*}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{childs}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{// childs是一个不定长数组，childs[0], ..., childs[n]分别表示该节点的各个孩子节点指针}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

@@ -1,0 +1,9 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{TreeNode}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{ElemType}\PYG{+w}{ }\PYG{n}{data}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{TreeNode}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{child1}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{TreeNode}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{child2}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{TreeNode}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{child3}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{.}\PYG{p}{.}\PYG{p}{.}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

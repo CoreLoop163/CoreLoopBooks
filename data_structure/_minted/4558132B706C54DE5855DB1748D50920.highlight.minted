@@ -1,0 +1,61 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+c1}{// 在目录Dad中，新建一个名为name的目录}
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{DirInsert}\PYG{p}{(}\PYG{n}{TreeNode}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{Dad}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{char}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{name}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{// 函数实现：创建一个新节点，将其加入Dad的孩子链表末尾}
+\PYG{+w}{    }\PYG{n}{TreeNode}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{new\PYGZus{}node}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{TreeNode}\PYG{o}{*}\PYG{p}{)}\PYG{n}{malloc}\PYG{p}{(}\PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{TreeNode}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{strcpy}\PYG{p}{(}\PYG{n}{new\PYGZus{}node}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{name}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{name}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{new\PYGZus{}node}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{first\PYGZus{}child}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{new\PYGZus{}node}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{next\PYGZus{}sibling}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{c+c1}{// Dad原本是空目录，则需要更改first\PYGZus{}child指针。}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{Dad}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{first\PYGZus{}child}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{Dad}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{first\PYGZus{}child}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{new\PYGZus{}node}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{return}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{    }\PYG{c+c1}{// 原本不是空目录，修改next\PYGZus{}sibling指针。}
+\PYG{+w}{    }\PYG{n}{TreeNode}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{last\PYGZus{}child}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{Dad}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{first\PYGZus{}child}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{while}\PYG{p}{(}\PYG{n}{last\PYGZus{}child}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{next\PYGZus{}sibling}\PYG{+w}{ }\PYG{o}{!}\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{last\PYGZus{}child}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{last\PYGZus{}child}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{next\PYGZus{}sibling}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{n}{last\PYGZus{}child}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{next\PYGZus{}sibling}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{new\PYGZus{}node}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{return}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{// 销毁一个节点及其所有后代}
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{DestroyTree}\PYG{p}{(}\PYG{n}{TreeNode}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{root}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{root}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{return}\PYG{p}{;}
+\PYG{+w}{    }\PYG{c+c1}{// 先递归销毁其子树}
+\PYG{+w}{    }\PYG{n}{DestroyTree}\PYG{p}{(}\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{first\PYGZus{}child}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{c+c1}{// 再释放根节点}
+\PYG{+w}{    }\PYG{n}{free}\PYG{p}{(}\PYG{n}{root}\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{// 在目录Dad中，删除目录to\PYGZus{}del}
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{DirDelete}\PYG{p}{(}\PYG{n}{TreeNode}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{Dad}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{TreeNode}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{to\PYGZus{}del}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{// 函数实现：先把to\PYGZus{}del从父节点的孩子链表中摘掉，再销毁以to\PYGZus{}del为根的整棵树}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{Dad}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{return}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{c+c1}{// 要删除的就是第一个孩子节点，需要更新first\PYGZus{}child指针}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{to\PYGZus{}del}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{n}{Dad}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{first\PYGZus{}child}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{Dad}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{first\PYGZus{}child}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{to\PYGZus{}del}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{next\PYGZus{}sibling}\PYG{p}{;}\PYG{p}{;}
+\PYG{+w}{        }\PYG{c+c1}{// 注意这里不能简单地free(to\PYGZus{}del)，因为该目录中可能还有若干目录，目录中可能还有目录，因此要递归销毁。}
+\PYG{+w}{        }\PYG{n}{DestroyTree}\PYG{p}{(}\PYG{n}{to\PYGZus{}del}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{return}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{    }\PYG{c+c1}{// 找到要删除的节点的前一个兄弟节点}
+\PYG{+w}{    }\PYG{n}{TreeNode}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{pre}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{Dad}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{first\PYGZus{}child}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{while}\PYG{p}{(}\PYG{n}{pre}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{next\PYGZus{}sibling}\PYG{+w}{ }\PYG{o}{!}\PYG{o}{=}\PYG{+w}{ }\PYG{n}{to\PYGZus{}del}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{pre}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{pre}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{next\PYGZus{}sibling}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{    }\PYG{c+c1}{// 修改链条，类似单链表的删除操作}
+\PYG{+w}{    }\PYG{n}{pre}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{next\PYGZus{}sibling}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{to\PYGZus{}del}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{next\PYGZus{}sibling}\PYG{p}{;}
+\PYG{+w}{    }\PYG{c+c1}{// 注意同样要递归销毁}
+\PYG{+w}{    }\PYG{n}{DestroyTree}\PYG{p}{(}\PYG{n}{to\PYGZus{}del}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{return}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

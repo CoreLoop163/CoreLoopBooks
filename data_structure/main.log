@@ -1,23 +1,27 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.5) (preloaded format=xelatex 2026.9.20)  7 OCT 2026 21:35
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.5) (preloaded format=xelatex 2026.9.20)  8 OCT 2026 22:56
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**e:/books/data_structure2/main.tex
-(e:/books/data_structure2/main.tex
+**e:/CoreLoopBooks/data_structure/main.tex
+(e:/CoreLoopBooks/data_structure/main.tex
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-08-10>
-(D:\MikTex\tex/latex/ctex\ctexbook.cls (D:\MikTex\tex/latex/ctex/config\ctexbackend.cfg
+(D:\MikTex\tex/latex/ctex\ctexbook.cls
+(D:\MikTex\tex/latex/ctex/config\ctexbackend.cfg
 File: ctexbackend.cfg 2026/08/11 v2.6.5 Backend configuration file (CTEX)
-) (D:\MikTex\tex/latex/l3kernel\expl3.sty
+)
+(D:\MikTex\tex/latex/l3kernel\expl3.sty
 Package: expl3 2026-08-10 L3 programming layer (loader) 
- (D:\MikTex\tex/latex/l3kernel\l3backend-xetex.def
+
+(D:\MikTex\tex/latex/l3kernel\l3backend-xetex.def
 File: l3backend-xetex.def 2026-08-10 L3 backend support: XeTeX
 \g__graphics_track_int=\count273
 \g__pdfannot_backend_int=\count274
 \g__pdfannot_backend_link_int=\count275
 ))
-Document Class: ctexbook 2026/08/11 v2.6.5 Chinese adapter for class book (CTEX)
+Document Class: ctexbook 2026/08/11 v2.6.5 Chinese adapter for class book (CTEX
+)
 (D:\MikTex\tex/latex/ctex\ctexhook.sty
 Package: ctexhook 2026/08/11 v2.6.5 Document and package hooks (CTEX)
 ) (D:\MikTex\tex/latex/ctex\ctexpatch.sty
@@ -27,142 +31,271 @@ Package: fix-cm 2020/11/24 v1.1t fixes to LaTeX
  (D:\MikTex\tex/latex/base\ts1enc.def
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
-LaTeX Encoding Info:    Redeclaring text command \capitalcedilla (encoding TS1) on input line 49.
-LaTeX Encoding Info:    Redeclaring text command \capitalogonek (encoding TS1) on input line 52.
-LaTeX Encoding Info:    Redeclaring text command \capitalgrave (encoding TS1) on input line 55.
-LaTeX Encoding Info:    Redeclaring text command \capitalacute (encoding TS1) on input line 56.
-LaTeX Encoding Info:    Redeclaring text command \capitalcircumflex (encoding TS1) on input line 57.
-LaTeX Encoding Info:    Redeclaring text command \capitaltilde (encoding TS1) on input line 58.
-LaTeX Encoding Info:    Redeclaring text command \capitaldieresis (encoding TS1) on input line 59.
-LaTeX Encoding Info:    Redeclaring text command \capitalhungarumlaut (encoding TS1) on input line 60.
-LaTeX Encoding Info:    Redeclaring text command \capitalring (encoding TS1) on input line 61.
-LaTeX Encoding Info:    Redeclaring text command \capitalcaron (encoding TS1) on input line 62.
-LaTeX Encoding Info:    Redeclaring text command \capitalbreve (encoding TS1) on input line 63.
-LaTeX Encoding Info:    Redeclaring text command \capitalmacron (encoding TS1) on input line 64.
-LaTeX Encoding Info:    Redeclaring text command \capitaldotaccent (encoding TS1) on input line 65.
-LaTeX Encoding Info:    Redeclaring text command \t (encoding TS1) on input line 66.
-LaTeX Encoding Info:    Redeclaring text command \capitaltie (encoding TS1) on input line 67.
-LaTeX Encoding Info:    Redeclaring text command \newtie (encoding TS1) on input line 68.
-LaTeX Encoding Info:    Redeclaring text command \capitalnewtie (encoding TS1) on input line 69.
-LaTeX Encoding Info:    Redeclaring text symbol \textcapitalcompwordmark (encoding TS1) on input line 70.
-LaTeX Encoding Info:    Redeclaring text symbol \textascendercompwordmark (encoding TS1) on input line 71.
-LaTeX Encoding Info:    Redeclaring text symbol \textquotestraightbase (encoding TS1) on input line 72.
-LaTeX Encoding Info:    Redeclaring text symbol \textquotestraightdblbase (encoding TS1) on input line 73.
-LaTeX Encoding Info:    Redeclaring text symbol \texttwelveudash (encoding TS1) on input line 74.
-LaTeX Encoding Info:    Redeclaring text symbol \textthreequartersemdash (encoding TS1) on input line 75.
-LaTeX Encoding Info:    Redeclaring text symbol \textleftarrow (encoding TS1) on input line 76.
-LaTeX Encoding Info:    Redeclaring text symbol \textrightarrow (encoding TS1) on input line 77.
-LaTeX Encoding Info:    Redeclaring text symbol \textblank (encoding TS1) on input line 78.
-LaTeX Encoding Info:    Redeclaring text symbol \textdollar (encoding TS1) on input line 79.
-LaTeX Encoding Info:    Redeclaring text symbol \textquotesingle (encoding TS1) on input line 80.
-LaTeX Encoding Info:    Redeclaring text command \textasteriskcentered (encoding TS1) on input line 81.
-LaTeX Encoding Info:    Redeclaring text symbol \textdblhyphen (encoding TS1) on input line 92.
-LaTeX Encoding Info:    Redeclaring text symbol \textfractionsolidus (encoding TS1) on input line 93.
-LaTeX Encoding Info:    Redeclaring text symbol \textzerooldstyle (encoding TS1) on input line 94.
-LaTeX Encoding Info:    Redeclaring text symbol \textoneoldstyle (encoding TS1) on input line 95.
-LaTeX Encoding Info:    Redeclaring text symbol \texttwooldstyle (encoding TS1) on input line 96.
-LaTeX Encoding Info:    Redeclaring text symbol \textthreeoldstyle (encoding TS1) on input line 97.
-LaTeX Encoding Info:    Redeclaring text symbol \textfouroldstyle (encoding TS1) on input line 98.
-LaTeX Encoding Info:    Redeclaring text symbol \textfiveoldstyle (encoding TS1) on input line 99.
-LaTeX Encoding Info:    Redeclaring text symbol \textsixoldstyle (encoding TS1) on input line 100.
-LaTeX Encoding Info:    Redeclaring text symbol \textsevenoldstyle (encoding TS1) on input line 101.
-LaTeX Encoding Info:    Redeclaring text symbol \texteightoldstyle (encoding TS1) on input line 102.
-LaTeX Encoding Info:    Redeclaring text symbol \textnineoldstyle (encoding TS1) on input line 103.
-LaTeX Encoding Info:    Redeclaring text symbol \textlangle (encoding TS1) on input line 104.
-LaTeX Encoding Info:    Redeclaring text symbol \textminus (encoding TS1) on input line 105.
-LaTeX Encoding Info:    Redeclaring text symbol \textrangle (encoding TS1) on input line 106.
-LaTeX Encoding Info:    Redeclaring text symbol \textmho (encoding TS1) on input line 107.
-LaTeX Encoding Info:    Redeclaring text symbol \textbigcircle (encoding TS1) on input line 108.
-LaTeX Encoding Info:    Redeclaring text command \textcircled (encoding TS1) on input line 109.
-LaTeX Encoding Info:    Redeclaring text symbol \textohm (encoding TS1) on input line 115.
-LaTeX Encoding Info:    Redeclaring text symbol \textlbrackdbl (encoding TS1) on input line 116.
-LaTeX Encoding Info:    Redeclaring text symbol \textrbrackdbl (encoding TS1) on input line 117.
-LaTeX Encoding Info:    Redeclaring text symbol \textuparrow (encoding TS1) on input line 118.
-LaTeX Encoding Info:    Redeclaring text symbol \textdownarrow (encoding TS1) on input line 119.
-LaTeX Encoding Info:    Redeclaring text symbol \textasciigrave (encoding TS1) on input line 120.
-LaTeX Encoding Info:    Redeclaring text symbol \textborn (encoding TS1) on input line 121.
-LaTeX Encoding Info:    Redeclaring text symbol \textdivorced (encoding TS1) on input line 122.
-LaTeX Encoding Info:    Redeclaring text symbol \textdied (encoding TS1) on input line 123.
-LaTeX Encoding Info:    Redeclaring text symbol \textleaf (encoding TS1) on input line 124.
-LaTeX Encoding Info:    Redeclaring text symbol \textmarried (encoding TS1) on input line 125.
-LaTeX Encoding Info:    Redeclaring text symbol \textmusicalnote (encoding TS1) on input line 126.
-LaTeX Encoding Info:    Redeclaring text symbol \texttildelow (encoding TS1) on input line 127.
-LaTeX Encoding Info:    Redeclaring text symbol \textdblhyphenchar (encoding TS1) on input line 128.
-LaTeX Encoding Info:    Redeclaring text symbol \textasciibreve (encoding TS1) on input line 129.
-LaTeX Encoding Info:    Redeclaring text symbol \textasciicaron (encoding TS1) on input line 130.
-LaTeX Encoding Info:    Redeclaring text symbol \textacutedbl (encoding TS1) on input line 131.
-LaTeX Encoding Info:    Redeclaring text symbol \textgravedbl (encoding TS1) on input line 132.
-LaTeX Encoding Info:    Redeclaring text symbol \textdagger (encoding TS1) on input line 133.
-LaTeX Encoding Info:    Redeclaring text symbol \textdaggerdbl (encoding TS1) on input line 134.
-LaTeX Encoding Info:    Redeclaring text symbol \textbardbl (encoding TS1) on input line 135.
-LaTeX Encoding Info:    Redeclaring text symbol \textperthousand (encoding TS1) on input line 136.
-LaTeX Encoding Info:    Redeclaring text symbol \textbullet (encoding TS1) on input line 137.
-LaTeX Encoding Info:    Redeclaring text symbol \textcelsius (encoding TS1) on input line 138.
-LaTeX Encoding Info:    Redeclaring text symbol \textdollaroldstyle (encoding TS1) on input line 139.
-LaTeX Encoding Info:    Redeclaring text symbol \textcentoldstyle (encoding TS1) on input line 140.
-LaTeX Encoding Info:    Redeclaring text symbol \textflorin (encoding TS1) on input line 141.
-LaTeX Encoding Info:    Redeclaring text symbol \textcolonmonetary (encoding TS1) on input line 142.
-LaTeX Encoding Info:    Redeclaring text symbol \textwon (encoding TS1) on input line 143.
-LaTeX Encoding Info:    Redeclaring text symbol \textnaira (encoding TS1) on input line 144.
-LaTeX Encoding Info:    Redeclaring text symbol \textguarani (encoding TS1) on input line 145.
-LaTeX Encoding Info:    Redeclaring text symbol \textpeso (encoding TS1) on input line 146.
-LaTeX Encoding Info:    Redeclaring text symbol \textlira (encoding TS1) on input line 147.
-LaTeX Encoding Info:    Redeclaring text symbol \textrecipe (encoding TS1) on input line 148.
-LaTeX Encoding Info:    Redeclaring text symbol \textinterrobang (encoding TS1) on input line 149.
-LaTeX Encoding Info:    Redeclaring text symbol \textinterrobangdown (encoding TS1) on input line 150.
-LaTeX Encoding Info:    Redeclaring text symbol \textdong (encoding TS1) on input line 151.
-LaTeX Encoding Info:    Redeclaring text symbol \texttrademark (encoding TS1) on input line 152.
-LaTeX Encoding Info:    Redeclaring text symbol \textpertenthousand (encoding TS1) on input line 153.
-LaTeX Encoding Info:    Redeclaring text symbol \textpilcrow (encoding TS1) on input line 154.
-LaTeX Encoding Info:    Redeclaring text symbol \textbaht (encoding TS1) on input line 155.
-LaTeX Encoding Info:    Redeclaring text symbol \textnumero (encoding TS1) on input line 156.
-LaTeX Encoding Info:    Redeclaring text symbol \textdiscount (encoding TS1) on input line 157.
-LaTeX Encoding Info:    Redeclaring text symbol \textestimated (encoding TS1) on input line 158.
-LaTeX Encoding Info:    Redeclaring text symbol \textopenbullet (encoding TS1) on input line 159.
-LaTeX Encoding Info:    Redeclaring text symbol \textservicemark (encoding TS1) on input line 160.
-LaTeX Encoding Info:    Redeclaring text symbol \textlquill (encoding TS1) on input line 161.
-LaTeX Encoding Info:    Redeclaring text symbol \textrquill (encoding TS1) on input line 162.
-LaTeX Encoding Info:    Redeclaring text symbol \textcent (encoding TS1) on input line 163.
-LaTeX Encoding Info:    Redeclaring text symbol \textsterling (encoding TS1) on input line 164.
-LaTeX Encoding Info:    Redeclaring text symbol \textcurrency (encoding TS1) on input line 165.
-LaTeX Encoding Info:    Redeclaring text symbol \textyen (encoding TS1) on input line 166.
-LaTeX Encoding Info:    Redeclaring text symbol \textbrokenbar (encoding TS1) on input line 167.
-LaTeX Encoding Info:    Redeclaring text symbol \textsection (encoding TS1) on input line 168.
-LaTeX Encoding Info:    Redeclaring text symbol \textasciidieresis (encoding TS1) on input line 169.
-LaTeX Encoding Info:    Redeclaring text symbol \textcopyright (encoding TS1) on input line 170.
-LaTeX Encoding Info:    Redeclaring text symbol \textordfeminine (encoding TS1) on input line 171.
-LaTeX Encoding Info:    Redeclaring text symbol \textcopyleft (encoding TS1) on input line 172.
-LaTeX Encoding Info:    Redeclaring text symbol \textlnot (encoding TS1) on input line 173.
-LaTeX Encoding Info:    Redeclaring text symbol \textcircledP (encoding TS1) on input line 174.
-LaTeX Encoding Info:    Redeclaring text symbol \textregistered (encoding TS1) on input line 175.
-LaTeX Encoding Info:    Redeclaring text symbol \textasciimacron (encoding TS1) on input line 176.
-LaTeX Encoding Info:    Redeclaring text symbol \textdegree (encoding TS1) on input line 177.
-LaTeX Encoding Info:    Redeclaring text symbol \textpm (encoding TS1) on input line 178.
-LaTeX Encoding Info:    Redeclaring text symbol \texttwosuperior (encoding TS1) on input line 179.
-LaTeX Encoding Info:    Redeclaring text symbol \textthreesuperior (encoding TS1) on input line 180.
-LaTeX Encoding Info:    Redeclaring text symbol \textasciiacute (encoding TS1) on input line 181.
-LaTeX Encoding Info:    Redeclaring text symbol \textmu (encoding TS1) on input line 182.
-LaTeX Encoding Info:    Redeclaring text symbol \textparagraph (encoding TS1) on input line 183.
-LaTeX Encoding Info:    Redeclaring text symbol \textperiodcentered (encoding TS1) on input line 184.
-LaTeX Encoding Info:    Redeclaring text symbol \textreferencemark (encoding TS1) on input line 185.
-LaTeX Encoding Info:    Redeclaring text symbol \textonesuperior (encoding TS1) on input line 186.
-LaTeX Encoding Info:    Redeclaring text symbol \textordmasculine (encoding TS1) on input line 187.
-LaTeX Encoding Info:    Redeclaring text symbol \textsurd (encoding TS1) on input line 188.
-LaTeX Encoding Info:    Redeclaring text symbol \textonequarter (encoding TS1) on input line 189.
-LaTeX Encoding Info:    Redeclaring text symbol \textonehalf (encoding TS1) on input line 190.
-LaTeX Encoding Info:    Redeclaring text symbol \textthreequarters (encoding TS1) on input line 191.
-LaTeX Encoding Info:    Redeclaring text symbol \texteuro (encoding TS1) on input line 192.
-LaTeX Encoding Info:    Redeclaring text symbol \texttimes (encoding TS1) on input line 193.
-LaTeX Encoding Info:    Redeclaring text symbol \textdiv (encoding TS1) on input line 194.
+LaTeX Encoding Info:    Redeclaring text command \capitalcedilla (encoding TS1)
+ on input line 49.
+LaTeX Encoding Info:    Redeclaring text command \capitalogonek (encoding TS1) 
+on input line 52.
+LaTeX Encoding Info:    Redeclaring text command \capitalgrave (encoding TS1) o
+n input line 55.
+LaTeX Encoding Info:    Redeclaring text command \capitalacute (encoding TS1) o
+n input line 56.
+LaTeX Encoding Info:    Redeclaring text command \capitalcircumflex (encoding T
+S1) on input line 57.
+LaTeX Encoding Info:    Redeclaring text command \capitaltilde (encoding TS1) o
+n input line 58.
+LaTeX Encoding Info:    Redeclaring text command \capitaldieresis (encoding TS1
+) on input line 59.
+LaTeX Encoding Info:    Redeclaring text command \capitalhungarumlaut (encoding
+ TS1) on input line 60.
+LaTeX Encoding Info:    Redeclaring text command \capitalring (encoding TS1) on
+ input line 61.
+LaTeX Encoding Info:    Redeclaring text command \capitalcaron (encoding TS1) o
+n input line 62.
+LaTeX Encoding Info:    Redeclaring text command \capitalbreve (encoding TS1) o
+n input line 63.
+LaTeX Encoding Info:    Redeclaring text command \capitalmacron (encoding TS1) 
+on input line 64.
+LaTeX Encoding Info:    Redeclaring text command \capitaldotaccent (encoding TS
+1) on input line 65.
+LaTeX Encoding Info:    Redeclaring text command \t (encoding TS1) on input lin
+e 66.
+LaTeX Encoding Info:    Redeclaring text command \capitaltie (encoding TS1) on 
+input line 67.
+LaTeX Encoding Info:    Redeclaring text command \newtie (encoding TS1) on inpu
+t line 68.
+LaTeX Encoding Info:    Redeclaring text command \capitalnewtie (encoding TS1) 
+on input line 69.
+LaTeX Encoding Info:    Redeclaring text symbol \textcapitalcompwordmark (encod
+ing TS1) on input line 70.
+LaTeX Encoding Info:    Redeclaring text symbol \textascendercompwordmark (enco
+ding TS1) on input line 71.
+LaTeX Encoding Info:    Redeclaring text symbol \textquotestraightbase (encodin
+g TS1) on input line 72.
+LaTeX Encoding Info:    Redeclaring text symbol \textquotestraightdblbase (enco
+ding TS1) on input line 73.
+LaTeX Encoding Info:    Redeclaring text symbol \texttwelveudash (encoding TS1)
+ on input line 74.
+LaTeX Encoding Info:    Redeclaring text symbol \textthreequartersemdash (encod
+ing TS1) on input line 75.
+LaTeX Encoding Info:    Redeclaring text symbol \textleftarrow (encoding TS1) o
+n input line 76.
+LaTeX Encoding Info:    Redeclaring text symbol \textrightarrow (encoding TS1) 
+on input line 77.
+LaTeX Encoding Info:    Redeclaring text symbol \textblank (encoding TS1) on in
+put line 78.
+LaTeX Encoding Info:    Redeclaring text symbol \textdollar (encoding TS1) on i
+nput line 79.
+LaTeX Encoding Info:    Redeclaring text symbol \textquotesingle (encoding TS1)
+ on input line 80.
+LaTeX Encoding Info:    Redeclaring text command \textasteriskcentered (encodin
+g TS1) on input line 81.
+LaTeX Encoding Info:    Redeclaring text symbol \textdblhyphen (encoding TS1) o
+n input line 92.
+LaTeX Encoding Info:    Redeclaring text symbol \textfractionsolidus (encoding 
+TS1) on input line 93.
+LaTeX Encoding Info:    Redeclaring text symbol \textzerooldstyle (encoding TS1
+) on input line 94.
+LaTeX Encoding Info:    Redeclaring text symbol \textoneoldstyle (encoding TS1)
+ on input line 95.
+LaTeX Encoding Info:    Redeclaring text symbol \texttwooldstyle (encoding TS1)
+ on input line 96.
+LaTeX Encoding Info:    Redeclaring text symbol \textthreeoldstyle (encoding TS
+1) on input line 97.
+LaTeX Encoding Info:    Redeclaring text symbol \textfouroldstyle (encoding TS1
+) on input line 98.
+LaTeX Encoding Info:    Redeclaring text symbol \textfiveoldstyle (encoding TS1
+) on input line 99.
+LaTeX Encoding Info:    Redeclaring text symbol \textsixoldstyle (encoding TS1)
+ on input line 100.
+LaTeX Encoding Info:    Redeclaring text symbol \textsevenoldstyle (encoding TS
+1) on input line 101.
+LaTeX Encoding Info:    Redeclaring text symbol \texteightoldstyle (encoding TS
+1) on input line 102.
+LaTeX Encoding Info:    Redeclaring text symbol \textnineoldstyle (encoding TS1
+) on input line 103.
+LaTeX Encoding Info:    Redeclaring text symbol \textlangle (encoding TS1) on i
+nput line 104.
+LaTeX Encoding Info:    Redeclaring text symbol \textminus (encoding TS1) on in
+put line 105.
+LaTeX Encoding Info:    Redeclaring text symbol \textrangle (encoding TS1) on i
+nput line 106.
+LaTeX Encoding Info:    Redeclaring text symbol \textmho (encoding TS1) on inpu
+t line 107.
+LaTeX Encoding Info:    Redeclaring text symbol \textbigcircle (encoding TS1) o
+n input line 108.
+LaTeX Encoding Info:    Redeclaring text command \textcircled (encoding TS1) on
+ input line 109.
+LaTeX Encoding Info:    Redeclaring text symbol \textohm (encoding TS1) on inpu
+t line 115.
+LaTeX Encoding Info:    Redeclaring text symbol \textlbrackdbl (encoding TS1) o
+n input line 116.
+LaTeX Encoding Info:    Redeclaring text symbol \textrbrackdbl (encoding TS1) o
+n input line 117.
+LaTeX Encoding Info:    Redeclaring text symbol \textuparrow (encoding TS1) on 
+input line 118.
+LaTeX Encoding Info:    Redeclaring text symbol \textdownarrow (encoding TS1) o
+n input line 119.
+LaTeX Encoding Info:    Redeclaring text symbol \textasciigrave (encoding TS1) 
+on input line 120.
+LaTeX Encoding Info:    Redeclaring text symbol \textborn (encoding TS1) on inp
+ut line 121.
+LaTeX Encoding Info:    Redeclaring text symbol \textdivorced (encoding TS1) on
+ input line 122.
+LaTeX Encoding Info:    Redeclaring text symbol \textdied (encoding TS1) on inp
+ut line 123.
+LaTeX Encoding Info:    Redeclaring text symbol \textleaf (encoding TS1) on inp
+ut line 124.
+LaTeX Encoding Info:    Redeclaring text symbol \textmarried (encoding TS1) on 
+input line 125.
+LaTeX Encoding Info:    Redeclaring text symbol \textmusicalnote (encoding TS1)
+ on input line 126.
+LaTeX Encoding Info:    Redeclaring text symbol \texttildelow (encoding TS1) on
+ input line 127.
+LaTeX Encoding Info:    Redeclaring text symbol \textdblhyphenchar (encoding TS
+1) on input line 128.
+LaTeX Encoding Info:    Redeclaring text symbol \textasciibreve (encoding TS1) 
+on input line 129.
+LaTeX Encoding Info:    Redeclaring text symbol \textasciicaron (encoding TS1) 
+on input line 130.
+LaTeX Encoding Info:    Redeclaring text symbol \textacutedbl (encoding TS1) on
+ input line 131.
+LaTeX Encoding Info:    Redeclaring text symbol \textgravedbl (encoding TS1) on
+ input line 132.
+LaTeX Encoding Info:    Redeclaring text symbol \textdagger (encoding TS1) on i
+nput line 133.
+LaTeX Encoding Info:    Redeclaring text symbol \textdaggerdbl (encoding TS1) o
+n input line 134.
+LaTeX Encoding Info:    Redeclaring text symbol \textbardbl (encoding TS1) on i
+nput line 135.
+LaTeX Encoding Info:    Redeclaring text symbol \textperthousand (encoding TS1)
+ on input line 136.
+LaTeX Encoding Info:    Redeclaring text symbol \textbullet (encoding TS1) on i
+nput line 137.
+LaTeX Encoding Info:    Redeclaring text symbol \textcelsius (encoding TS1) on 
+input line 138.
+LaTeX Encoding Info:    Redeclaring text symbol \textdollaroldstyle (encoding T
+S1) on input line 139.
+LaTeX Encoding Info:    Redeclaring text symbol \textcentoldstyle (encoding TS1
+) on input line 140.
+LaTeX Encoding Info:    Redeclaring text symbol \textflorin (encoding TS1) on i
+nput line 141.
+LaTeX Encoding Info:    Redeclaring text symbol \textcolonmonetary (encoding TS
+1) on input line 142.
+LaTeX Encoding Info:    Redeclaring text symbol \textwon (encoding TS1) on inpu
+t line 143.
+LaTeX Encoding Info:    Redeclaring text symbol \textnaira (encoding TS1) on in
+put line 144.
+LaTeX Encoding Info:    Redeclaring text symbol \textguarani (encoding TS1) on 
+input line 145.
+LaTeX Encoding Info:    Redeclaring text symbol \textpeso (encoding TS1) on inp
+ut line 146.
+LaTeX Encoding Info:    Redeclaring text symbol \textlira (encoding TS1) on inp
+ut line 147.
+LaTeX Encoding Info:    Redeclaring text symbol \textrecipe (encoding TS1) on i
+nput line 148.
+LaTeX Encoding Info:    Redeclaring text symbol \textinterrobang (encoding TS1)
+ on input line 149.
+LaTeX Encoding Info:    Redeclaring text symbol \textinterrobangdown (encoding 
+TS1) on input line 150.
+LaTeX Encoding Info:    Redeclaring text symbol \textdong (encoding TS1) on inp
+ut line 151.
+LaTeX Encoding Info:    Redeclaring text symbol \texttrademark (encoding TS1) o
+n input line 152.
+LaTeX Encoding Info:    Redeclaring text symbol \textpertenthousand (encoding T
+S1) on input line 153.
+LaTeX Encoding Info:    Redeclaring text symbol \textpilcrow (encoding TS1) on 
+input line 154.
+LaTeX Encoding Info:    Redeclaring text symbol \textbaht (encoding TS1) on inp
+ut line 155.
+LaTeX Encoding Info:    Redeclaring text symbol \textnumero (encoding TS1) on i
+nput line 156.
+LaTeX Encoding Info:    Redeclaring text symbol \textdiscount (encoding TS1) on
+ input line 157.
+LaTeX Encoding Info:    Redeclaring text symbol \textestimated (encoding TS1) o
+n input line 158.
+LaTeX Encoding Info:    Redeclaring text symbol \textopenbullet (encoding TS1) 
+on input line 159.
+LaTeX Encoding Info:    Redeclaring text symbol \textservicemark (encoding TS1)
+ on input line 160.
+LaTeX Encoding Info:    Redeclaring text symbol \textlquill (encoding TS1) on i
+nput line 161.
+LaTeX Encoding Info:    Redeclaring text symbol \textrquill (encoding TS1) on i
+nput line 162.
+LaTeX Encoding Info:    Redeclaring text symbol \textcent (encoding TS1) on inp
+ut line 163.
+LaTeX Encoding Info:    Redeclaring text symbol \textsterling (encoding TS1) on
+ input line 164.
+LaTeX Encoding Info:    Redeclaring text symbol \textcurrency (encoding TS1) on
+ input line 165.
+LaTeX Encoding Info:    Redeclaring text symbol \textyen (encoding TS1) on inpu
+t line 166.
+LaTeX Encoding Info:    Redeclaring text symbol \textbrokenbar (encoding TS1) o
+n input line 167.
+LaTeX Encoding Info:    Redeclaring text symbol \textsection (encoding TS1) on 
+input line 168.
+LaTeX Encoding Info:    Redeclaring text symbol \textasciidieresis (encoding TS
+1) on input line 169.
+LaTeX Encoding Info:    Redeclaring text symbol \textcopyright (encoding TS1) o
+n input line 170.
+LaTeX Encoding Info:    Redeclaring text symbol \textordfeminine (encoding TS1)
+ on input line 171.
+LaTeX Encoding Info:    Redeclaring text symbol \textcopyleft (encoding TS1) on
+ input line 172.
+LaTeX Encoding Info:    Redeclaring text symbol \textlnot (encoding TS1) on inp
+ut line 173.
+LaTeX Encoding Info:    Redeclaring text symbol \textcircledP (encoding TS1) on
+ input line 174.
+LaTeX Encoding Info:    Redeclaring text symbol \textregistered (encoding TS1) 
+on input line 175.
+LaTeX Encoding Info:    Redeclaring text symbol \textasciimacron (encoding TS1)
+ on input line 176.
+LaTeX Encoding Info:    Redeclaring text symbol \textdegree (encoding TS1) on i
+nput line 177.
+LaTeX Encoding Info:    Redeclaring text symbol \textpm (encoding TS1) on input
+ line 178.
+LaTeX Encoding Info:    Redeclaring text symbol \texttwosuperior (encoding TS1)
+ on input line 179.
+LaTeX Encoding Info:    Redeclaring text symbol \textthreesuperior (encoding TS
+1) on input line 180.
+LaTeX Encoding Info:    Redeclaring text symbol \textasciiacute (encoding TS1) 
+on input line 181.
+LaTeX Encoding Info:    Redeclaring text symbol \textmu (encoding TS1) on input
+ line 182.
+LaTeX Encoding Info:    Redeclaring text symbol \textparagraph (encoding TS1) o
+n input line 183.
+LaTeX Encoding Info:    Redeclaring text symbol \textperiodcentered (encoding T
+S1) on input line 184.
+LaTeX Encoding Info:    Redeclaring text symbol \textreferencemark (encoding TS
+1) on input line 185.
+LaTeX Encoding Info:    Redeclaring text symbol \textonesuperior (encoding TS1)
+ on input line 186.
+LaTeX Encoding Info:    Redeclaring text symbol \textordmasculine (encoding TS1
+) on input line 187.
+LaTeX Encoding Info:    Redeclaring text symbol \textsurd (encoding TS1) on inp
+ut line 188.
+LaTeX Encoding Info:    Redeclaring text symbol \textonequarter (encoding TS1) 
+on input line 189.
+LaTeX Encoding Info:    Redeclaring text symbol \textonehalf (encoding TS1) on 
+input line 190.
+LaTeX Encoding Info:    Redeclaring text symbol \textthreequarters (encoding TS
+1) on input line 191.
+LaTeX Encoding Info:    Redeclaring text symbol \texteuro (encoding TS1) on inp
+ut line 192.
+LaTeX Encoding Info:    Redeclaring text symbol \texttimes (encoding TS1) on in
+put line 193.
+LaTeX Encoding Info:    Redeclaring text symbol \textdiv (encoding TS1) on inpu
+t line 194.
 ))
 \l__ctex_tmp_int=\count276
 \l__ctex_tmp_box=\box53
 \l__ctex_tmp_dim=\dimen150
 \g__ctex_section_depth_int=\count277
 \g__ctex_font_size_int=\count278
- (D:\MikTex\tex/latex/ctex/config\ctexopts.cfg
+
+(D:\MikTex\tex/latex/ctex/config\ctexopts.cfg
 File: ctexopts.cfg 2026/08/11 v2.6.5 Option configuration file (CTEX)
-) (D:\MikTex\tex/latex/base\book.cls
+)
+(D:\MikTex\tex/latex/base\book.cls
 Document Class: book 2025/01/22 v1.4n Standard LaTeX document class
 (D:\MikTex\tex/latex/base\bk10.clo
 File: bk10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
@@ -179,11 +312,14 @@ File: bk10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 \abovecaptionskip=\skip49
 \belowcaptionskip=\skip50
 \bibindent=\dimen151
-) (D:\MikTex\tex/latex/ctex/engine\ctex-engine-xetex.def
+)
+(D:\MikTex\tex/latex/ctex/engine\ctex-engine-xetex.def
 File: ctex-engine-xetex.def 2026/08/11 v2.6.5 XeLaTeX adapter (CTEX)
- (D:\MikTex\tex/xelatex/xecjk\xeCJK.sty
+
+(D:\MikTex\tex/xelatex/xecjk\xeCJK.sty
 Package: xeCJK 2026/08/21 v3.10.6 Typesetting CJK scripts with XeLaTeX
- (D:\MikTex\tex/latex/l3packages/xtemplate\xtemplate.sty
+
+(D:\MikTex\tex/latex/l3packages/xtemplate\xtemplate.sty
 Package: xtemplate 2025-10-09 L3 Experimental prototype document functions
 )
 \l__xeCJK_tmp_int=\count288
@@ -272,10 +408,13 @@ LaTeX template Info: Declaring template type 'xeCJK/punctuation' taking 0
 \g__xeCJK_fam_allocation_int=\count301
 \l__xeCJK_verb_case_int=\count302
 \l__xeCJK_verb_exspace_skip=\skip61
- (D:\MikTex\tex/latex/fontspec\fontspec.sty
+
+(D:\MikTex\tex/latex/fontspec\fontspec.sty
 Package: fontspec 2026/08/11 v2.9h Font selection for XeLaTeX and LuaLaTeX
- (D:\MikTex\tex/latex/fontspec\fontspec-xetex.sty
-Package: fontspec-xetex 2026/08/11 v2.9h Font selection for XeLaTeX and LuaLaTeX
+
+(D:\MikTex\tex/latex/fontspec\fontspec-xetex.sty
+Package: fontspec-xetex 2026/08/11 v2.9h Font selection for XeLaTeX and LuaLaTe
+X
 \l__fontspec_script_int=\count303
 \l__fontspec_language_int=\count304
 \l__fontspec_strnum_int=\count305
@@ -290,33 +429,44 @@ Package: fontspec-xetex 2026/08/11 v2.9h Font selection for XeLaTeX and LuaLaTeX
 \l__fontspec_tmpa_dim=\dimen188
 \l__fontspec_tmpb_dim=\dimen189
 \l__fontspec_tmpc_dim=\dimen190
- (D:\MikTex\tex/latex/base\fontenc.sty
+
+(D:\MikTex\tex/latex/base\fontenc.sty
 Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
-) (D:\MikTex\tex/latex/fontspec\fontspec.cfg)))
+)
+(D:\MikTex\tex/latex/fontspec\fontspec.cfg)))
 \l__xeCJK_default_char_int=\count314
- (D:\MikTex\tex/xelatex/xecjk\xeCJK.cfg
+
+(D:\MikTex\tex/xelatex/xecjk\xeCJK.cfg
 File: xeCJK.cfg 2026/08/21 v3.10.6 Configuration file for xeCJK package
 ))
 \ccwd=\dimen191
 \l__ctex_ccglue_skip=\skip62
 )
 \l__ctex_ziju_dim=\dimen192
- (D:\MikTex\tex/latex/zhnumber\zhnumber.sty
+
+(D:\MikTex\tex/latex/zhnumber\zhnumber.sty
 Package: zhnumber 2022/07/14 v3.0 Typesetting numbers with Chinese glyphs
 \l__zhnum_scale_int=\count315
 \l__zhnum_tmp_int=\count316
- (D:\MikTex\tex/latex/zhnumber\zhnumber-utf8.cfg
+
+(D:\MikTex\tex/latex/zhnumber\zhnumber-utf8.cfg
 File: zhnumber-utf8.cfg 2022/07/14 v3.0 Chinese numerals with UTF8 encoding
 ))
 \l__ctex_heading_skip=\skip63
- (D:\MikTex\tex/latex/ctex/scheme\ctex-scheme-chinese-book.def
-File: ctex-scheme-chinese-book.def 2026/08/11 v2.6.5 Chinese scheme for book (CTEX)
- (D:\MikTex\tex/latex/ctex/config\ctex-name-utf8.cfg
+
+(D:\MikTex\tex/latex/ctex/scheme\ctex-scheme-chinese-book.def
+File: ctex-scheme-chinese-book.def 2026/08/11 v2.6.5 Chinese scheme for book (C
+TEX)
+
+(D:\MikTex\tex/latex/ctex/config\ctex-name-utf8.cfg
 File: ctex-name-utf8.cfg 2026/08/11 v2.6.5 Caption with encoding UTF-8 (CTEX)
-)) (D:\MikTex\tex/latex/ctex\ctex-c5size.clo
+))
+(D:\MikTex\tex/latex/ctex\ctex-c5size.clo
 File: ctex-c5size.clo 2026/08/11 v2.6.5 c5size option (CTEX)
-) (D:\MikTex\tex/latex/ctex/fontset\ctex-fontset-windows.def
-File: ctex-fontset-windows.def 2026/08/11 v2.6.5 Windows fonts definition (CTEX)
+)
+(D:\MikTex\tex/latex/ctex/fontset\ctex-fontset-windows.def
+File: ctex-fontset-windows.def 2026/08/11 v2.6.5 Windows fonts definition (CTEX
+)
 
 Package fontspec Info: 
 (fontspec)             Could not resolve font "KaiTi/B" (it probably doesn't
@@ -348,11 +498,15 @@ Package fontspec Info:
 (fontspec)             - 'italic' (m/it) with NFSS spec.:
 (fontspec)             <->"KaiTi/OT:script=hani;language=dflt;"
 
-)) (D:\MikTex\tex/latex/ctex/config\ctex.cfg
+))
+(D:\MikTex\tex/latex/ctex/config\ctex.cfg
 File: ctex-scheme.cfg 2026/08/11 v2.6.5 Configuration file (CTEX)
-) (D:\MikTex\tex/latex/emptypage\emptypage.sty
-Package: emptypage 2010/05/30 v1.2 Suppress page numbers and headings on empty pages
-) (D:\MikTex\tex/latex/enumitem\enumitem.sty
+)
+(D:\MikTex\tex/latex/emptypage\emptypage.sty
+Package: emptypage 2010/05/30 v1.2 Suppress page numbers and headings on empty 
+pages
+)
+(D:\MikTex\tex/latex/enumitem\enumitem.sty
 Package: enumitem 2025/02/06 v3.11 Customized lists
 \enitkv@toks@=\toks17
 \labelindent=\skip64
@@ -361,31 +515,40 @@ Package: enumitem 2025/02/06 v3.11 Customized lists
 \enit@inbox=\box61
 \enit@count@id=\count317
 \enitdp@description=\count318
-) (D:\MikTex\tex/latex/environ\environ.sty
+)
+(D:\MikTex\tex/latex/environ\environ.sty
 Package: environ 2014/05/04 v0.3 A new way to define environments
- (D:\MikTex\tex/latex/trimspaces\trimspaces.sty
+
+(D:\MikTex\tex/latex/trimspaces\trimspaces.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 )
 \@envbody=\toks19
-) (D:\MikTex\tex/latex/graphics\graphicx.sty
+)
+(D:\MikTex\tex/latex/graphics\graphicx.sty
 Package: graphicx 2026-05-17 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
- (D:\MikTex\tex/latex/graphics\keyval.sty
+
+(D:\MikTex\tex/latex/graphics\keyval.sty
 Package: keyval 2026-05-17 v1.15 key=value parser (DPC)
 \KV@toks@=\toks20
-) (D:\MikTex\tex/latex/graphics\graphics.sty
+)
+(D:\MikTex\tex/latex/graphics\graphics.sty
 Package: graphics 2026-05-17 v1.4h Standard LaTeX Graphics (DPC,SPQR)
- (D:\MikTex\tex/latex/graphics\trig.sty
+
+(D:\MikTex\tex/latex/graphics\trig.sty
 Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
-) (D:\MikTex\tex/latex/graphics-cfg\graphics.cfg
+)
+(D:\MikTex\tex/latex/graphics-cfg\graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: xetex.def on input line 106.
- (D:\MikTex\tex/latex/graphics-def\xetex.def
+
+(D:\MikTex\tex/latex/graphics-def\xetex.def
 File: xetex.def 2025/11/01 v5.0p Graphics/color driver for xetex
 ))
 \Gin@req@height=\dimen194
 \Gin@req@width=\dimen195
-) (D:\MikTex\tex/latex/booktabs\booktabs.sty
+)
+(D:\MikTex\tex/latex/booktabs\booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \heavyrulewidth=\dimen196
 \lightrulewidth=\dimen197
@@ -404,7 +567,8 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@thisruleclass=\count321
 \@lastruleclass=\count322
 \@thisrulewidth=\dimen264
-) (D:\MikTex\tex/latex/tools\tabularx.sty
+)
+(D:\MikTex\tex/latex/tools\tabularx.sty
 Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
  (D:\MikTex\tex/latex/tools\array.sty
 Package: array 2026/02/24 v2.7b Tabular extension package (FMi)
@@ -423,21 +587,25 @@ Package: array 2026/02/24 v2.7b Tabular extension package (FMi)
 \TX@delta=\dimen271
 \TX@cols=\count323
 \TX@ftn=\toks22
-) (D:\MikTex\tex/latex/amsmath\amsmath.sty
+)
+(D:\MikTex\tex/latex/amsmath\amsmath.sty
 Package: amsmath 2026/05/19 v2.18d AMS math features
 \@mathmargin=\skip67
 
 For additional information on amsmath, use the `?' option.
 (D:\MikTex\tex/latex/amsmath\amstext.sty
 Package: amstext 2024/11/17 v2.01 AMS text
- (D:\MikTex\tex/latex/amsmath\amsgen.sty
+
+(D:\MikTex\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks23
 \ex@=\dimen272
-)) (D:\MikTex\tex/latex/amsmath\amsbsy.sty
+))
+(D:\MikTex\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen273
-) (D:\MikTex\tex/latex/amsmath\amsopn.sty
+)
+(D:\MikTex\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
 \inf@bad=\count324
@@ -487,18 +655,22 @@ LaTeX Info: Redefining \Relbar on input line 970.
 \mathdisplay@stack=\toks27
 LaTeX Info: Redefining \[ on input line 2965.
 LaTeX Info: Redefining \] on input line 2966.
-) (D:\MikTex\tex/latex/amsfonts\amssymb.sty
+)
+(D:\MikTex\tex/latex/amsfonts\amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
- (D:\MikTex\tex/latex/amsfonts\amsfonts.sty
+
+(D:\MikTex\tex/latex/amsfonts\amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (D:\MikTex\tex/latex/microtype\microtype.sty
+))
+(D:\MikTex\tex/latex/microtype\microtype.sty
 Package: microtype 2026/03/01 v3.2d Micro-typographical refinements (RS)
- (D:\MikTex\tex/latex/etoolbox\etoolbox.sty
+
+(D:\MikTex\tex/latex/etoolbox\etoolbox.sty
 Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count336
 )
@@ -514,35 +686,50 @@ LaTeX Info: Redefining \textls on input line 1449.
 LaTeX Info: Redefining \microtypecontext on input line 2053.
 LaTeX Info: Redefining \textmicrotypecontext on input line 2070.
 \MT@listname@count=\count338
- (D:\MikTex\tex/latex/microtype\microtype-xetex.def
+
+(D:\MikTex\tex/latex/microtype\microtype-xetex.def
 File: microtype-xetex.def 2026/03/01 v3.2d Definitions specific to xetex (RS)
 LaTeX Info: Redefining \lsstyle on input line 443.
 LaTeX Info: Redefining \lslig on input line 451.
 \MT@outer@space=\skip70
 )
 Package microtype Info: Loading configuration file microtype.cfg.
- (D:\MikTex\tex/latex/microtype\microtype.cfg
+
+(D:\MikTex\tex/latex/microtype\microtype.cfg
 File: microtype.cfg 2026/03/01 v3.2d microtype main configuration file (RS)
 )
 LaTeX Info: Redefining \microtypesetup on input line 3065.
-) (D:\MikTex\tex/latex/tcolorbox\tcolorbox.sty
+)
+(D:\MikTex\tex/latex/tcolorbox\tcolorbox.sty
 Package: tcolorbox 2026/05/28 version 6.10.0 text color boxes
- (D:\MikTex\tex/latex/pgf/frontendlayer\tikz.sty (D:\MikTex\tex/latex/pgf/basiclayer\pgf.sty (D:\MikTex\tex/latex/pgf/utilities\pgfrcs.sty (D:\MikTex\tex/generic/pgf/utilities\pgfutil-common.tex
+
+(D:\MikTex\tex/latex/pgf/frontendlayer\tikz.sty
+(D:\MikTex\tex/latex/pgf/basiclayer\pgf.sty
+(D:\MikTex\tex/latex/pgf/utilities\pgfrcs.sty
+(D:\MikTex\tex/generic/pgf/utilities\pgfutil-common.tex
 \pgfutil@everybye=\toks30
 \pgfutil@tempdima=\dimen282
 \pgfutil@tempdimb=\dimen283
-) (D:\MikTex\tex/generic/pgf/utilities\pgfutil-latex.def
+)
+(D:\MikTex\tex/generic/pgf/utilities\pgfutil-latex.def
 \pgfutil@abb=\box67
-) (D:\MikTex\tex/generic/pgf/utilities\pgfrcs.code.tex (D:\MikTex\tex/generic/pgf\pgf.revision.tex)
+)
+(D:\MikTex\tex/generic/pgf/utilities\pgfrcs.code.tex
+(D:\MikTex\tex/generic/pgf\pgf.revision.tex)
 Package: pgfrcs 2026-08-01 v3.1.12 (3.1.12)
 ))
 Package: pgf 2026-08-01 v3.1.12 (3.1.12)
- (D:\MikTex\tex/latex/pgf/basiclayer\pgfcore.sty (D:\MikTex\tex/latex/pgf/systemlayer\pgfsys.sty (D:\MikTex\tex/generic/pgf/systemlayer\pgfsys.code.tex
+
+(D:\MikTex\tex/latex/pgf/basiclayer\pgfcore.sty
+(D:\MikTex\tex/latex/pgf/systemlayer\pgfsys.sty
+(D:\MikTex\tex/generic/pgf/systemlayer\pgfsys.code.tex
 Package: pgfsys 2026-08-01 v3.1.12 (3.1.12)
- (D:\MikTex\tex/generic/pgf/utilities\pgfkeys.code.tex
+
+(D:\MikTex\tex/generic/pgf/utilities\pgfkeys.code.tex
 \pgfkeys@pathtoks=\toks31
 \pgfkeys@temptoks=\toks32
- (D:\MikTex\tex/generic/pgf/utilities\pgfkeyslibraryfiltered.code.tex
+
+(D:\MikTex\tex/generic/pgf/utilities\pgfkeyslibraryfiltered.code.tex
 \pgfkeys@tmptoks=\toks33
 ))
 \pgf@x=\dimen284
@@ -565,31 +752,40 @@ Package: pgfsys 2026-08-01 v3.1.12 (3.1.12)
 \t@pgf@tokb=\toks35
 \t@pgf@tokc=\toks36
 \pgf@sys@id@count=\count343
- (D:\MikTex\tex/generic/pgf/systemlayer\pgf.cfg
+
+(D:\MikTex\tex/generic/pgf/systemlayer\pgf.cfg
 File: pgf.cfg 2026-08-01 v3.1.12 (3.1.12)
 )
 Driver file for pgf: pgfsys-xetex.def
- (D:\MikTex\tex/generic/pgf/systemlayer\pgfsys-xetex.def
+
+(D:\MikTex\tex/generic/pgf/systemlayer\pgfsys-xetex.def
 File: pgfsys-xetex.def 2026-08-01 v3.1.12 (3.1.12)
- (D:\MikTex\tex/generic/pgf/systemlayer\pgfsys-dvipdfmx.def
+
+(D:\MikTex\tex/generic/pgf/systemlayer\pgfsys-dvipdfmx.def
 File: pgfsys-dvipdfmx.def 2026-08-01 v3.1.12 (3.1.12)
- (D:\MikTex\tex/generic/pgf/systemlayer\pgfsys-common-pdf.def
+
+(D:\MikTex\tex/generic/pgf/systemlayer\pgfsys-common-pdf.def
 File: pgfsys-common-pdf.def 2026-08-01 v3.1.12 (3.1.12)
 )
 \pgfsys@objnum=\count344
-))) (D:\MikTex\tex/generic/pgf/systemlayer\pgfsyssoftpath.code.tex
+)))
+(D:\MikTex\tex/generic/pgf/systemlayer\pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2026-08-01 v3.1.12 (3.1.12)
 \pgfsyssoftpath@smallbuffer@items=\count345
 \pgfsyssoftpath@bigbuffer@items=\count346
-) (D:\MikTex\tex/generic/pgf/systemlayer\pgfsysprotocol.code.tex
+)
+(D:\MikTex\tex/generic/pgf/systemlayer\pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2026-08-01 v3.1.12 (3.1.12)
-)) (D:\MikTex\tex/latex/xcolor\xcolor.sty
+))
+(D:\MikTex\tex/latex/xcolor\xcolor.sty
 Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
- (D:\MikTex\tex/latex/graphics-cfg\color.cfg
+
+(D:\MikTex\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: xetex.def on input line 274.
- (D:\MikTex\tex/latex/graphics\mathcolor.ltx)
+
+(D:\MikTex\tex/latex/graphics\mathcolor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
 Package xcolor Info: Model `RGB' extended on input line 1365.
 Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
@@ -598,18 +794,35 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
-) (D:\MikTex\tex/generic/pgf/basiclayer\pgfcore.code.tex
+)
+(D:\MikTex\tex/generic/pgf/basiclayer\pgfcore.code.tex
 Package: pgfcore 2026-08-01 v3.1.12 (3.1.12)
- (D:\MikTex\tex/generic/pgf/math\pgfmath.code.tex (D:\MikTex\tex/generic/pgf/math\pgfmathutil.code.tex) (D:\MikTex\tex/generic/pgf/math\pgfmathparser.code.tex
+
+(D:\MikTex\tex/generic/pgf/math\pgfmath.code.tex
+(D:\MikTex\tex/generic/pgf/math\pgfmathutil.code.tex)
+(D:\MikTex\tex/generic/pgf/math\pgfmathparser.code.tex
 \pgfmath@dimen=\dimen294
 \pgfmath@count=\count347
 \pgfmath@box=\box68
 \pgfmath@toks=\toks37
 \pgfmath@stack@operand=\toks38
 \pgfmath@stack@operation=\toks39
-) (D:\MikTex\tex/generic/pgf/math\pgfmathfunctions.code.tex) (D:\MikTex\tex/generic/pgf/math\pgfmathfunctions.basic.code.tex) (D:\MikTex\tex/generic/pgf/math\pgfmathfunctions.trigonometric.code.tex) (D:\MikTex\tex/generic/pgf/math\pgfmathfunctions.random.code.tex) (D:\MikTex\tex/generic/pgf/math\pgfmathfunctions.comparison.code.tex) (D:\MikTex\tex/generic/pgf/math\pgfmathfunctions.base.code.tex) (D:\MikTex\tex/generic/pgf/math\pgfmathfunctions.round.code.tex) (D:\MikTex\tex/generic/pgf/math\pgfmathfunctions.misc.code.tex) (D:\MikTex\tex/generic/pgf/math\pgfmathfunctions.integerarithmetics.code.tex) (D:\MikTex\tex/generic/pgf/math\pgfmathcalc.code.tex) (D:\MikTex\tex/generic/pgf/math\pgfmathfloat.code.tex
+)
+(D:\MikTex\tex/generic/pgf/math\pgfmathfunctions.code.tex)
+(D:\MikTex\tex/generic/pgf/math\pgfmathfunctions.basic.code.tex)
+(D:\MikTex\tex/generic/pgf/math\pgfmathfunctions.trigonometric.code.tex)
+(D:\MikTex\tex/generic/pgf/math\pgfmathfunctions.random.code.tex)
+(D:\MikTex\tex/generic/pgf/math\pgfmathfunctions.comparison.code.tex)
+(D:\MikTex\tex/generic/pgf/math\pgfmathfunctions.base.code.tex)
+(D:\MikTex\tex/generic/pgf/math\pgfmathfunctions.round.code.tex)
+(D:\MikTex\tex/generic/pgf/math\pgfmathfunctions.misc.code.tex)
+(D:\MikTex\tex/generic/pgf/math\pgfmathfunctions.integerarithmetics.code.tex)
+(D:\MikTex\tex/generic/pgf/math\pgfmathcalc.code.tex)
+(D:\MikTex\tex/generic/pgf/math\pgfmathfloat.code.tex
 \c@pgfmathroundto@lastzeros=\count348
-)) (D:\MikTex\tex/generic/pgf/math\pgfint.code.tex) (D:\MikTex\tex/generic/pgf/basiclayer\pgfcorepoints.code.tex
+))
+(D:\MikTex\tex/generic/pgf/math\pgfint.code.tex)
+(D:\MikTex\tex/generic/pgf/basiclayer\pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2026-08-01 v3.1.12 (3.1.12)
 \pgf@picminx=\dimen295
 \pgf@picmaxx=\dimen296
@@ -625,75 +838,103 @@ File: pgfcorepoints.code.tex 2026-08-01 v3.1.12 (3.1.12)
 \pgf@yy=\dimen306
 \pgf@zx=\dimen307
 \pgf@zy=\dimen308
-) (D:\MikTex\tex/generic/pgf/basiclayer\pgfcorepathconstruct.code.tex
+)
+(D:\MikTex\tex/generic/pgf/basiclayer\pgfcorepathconstruct.code.tex
 File: pgfcorepathconstruct.code.tex 2026-08-01 v3.1.12 (3.1.12)
 \pgf@path@lastx=\dimen309
 \pgf@path@lasty=\dimen310
-) (D:\MikTex\tex/generic/pgf/basiclayer\pgfcorepathusage.code.tex
+)
+(D:\MikTex\tex/generic/pgf/basiclayer\pgfcorepathusage.code.tex
 File: pgfcorepathusage.code.tex 2026-08-01 v3.1.12 (3.1.12)
 \pgf@shorten@end@additional=\dimen311
 \pgf@shorten@start@additional=\dimen312
-) (D:\MikTex\tex/generic/pgf/basiclayer\pgfcorescopes.code.tex
+)
+(D:\MikTex\tex/generic/pgf/basiclayer\pgfcorescopes.code.tex
 File: pgfcorescopes.code.tex 2026-08-01 v3.1.12 (3.1.12)
 \pgfpic=\box69
 \pgf@hbox=\box70
 \pgf@layerbox@main=\box71
 \pgf@picture@serial@count=\count349
-) (D:\MikTex\tex/generic/pgf/basiclayer\pgfcoregraphicstate.code.tex
+)
+(D:\MikTex\tex/generic/pgf/basiclayer\pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2026-08-01 v3.1.12 (3.1.12)
 \pgflinewidth=\dimen313
-) (D:\MikTex\tex/generic/pgf/basiclayer\pgfcoretransformations.code.tex
+)
+(D:\MikTex\tex/generic/pgf/basiclayer\pgfcoretransformations.code.tex
 File: pgfcoretransformations.code.tex 2026-08-01 v3.1.12 (3.1.12)
 \pgf@pt@x=\dimen314
 \pgf@pt@y=\dimen315
 \pgf@pt@temp=\dimen316
-) (D:\MikTex\tex/generic/pgf/basiclayer\pgfcorequick.code.tex
+)
+(D:\MikTex\tex/generic/pgf/basiclayer\pgfcorequick.code.tex
 File: pgfcorequick.code.tex 2026-08-01 v3.1.12 (3.1.12)
-) (D:\MikTex\tex/generic/pgf/basiclayer\pgfcoreobjects.code.tex
+)
+(D:\MikTex\tex/generic/pgf/basiclayer\pgfcoreobjects.code.tex
 File: pgfcoreobjects.code.tex 2026-08-01 v3.1.12 (3.1.12)
-) (D:\MikTex\tex/generic/pgf/basiclayer\pgfcorepathprocessing.code.tex
+)
+(D:\MikTex\tex/generic/pgf/basiclayer\pgfcorepathprocessing.code.tex
 File: pgfcorepathprocessing.code.tex 2026-08-01 v3.1.12 (3.1.12)
-) (D:\MikTex\tex/generic/pgf/basiclayer\pgfcorearrows.code.tex
+)
+(D:\MikTex\tex/generic/pgf/basiclayer\pgfcorearrows.code.tex
 File: pgfcorearrows.code.tex 2026-08-01 v3.1.12 (3.1.12)
 \pgfarrowsep=\dimen317
-) (D:\MikTex\tex/generic/pgf/basiclayer\pgfcoreshade.code.tex
+)
+(D:\MikTex\tex/generic/pgf/basiclayer\pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2026-08-01 v3.1.12 (3.1.12)
 \pgf@max=\dimen318
 \pgf@sys@shading@range@num=\count350
 \pgf@shadingcount=\count351
-) (D:\MikTex\tex/generic/pgf/basiclayer\pgfcoreimage.code.tex
+)
+(D:\MikTex\tex/generic/pgf/basiclayer\pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2026-08-01 v3.1.12 (3.1.12)
-) (D:\MikTex\tex/generic/pgf/basiclayer\pgfcoreexternal.code.tex
+)
+(D:\MikTex\tex/generic/pgf/basiclayer\pgfcoreexternal.code.tex
 File: pgfcoreexternal.code.tex 2026-08-01 v3.1.12 (3.1.12)
 \pgfexternal@startupbox=\box72
-) (D:\MikTex\tex/generic/pgf/basiclayer\pgfcorelayers.code.tex
+)
+(D:\MikTex\tex/generic/pgf/basiclayer\pgfcorelayers.code.tex
 File: pgfcorelayers.code.tex 2026-08-01 v3.1.12 (3.1.12)
-) (D:\MikTex\tex/generic/pgf/basiclayer\pgfcoretransparency.code.tex
+)
+(D:\MikTex\tex/generic/pgf/basiclayer\pgfcoretransparency.code.tex
 File: pgfcoretransparency.code.tex 2026-08-01 v3.1.12 (3.1.12)
-) (D:\MikTex\tex/generic/pgf/basiclayer\pgfcorepatterns.code.tex
+)
+(D:\MikTex\tex/generic/pgf/basiclayer\pgfcorepatterns.code.tex
 File: pgfcorepatterns.code.tex 2026-08-01 v3.1.12 (3.1.12)
-) (D:\MikTex\tex/generic/pgf/basiclayer\pgfcorerdf.code.tex
+)
+(D:\MikTex\tex/generic/pgf/basiclayer\pgfcorerdf.code.tex
 File: pgfcorerdf.code.tex 2026-08-01 v3.1.12 (3.1.12)
-))) (D:\MikTex\tex/generic/pgf/modules\pgfmoduleshapes.code.tex
+)))
+(D:\MikTex\tex/generic/pgf/modules\pgfmoduleshapes.code.tex
 File: pgfmoduleshapes.code.tex 2026-08-01 v3.1.12 (3.1.12)
 \pgfnodeparttextbox=\box73
-) (D:\MikTex\tex/generic/pgf/modules\pgfmoduleplot.code.tex
+)
+(D:\MikTex\tex/generic/pgf/modules\pgfmoduleplot.code.tex
 File: pgfmoduleplot.code.tex 2026-08-01 v3.1.12 (3.1.12)
-) (D:\MikTex\tex/latex/pgf/compatibility\pgfcomp-version-0-65.sty
+)
+(D:\MikTex\tex/latex/pgf/compatibility\pgfcomp-version-0-65.sty
 Package: pgfcomp-version-0-65 2026-08-01 v3.1.12 (3.1.12)
 \pgf@nodesepstart=\dimen319
 \pgf@nodesepend=\dimen320
-) (D:\MikTex\tex/latex/pgf/compatibility\pgfcomp-version-1-18.sty
+)
+(D:\MikTex\tex/latex/pgf/compatibility\pgfcomp-version-1-18.sty
 Package: pgfcomp-version-1-18 2026-08-01 v3.1.12 (3.1.12)
-)) (D:\MikTex\tex/latex/pgf/utilities\pgffor.sty (D:\MikTex\tex/latex/pgf/utilities\pgfkeys.sty (D:\MikTex\tex/generic/pgf/utilities\pgfkeys.code.tex)) (D:\MikTex\tex/latex/pgf/math\pgfmath.sty (D:\MikTex\tex/generic/pgf/math\pgfmath.code.tex)) (D:\MikTex\tex/generic/pgf/utilities\pgffor.code.tex
+))
+(D:\MikTex\tex/latex/pgf/utilities\pgffor.sty
+(D:\MikTex\tex/latex/pgf/utilities\pgfkeys.sty
+(D:\MikTex\tex/generic/pgf/utilities\pgfkeys.code.tex))
+(D:\MikTex\tex/latex/pgf/math\pgfmath.sty
+(D:\MikTex\tex/generic/pgf/math\pgfmath.code.tex))
+(D:\MikTex\tex/generic/pgf/utilities\pgffor.code.tex
 Package: pgffor 2026-08-01 v3.1.12 (3.1.12)
 \pgffor@iter=\dimen321
 \pgffor@skip=\dimen322
 \pgffor@stack=\toks40
 \pgffor@toks=\toks41
-)) (D:\MikTex\tex/generic/pgf/frontendlayer/tikz\tikz.code.tex
+))
+(D:\MikTex\tex/generic/pgf/frontendlayer/tikz\tikz.code.tex
 Package: tikz 2026-08-01 v3.1.12 (3.1.12)
- (D:\MikTex\tex/generic/pgf/libraries\pgflibraryplothandlers.code.tex
+
+(D:\MikTex\tex/generic/pgf/libraries\pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2026-08-01 v3.1.12 (3.1.12)
 \pgf@plot@mark@count=\count352
 \pgfplotmarksize=\dimen323
@@ -714,14 +955,17 @@ File: pgflibraryplothandlers.code.tex 2026-08-01 v3.1.12 (3.1.12)
 \tikznumberofchildren=\count354
 \tikznumberofcurrentchild=\count355
 \tikz@fig@count=\count356
- (D:\MikTex\tex/generic/pgf/modules\pgfmodulematrix.code.tex
+
+(D:\MikTex\tex/generic/pgf/modules\pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2026-08-01 v3.1.12 (3.1.12)
 \pgfmatrixcurrentrow=\count357
 \pgfmatrixcurrentcolumn=\count358
 \pgf@matrix@numberofcolumns=\count359
 )
 \tikz@expandcount=\count360
- (D:\MikTex\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarytopaths.code.tex
+
+(D:\MikTex\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarytopaths.code
+.tex
 File: tikzlibrarytopaths.code.tex 2026-08-01 v3.1.12 (3.1.12)
 ))) (D:\MikTex\tex/latex/tools\verbatim.sty
 Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
@@ -742,7 +986,8 @@ Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
 \tcb@temp=\box84
 \tcb@temp=\box85
 \tcb@temp=\box86
- (D:\MikTex\tex/latex/tcolorbox\tcbraster.code.tex
+
+(D:\MikTex\tex/latex/tcolorbox\tcbraster.code.tex
 Library (tcolorbox): 'tcbraster.code.tex' version '6.10.0'
 \c@tcbrastercolumn=\count364
 \c@tcbrasterrow=\count365
@@ -752,22 +997,27 @@ Library (tcolorbox): 'tcbraster.code.tex' version '6.10.0'
 Library (tcolorbox): 'tcbskins.code.tex' version '6.10.0'
 (D:\MikTex\tex/latex/tikzfill\tikzfill.image.sty
 Package: tikzfill.image 2026/04/23 v1.2.0 Image filling library for TikZ
- (D:\MikTex\tex/latex/tikzfill\tikzlibraryfill.image.code.tex
+
+(D:\MikTex\tex/latex/tikzfill\tikzlibraryfill.image.code.tex
 File: tikzlibraryfill.image.code.tex 2026/04/23 v1.2.0 Image filling library
 \l__tikzfill_tmpa_dim=\dimen333
 \l__tikzfill_tmpb_dim=\dimen334
 \l__tikzfill_img_box=\box87
-)) (D:\MikTex\tex/latex/tcolorbox\tcbskinsjigsaw.code.tex
+))
+(D:\MikTex\tex/latex/tcolorbox\tcbskinsjigsaw.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.10.0'
 )) (D:\MikTex\tex/latex/tcolorbox\tcbbreakable.code.tex
 Library (tcolorbox): 'tcbbreakable.code.tex' version '6.10.0'
 (D:\MikTex\tex/latex/pdfcol\pdfcol.sty
 Package: pdfcol 2022-09-21 v1.7 Handle new color stacks for pdfTeX (HO)
- (D:\MikTex\tex/generic/ltxcmds\ltxcmds.sty
+
+(D:\MikTex\tex/generic/ltxcmds\ltxcmds.sty
 Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
-) (D:\MikTex\tex/generic/infwarerr\infwarerr.sty
+)
+(D:\MikTex\tex/generic/infwarerr\infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
-) (D:\MikTex\tex/generic/iftex\iftex.sty
+)
+(D:\MikTex\tex/generic/iftex\iftex.sty
 Package: iftex 2024/12/12 v1.0g TeX engine tests
 )
 Package pdfcol Info: Interface disabled because of missing PDF mode of pdfTeX.
@@ -776,7 +1026,8 @@ Package pdfcol Info: pdfTeX's color stacks are not available.
 \tcb@testbox=\box88
 \tcb@totalupperbox=\box89
 \tcb@totallowerbox=\box90
-) (D:\MikTex\tex/latex/tcolorbox\tcbhooks.code.tex
+)
+(D:\MikTex\tex/latex/tcolorbox\tcbhooks.code.tex
 Library (tcolorbox): 'tcbhooks.code.tex' version '6.10.0'
 ) (D:\MikTex\tex/latex/tcolorbox\tcbtheorems.code.tex
 Library (tcolorbox): 'tcbtheorems.code.tex' version '6.10.0'
@@ -803,50 +1054,64 @@ Library (tcolorbox): 'tcblistings.code.tex' version '6.10.0'
 \lst@newlines=\count373
 \lst@lineno=\count374
 \lst@maxwidth=\dimen341
- (D:\MikTex\tex/latex/listings\lstpatch.sty
+
+(D:\MikTex\tex/latex/listings\lstpatch.sty
 File: lstpatch.sty 2025/11/14 1.11b (Carsten Heinz)
-) (D:\MikTex\tex/latex/listings\lstmisc.sty
+)
+(D:\MikTex\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
 \c@lstnumber=\count375
 \lst@skipnumbers=\count376
 \lst@framebox=\box92
-) (D:\MikTex\tex/latex/listings\listings.cfg
+)
+(D:\MikTex\tex/latex/listings\listings.cfg
 File: listings.cfg 2025/11/14 1.11b listings configuration
 ))
 Package: listings 2025/11/14 1.11b (Carsten Heinz)
- (D:\MikTex\tex/xelatex/xecjk\xeCJK-listings.sty
+
+(D:\MikTex\tex/xelatex/xecjk\xeCJK-listings.sty
 Package: xeCJK-listings 2026/08/21 v3.10.6 xeCJK patch file for listings
 \l__xeCJK_listings_max_char_int=\count377
 \l__xeCJK_listings_flag_int=\count378
-) (D:\MikTex\tex/latex/tcolorbox\tcblistingscore.code.tex
+)
+(D:\MikTex\tex/latex/tcolorbox\tcblistingscore.code.tex
 Library (tcolorbox): 'tcblistingscore.code.tex' version '6.10.0'
 (D:\MikTex\tex/latex/tcolorbox\tcbprocessing.code.tex
 Library (tcolorbox): 'tcbprocessing.code.tex' version '6.10.0'
 )
 \c@tcblisting=\count379
 ))
-Package tcolorbox Info: Library `listingsutf8' is compatible with pdftex only. Library `listings` is loaded instead. on input line 29.
+Package tcolorbox Info: Library `listingsutf8' is compatible with pdftex only. 
+Library `listings` is loaded instead. on input line 29.
 ) (D:\MikTex\tex/latex/tcolorbox\tcbexternal.code.tex
 Library (tcolorbox): 'tcbexternal.code.tex' version '6.10.0'
 ) (D:\MikTex\tex/latex/tcolorbox\tcbmagazine.code.tex
 Library (tcolorbox): 'tcbmagazine.code.tex' version '6.10.0'
 ) (D:\MikTex\tex/latex/tcolorbox\tcbvignette.code.tex
 Library (tcolorbox): 'tcbvignette.code.tex' version '6.10.0'
-(D:\MikTex\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryfadings.code.tex
+
+(D:\MikTex\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryfadings.code
+.tex
 File: tikzlibraryfadings.code.tex 2026-08-01 v3.1.12 (3.1.12)
  (D:\MikTex\tex/generic/pgf/libraries\pgflibraryfadings.code.tex
 File: pgflibraryfadings.code.tex 2026-08-01 v3.1.12 (3.1.12)
-))) (D:\MikTex\tex/latex/tcolorbox\tcbposter.code.tex
+)))
+(D:\MikTex\tex/latex/tcolorbox\tcbposter.code.tex
 Library (tcolorbox): 'tcbposter.code.tex' version '6.10.0'
 )) (D:\MikTex\tex/latex/minted\minted.sty
 Package: minted 2026/03/03 v3.8.0 Yet another Pygments shim for LaTeX
- (D:\MikTex\tex/generic/catchfile\catchfile.sty
+
+(D:\MikTex\tex/generic/catchfile\catchfile.sty
 Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
- (D:\MikTex\tex/generic/etexcmds\etexcmds.sty
+
+(D:\MikTex\tex/generic/etexcmds\etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
-)) (D:\MikTex\tex/latex/fvextra\fvextra.sty
-Package: fvextra 2026/02/25 v1.14.0 fvextra - extensions and patches for fancyvrb
- (D:\MikTex\tex/latex/fancyvrb\fancyvrb.sty
+))
+(D:\MikTex\tex/latex/fvextra\fvextra.sty
+Package: fvextra 2026/02/25 v1.14.0 fvextra - extensions and patches for fancyv
+rb
+
+(D:\MikTex\tex/latex/fancyvrb\fancyvrb.sty
 Package: fancyvrb 2026/08/13 4.7 verbatim text (tvz,hv)
 \FV@CodeLineNo=\count380
 \FV@InFile=\read4
@@ -854,15 +1119,19 @@ Package: fancyvrb 2026/08/13 4.7 verbatim text (tvz,hv)
 \c@FancyVerbLine=\count381
 \FV@StepNumber=\count382
 \FV@OutFile=\write4
-) (D:\MikTex\tex/latex/upquote\upquote.sty
-Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
+)
+(D:\MikTex\tex/latex/upquote\upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
+tim
  (D:\MikTex\tex/latex/base\textcomp.sty
 Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
 )) (D:\MikTex\tex/latex/lineno\lineno.sty
 Package: lineno 2026/03/08 line numbers on paragraphs v5.9
- (D:\MikTex\tex/latex/kvoptions\kvoptions.sty
+
+(D:\MikTex\tex/latex/kvoptions\kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
- (D:\MikTex\tex/latex/kvsetkeys\kvsetkeys.sty
+
+(D:\MikTex\tex/latex/kvsetkeys\kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 ))
 \linenopenalty=\count383
@@ -907,13 +1176,17 @@ Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 \FV@LineIndentBox=\box99
 \c@FV@BreakBufferDepth=\count404
 \FV@LineWidth=\dimen352
-) (D:\MikTex\tex/latex/latex2pydata\latex2pydata.sty
-Package: latex2pydata 2026/02/25 v0.7.0 latex2pydata - write data to file in Python literal format
-) (D:\MikTex\tex/latex/pgfopts\pgfopts.sty
+)
+(D:\MikTex\tex/latex/latex2pydata\latex2pydata.sty
+Package: latex2pydata 2026/02/25 v0.7.0 latex2pydata - write data to file in Py
+thon literal format
+)
+(D:\MikTex\tex/latex/pgfopts\pgfopts.sty
 Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
 \pgfopts@list@add@a@toks=\toks46
 \pgfopts@list@add@b@toks=\toks47
-) (D:\MikTex\tex/latex/tools\shellesc.sty
+)
+(D:\MikTex\tex/latex/tools\shellesc.sty
 Package: shellesc 2023/07/08 v1.0d unified shell escape interface for LaTeX
 Package shellesc Info: Unrestricted shell escape enabled on input line 75.
 ) (D:\MikTex\tex/latex/float\float.sty
@@ -927,44 +1200,61 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@minted@FancyVerbLineTemp=\count406
 \@float@every@listing=\toks50
 \c@listing=\count407
-) (D:\MikTex\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarytrees.code.tex
+)
+(D:\MikTex\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarytrees.code.t
+ex
 File: tikzlibrarytrees.code.tex 2026-08-01 v3.1.12 (3.1.12)
-) (D:\MikTex\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarypositioning.code.tex
+)
+(D:\MikTex\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarypositioning.
+code.tex
 File: tikzlibrarypositioning.code.tex 2026-08-01 v3.1.12 (3.1.12)
 ) (D:\MikTex\tex/latex/hyperref\hyperref.sty
 Package: hyperref 2026-06-17 v7.01r Hypertext links for LaTeX
- (D:\MikTex\tex/generic/kvdefinekeys\kvdefinekeys.sty
+
+(D:\MikTex\tex/generic/kvdefinekeys\kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-) (D:\MikTex\tex/generic/pdfescape\pdfescape.sty
+)
+(D:\MikTex\tex/generic/pdfescape\pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
- (D:\MikTex\tex/generic/pdftexcmds\pdftexcmds.sty
-Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+
+(D:\MikTex\tex/generic/pdftexcmds\pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode not found.
-)) (D:\MikTex\tex/latex/hycolor\hycolor.sty
+))
+(D:\MikTex\tex/latex/hycolor\hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-) (D:\MikTex\tex/latex/hyperref\nameref.sty
+)
+(D:\MikTex\tex/latex/hyperref\nameref.sty
 Package: nameref 2026-01-29 v2.58 Cross-referencing by name of section
- (D:\MikTex\tex/latex/refcount\refcount.sty
+
+(D:\MikTex\tex/latex/refcount\refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-) (D:\MikTex\tex/generic/gettitlestring\gettitlestring.sty
+)
+(D:\MikTex\tex/generic/gettitlestring\gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count408
-) (D:\MikTex\tex/generic/stringenc\stringenc.sty
-Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
+)
+(D:\MikTex\tex/generic/stringenc\stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
+)
 )
 \@linkdim=\dimen353
 \Hy@linkcounter=\count409
 \Hy@pagecounter=\count410
- (D:\MikTex\tex/latex/hyperref\pd1enc.def
+
+(D:\MikTex\tex/latex/hyperref\pd1enc.def
 File: pd1enc.def 2026-06-17 v7.01r Hyperref: PDFDocEncoding definition (HO)
-) (D:\MikTex\tex/generic/intcalc\intcalc.sty
+)
+(D:\MikTex\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
 \Hy@SavedSpaceFactor=\count411
- (D:\MikTex\tex/latex/hyperref\puenc.def
+
+(D:\MikTex\tex/latex/hyperref\puenc.def
 File: puenc.def 2026-06-17 v7.01r Hyperref: PDF Unicode definition (HO)
 )
 Package hyperref Info: Option `unicode' set `true' on input line 4070.
@@ -982,10 +1272,13 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4805.
 \XeTeXLinkMargin=\dimen354
- (D:\MikTex\tex/generic/bitset\bitset.sty
+
+(D:\MikTex\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
- (D:\MikTex\tex/generic/bigintcalc\bigintcalc.sty
-Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+
+(D:\MikTex\tex/generic/bigintcalc\bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
 ))
 \Fld@menulength=\count413
 \Field@Width=\dimen355
@@ -1002,31 +1295,38 @@ Package hyperref Info: PDF/A mode OFF on input line 6121.
 \c@Hfootnote=\count416
 )
 Package hyperref Info: Driver (autodetected): hxetex.
- (D:\MikTex\tex/latex/hyperref\hxetex.def
+
+(D:\MikTex\tex/latex/hyperref\hxetex.def
 File: hxetex.def 2026-06-17 v7.01r Hyperref driver for XeTeX
 \pdfm@box=\box102
 \c@Hy@AnnotLevel=\count417
 \HyField@AnnotCount=\count418
 \Fld@listcount=\count419
 \c@bookmark@seq@number=\count420
- (D:\MikTex\tex/latex/rerunfilecheck\rerunfilecheck.sty
+
+(D:\MikTex\tex/latex/rerunfilecheck\rerunfilecheck.sty
 Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
- (D:\MikTex\tex/generic/uniquecounter\uniquecounter.sty
+
+(D:\MikTex\tex/generic/uniquecounter\uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
-Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+84.
 )
 \Hy@SectionHShift=\skip72
-) (D:\MikTex\tex/latex/circledsteps\circledsteps.sty
+)
+(D:\MikTex\tex/latex/circledsteps\circledsteps.sty
 Package: circledsteps 2026/06/03 v1.4 Circled numbers that you can reference
- (D:\MikTex\tex/latex/pict2e\pict2e.sty
+
+(D:\MikTex\tex/latex/pict2e\pict2e.sty
 Package: pict2e 2020/09/30 v0.4b Improved picture commands (HjG,RN,JT)
  (D:\MikTex\tex/latex/pict2e\pict2e.cfg
 File: pict2e.cfg 2016/02/05 v0.1u pict2e configuration for teTeX/TeXLive
 )
 Package pict2e Info: Driver file: xetex.def on input line 112.
 Package pict2e Info: Driver file for pict2e: p2e-xetex.def on input line 114.
- (D:\MikTex\tex/latex/pict2e\p2e-xetex.def
+
+(D:\MikTex\tex/latex/pict2e\p2e-xetex.def
 File: p2e-xetex.def 2016/02/05 v0.1u Driver-dependant file (RN,HjG,JT)
 )
 \pIIe@GRAPH=\toks51
@@ -1045,9 +1345,11 @@ File: p2e-xetex.def 2016/02/05 v0.1u Driver-dependant file (RN,HjG,JT)
 \csteps@YDepth=\skip75
 \csteps@tmplen=\skip76
 \c@cstepcnt=\count421
-) (D:\MikTex\tex/latex/caption\caption.sty
+)
+(D:\MikTex\tex/latex/caption\caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
- (D:\MikTex\tex/latex/caption\caption3.sty
+
+(D:\MikTex\tex/latex/caption\caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
 \caption@tempdima=\dimen365
 \captionmargin=\dimen366
@@ -1079,7 +1381,8 @@ Package: ulem 2019/11/18
 Library (tcolorbox): 'tcbminted.code.tex' version '6.10.0'
 ) (D:\MikTex\tex/latex/geometry\geometry.sty
 Package: geometry 2026/03/07 v6.0 Page Geometry
- (D:\MikTex\tex/generic/iftex\ifvtex.sty
+
+(D:\MikTex\tex/generic/iftex\ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
 \Gm@cnth=\count425
@@ -1094,12 +1397,15 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layouthoffset=\dimen382
 \Gm@layoutvoffset=\dimen383
 \Gm@dimlist=\toks53
- (D:\MikTex\tex/latex/geometry\geometry.cfg))
+
+(D:\MikTex\tex/latex/geometry\geometry.cfg))
 Package hyperref Info: Option `colorlinks' set `true' on input line 104.
 \c@tcb@cnt@cppcodeNum=\count428
- (D:\MikTex\tex/latex/xsim\xsim.sty (D:\MikTex\tex/latex/l3packages/l3keys2e\l3keys2e.sty
+ (D:\MikTex\tex/latex/xsim\xsim.sty (D:\MikTex\tex/latex/l3packages/l3keys2e\l3
+keys2e.sty
 Package: l3keys2e 2025-10-09 LaTeX2e option processing using LaTeX3 keys
-) (D:\MikTex\tex/latex/xsim\xsimverb.sty
+)
+(D:\MikTex\tex/latex/xsim\xsimverb.sty
 Package: xsimverb 2022/02/12 v0.4 write environments verbatim to files
 \l__xsimverb_tmpa_int=\count429
 \l_xsim_line_gobble_int=\count430
@@ -1145,7 +1451,8 @@ Package xsim Warning: You are compiling your document using XeLaTeX. Please be
 \g__xsim_random_list_id_int=\count438
 Loading module `translations' ...
 (D:\MikTex\tex/latex/translations\translations.sty
-Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages (CN)
+Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages
+ (CN)
 )
 Loading module `interface' ...
 Loading module `definitions' ...
@@ -1155,7 +1462,8 @@ Loading module `definitions' ...
 \c@numberofexercises=\count441
 \g_xsim_collection_bookexercise_in_all exercises_int=\count442
 \c@totalbookexerciseinall exercises=\count443
-Package translations Info: No language package found. I am going to use `english' as default language. on input line 657.
+Package translations Info: No language package found. I am going to use `englis
+h' as default language. on input line 657.
  (main.aux (main.xsim))
 \openout1 = `main.aux'.
 
@@ -1212,6 +1520,7 @@ LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 657.
 LaTeX Font Info:    Redeclaring symbol font `operators' on input line 657.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
 (Font)              `operators' in the math version `normal' on input line 657.
+
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 657.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
@@ -1248,8 +1557,10 @@ Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of spacing.
 Package microtype Info: No adjustment of kerning.
- (D:\MikTex\tex/latex/microtype\mt-LatinModernRoman.cfg
-File: mt-LatinModernRoman.cfg 2026/02/26 v1.2 microtype config. file: Latin Modern Roman (RS)
+
+(D:\MikTex\tex/latex/microtype\mt-LatinModernRoman.cfg
+File: mt-LatinModernRoman.cfg 2026/02/26 v1.2 microtype config. file: Latin Mod
+ern Roman (RS)
 )
 \c@lstlisting=\count444
 Package hyperref Info: Link coloring ON on input line 657.
@@ -1297,10 +1608,14 @@ Package caption Info: End \AtBeginDocument code.
 \l__xsim_aux_file_iow=\write6
 \openout6 = `main.xsim'.
 
-(D:\MikTex\tex/latex/translations/dicts\translations-basic-dictionary-english.trsl
-File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
+
+(D:\MikTex\tex/latex/translations/dicts\translations-basic-dictionary-english.t
+rsl
+File: translations-basic-dictionary-english.trsl (english translation file `tra
+nslations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 657.
+Package translations Info: loading dictionary `translations-basic-dictionary' f
+or `english'. on input line 657.
  [1
 
 
@@ -1311,43 +1626,49 @@ Package translations Info: loading dictionary `translations-basic-dictionary' fo
 LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
  (D:\MikTex\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-) (D:\MikTex\tex/latex/microtype\mt-msa.cfg
+)
+(D:\MikTex\tex/latex/microtype\mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
- (D:\MikTex\tex/latex/amsfonts\umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (D:\MikTex\tex/latex/microtype\mt-msb.cfg
-File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-) (D:\MikTex\tex/latex/microtype\mt-cmr.cfg
-File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
-) [2
 
-])
+(D:\MikTex\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+(D:\MikTex\tex/latex/microtype\mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+(D:\MikTex\tex/latex/microtype\mt-cmr.cfg
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
+(RS)
+))
 \tf@toc=\write7
 \openout7 = `main.toc'.
 
-LaTeX Font Info:    Font shape `TU/SimSun(0)/m/sl' in size <10.53937> not available
-(Font)              Font shape `TU/SimSun(0)/m/it' tried instead on input line 680.
- [3] (chapters/ch1_intro.tex
+ [2
+
+] (chapters/chapter4/ch4_tree.tex
 第一章
-[1
 
+LaTeX Warning: Reference `sec:数据结构' on page 1 undefined on input line 3.
 
-] [2]
 \g__tcobox_out_iow=\write8
 \openout8 = `main.listing'.
 
 \pydata@fh@0=\write9
 \openout9 = `_FAD58DE7366495DB4650CFEFAC2FCD61.data.minted'.
 
-runsystem(latexminted config  --timestamp 20261007213506 FAD58DE7366495DB4650CFEFAC2FCD61)...executed.
+runsystem(latexminted config  --timestamp 20261008225621 FAD58DE7366495DB4650CF
+EFAC2FCD61)...executed.
 
- (_FAD58DE7366495DB4650CFEFAC2FCD61.config.minted)
-runsystem(latexminted cleanconfig  --timestamp 20261007213506 FAD58DE7366495DB4650CFEFAC2FCD61)...executed.
+(_FAD58DE7366495DB4650CFEFAC2FCD61.config.minted)
+runsystem(latexminted cleanconfig  --timestamp 20261008225621 FAD58DE7366495DB4
+650CFEFAC2FCD61)...executed.
 
- (_minted/default.style.minted) (_minted/A8D3635E0629E901EEF579420B40E7BB.highlight.minted
-LaTeX Font Info:    Trying to load font information for TU+DejaVu Sans Mono on input line 1.
+ (_minted/default.style.minted) (_minted/F64E1F73439E0CE25113940B5664F34B.highl
+ight.minted
+LaTeX Font Info:    Trying to load font information for TU+DejaVu Sans Mono on 
+input line 1.
 LaTeX Font Info:    No file TUDejaVu Sans Mono.fd. on input line 1.
 
 
@@ -1362,699 +1683,51 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `DejaVu Sans Mono' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-) [3]
+) [1
+
+
+]
 \openout8 = `main.listing'.
 
- (_minted/567131661E66ACF6FDD4B532A95E21D0.highlight.minted)
-\openout8 = `main.listing'.
-
- (_minted/A4CB10A843B9D8CC65807331559B84FB.highlight.minted
+ (_minted/BC0A687B0BD743F24D8A88D829C6E2D3.highlight.minted
 
 LaTeX Font Warning: Font shape `TU/DejaVu Sans Mono/m/it' undefined
-(Font)              using `TU/DejaVu Sans Mono/m/n' instead on input line 2.
+(Font)              using `TU/DejaVu Sans Mono/m/n' instead on input line 4.
 
 )
+File: assets/pics_and_ppts/ch4/树的不定长数组表示.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch4/树的不定长数组表示.png>
 \openout8 = `main.listing'.
 
- (_minted/25FA1828AA3055BEE582C13F4EA9E916.highlight.minted) [4]
+ (_minted/6D6D53E6EDFE18017D31EA48CFCD5AD5.highlight.minted)
+File: assets/pics_and_ppts/ch4/树的孩子-兄弟表示法.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch4/树的孩子-兄弟表示法.png>
+LaTeX Font Info:    Font shape `TU/SimSun(0)/m/sl' in size <10.53937> not avail
+able
+(Font)              Font shape `TU/SimSun(0)/m/it' tried instead on input line 
+143.
+ [2]
+Underfull \hbox (badness 10000) in paragraph at lines 144--147
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 265.
+ []
+
+\openout8 = `main.listing'.
+
+(_minted/4558132B706C54DE5855DB1748D50920.highlight.minted) [3]
+File: assets/pics_and_ppts/ch4/一棵树.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch4/一棵树.png>
+ [4]
+Underfull \hbox (badness 10000) in paragraph at lines 257--258
+
+ []
 
 [5]
-\openout8 = `main.listing'.
+File: assets/pics_and_ppts/ch4/几棵不同的二叉树.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch4/几棵不同的二叉树.png>
+) [6] [7
 
- (_minted/BBCE9173B5721ED15421451AF7202546.highlight.minted)) (chapters/chapter2/ch2_list.tex [6]
-第二章
-\openout8 = `main.listing'.
 
-(_minted/FC152B54AED0A14706C7D81D9FBDB94F.highlight.minted)
-\openout8 = `main.listing'.
-
- (_minted/03462B19F3CD46853A9F433F063D3FF5.highlight.minted) [7
-
-]
-File: assets/pics_and_ppts/ch2/顺序存储的线性表.png Graphic file (type bmp)
-<assets/pics_and_ppts/ch2/顺序存储的线性表.png>
-\openout8 = `main.listing'.
-
- (_minted/9257A3409C7A3EB62240EE38690925E7.highlight.minted) [8]
-\openout8 = `main.listing'.
-
- (_minted/8C1C90EF36735B098D00B006032647E6.highlight.minted)
-File: assets/pics_and_ppts/ch2/链表的节点.png Graphic file (type bmp)
-<assets/pics_and_ppts/ch2/链表的节点.png>
-\openout8 = `main.listing'.
-
- (_minted/E385D8F9FB14F8F53BB5A274E688A0BA.highlight.minted)
-\openout8 = `main.listing'.
-
- (_minted/4A30C238CF83135567294CAFC4860A2C.highlight.minted) [9]
-File: assets/pics_and_ppts/ch2/链式存储的线性表.png Graphic file (type bmp)
-<assets/pics_and_ppts/ch2/链式存储的线性表.png>
-\openout8 = `main.listing'.
-
- (_minted/6A9D8DA6D151A3733E2E22F7D0646A06.highlight.minted)
-\openout8 = `main.listing'.
-
- (_minted/EB64F0FC9B94B5E9E2875A6FA04C6082.highlight.minted)
-\openout8 = `main.listing'.
-
- (_minted/E91C91C982393A61A189B5C8C0DC56DD.highlight.minted) [10]
-File: assets/pics_and_ppts/ch2/顺序表的插入操作.png Graphic file (type bmp)
-<assets/pics_and_ppts/ch2/顺序表的插入操作.png>
-\openout8 = `main.listing'.
-
- (_minted/5654D21335D99AE19B897612A53FE7B3.highlight.minted) [11]
-Underfull \hbox (badness 10000) in paragraph at lines 202--204
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 208--211
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 212--216
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 217--219
-
- []
-
-\openout8 = `main.listing'.
-
-(_minted/935B29012316046B9766ABF45295613E.highlight.minted) [12]
-\openout8 = `main.listing'.
-
- (_minted/AC3D3AF3D1CE7100D5F8F33375306C46.highlight.minted)
-\openout8 = `main.listing'.
-
- (_minted/8A17DD521E76A685F04BC7F592A0113E.highlight.minted) [13]
-\openout8 = `main.listing'.
-
- (_minted/4B1C4BD0B0D182445318F036B2769BDF.highlight.minted)
-\openout8 = `main.listing'.
-
- (_minted/B5D1FB65408943D79F879822DB65C783.highlight.minted)
-\openout8 = `main.listing'.
-
- (_minted/CBB1E2B6E03EA497F2913A275DA31F39.highlight.minted)
-\openout8 = `main.listing'.
-
- (_minted/F186269B340699F302864A32FAB9AB94.highlight.minted) [14]
-\openout8 = `main.listing'.
-
- (_minted/0563916623EBD5EEF2FC9F140078CC6F.highlight.minted)
-\openout8 = `main.listing'.
-
- (_minted/CDDE80557819395982EAE9629BB06B43.highlight.minted)
-\openout8 = `main.listing'.
-
- (_minted/93A3D32DE3BEBC5AD8CCA1F14698FB65.highlight.minted)
-File: assets/pics_and_ppts/ch2/链表初始化前后示意.png Graphic file (type bmp)
-<assets/pics_and_ppts/ch2/链表初始化前后示意.png>
-File: assets/pics_and_ppts/ch2/带头节点与不带头节点的链表.png Graphic file (type bmp)
-<assets/pics_and_ppts/ch2/带头节点与不带头节点的链表.png>
- [15]
-\openout8 = `main.listing'.
-
- (_minted/BE20CAE9825B6EE907AA3A6888B97983.highlight.minted) [16]
-\openout8 = `main.listing'.
-
- (_minted/1BEC86E6CE1B83A7BED8180976E18327.highlight.minted)
-\openout8 = `main.listing'.
-
- (_minted/D9C8B3B8E5FA9D65C7839A2148491E62.highlight.minted)
-\openout8 = `main.listing'.
-
- (_minted/84AD0C2BF7B11DE9D9362659BE84E418.highlight.minted)
-\openout8 = `main.listing'.
-
- (_minted/9742350A9CC1AAAF911B936D6ABA76F0.highlight.minted) [17]
-File: assets/pics_and_ppts/ch2/链表的插入过程示意.png Graphic file (type bmp)
-<assets/pics_and_ppts/ch2/链表的插入过程示意.png>
-\openout8 = `main.listing'.
-
- (_minted/3FE4B7E3B7BB8CCC15E7EDFB4D310341.highlight.minted) [18]
-\openout8 = `main.listing'.
-
- (_minted/13FB1B67D63E1A20B73C6C25393A3FC2.highlight.minted)
-File: assets/pics_and_ppts/ch2/链表的删除过程示意.png Graphic file (type bmp)
-<assets/pics_and_ppts/ch2/链表的删除过程示意.png>
-\openout8 = `main.listing'.
-
- (_minted/437A642BDCBB2B3CB0FF44CAEECE52A4.highlight.minted) [19] [20]
-\openout8 = `main.listing'.
-
- (_minted/9DF40D256428621911A139F3CB6598E5.highlight.minted)
-Underfull \hbox (badness 10000) in paragraph at lines 598--599
-
- []
-
-\openout8 = `main.listing'.
-
-(_minted/4FF3FC0DFB2A465AB0D810C7D4C53964.highlight.minted)
-\openout8 = `main.listing'.
-
- (_minted/ADE7CC38856BA22746DD1F3719EEA789.highlight.minted)
-Underfull \hbox (badness 10000) in paragraph at lines 626--629
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 630--633
-
- []
-
-[21] [22]
-\openout8 = `main-bookexercise-1-exercise-body.tex'.
-
- (main-bookexercise-1-exercise-body.tex
-Underfull \hbox (badness 10000) in paragraph at lines 10--15
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 16--21
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 26--35
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 36--41
-
- []
-
-\openout8 = `main.listing'.
-
-(_minted/09970E1BA00E8A53850AF5F264DA9CFE.highlight.minted)
-Underfull \hbox (badness 10000) in paragraph at lines 51--52
-
- []
-
-\openout8 = `main.listing'.
-
-(_minted/677847DBFA74EF36BFAFC2FE0ED43512.highlight.minted) [23
-
-]
-\openout8 = `main.listing'.
-
- (_minted/BC0E519BFAB4210328D6BA599EED8BE7.highlight.minted)
-Underfull \hbox (badness 10000) in paragraph at lines 67--68
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 69--70
-
- []
-
-\openout8 = `main.listing'.
-
-(_minted/34A12D93AD3CFA29E2DF5A30CDEB7FDC.highlight.minted)
-Underfull \hbox (badness 10000) in paragraph at lines 95--97
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 113--114
-
- []
-
-\openout8 = `main.listing'.
-
-(_minted/34A12D93AD3CFA29E2DF5A30CDEB7FDC.highlight.minted) [24])
-Underfull \hbox (badness 10000) in paragraph at lines 128--764
-
- []
-
-[25]
-\openout8 = `main-bookexercise-1-solution-body.tex'.
-
-\openout8 = `main.listing'.
-
- (_minted/9C66BE8C7E3766023978F47D2D058CE6.highlight.minted)
-File: assets/pics_and_ppts/ch2/双链表示意图.png Graphic file (type bmp)
-<assets/pics_and_ppts/ch2/双链表示意图.png>
-\openout8 = `main.listing'.
-
- (_minted/04F0DFC8C15736CBBF65C792C83EFA67.highlight.minted) [26
-
-]
-\openout8 = `main.listing'.
-
- (_minted/D206D2ADA075654179B82DE2001AC110.highlight.minted)
-File: assets/pics_and_ppts/ch2/循环链表示意图.png Graphic file (type bmp)
-<assets/pics_and_ppts/ch2/循环链表示意图.png>
- [27]
-File: assets/pics_and_ppts/ch2/静态链表示意图.png Graphic file (type bmp)
-<assets/pics_and_ppts/ch2/静态链表示意图.png>
-\openout8 = `main.listing'.
-
- (_minted/BAA40D75420A789770E21D559346556C.highlight.minted) [28]
-\openout8 = `main.listing'.
-
- (_minted/AAB1EDEF5070EE7FF4C27A7A397D3251.highlight.minted)
-\openout8 = `main.listing'.
-
- (_minted/1188C0CE9A7822DA864B7AD4DF28202B.highlight.minted) [29]) (chapters/chapter3/ch3_stack_and_queue.tex [30]
-第三章
-File: assets/pics_and_ppts/ch3/洗澡穿脱衣服的例子.png Graphic file (type bmp)
-<assets/pics_and_ppts/ch3/洗澡穿脱衣服的例子.png>
-
-Underfull \hbox (badness 10000) in paragraph at lines 10--12
-
- []
-
-File: assets/pics_and_ppts/ch3/栈的示意图.png Graphic file (type bmp)
-<assets/pics_and_ppts/ch3/栈的示意图.png>
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 25.
-See the caption package documentation for explanation.
-
-[31
-
-]
-File: assets/pics_and_ppts/ch3/队列示意图.png Graphic file (type bmp)
-<assets/pics_and_ppts/ch3/队列示意图.png>
-
-Underfull \hbox (badness 10000) in paragraph at lines 46--48
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 49--50
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 51--52
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 53--54
-
- []
-
-File: assets/pics_and_ppts/ch3/顺序栈实现示意图.png Graphic file (type bmp)
-<assets/pics_and_ppts/ch3/顺序栈实现示意图.png>
-[32]
-\openout8 = `main.listing'.
-
- (_minted/178FE4A18D709DBC473746DB8B145ED3.highlight.minted)
-\openout8 = `main.listing'.
-
- (_minted/9764CCFEB2908999D01F715C0EE8D510.highlight.minted)
-\openout8 = `main.listing'.
-
- (_minted/A4F1DAB069D51BBAA22176338826F597.highlight.minted)
-\openout8 = `main.listing'.
-
- (_minted/5632184C1283F78E191CBEE20D41C890.highlight.minted) [33]
-\openout8 = `main.listing'.
-
- (_minted/17776D2EECD01EAD67665DB56F61B8E7.highlight.minted)
-\openout8 = `main.listing'.
-
- (_minted/617688EE37E62EAF4F9C3343F16EBA30.highlight.minted)
-\openout8 = `main.listing'.
-
- (_minted/B3739B21B8759775A1286BB296631D4C.highlight.minted)
-\openout8 = `main.listing'.
-
- (_minted/ADDEB6FA75E5F5A8AEE2B83B442ABC81.highlight.minted) [34]
-\openout8 = `main.listing'.
-
- (_minted/9C5989F7546A441AEA5F9C394AAEFC1C.highlight.minted)
-\openout8 = `main.listing'.
-
- (_minted/606E679BF9EEF0CCABF9EDC0956AA7A5.highlight.minted)
-File: assets/pics_and_ppts/ch3/浏览器的前进后退示意.png Graphic file (type bmp)
-<assets/pics_and_ppts/ch3/浏览器的前进后退示意.png>
- [35]
-Underfull \hbox (badness 10000) in paragraph at lines 210--211
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 212--213
-
- []
-
-File: assets/pics_and_ppts/ch3/使用两个栈实现浏览器前进后退.png Graphic file (type bmp)
-<assets/pics_and_ppts/ch3/使用两个栈实现浏览器前进后退.png>
-
-Overfull \hbox (69.13744pt too wide) in paragraph at lines 228--229
- [][] 
- []
-
-\openout8 = `main.listing'.
-
-(_minted/5C4F8DCAC39B3F7EC73BAA8A0877B04D.highlight.minted) [36]
-\openout8 = `main.listing'.
-
- (_minted/59F706587922D27D071F6EAF14D41A0C.highlight.minted) [37]
-\openout8 = `main.listing'.
-
- (_minted/0B5EEA5F58A3A8F8F34D16DE606C3AD4.highlight.minted)
-\openout8 = `main.listing'.
-
- (_minted/7AF03E1EA3EC1FAFFF047E40AC251CFE.highlight.minted)
-\openout8 = `main.listing'.
-
- (_minted/8F5BDA8D8DBA922810141A459EC2E6B7.highlight.minted) [38]
-\openout8 = `main.listing'.
-
- (_minted/7C93767A9B9416D4AA0249C0EDCB0121.highlight.minted)
-File: assets/pics_and_ppts/ch3/带头结点的链式队列示意图.png Graphic file (type bmp)
-<assets/pics_and_ppts/ch3/带头结点的链式队列示意图.png>
-\openout8 = `main.listing'.
-
- (_minted/9BF84ED2B638E531D5BC750B8734353E.highlight.minted)
-\openout8 = `main.listing'.
-
- (_minted/BBCCAE4F738BAD1C9C170479E1D9D025.highlight.minted)
-\openout8 = `main.listing'.
-
- (_minted/5AC69C77E586D55F2E190B301A8787DD.highlight.minted) [39]
-\openout8 = `main.listing'.
-
- (_minted/DD40EFA24A1450C6C4479BDB44D65AAE.highlight.minted)
-\openout8 = `main.listing'.
-
- (_minted/EC71C395E7CDE24A3A4424055C0081EF.highlight.minted)
-File: assets/pics_and_ppts/ch3/仅有一个数据节点的队列.png Graphic file (type bmp)
-<assets/pics_and_ppts/ch3/仅有一个数据节点的队列.png>
-\openout8 = `main.listing'.
-
- (_minted/9A98B5CA24D935DF7E6C4B8C2043B5E3.highlight.minted) [40]
-File: assets/pics_and_ppts/ch3/在顺序表上实现队列.png Graphic file (type bmp)
-<assets/pics_and_ppts/ch3/在顺序表上实现队列.png>
-
-Overfull \hbox (23.04814pt too wide) in paragraph at lines 409--410
- [][] 
- []
-
-[41]
-File: assets/pics_and_ppts/ch3/循环队列示意图.png Graphic file (type bmp)
-<assets/pics_and_ppts/ch3/循环队列示意图.png>
-
-Overfull \hbox (46.0963pt too wide) in paragraph at lines 440--441
- [][] 
- []
-
-\openout8 = `main.listing'.
-
-(_minted/6ECE0CB0A28C1028E20362362FFBDFDD.highlight.minted)
-\openout8 = `main.listing'.
-
- (_minted/31D25EA8B26ACD7794B25DF6C5CD090C.highlight.minted) [42]
-File: assets/pics_and_ppts/ch3/循环队列队满示意图.png Graphic file (type bmp)
-<assets/pics_and_ppts/ch3/循环队列队满示意图.png>
-\openout8 = `main.listing'.
-
- (_minted/3657D34681D4C641BCA4BEE22225596E.highlight.minted)
-\openout8 = `main.listing'.
-
- (_minted/C9FDD9668AE23F1F9D9130B566AD2BD8.highlight.minted)
-\openout8 = `main.listing'.
-
- (_minted/A814BA2F4EA6657402588BAE8CE1DDB1.highlight.minted) [43]
-\openout8 = `main.listing'.
-
- (_minted/ED7B6714B81669CBF351BD406BF046A2.highlight.minted)
-Underfull \hbox (badness 10000) in paragraph at lines 557--558
-
- []
-
-\openout8 = `main.listing'.
-
-(_minted/174CEAF62D96701579ED62CDDC366DD1.highlight.minted) [44] [45]
-File: assets/pics_and_ppts/ch3/每日温度.png Graphic file (type bmp)
-<assets/pics_and_ppts/ch3/每日温度.png>
-\openout8 = `main.listing'.
-
- (_minted/7AFB6E994720D7157DF3C12F0FC69FD1.highlight.minted) [46]
-Underfull \hbox (badness 10000) in paragraph at lines 683--686
-
- []
-
-[47]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[48] [49]
-
-LaTeX Warning: Float too large for page by 57.2551pt on input line 1125.
-
-[50] [51]
-\openout8 = `main-bookexercise-2-exercise-body.tex'.
-
- (main-bookexercise-2-exercise-body.tex
-Underfull \hbox (badness 10000) in paragraph at lines 10--15
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 16--21
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 22--27
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 28--33
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 34--39
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--50
-
- []
-
-File: assets/pics_and_ppts/ch3/共享栈.png Graphic file (type bmp)
-<assets/pics_and_ppts/ch3/共享栈.png>
-
-Underfull \hbox (badness 10000) in paragraph at lines 51--67
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 51--67
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 51--67
-
- []
-
-[52
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 70--76
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 77--82
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 83--88
-
- []
-
-[53]
-Underfull \hbox (badness 10000) in paragraph at lines 89--94
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 95--101
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 102--107
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 108--113
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 114--119
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 120--130
-
- []
-
-[54]) [55]
-\openout8 = `main-bookexercise-2-solution-body.tex'.
-
-) [56
-
-
-
-] (main-bookexercise-1-solution-body.tex
-Underfull \hbox (badness 10000) in paragraph at lines 10--12
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 13--15
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 16--17
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--21
-
- []
-
-\openout8 = `main.listing'.
-
-(_minted/5F0FDE2A5B4BEAA10708793A18749B93.highlight.minted)
-Underfull \hbox (badness 10000) in paragraph at lines 33--35
-
- []
-
-\openout8 = `main.listing'.
-
-(_minted/C84CC9D6B04CB47AB056D30A0AC3933B.highlight.minted) [57
-
-]
-\openout8 = `main.listing'.
-
- (_minted/6381762AACB70B533A9E5290AF68088B.highlight.minted)
-Underfull \hbox (badness 10000) in paragraph at lines 74--75
-
- []
-
-\openout8 = `main.listing'.
-
-(_minted/63ED7D6272672BC6B67C5FE4F2A1E320.highlight.minted)
-\openout8 = `main.listing'.
-
- (_minted/0EC02DA2E3D516C976F8AD86ECA8D3AE.highlight.minted) [58]
-\openout8 = `main.listing'.
-
- (_minted/BDFF3E54B5334CA5D57D73502D60C884.highlight.minted)
-\openout8 = `main.listing'.
-
- (_minted/1CEEE43F7FA5EF06F1D0A95E0F50DE21.highlight.minted) [59]
-\openout8 = `main.listing'.
-
- (_minted/85FFD4595827520FBFA514756D7ECE83.highlight.minted)
-\openout8 = `main.listing'.
-
- (_minted/243B3D3F07B9CC0226C9543007525726.highlight.minted) [60]) [61] (main-bookexercise-2-solution-body.tex
-Underfull \hbox (badness 10000) in paragraph at lines 10--11
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 12--13
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 14--16
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 17--18
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 19--21
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 22--24
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 25--30
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 31--32
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 33--34
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 35--36
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 37--38
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 39--43
-
- []
-
-[62
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 44--47
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 48--49
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 50--51
-
- []
-
-) [63] (main.aux (main.xsim))
+] (main.aux (main.xsim))
  ***********
 LaTeX2e <2026-06-01>
 L3 programming layer <2026/08/21>
@@ -2063,16 +1736,19 @@ L3 programming layer <2026/08/21>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 95F1DD1F1548E6CD75841ADC6E0213DB;3524.
+(rerunfilecheck)             Checksum: ED0BC00FA72A7FF317166E273336DBD3;570.
  ) 
 Here is how much of TeX's memory you used:
- 47505 strings out of 402560
- 1161983 string characters out of 5445169
- 1685439 words of memory out of 5000000
- 75699 multiletter control sequences out of 15000+600000
- 637640 words of font info for 116 fonts, out of 8000000 for 9000
+ 45498 strings out of 402560
+ 1060639 string characters out of 5445169
+ 1646516 words of memory out of 5000000
+ 73993 multiletter control sequences out of 15000+600000
+ 634490 words of font info for 98 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 106i,12n,118p,1292b,1805s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 106i,12n,118p,1299b,1444s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.xdv (67 pages, 1500188 bytes).
+Output written on main.pdf (10 pages).
