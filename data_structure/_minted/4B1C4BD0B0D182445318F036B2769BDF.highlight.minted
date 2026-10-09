@@ -1,0 +1,4 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+c1}{// 假设玩家通过“捏脸”后的数据，或游戏默认的主角初始数据保存在某Role类型的对象\PYGZdq{}XieNian\PYGZdq{}中。}
+\PYG{n}{InsertSeqList}\PYG{p}{(}\PYG{n}{expedition\PYGZus{}team}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{XieNian}\PYG{p}{)}\PYG{p}{;}
+\end{MintedVerbatim}

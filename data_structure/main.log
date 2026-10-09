@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.5) (preloaded format=xelatex 2026.9.20)  8 OCT 2026 22:56
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.5) (preloaded format=xelatex 2026.9.20)  10 OCT 2026 00:28
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1619,8 +1619,45 @@ or `english'. on input line 657.
  [1
 
 
-] [1
+]
+Underfull \hbox (badness 10000) in paragraph at lines 664--666
 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 668--669
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 670--672
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 670--672
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 670--672
+
+ []
+
+[1
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 683--684
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 685--686
+
+ []
+
+[2
 
 ] (main.toc
 LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
@@ -1641,32 +1678,39 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 (D:\MikTex\tex/latex/microtype\mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
-))
+) [3
+
+])
 \tf@toc=\write7
 \openout7 = `main.toc'.
 
- [2
-
-] (chapters/chapter4/ch4_tree.tex
+LaTeX Font Info:    Font shape `TU/SimSun(0)/m/sl' in size <10.53937> not avail
+able
+(Font)              Font shape `TU/SimSun(0)/m/it' tried instead on input line 
+715.
+ [4]
+(chapters/chapter1/ch1_intro.tex
 第一章
+[1
 
-LaTeX Warning: Reference `sec:数据结构' on page 1 undefined on input line 3.
 
+] [2]
 \g__tcobox_out_iow=\write8
 \openout8 = `main.listing'.
 
 \pydata@fh@0=\write9
 \openout9 = `_FAD58DE7366495DB4650CFEFAC2FCD61.data.minted'.
 
-runsystem(latexminted config  --timestamp 20261008225621 FAD58DE7366495DB4650CF
+runsystem(latexminted config  --timestamp 20261010002822 FAD58DE7366495DB4650CF
 EFAC2FCD61)...executed.
 
-(_FAD58DE7366495DB4650CFEFAC2FCD61.config.minted)
-runsystem(latexminted cleanconfig  --timestamp 20261008225621 FAD58DE7366495DB4
+ (_FAD58DE7366495DB4650CFEFAC2FCD61.config.minted)
+runsystem(latexminted cleanconfig  --timestamp 20261010002822 FAD58DE7366495DB4
 650CFEFAC2FCD61)...executed.
 
- (_minted/default.style.minted) (_minted/F64E1F73439E0CE25113940B5664F34B.highl
-ight.minted
+
+(_minted/default.style.minted)
+(_minted/A8D3635E0629E901EEF579420B40E7BB.highlight.minted
 LaTeX Font Info:    Trying to load font information for TU+DejaVu Sans Mono on 
 input line 1.
 LaTeX Font Info:    No file TUDejaVu Sans Mono.fd. on input line 1.
@@ -1683,49 +1727,868 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `DejaVu Sans Mono' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-) [1
+) [3]
+\openout8 = `main.listing'.
+
+ (_minted/567131661E66ACF6FDD4B532A95E21D0.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/A4CB10A843B9D8CC65807331559B84FB.highlight.minted
+
+LaTeX Font Warning: Font shape `TU/DejaVu Sans Mono/m/it' undefined
+(Font)              using `TU/DejaVu Sans Mono/m/n' instead on input line 2.
+
+)
+\openout8 = `main.listing'.
+
+ (_minted/25FA1828AA3055BEE582C13F4EA9E916.highlight.minted) [4]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 266.
+
+[5]
+\openout8 = `main.listing'.
+
+ (_minted/BBCE9173B5721ED15421451AF7202546.highlight.minted))
+(chapters/chapter2/ch2_list.tex [6]
+第二章
+\openout8 = `main.listing'.
+
+(_minted/FC152B54AED0A14706C7D81D9FBDB94F.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/03462B19F3CD46853A9F433F063D3FF5.highlight.minted) [7
+
+]
+File: assets/pics_and_ppts/ch2/顺序存储的线性表.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch2/顺序存储的线性表.png>
+\openout8 = `main.listing'.
+
+
+(_minted/9257A3409C7A3EB62240EE38690925E7.highlight.minted) [8]
+\openout8 = `main.listing'.
+
+
+(_minted/8C1C90EF36735B098D00B006032647E6.highlight.minted)
+File: assets/pics_and_ppts/ch2/链表的节点.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch2/链表的节点.png>
+\openout8 = `main.listing'.
+
+
+(_minted/E385D8F9FB14F8F53BB5A274E688A0BA.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/4A30C238CF83135567294CAFC4860A2C.highlight.minted) [9]
+File: assets/pics_and_ppts/ch2/链式存储的线性表.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch2/链式存储的线性表.png>
+\openout8 = `main.listing'.
+
+
+(_minted/6A9D8DA6D151A3733E2E22F7D0646A06.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/EB64F0FC9B94B5E9E2875A6FA04C6082.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/E91C91C982393A61A189B5C8C0DC56DD.highlight.minted) [10]
+File: assets/pics_and_ppts/ch2/顺序表的插入操作.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch2/顺序表的插入操作.png>
+\openout8 = `main.listing'.
+
+
+(_minted/5654D21335D99AE19B897612A53FE7B3.highlight.minted) [11]
+Underfull \hbox (badness 10000) in paragraph at lines 202--204
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 208--211
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 212--216
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 217--219
+
+ []
+
+\openout8 = `main.listing'.
+
+(_minted/935B29012316046B9766ABF45295613E.highlight.minted) [12]
+\openout8 = `main.listing'.
+
+
+(_minted/AC3D3AF3D1CE7100D5F8F33375306C46.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/8A17DD521E76A685F04BC7F592A0113E.highlight.minted) [13]
+\openout8 = `main.listing'.
+
+
+(_minted/4B1C4BD0B0D182445318F036B2769BDF.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/B5D1FB65408943D79F879822DB65C783.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/CBB1E2B6E03EA497F2913A275DA31F39.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/F186269B340699F302864A32FAB9AB94.highlight.minted) [14]
+\openout8 = `main.listing'.
+
+
+(_minted/0563916623EBD5EEF2FC9F140078CC6F.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/CDDE80557819395982EAE9629BB06B43.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/93A3D32DE3BEBC5AD8CCA1F14698FB65.highlight.minted)
+File: assets/pics_and_ppts/ch2/链表初始化前后示意.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch2/链表初始化前后示意.png>
+File: assets/pics_and_ppts/ch2/带头节点与不带头节点的链表.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch2/带头节点与不带头节点的链表.png>
+ [15]
+\openout8 = `main.listing'.
+
+
+(_minted/BE20CAE9825B6EE907AA3A6888B97983.highlight.minted) [16]
+\openout8 = `main.listing'.
+
+
+(_minted/1BEC86E6CE1B83A7BED8180976E18327.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/D9C8B3B8E5FA9D65C7839A2148491E62.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/84AD0C2BF7B11DE9D9362659BE84E418.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/9742350A9CC1AAAF911B936D6ABA76F0.highlight.minted) [17]
+File: assets/pics_and_ppts/ch2/链表的插入过程示意.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch2/链表的插入过程示意.png>
+\openout8 = `main.listing'.
+
+
+(_minted/3FE4B7E3B7BB8CCC15E7EDFB4D310341.highlight.minted) [18]
+\openout8 = `main.listing'.
+
+
+(_minted/13FB1B67D63E1A20B73C6C25393A3FC2.highlight.minted)
+File: assets/pics_and_ppts/ch2/链表的删除过程示意.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch2/链表的删除过程示意.png>
+\openout8 = `main.listing'.
+
+
+(_minted/437A642BDCBB2B3CB0FF44CAEECE52A4.highlight.minted) [19] [20]
+\openout8 = `main.listing'.
+
+
+(_minted/9DF40D256428621911A139F3CB6598E5.highlight.minted)
+Underfull \hbox (badness 10000) in paragraph at lines 598--599
+
+ []
+
+\openout8 = `main.listing'.
+
+(_minted/4FF3FC0DFB2A465AB0D810C7D4C53964.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/ADE7CC38856BA22746DD1F3719EEA789.highlight.minted)
+Underfull \hbox (badness 10000) in paragraph at lines 626--629
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 630--633
+
+ []
+
+[21] [22]
+\openout8 = `main-bookexercise-1-exercise-body.tex'.
+
+ (main-bookexercise-1-exercise-body.tex
+Underfull \hbox (badness 10000) in paragraph at lines 10--15
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--21
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 26--35
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 36--41
+
+ []
+
+\openout8 = `main.listing'.
+
+(_minted/09970E1BA00E8A53850AF5F264DA9CFE.highlight.minted)
+Underfull \hbox (badness 10000) in paragraph at lines 51--52
+
+ []
+
+\openout8 = `main.listing'.
+
+(_minted/677847DBFA74EF36BFAFC2FE0ED43512.highlight.minted) [23
+
+]
+\openout8 = `main.listing'.
+
+
+(_minted/BC0E519BFAB4210328D6BA599EED8BE7.highlight.minted)
+Underfull \hbox (badness 10000) in paragraph at lines 67--68
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
+
+ []
+
+\openout8 = `main.listing'.
+
+(_minted/34A12D93AD3CFA29E2DF5A30CDEB7FDC.highlight.minted)
+Underfull \hbox (badness 10000) in paragraph at lines 95--97
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 113--114
+
+ []
+
+\openout8 = `main.listing'.
+
+(_minted/34A12D93AD3CFA29E2DF5A30CDEB7FDC.highlight.minted) [24])
+Underfull \hbox (badness 10000) in paragraph at lines 128--764
+
+ []
+
+[25]
+\openout8 = `main-bookexercise-1-solution-body.tex'.
+
+\openout8 = `main.listing'.
+
+ (_minted/9C66BE8C7E3766023978F47D2D058CE6.highlight.minted)
+File: assets/pics_and_ppts/ch2/双链表示意图.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch2/双链表示意图.png>
+\openout8 = `main.listing'.
+
+
+(_minted/04F0DFC8C15736CBBF65C792C83EFA67.highlight.minted) [26
+
+]
+\openout8 = `main.listing'.
+
+
+(_minted/D206D2ADA075654179B82DE2001AC110.highlight.minted)
+File: assets/pics_and_ppts/ch2/循环链表示意图.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch2/循环链表示意图.png>
+ [27]
+File: assets/pics_and_ppts/ch2/静态链表示意图.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch2/静态链表示意图.png>
+\openout8 = `main.listing'.
+
+
+(_minted/BAA40D75420A789770E21D559346556C.highlight.minted) [28]
+\openout8 = `main.listing'.
+
+
+(_minted/AAB1EDEF5070EE7FF4C27A7A397D3251.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/1188C0CE9A7822DA864B7AD4DF28202B.highlight.minted) [29])
+(chapters/chapter3/ch3_stack_and_queue.tex [30]
+第三章
+File: assets/pics_and_ppts/ch3/洗澡穿脱衣服的例子.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch3/洗澡穿脱衣服的例子.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--12
+
+ []
+
+File: assets/pics_and_ppts/ch3/栈的示意图.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch3/栈的示意图.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 25.
+See the caption package documentation for explanation.
+
+[31
+
+]
+File: assets/pics_and_ppts/ch3/队列示意图.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch3/队列示意图.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--48
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--50
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 51--52
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 53--54
+
+ []
+
+File: assets/pics_and_ppts/ch3/顺序栈实现示意图.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch3/顺序栈实现示意图.png>
+[32]
+\openout8 = `main.listing'.
+
+ (_minted/178FE4A18D709DBC473746DB8B145ED3.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/9764CCFEB2908999D01F715C0EE8D510.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/A4F1DAB069D51BBAA22176338826F597.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/5632184C1283F78E191CBEE20D41C890.highlight.minted) [33]
+\openout8 = `main.listing'.
+
+
+(_minted/17776D2EECD01EAD67665DB56F61B8E7.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/617688EE37E62EAF4F9C3343F16EBA30.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/B3739B21B8759775A1286BB296631D4C.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/ADDEB6FA75E5F5A8AEE2B83B442ABC81.highlight.minted) [34]
+\openout8 = `main.listing'.
+
+
+(_minted/9C5989F7546A441AEA5F9C394AAEFC1C.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/606E679BF9EEF0CCABF9EDC0956AA7A5.highlight.minted)
+File: assets/pics_and_ppts/ch3/浏览器的前进后退示意.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch3/浏览器的前进后退示意.png>
+ [35]
+Underfull \hbox (badness 10000) in paragraph at lines 210--211
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 212--213
+
+ []
+
+File: assets/pics_and_ppts/ch3/使用两个栈实现浏览器前进后退.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch3/使用两个栈实现浏览器前进后退.png>
+
+Overfull \hbox (69.13744pt too wide) in paragraph at lines 228--229
+ [][] 
+ []
+
+\openout8 = `main.listing'.
+
+(_minted/5C4F8DCAC39B3F7EC73BAA8A0877B04D.highlight.minted) [36]
+\openout8 = `main.listing'.
+
+
+(_minted/59F706587922D27D071F6EAF14D41A0C.highlight.minted) [37]
+\openout8 = `main.listing'.
+
+
+(_minted/0B5EEA5F58A3A8F8F34D16DE606C3AD4.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/7AF03E1EA3EC1FAFFF047E40AC251CFE.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/8F5BDA8D8DBA922810141A459EC2E6B7.highlight.minted) [38]
+\openout8 = `main.listing'.
+
+
+(_minted/7C93767A9B9416D4AA0249C0EDCB0121.highlight.minted)
+File: assets/pics_and_ppts/ch3/带头结点的链式队列示意图.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch3/带头结点的链式队列示意图.png>
+\openout8 = `main.listing'.
+
+
+(_minted/9BF84ED2B638E531D5BC750B8734353E.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/BBCCAE4F738BAD1C9C170479E1D9D025.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/5AC69C77E586D55F2E190B301A8787DD.highlight.minted) [39]
+\openout8 = `main.listing'.
+
+
+(_minted/DD40EFA24A1450C6C4479BDB44D65AAE.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/EC71C395E7CDE24A3A4424055C0081EF.highlight.minted)
+File: assets/pics_and_ppts/ch3/仅有一个数据节点的队列.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch3/仅有一个数据节点的队列.png>
+\openout8 = `main.listing'.
+
+
+(_minted/9A98B5CA24D935DF7E6C4B8C2043B5E3.highlight.minted) [40]
+File: assets/pics_and_ppts/ch3/在顺序表上实现队列.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch3/在顺序表上实现队列.png>
+
+Overfull \hbox (23.04814pt too wide) in paragraph at lines 409--410
+ [][] 
+ []
+
+[41]
+File: assets/pics_and_ppts/ch3/循环队列示意图.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch3/循环队列示意图.png>
+
+Overfull \hbox (46.0963pt too wide) in paragraph at lines 440--441
+ [][] 
+ []
+
+\openout8 = `main.listing'.
+
+(_minted/6ECE0CB0A28C1028E20362362FFBDFDD.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/31D25EA8B26ACD7794B25DF6C5CD090C.highlight.minted) [42]
+File: assets/pics_and_ppts/ch3/循环队列队满示意图.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch3/循环队列队满示意图.png>
+\openout8 = `main.listing'.
+
+
+(_minted/3657D34681D4C641BCA4BEE22225596E.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/C9FDD9668AE23F1F9D9130B566AD2BD8.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/A814BA2F4EA6657402588BAE8CE1DDB1.highlight.minted) [43]
+\openout8 = `main.listing'.
+
+
+(_minted/ED7B6714B81669CBF351BD406BF046A2.highlight.minted)
+Underfull \hbox (badness 10000) in paragraph at lines 554--555
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 560--561
+
+ []
+
+[44]
+\openout8 = `main.listing'.
+
+ (_minted/174CEAF62D96701579ED62CDDC366DD1.highlight.minted) [45]
+File: assets/pics_and_ppts/ch3/每日温度.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch3/每日温度.png>
+\openout8 = `main.listing'.
+
+
+(_minted/7AFB6E994720D7157DF3C12F0FC69FD1.highlight.minted) [46]
+Underfull \hbox (badness 10000) in paragraph at lines 688--691
+
+ []
+
+[47]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[48] [49]
+
+LaTeX Warning: Float too large for page by 57.2551pt on input line 1130.
+
+[50] [51]
+\openout8 = `main-bookexercise-2-exercise-body.tex'.
+
+ (main-bookexercise-2-exercise-body.tex
+Underfull \hbox (badness 10000) in paragraph at lines 10--15
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--21
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--27
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 28--33
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--39
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 45--50
+
+ []
+
+File: assets/pics_and_ppts/ch3/共享栈.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch3/共享栈.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 51--67
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 51--67
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 51--67
+
+ []
+
+[52
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 70--76
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 77--82
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--88
+
+ []
+
+[53]
+Underfull \hbox (badness 10000) in paragraph at lines 89--94
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--101
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 102--107
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 108--113
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 114--119
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 120--130
+
+ []
+
+[54]
+\openout8 = `main.listing'.
+
+ (_minted/534001E3E547BD7D2DA2F75E6081E003.highlight.minted)) [55]
+\openout8 = `main-bookexercise-2-solution-body.tex'.
+
+)
+(chapters/chapter4/ch4_tree.tex
+第四章
+\openout8 = `main.listing'.
+
+(_minted/F64E1F73439E0CE25113940B5664F34B.highlight.minted) [56
 
 
 ]
 \openout8 = `main.listing'.
 
- (_minted/BC0A687B0BD743F24D8A88D829C6E2D3.highlight.minted
 
-LaTeX Font Warning: Font shape `TU/DejaVu Sans Mono/m/it' undefined
-(Font)              using `TU/DejaVu Sans Mono/m/n' instead on input line 4.
-
-)
+(_minted/BC0A687B0BD743F24D8A88D829C6E2D3.highlight.minted)
 File: assets/pics_and_ppts/ch4/树的不定长数组表示.png Graphic file (type bmp)
 <assets/pics_and_ppts/ch4/树的不定长数组表示.png>
 \openout8 = `main.listing'.
 
- (_minted/6D6D53E6EDFE18017D31EA48CFCD5AD5.highlight.minted)
+
+(_minted/6D6D53E6EDFE18017D31EA48CFCD5AD5.highlight.minted)
 File: assets/pics_and_ppts/ch4/树的孩子-兄弟表示法.png Graphic file (type bmp)
 <assets/pics_and_ppts/ch4/树的孩子-兄弟表示法.png>
-LaTeX Font Info:    Font shape `TU/SimSun(0)/m/sl' in size <10.53937> not avail
-able
-(Font)              Font shape `TU/SimSun(0)/m/it' tried instead on input line 
-143.
- [2]
+ [57]
 Underfull \hbox (badness 10000) in paragraph at lines 144--147
 
  []
 
 \openout8 = `main.listing'.
 
-(_minted/4558132B706C54DE5855DB1748D50920.highlight.minted) [3]
+(_minted/4558132B706C54DE5855DB1748D50920.highlight.minted) [58]
 File: assets/pics_and_ppts/ch4/一棵树.png Graphic file (type bmp)
 <assets/pics_and_ppts/ch4/一棵树.png>
- [4]
+ [59]
 Underfull \hbox (badness 10000) in paragraph at lines 257--258
 
  []
 
-[5]
+[60]
 File: assets/pics_and_ppts/ch4/几棵不同的二叉树.png Graphic file (type bmp)
 <assets/pics_and_ppts/ch4/几棵不同的二叉树.png>
-) [6] [7
+File: assets/pics_and_ppts/ch4/一些满二叉树与完全二叉树.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch4/一些满二叉树与完全二叉树.png>
+ [61]
+\openout8 = `main.listing'.
 
+ (_minted/2911E8A23C2D244388C69D92B7D01376.highlight.minted)
+File: assets/pics_and_ppts/ch4/用数组表示二叉树.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch4/用数组表示二叉树.png>
+\openout8 = `main.listing'.
+
+
+(_minted/CD5A6C7439270F62949CF624E76AEED2.highlight.minted) [62]
+Underfull \hbox (badness 10000) in paragraph at lines 342--344
+
+ []
+
+File: assets/pics_and_ppts/ch4/用于指出遍历序列的二叉树.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch4/用于指出遍历序列的二叉树.png>
+\openout8 = `main.listing'.
+
+(_minted/2911E8A23C2D244388C69D92B7D01376.highlight.minted) [63]
+\openout8 = `main.listing'.
+
+
+(_minted/81C8CD66CB9BE1EA1F85FF0A1E8C6B74.highlight.minted) [64]
+Underfull \hbox (badness 10000) in paragraph at lines 444--445
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 452--453
+
+ []
+
+[65]) [66] [67
+
+
+] (main-bookexercise-1-solution-body.tex
+Underfull \hbox (badness 10000) in paragraph at lines 10--12
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--15
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--17
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--21
+
+ []
+
+\openout8 = `main.listing'.
+
+(_minted/5F0FDE2A5B4BEAA10708793A18749B93.highlight.minted)
+Underfull \hbox (badness 10000) in paragraph at lines 33--35
+
+ []
+
+\openout8 = `main.listing'.
+
+(_minted/C84CC9D6B04CB47AB056D30A0AC3933B.highlight.minted) [68
+
+]
+\openout8 = `main.listing'.
+
+
+(_minted/6381762AACB70B533A9E5290AF68088B.highlight.minted)
+Underfull \hbox (badness 10000) in paragraph at lines 74--75
+
+ []
+
+\openout8 = `main.listing'.
+
+(_minted/63ED7D6272672BC6B67C5FE4F2A1E320.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/0EC02DA2E3D516C976F8AD86ECA8D3AE.highlight.minted) [69]
+\openout8 = `main.listing'.
+
+
+(_minted/BDFF3E54B5334CA5D57D73502D60C884.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/1CEEE43F7FA5EF06F1D0A95E0F50DE21.highlight.minted) [70]
+\openout8 = `main.listing'.
+
+
+(_minted/85FFD4595827520FBFA514756D7ECE83.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/243B3D3F07B9CC0226C9543007525726.highlight.minted) [71]) [72]
+(main-bookexercise-2-solution-body.tex
+Underfull \hbox (badness 10000) in paragraph at lines 10--11
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--13
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--16
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--18
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--21
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--24
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 25--30
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--32
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--34
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--36
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--38
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--43
+
+ []
+
+[73
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 44--47
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 48--49
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--51
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--59
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--62
+
+ []
+
+\openout8 = `main.listing'.
+
+(_minted/5D2E311A209E233BFD851EEF2CF34972.highlight.minted) [74])
+(chapters/the_end.tex [75]) [76
 
 ] (main.aux (main.xsim))
  ***********
@@ -1736,19 +2599,16 @@ L3 programming layer <2026/08/21>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: ED0BC00FA72A7FF317166E273336DBD3;570.
+(rerunfilecheck)             Checksum: 3E7B92B2B13C80D710DEB7533E7DF60A;4378.
  ) 
 Here is how much of TeX's memory you used:
- 45498 strings out of 402560
- 1060639 string characters out of 5445169
- 1646516 words of memory out of 5000000
- 73993 multiletter control sequences out of 15000+600000
- 634490 words of font info for 98 fonts, out of 8000000 for 9000
+ 47869 strings out of 402560
+ 1175748 string characters out of 5445169
+ 1690226 words of memory out of 5000000
+ 76018 multiletter control sequences out of 15000+600000
+ 637640 words of font info for 116 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 106i,12n,118p,1299b,1444s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 106i,12n,118p,1299b,1805s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (10 pages).
+Output written on main.pdf (81 pages).

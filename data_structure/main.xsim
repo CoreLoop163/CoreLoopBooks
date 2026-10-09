@@ -3,35 +3,35 @@
 \XSIM{totalgoal}{points}{0}
 \XSIM{goal}{bookexercise}{bonus-points}{0}
 \XSIM{totalgoal}{bonus-points}{0}
-\XSIM{order}{}
+\XSIM{order}{1||2}
 \XSIM{use}{}
 \XSIM{use!}{}
-\XSIM{used}{}
+\XSIM{used}{bookexercise-1=={true}||bookexercise-2=={true}}
 \XSIM{print}{}
 \XSIM{print!}{}
-\XSIM{printed}{}
-\XSIM{total-number}{0}
-\XSIM{bookexercise}{0}
+\XSIM{printed}{bookexercise-1=={true}||bookexercise-2=={true}}
+\XSIM{total-number}{2}
+\XSIM{bookexercise}{2}
 \XSIM{types}{bookexercise}
-\XSIM{idtypes}{}
-\XSIM{collections}{}
-\XSIM{collection:all exercises}{}
-\setcounter{totalbookexerciseinall exercises}{0}
-\XSIM{id}{}
-\XSIM{ID}{}
-\XSIM{counter}{}
-\XSIM{counter-value}{}
+\XSIM{idtypes}{1=={bookexercise}||2=={bookexercise}}
+\XSIM{collections}{bookexercise-1=={all exercises}||bookexercise-2=={all exercises}}
+\XSIM{collection:all exercises}{bookexercise-1||bookexercise-2}
+\setcounter{totalbookexerciseinall exercises}{2}
+\XSIM{id}{bookexercise-1=={1}||bookexercise-2=={2}}
+\XSIM{ID}{bookexercise-1=={1}||bookexercise-2=={2}}
+\XSIM{counter}{bookexercise-1=={1}||bookexercise-2=={2}}
+\XSIM{counter-value}{bookexercise-1=={1}||bookexercise-2=={2}}
 \XSIM{solution}{}
-\XSIM{chapter-value}{}
-\XSIM{chapter}{}
-\XSIM{section-value}{}
-\XSIM{section}{}
-\XSIM{sectioning}{}
+\XSIM{chapter-value}{bookexercise-1=={2}||bookexercise-2=={3}}
+\XSIM{chapter}{bookexercise-1=={2}||bookexercise-2=={3}}
+\XSIM{section-value}{bookexercise-1=={4}||bookexercise-2=={3}}
+\XSIM{section}{bookexercise-1=={2.4}||bookexercise-2=={3.3}}
+\XSIM{sectioning}{bookexercise-1=={{2}{4}{4}{0}{0}}||bookexercise-2=={{3}{3}{1}{0}{0}}}
 \XSIM{subtitle}{}
 \XSIM{points}{}
 \XSIM{bonus-points}{}
-\XSIM{page-value}{}
-\XSIM{page}{}
+\XSIM{page-value}{bookexercise-1=={23}||bookexercise-2=={52}}
+\XSIM{page}{bookexercise-1=={23}||bookexercise-2=={52}}
 \XSIM{tags}{}
 \XSIM{topics}{}
 \XSIM{userpoints}{}

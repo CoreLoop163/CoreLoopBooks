@@ -1,0 +1,5 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{SLinkList}\PYG{+w}{ }\PYG{n}{L}\PYG{p}{;}
+\PYG{n}{L}\PYG{p}{.}\PYG{n}{current\PYGZus{}size}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{n}{L}\PYG{p}{.}\PYG{n}{head}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{;}\PYG{+w}{    }\PYG{c+c1}{// 目前是空表}
+\end{MintedVerbatim}

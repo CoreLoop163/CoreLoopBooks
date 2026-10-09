@@ -129,7 +129,7 @@
     };
 \end{cppcode}
 如图\ref{fig:树的孩子-兄弟表示法}所示。
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.6\textwidth]{assets/pics_and_ppts/ch4/树的孩子-兄弟表示法.png}
     \caption{树的孩子-兄弟表示法}
@@ -221,7 +221,7 @@ root这个对象既可以理解为树的根节点的指针，又可以理解为�
 
 \subsection{树的一些基本概念}
 我们回到逻辑上的数据结构：树。树中有一些大家常用的专业术语与性质，我们在这里列出。\\
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.6\textwidth]{assets/pics_and_ppts/ch4/一棵树.png}
     \caption{}
@@ -250,17 +250,17 @@ d）\term{节点的深度}通常定义为节点的所在层次；而\term{节点
 \end{notebox}
 
 
-\section{二叉树}
-很少有实际问题需要直接通过二叉树来解决，但是二叉树在计算机科学中的应用是非常非常重要的。许多更加有用的数据结构都是一棵二叉树。而且对二叉树的研究可以为我们建立
-类似树的层次结构的思维方式。笔者认为，对“二叉树”的研究在整个《数据结构》中都是相当重要的。
+\section{二叉树的基本内容介绍}
+简单地说，“最多两个分叉的树”就是二叉树。一棵普通的二叉树本身通常难以在实际问题中应用上，但是它却是后面一些非常有趣的特殊二叉树（如
+\term{二叉查找树}、\term{哈夫曼树}、\term{堆}等）的理论基础。所以我们有必要首先进行一些理论铺垫。
 \begin{definitionbox}
     \term{二叉树}要么是一棵空树，要么是一棵：\\
     
     由根节点以及它的两棵子树构成的树，这两棵子树有左右位置之分，分别称为\term{左子树}和\term{右子树}，并且左子树和右子树依然是一棵二叉树。
 \end{definitionbox}
 可以看到，二叉树是\term{递归定义}的，即用二叉树自身来定义二叉树。
-如图\ref{fig:几棵不同的二叉树}所示的几棵树都是二叉树，根据图中文字介绍，大家也能进一步体会二叉树的递归定义。
-\begin{figure}
+如图\ref{fig:几棵不同的二叉树}所示的几棵树都是二叉树，根据图中文字介绍，大家也能进一步体会二叉树的“递归定义”。
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=1.0\textwidth]{assets/pics_and_ppts/ch4/几棵不同的二叉树.png}
     \caption{几棵不同的二叉树}
@@ -277,4 +277,199 @@ d）\term{节点的深度}通常定义为节点的所在层次；而\term{节点
     2. 二叉树即使只有一个孩子节点，该节点也要区分左右。而度为2的有序树，其“有序”是兄弟之间的位置有序，若某个节点是“独生子女”，则其位置是唯一确定的，不分左右。
     二叉树明确区分孩子的左右位置，这是因为在更多的场景下这是有用的，在后面的内容中我们将有所体会。
 \end{notebox}
+
+有两种比较丰满的二叉树需要特别关注：满二叉树与完全二叉树。
+
+如果二叉树中的任意一层节点数都达到了当层能达到的最大节点数，这种二叉树称为\term{满二叉树}；如果除最下面
+一层外，其余层都达到了当层最大节点数，并且最后一层的节点都一个挨一个地挤在左边，则二叉树称为\term{完全二叉树}。显然满二叉树一定都是完全二叉树。
+
+图\ref{fig:一些满二叉树与完全二叉树}展示了一些满二叉树与完全二叉树。
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.75\textwidth]{assets/pics_and_ppts/ch4/一些满二叉树与完全二叉树.png}
+    \caption{一些满二叉树与完全二叉树}
+    \label{fig:一些满二叉树与完全二叉树}
+\end{figure}
+
+\subsection{二叉树的实现}
+\minisection{将二叉树存储为二叉链表}
+有了链表的思维，相信大家非常自然地就能想到二叉树的实现方式：树的节点设两个指针分别指向其左孩子和右孩子如下所示：
+\begin{cppcode}
+    struct BTreeNode {
+        ElemType data;
+        BTreeNode* lchild;  // 左孩子的指针
+        BTreeNode* rchild;  // 右孩子的指针 
+    };
+\end{cppcode}
+这正是二叉树最为经典的实现方式，这种物理结构也称为\term{二叉链表}，它与普通的单链表相比“多分出了一个叉”。
+
+正如本节指出所指出，二叉树的实际应用在于一些有趣的特殊二叉树。人们对队列、栈等数据结构有“入队、出队、入栈”等常见操作的定义，是因为它们切实有用，有
+重要的实际意义，而普通二叉树几乎不存在实际应用，因此通常不会为它定义一些常见操作，以上介绍的理论，是为了后面的特殊二叉树服务。此处如果你感兴趣，可以
+尝试完成下面的“思考”。
+
+\begin{thinkbox}
+    建立一棵你中意的二叉树，并遍历这棵树，打印所有节点的数据内容。
+\end{thinkbox}
+
+\minisection{用数组存储二叉树}
+基于二叉树有上下的层次关系以及左右的次序关系，如果我们从上到之下、从左到右地为二叉树的每一个节点依次编号，就可以将这些
+节点依次存储在数组中的对应下标之处，如图\ref{fig:用数组存储二叉树}所示，我们这里遵循多数人的习惯，根节点从1开始编号，即从数组下标1处开始存储，而非从0。显然
+显然\textbf{在这种存储方式下，任一节点i，其左孩子如果存在的话，编号一定是2i，右孩子如果存在的话，编号一定是2i+1。}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.95\textwidth]{assets/pics_and_ppts/ch4/用数组表示二叉树.png}
+    \caption{用数组存储二叉树}
+    \label{fig:用数组存储二叉树}
+\end{figure}
+
+
+这种表示法可以由以下代码实现：
+\begin{cppcode}
+    struct BTreeNode{
+        ElemType data;
+        int valid;  // 该节点是否存在
+    }; 
+    BTreeNode nodes[MaxSize];   // 该数组中保存的就是二叉树的所有节点
+\end{cppcode}
+
+\begin{notebox}{提示}
+    一般情况下每个节点还需要一个字段valid标识是否有效。但如果你存放的数据满足某种特点，比如一定都是正整数，那么你也可以不要valid字段，而是通过将数据的值
+    置为-1，来表示该位置处节点不存在。
+\end{notebox}
+
+二叉树的这种存储方式的问题在于，即使某个节点不存在，也要浪费一个编号位，最坏情况下，当二叉树形状趋于深度为h的一条直线时，我们用约\(2^h\)个空间仅存储了约h个数据。
+
+经过观察不难发现，\textbf{该表示法对完全二叉树（以及满二叉树）非常友好}。因为完全二叉树的节点从上到下、从左到右是连续的，不存在空缺的编号。在介绍{\color{red}
+\textbf{后面的内容时}}，我们也能看到该表示法在完全二叉树中的妙用。\\
+
+在进入本章真正有趣的部分之前，我们还要进行一场最后的理论准备：二叉树的遍历。
+
+\subsection{二叉树的遍历}
+遍历一个顺序表有多种方式，可以从前向后，也可以从后向前等。类似地，遍历二叉树也有多种方式。常见的、有意义的遍历方式通常有如下几种：\term{层序遍历}、\term{先序遍历}、
+\term{中序遍历}、\term{后序遍历}。相信大家最容易想到的遍历方式就是从上到下、从左到右地一个一个节点地访问，这就是层序遍历。对于
+图\ref{fig:用于指出遍历序列的二叉树}中所示的二叉树，层序遍历得到的访问序列是ABCDEFGHIJ。
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{assets/pics_and_ppts/ch4/用于指出遍历序列的二叉树.png}
+    \caption{}
+    \label{fig:用于指出遍历序列的二叉树}
+\end{figure}
+
+
+\begin{notebox}{提示}
+    我们与多数教材保持一致，以二叉链表存储的二叉树为例，给出二叉树的遍历方式，这也是应用更多的场景。
+\end{notebox}
+
+\minisection{二叉树的层序遍历}
+对于链式存储的二叉树：
+\begin{cppcode}
+    struct BTreeNode {
+        ElemType data;
+        BTreeNode* lchild;  // 左孩子的指针
+        BTreeNode* rchild;  // 右孩子的指针 
+    };
+\end{cppcode}
+如何从上到下，从左到右地依次访问每个节点？我们只需要一个队列，将更上层的节点优先入队，并且确保同层级的节点中，更左边的优先入队。这样，将队中节点
+依次\uline{出队访问}即可。具体来说，实现二叉树层序遍历的过程如下：
+\begin{enumerate}[label=\arabic*）]
+    \item 将根节点root加入队列q；
+    \item \uline{出队访问}队首节点front\_node；
+    \item 如果front\_node有左孩子，先将左孩子入队；
+    \item 如果front\_node有右孩子，再将右孩子入队；
+    \item 回到第2）步，直到队列为空。
+\end{enumerate}
+显然第一步将根节点加入队列是毋庸置疑的。而第3）、4）两步，先加入左孩子再加入右孩子，则保证了从左到右的访问顺序。
+\begin{insightbox}
+    如果你希望从上到下、从\uline{右}到\uline{左}地遍历二叉树，将上面的3）、4）两步交换位置即可。
+\end{insightbox}
+层序遍历的伪代码如下所示。
+\begin{cppcode}
+// 对根为root的二叉树进行层序遍历。对每个节点执行visit()函数。
+    void LayerOrderTravel(BTreeNode* root) {
+        if(root == NULL) return ;
+        Queue q;
+        InitQueue(q);
+        EnQueue(q, root);   // 根节点入队
+        while(!Empty(q)) {
+            BTreeNode* front_node = NULL;
+            DeQueue(q, front_node);     // 队首节点出队，赋值给变量front_node
+            visit(front_node);          // 访问front_node
+            if(front_node->lchild != NULL) {
+                EnQueue(q, front_node->lchild);     // 入队左孩子
+            }
+            if(front_node->rchild != NULL) {
+                EnQueue(q, front_node->rchild);     // 入队右孩子
+            }
+        }
+    }
+\end{cppcode}
+对于图\ref{fig:用于指出遍历序列的二叉树}中所示的二叉树，其详细的层序遍历过程如下表\ref{tab:layer-order-traversal}所示。可以看出，
+正是队列的先进先出特性，保证了节点按照从上到下、同层从左到右的顺序被访问。
+\begin{table}[htbp]
+    \centering
+    \caption{二叉树层序遍历的执行过程}
+    \label{tab:layer-order-traversal}
+    \begin{tabular}{c|c|c|c|l}
+        \hline
+        步骤 & 出队节点 & 访问节点 & 新入队节点
+        & 操作完成后的队列（队首 $\rightarrow$ 队尾） \\
+        \hline
+        初始 & --- & --- & A & A \\
+        1 & A & A & B，C & B，C \\
+        2 & B & B & D，E & C，D，E \\
+        3 & C & C & F & D，E，F \\
+        4 & D & D & G & E，F，G \\
+        5 & E & E & H & F，G，H \\
+        6 & F & F & I，J & G，H，I，J \\
+        7 & G & G & --- & H，I，J \\
+        8 & H & H & --- & I，J \\
+        9 & I & I & --- & J \\
+        10 & J & J & --- & 空 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+除层序遍历外，对一棵树的\uline{根节点}、\uline{左子树}和\uline{右子树}也可以有不同的访问顺序。访问一棵树时：
+\begin{enumerate}
+    \item 若先访问根节点，再访问左子树，最后访问右子树，这种“\uwave{根-左-右}”的遍历方式称为\term{先序遍历}，也称\term{先根遍历}。
+    \item 若先访问左子树，再访问根节点，最后访问右子树，这种“\uwave{左-根-右}”的遍历方式称为\term{中序遍历}，也称\term{中根遍历}。
+    \item 若先访问左子树，再访问右子树，最后访问根节点，这种“\uwave{左-右-根}”的遍历方式称为\term{后序遍历}，也称\term{后根遍历}。
+\end{enumerate}
+
+\begin{notebox}{提示}
+    请注意，无论何种访问方式，左子树一定是先于右子树访问。所谓的“先、中、后”指的是“根节点”被“先”访问，还是“中”或“后”访问。
+\end{notebox}
+
+\begin{insightbox}
+    注意：本内容可能带来一些认知和思维上的启发，但对思渡者来说，可能带来知识记忆上的混乱。\\
+
+    我们为什么不将“根右左”、“右根左”、“右左根”分别定义为先根、中根、后根遍历？这是因为，二叉树的左右子树具有天然的对称性。
+    将左与右交换，树的结构和\textbf{本质}并没有发生变化，它描述的还依然是那个“东西”，只是我们人类需要换一个方向去观察和描述它。
+
+    比如你将左边视为头时，[3,5]的\textbf{本质}可以理解为“3在前，5在后的两个数”；而事实上[5,3]同样可以描述“3在前，5在后的两个数”，只需要你把右边视为头，或者
+    把“前”定义为后。二者本质相同，只是我们人类观察和理解它的视角不同。
+
+    更进一步地讲，“前”与“后”、“左”与“右”的方向本身就是人为定义的，左子树之所以叫左子树，只是因为我们把“左”定义为了左而已。“左”与“右”本质上并无区别。\\
+
+    我们约定先左，只是因为人类的习惯就是左在前，右在后，这更符合绝大多数人的思维方式。
+\end{insightbox}
+如果你没有阅读上述“思维拓展”，请直接跳过。如果你阅读了，请放声朗读以下内容：
+\begin{bulk}
+    \begin{center}
+        先序遍历根左右\;\;根左右\;\;根左右；\;先序所以根在先；\\[1em]
+        中序遍历左根右\;\;左根右\;\;左根右；\;中序所以根在中；\\[1em]
+        后序遍历左右根\;\;左右根\;\;左右根；\;后序所以根在后。\\[1em]
+        左一定要先于右；\;\;左一定要先于右；\;\;左一定要先于右；\\[1.3em]
+
+        先序遍历根左右\;\;根左右\;\;根左右；\;先序所以根在先；\\[1em]
+        中序遍历左根右\;\;左根右\;\;左根右；\;中序所以根在中；\\[1em]
+        后序遍历左右根\;\;左右根\;\;左右根；\;后序所以根在后。\\[1em]
+        左一定要先于右；\;\;左一定要先于右；\;\;左一定要先于右；\\
+    \end{center}
+\end{bulk}
+
+\minisection{二叉树的先序遍历}
+
+\section{二叉查找树}
+
 

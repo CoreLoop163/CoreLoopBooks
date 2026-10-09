@@ -1,59 +1,27 @@
-    // 在目录Dad中，新建一个名为name的目录
-    void DirInsert(TreeNode* Dad, char* name) {
-        // 函数实现：创建一个新节点，将其加入Dad的孩子链表末尾
-        TreeNode* new_node = (TreeNode*)malloc(sizeof(TreeNode));
-        strcpy(new_node->name, name);
-        new_node->first_child = NULL;
-        new_node->next_sibling = NULL;
+        void MaxDelay(int delay[], int n, int k, int ans[]) {
+            // deque[] 保存候选元素的下标。
+            // deque[front] 是队首，deque[rear - 1] 是队尾。
+            int deque[n];
+            int front = 0;
+            int rear = 0;
 
-        // Dad原本是空目录，则需要更改first_child指针。
-        if(Dad->first_child == NULL) {
-            Dad->first_child = new_node;
-            return;
+            for (int i = 0; i < n; i++) {
+                while (front < rear && deque[front] <= i - k) {
+                    // 动态维护队首元素（i的解）
+                    front++;     // 注意入队元素一定不会超过n，因此不用考虑循环
+                }
+
+                // 移除所有不可能再成为最大值的元素。
+                while (front < rear &&
+                    delay[deque[rear - 1]] <= delay[i]) {
+                    rear--;
+                }
+
+                // 当前元素加入队尾。
+                deque[rear] = i;
+                rear++;
+
+                // 队首就是当前窗口中的最大值。
+                ans[i] = delay[deque[front]];
+            }
         }
-
-        // 原本不是空目录，修改next_sibling指针。
-        TreeNode* last_child = Dad->first_child;
-        while(last_child->next_sibling != NULL) {
-            last_child = last_child->next_sibling;
-        }
-        last_child->next_sibling = new_node;
-        return;
-    }
-
-    // 销毁一个节点及其所有后代
-    void DestroyTree(TreeNode* root) {
-        if(root == NULL) return;
-        // 先递归销毁其子树
-        DestroyTree(root->first_child);
-
-        // 再释放根节点
-        free(root);
-    }
-
-    // 在目录Dad中，删除目录to_del
-    void DirDelete(TreeNode* Dad, TreeNode* to_del) {
-        // 函数实现：先把to_del从父节点的孩子链表中摘掉，再销毁以to_del为根的整棵树
-        if(Dad == NULL) {
-            return;
-        }
-        // 要删除的就是第一个孩子节点，需要更新first_child指针
-        if(to_del == Dad->first_child) {
-            Dad->first_child = to_del->next_sibling;;
-            // 注意这里不能简单地free(to_del)，因为该目录中可能还有若干目录，目录中可能还有目录，因此要递归销毁。
-            DestroyTree(to_del);
-            return;
-        }
-
-        // 找到要删除的节点的前一个兄弟节点
-        TreeNode* pre = Dad->first_child;
-        while(pre->next_sibling != to_del) {
-            pre = pre->next_sibling;
-        }
-
-        // 修改链条，类似单链表的删除操作
-        pre->next_sibling = to_del->next_sibling;
-        // 注意同样要递归销毁
-        DestroyTree(to_del);
-        return;
-    }

@@ -1,0 +1,3 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{typedef}\PYG{+w}{ }\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{ListNode}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{LinkList}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{// LinkList 是指向ListNode的指针类型}
+\end{MintedVerbatim}
