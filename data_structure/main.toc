@@ -37,5 +37,5 @@
 \contentsline {section}{\numberline {4.2}二叉树的基本内容介绍}{60}{section.4.2}%
 \contentsline {subsection}{\numberline {4.2.1}二叉树的实现}{62}{subsection.4.2.1}%
 \contentsline {subsection}{\numberline {4.2.2}二叉树的遍历}{63}{subsection.4.2.2}%
-\contentsline {section}{\numberline {4.3}二叉查找树}{66}{section.4.3}%
-\contentsline {chapter}{习题参考答案}{67}{chapter*.37}%
+\contentsline {section}{\numberline {4.3}二叉查找树}{74}{section.4.3}%
+\contentsline {chapter}{习题参考答案}{75}{chapter*.42}%

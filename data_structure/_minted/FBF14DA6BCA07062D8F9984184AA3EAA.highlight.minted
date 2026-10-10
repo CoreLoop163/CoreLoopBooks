@@ -1,0 +1,8 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{PreOrderTravel}\PYG{p}{(}\PYG{n}{BTreeNode}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{root}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{root}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{p}{;}\PYG{+w}{   }\PYG{c+c1}{// 递归边界}
+\PYG{+w}{    }\PYG{n}{visit}\PYG{p}{(}\PYG{n}{root}\PYG{p}{);}\PYG{+w}{    }\PYG{c+cm}{/* 先序遍历，先访问根节点。请注意：这里root应理解为递归过程中访问的每棵子树的根节点，不能仅简单地理解为整棵树的根节点。*/}
+\PYG{+w}{    }\PYG{n}{PreOrderTravel}\PYG{p}{(}\PYG{n}{root}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{lchild}\PYG{p}{);}\PYG{+w}{   }\PYG{c+cm}{/* 递归遍历左子树。请注意：一定不能写成 visit(root\PYGZhy{}\PYGZgt{}lchild)。此处场景要把root\PYGZhy{}\PYGZgt{}lchild看成一棵左子树，而不能仅仅看成一个节点。*/}
+\PYG{+w}{    }\PYG{n}{PreOrderTravel}\PYG{p}{(}\PYG{n}{root}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{rchild}\PYG{p}{);}\PYG{+w}{   }\PYG{c+c1}{// 递归遍历右子树}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

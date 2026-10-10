@@ -1,0 +1,8 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{PostOrderTravel}\PYG{p}{(}\PYG{n}{BTreeNode}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{root}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{root}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{p}{;}\PYG{+w}{   }\PYG{c+c1}{// 递归边界}
+\PYG{+w}{    }\PYG{n}{PostOrderTravel}\PYG{p}{(}\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{lchild}\PYG{p}{)}\PYG{p}{;}\PYG{+w}{   }\PYG{c+c1}{// 先递归遍历左子树}
+\PYG{+w}{    }\PYG{n}{PostOrderTravel}\PYG{p}{(}\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{rchild}\PYG{p}{)}\PYG{p}{;}\PYG{+w}{   }\PYG{c+c1}{// 再递归遍历右子树}
+\PYG{+w}{    }\PYG{n}{visit}\PYG{p}{(}\PYG{n}{root}\PYG{p}{)}\PYG{p}{;}\PYG{+w}{        }\PYG{c+c1}{// 左子树、右子树均访问完成后，最后访问根节点。}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}
