@@ -1,9 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
-\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{define MaxSize 100}
-\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{SeqQueue}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
-\PYG{+w}{    }\PYG{n}{ElemType}\PYG{+w}{ }\PYG{n}{data}\PYG{p}{[}\PYG{n}{MaxSize}\PYG{p}{]}\PYG{p}{;}
-\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{front}\PYG{p}{;}
-\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{rear}\PYG{p}{;}
-\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{current\PYGZus{}size}\PYG{p}{;}\PYG{+w}{   }\PYG{c+c1}{// 新增字段}
-\PYG{p}{\PYGZcb{}}\PYG{p}{;}
-\end{MintedVerbatim}

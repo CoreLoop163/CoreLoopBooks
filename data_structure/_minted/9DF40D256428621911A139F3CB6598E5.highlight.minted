@@ -1,7 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
-\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{TravelList}\PYG{p}{(}\PYG{n}{List}\PYG{+w}{ }\PYG{n}{L}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
-\PYG{+w}{    }\PYG{k}{for}\PYG{p}{(}\PYG{+w}{ }\PYG{n}{every}\PYG{+w}{ }\PYG{n}{data}\PYG{+w}{ }\PYG{n}{in}\PYG{+w}{ }\PYG{n}{L}\PYG{+w}{ }\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
-\PYG{+w}{        }\PYG{n}{do\PYGZus{}something}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
-\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
-\PYG{p}{\PYGZcb{}}
-\end{MintedVerbatim}

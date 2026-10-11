@@ -1,3 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
-\PYG{n}{LinkList}\PYG{+w}{ }\PYG{n}{my\PYGZus{}linklist}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{// 此时my\PYGZus{}linklist指向未知数据。再次提醒：这个my\PYGZus{}linklist语义上既可以表示“一个链表”，也可以表示“该链表的第一个节点指针”}
-\end{MintedVerbatim}

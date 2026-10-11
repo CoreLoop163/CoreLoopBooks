@@ -1,6 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
-\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{WrappedLinkList}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
-\PYG{+w}{    }\PYG{n}{LinkList}\PYG{+w}{ }\PYG{n}{L}\PYG{p}{;}
-\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{elem\PYGZus{}num}\PYG{p}{;}\PYG{+w}{   }\PYG{c+c1}{// 额外增加的变量}
-\PYG{p}{\PYGZcb{}}\PYG{p}{;}
-\end{MintedVerbatim}
