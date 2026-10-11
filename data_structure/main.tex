@@ -679,9 +679,61 @@
 \renewcommand{\contentsname}{地\;\;图}
 \begin{document}
 
-\maketitle
+
+
+
+\begin{titlepage}
+    \thispagestyle{empty}
+
+    \begin{tikzpicture}[remember picture, overlay]
+        % 页面顶部的深蓝色装饰条
+        \fill[blue!65!black]
+            (current page.north west)
+            rectangle
+            ([yshift=-1.2cm]current page.north east);
+
+        % 页面底部的装饰色块
+        \fill[blue!65!black]
+            (current page.south west)
+            rectangle
+            ([yshift=0.5cm]current page.south east);
+    \end{tikzpicture}
+
+    \vspace*{3.5cm}
+
+    \begin{center}
+        {\Large\color{blue!65!black}
+            CoreLoop
+        }
+
+        \vspace{2cm}
+
+        {\Huge\bfseries
+            前有数据结构
+        }
+
+        \vspace{1cm}
+
+        {\large
+            从原理到实现
+        }
+
+        \vspace{2.5cm}
+
+        % 可以在这里放置自己设计的数据结构示意图
+        % 例如二叉树、链表或图的插图
+
+        \vfill
+
+        {\large CoreLoop}
+    \end{center}
+\end{titlepage}
 
 \frontmatter
+
+
+
+
 
 \chapter*{UNKNOWN VOICE}
 \bilingual
@@ -746,9 +798,9 @@ site where countless seekers of knowledge search for truth in the wilderness of 
 
 \mainmatter
 
-% \input{chapters/chapter1/ch1_intro.tex}
-% \input{chapters/chapter2/ch2_list.tex}
-% \input{chapters/chapter3/ch3_stack_and_queue.tex}
+\input{chapters/chapter1/ch1_intro.tex}
+\input{chapters/chapter2/ch2_list.tex}
+\input{chapters/chapter3/ch3_stack_and_queue.tex}
 \input{chapters/chapter4/ch4_tree.tex}
 
 % 输出习题答案

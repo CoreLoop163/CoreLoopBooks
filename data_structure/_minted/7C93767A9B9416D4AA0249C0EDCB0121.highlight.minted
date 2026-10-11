@@ -1,0 +1,4 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{LinkQueue}\PYG{+w}{ }\PYG{n}{happy\PYGZus{}linkqueue}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{// 定义一个开心的链队列}
+\PYG{n}{LinkQueue}\PYG{+w}{ }\PYG{n}{sad\PYGZus{}linkqueue}\PYG{p}{;}\PYG{+w}{    }\PYG{c+c1}{// 定义一个悲伤的链队列}
+\end{MintedVerbatim}

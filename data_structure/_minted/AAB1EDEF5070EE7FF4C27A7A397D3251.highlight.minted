@@ -1,0 +1,7 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{SLinkList}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{SLinkListNode}\PYG{+w}{ }\PYG{n}{data}\PYG{p}{[}\PYG{n}{MaxSize}\PYG{p}{]}\PYG{p}{;}\PYG{+w}{    }\PYG{c+c1}{// 存放链表中节点的数组}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{current\PYGZus{}size}\PYG{p}{;}\PYG{+w}{   }\PYG{c+c1}{// 当前链表中的节点数量}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{head}\PYG{p}{;}\PYG{+w}{   }\PYG{c+c1}{// 第一个节点所在的下标}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

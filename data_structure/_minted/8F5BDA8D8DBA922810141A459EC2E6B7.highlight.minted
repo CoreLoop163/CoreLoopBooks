@@ -1,0 +1,6 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{typedef}\PYG{+w}{ }\PYG{k}{struct}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{QueueNode}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{front}\PYG{p}{;}\PYG{+w}{     }\PYG{c+c1}{// 表头(队首)指针，指向头节点}
+\PYG{+w}{    }\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{QueueNode}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{rear}\PYG{p}{;}\PYG{+w}{     }\PYG{c+c1}{// 表尾(队尾)指针，指向最后一个节点}
+\PYG{p}{\PYGZcb{}}\PYG{n}{LinkQueue}\PYG{p}{;}
+\end{MintedVerbatim}

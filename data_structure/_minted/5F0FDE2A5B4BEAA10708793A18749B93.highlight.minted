@@ -1,0 +1,7 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{SeqList}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{ElemType}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{data}\PYG{p}{;}\PYG{+w}{     }\PYG{c+c1}{// 数组起始地址}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{current\PYGZus{}size}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{// 当前表中的元素数量}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{capacity}\PYG{p}{;}\PYG{+w}{      }\PYG{c+c1}{// 当前已分配的数组容量}
+\PYG{p}{\PYGZcb{}}\PYG{p}{;}
+\end{MintedVerbatim}
