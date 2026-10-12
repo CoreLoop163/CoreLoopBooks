@@ -1,0 +1,4 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{heap}\PYG{p}{[}\PYG{n}{MaxSize}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{;}
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{size}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{// 堆中元素的数量}
+\end{MintedVerbatim}

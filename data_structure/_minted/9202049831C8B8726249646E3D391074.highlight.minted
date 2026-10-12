@@ -1,0 +1,33 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// 元素数量为n的完全二叉树中，将编号为 i 的元素向下调整}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{DownAdjust}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{arr}\PYG{p}{[],}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{c+c1}{// i表示下沉过程中，该节点已经“沉入”到了编号为多少的地方。}
+\PYG{+w}{        }\PYG{c+c1}{// 最后一个节点编号是n，因此2*i\PYGZlt{}=n表示该位置还有子节点}
+\PYG{+w}{        }\PYG{k}{while}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{max\PYGZus{}child}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{arr}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{i}\PYG{p}{];}\PYG{+w}{   }\PYG{c+c1}{// 先假设左孩子是更大的}
+\PYG{+w}{            }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{max\PYGZus{}child\PYGZus{}idx}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{i}\PYG{p}{;}
+\PYG{+w}{            }\PYG{c+c1}{// 事实上右孩子存在，且右孩子更大}
+\PYG{+w}{            }\PYG{k}{if}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{n}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{arr}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{arr}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{i}\PYG{p}{])}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{                }\PYG{n}{max\PYGZus{}child}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{arr}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{];}
+\PYG{+w}{                }\PYG{n}{max\PYGZus{}child\PYGZus{}idx}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{;}
+\PYG{+w}{            }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{            }\PYG{c+c1}{// 该元素较小，应该继续下沉}
+\PYG{+w}{            }\PYG{k}{if}\PYG{p}{(}\PYG{n}{arr}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{max\PYGZus{}child}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{                }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{t}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{arr}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];}
+\PYG{+w}{                }\PYG{n}{arr}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{arr}\PYG{p}{[}\PYG{n}{max\PYGZus{}child\PYGZus{}idx}\PYG{p}{];}
+\PYG{+w}{                }\PYG{n}{arr}\PYG{p}{[}\PYG{n}{max\PYGZus{}child\PYGZus{}idx}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{t}\PYG{p}{;}
+\PYG{+w}{                }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{max\PYGZus{}child\PYGZus{}idx}\PYG{p}{;}
+\PYG{+w}{            }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{            }\PYG{c+c1}{// 已经不满足继续下沉的条件，向下调整完成。}
+\PYG{+w}{            }\PYG{k}{else}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{                }\PYG{k}{break}\PYG{p}{;}
+\PYG{+w}{            }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{c+c1}{// 将具有n个元素，存储在arr[]数组中的完全二叉树调整成一个堆。}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{CreateHeap}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{arr}\PYG{p}{[],}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{=}\PYG{n}{n}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{\PYGZgt{}=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{DownAdjust}\PYG{p}{(}\PYG{n}{arr}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{);}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

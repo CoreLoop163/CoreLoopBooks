@@ -1,4 +1,4 @@
-\documentclass[oneside]{ctexbook}
+\documentclass[twoside]{ctexbook}
 
 % ============================================================
 % CoreLoop 数据结构 —— 书籍级排版基础配置
@@ -44,7 +44,17 @@
 % \setCJKsansfont{Noto Sans CJK SC}
 
 % ---------- 页面 ----------
-\usepackage[a4paper,margin=2.4cm,headheight=15pt]{geometry}
+% 奇数页在右边，装订侧在左；偶数页在左边，装订侧在右。
+\usepackage[
+    paperwidth=185mm,
+    paperheight=260mm,
+    inner=26mm,     % 装订侧边距
+    outer=20mm,     % 外侧边距
+    top=22mm,
+    bottom=25mm,
+    headheight=15pt
+]{geometry}
+\raggedbottom  %允许页面内容在页面底部留出不等量的空白，而不是为了让每页正文区域的底部对齐，强行拉伸页面中的垂直间距。
 
 % ---------- 颜色 ----------
 % 正文与代码都尽量克制，不做成 IDE 风格。
