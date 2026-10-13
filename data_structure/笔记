@@ -9,3 +9,12 @@ Latex常用字号：
 \footnotesize	更小
 \scriptsize	很小
 \tiny	最小
+
+
+
+\smallskip：较小的间距。
+\medskip：中等间距。
+\bigskip：较大的间距。
+\vspace{\baselineskip}：约一个正文行高的间距。
+
+

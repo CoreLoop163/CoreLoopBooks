@@ -39,6 +39,7 @@
 \contentsline {subsection}{\numberline {4.2.2}二叉树的遍历}{79}{subsection.4.2.2}%
 \contentsline {section}{\numberline {4.3}哈夫曼树与哈夫曼编码}{95}{section.4.3}%
 \contentsline {subsection}{\numberline {4.3.1}哈夫曼编码}{98}{subsection.4.3.1}%
-\contentsline {section}{\numberline {4.4}堆}{100}{section.4.4}%
+\contentsline {section}{\numberline {4.4}堆}{101}{section.4.4}%
 \contentsline {subsection}{\numberline {4.4.1}堆及其常见操作的实现}{101}{subsection.4.4.1}%
-\contentsline {chapter}{习题参考答案}{105}{chapter*.55}%
+\contentsline {subsection}{\numberline {4.4.2}堆的经典应用}{107}{subsection.4.4.2}%
+\contentsline {chapter}{习题参考答案}{113}{chapter*.55}%

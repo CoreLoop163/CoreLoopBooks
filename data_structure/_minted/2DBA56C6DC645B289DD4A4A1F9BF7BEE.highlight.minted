@@ -1,0 +1,7 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{define MaxSize 100}
+\PYG{+w}{    }\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{Heap}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{arr}\PYG{p}{[}\PYG{n}{MaxSize}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{// 堆中当前元素数量}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}\PYG{p}{;}
+\end{MintedVerbatim}

@@ -1,33 +1,25 @@
-    void InsertTree(node* &root, int e) {
-        if(root == NULL) {
-            // 空树，直接插入就行
-            node* new_node = (node*)malloc(sizeof(node));
-            new_node->data = e;
-            new_node->lchild = NULL;
-            new_node->rchild = NULL;
-            root = new_node;
-            return ;
-        }
-        if(e <= root->data) {   // 待插元素较小
-            if(root->lchild == NULL) {  // 左子树为空，说明找到了插入位置
-                node* new_node = (node*)malloc(sizeof(node));
-                new_node->data = e;
-                new_node->lchild = NULL;
-                new_node->rchild = NULL;
-                root->lchild = new_node;
-            } else {    // 递归地进入左子树
-                InsertTree(root->lchild, e);
+        int MinCost(int w[], int n) {
+            priority_queue<int, vector<int>, greater<int>> min_heap;
+            // 在下方完成你的代码
+            int total_cost = 0;
+
+            for(int i=0; i<n; i++) {
+                min_heap.push(w[i]);
             }
-        }
-        if(e > root->data) {    // 待插元素较大
-            if(root->rchild == NULL) {  // 右子树为空，说明找到了插入位置
-                node* new_node = (node*)malloc(sizeof(node));
-                new_node->data = e;
-                new_node->lchild = NULL;
-                new_node->rchild = NULL;
-                root->rchild = new_node;
-            } else {   // 递归地进入右子树
-                InsertTree(root->rchild, e);
+            // 做n-1次
+            for(int i=1; i<=n-1; i++) {
+                // 取出两个重量最小的：w1和w2
+                int w1 = min_heap.top();
+                min_heap.pop();
+                int w2 = min_heap.top();
+                min_heap.pop();
+
+                // 体力消耗为w1+w2
+                int union_cost = w1 + w2;
+                total_cost += union_cost;
+
+                // 合成一堆后放回堆中
+                min_heap.push(union_cost);
             }
+            return total_cost;
         }
-    }
