@@ -1,0 +1,24 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{MinEscapeCost}\PYG{p}{(}\PYG{n}{node}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{root}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{root}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{c+c1}{// 叶子节点，出口找到了}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{lchild}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{rchild}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{weight}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{c+c1}{// 左边是死路，只能从右边走}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{lchild}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{weight}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{MinEscapeCost}\PYG{p}{(}\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{rchild}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{c+c1}{// 右边是死路}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{rchild}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{weight}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{MinEscapeCost}\PYG{p}{(}\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{lchild}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{    }\PYG{c+c1}{// 两边都能走，递归计算两边代价后，选代价小的那一条路}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{ltree\PYGZus{}cost}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{MinEscapeCost}\PYG{p}{(}\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{lchild}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{rtree\PYGZus{}cost}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{MinEscapeCost}\PYG{p}{(}\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{rchild}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{weight}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{min}\PYG{p}{(}\PYG{n}{ltree\PYGZus{}cost}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{rtree\PYGZus{}cost}\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

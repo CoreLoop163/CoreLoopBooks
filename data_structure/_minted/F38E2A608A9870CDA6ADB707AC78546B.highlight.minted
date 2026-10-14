@@ -1,0 +1,28 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+c1}{// 寻找节点node的中序前驱}
+\PYG{+w}{    }\PYG{n}{BSTreeNode}\PYG{o}{*}\PYG{+w}{ }\PYG{n+nf}{FindInOrderPre}\PYG{p}{(}\PYG{n}{BSTreeNode}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{node}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{c+c1}{// 该节点没有中序前驱，或中序前驱不存在于子树中}
+\PYG{+w}{        }\PYG{k}{if}\PYG{p}{(}\PYG{n}{node}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{lchild}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{k}{return}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{;}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{n}{BSTreeNode}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{ret}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{node}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{lchild}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{while}\PYG{p}{(}\PYG{n}{ret}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{rchild}\PYG{+w}{ }\PYG{o}{!}\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{ret}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{ret}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{rchild}\PYG{p}{;}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{ret}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{c+c1}{// 寻找节点node的中序后继}
+\PYG{+w}{    }\PYG{n}{BSTreeNode}\PYG{o}{*}\PYG{+w}{ }\PYG{n+nf}{FindInOrderPost}\PYG{p}{(}\PYG{n}{BSTreeNode}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{node}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{c+c1}{// 该节点没有中序后继，或中序后继不存在于子树中}
+\PYG{+w}{        }\PYG{k}{if}\PYG{p}{(}\PYG{n}{node}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{rchild}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{k}{return}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{;}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{n}{BSTreeNode}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{ret}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{node}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{rchild}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{while}\PYG{p}{(}\PYG{n}{ret}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{lchild}\PYG{+w}{ }\PYG{o}{!}\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{ret}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{ret}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{lchild}\PYG{p}{;}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{ret}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

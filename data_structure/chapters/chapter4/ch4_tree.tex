@@ -645,7 +645,10 @@ A的右子树；\\[0.5em]
     }
 \end{cppcode}
 先序遍历是最先访问根节点，而后序遍历是最后访问根节点。因此对后序遍历序列来说，序列中的最后一个节点一定是根节点。
-对于图\ref{fig:用于指出遍历序列的二叉树}所示的二叉树，其后序遍历得到的序列为G,D,H,E,B,I,J,F,C,A。
+对于图\ref{fig:用于指出遍历序列的二叉树}所示的二叉树，其后序遍历得到的序列为G,D,H,E,B,I,J,F,C,A。\\
+
+% 对于中序遍历得到的序列，在某节点前面的、紧挨着该节点的元素称为该节点的\term{中序前驱}；类似地，在某节点后面的、紧挨着该节点的元素称为该节点的\term{中序后继}。
+% 同样二叉树中的节点有\term{先序前驱}、\term{先序后继}、\term{后续前驱}、\term{后续后继}的说法，分别由先序遍历序列、后序遍历序列决定。
 
 \chapter*{--------- BONFIRE HIT ---------}
 {\color{red}\textbf{此处提示大家，二叉树这里的题目复杂多变，思维难度较大。}}
@@ -1219,7 +1222,7 @@ A、B、C、D、E的编码与长度如下：
 用一个std::priority\_queue来保存所有柴薪堆，实际上，C++标准库中的priority\_queue正是通过\term{堆}来实现的。
 
 \section{堆}
-\term{堆}是一棵完全二叉树，满足其中任何一个节点的值都不大于（或不小于）其左右子树中任何一个节点的值。完全二叉树的根节点称为\term{堆顶}。若任何一个节点的值都不
+\term{堆}是一棵完全二叉树，满足其中任何一个节点的关键字的值都不大于（或不小于）其左右子树中任何一个节点的关键字的值。完全二叉树的根节点称为\term{堆顶}。若任何一个节点的值都不
 大于其左右子树，这样的堆叫做\term{最小堆}，也叫\term{小顶堆}或\term{小根堆}，堆顶元素一定是堆中最小的；若任何一个节点的值都不小于其左右子树，
 这样的堆叫做\term{最大堆}，也叫\term{大顶堆}或\term{大根堆}，堆顶元素一定是堆中最大的。图\ref{fig:最小堆和最大堆}
 （左）和（右）分别展示了一个最小堆和一个最大堆。
@@ -1235,8 +1238,8 @@ A、B、C、D、E的编码与长度如下：
 \Circled{2}任何一个节点，都比其左右子树中的节点大。\;但是最大堆无法保证上层节点一定大于下层节点，因为它们不一定处于同一棵子树中。如图\ref{fig:最小堆和最大堆}（右）中，节点39虽处于第4层，但它比第3层的13、0还要大。
 
 \begin{insightbox}
-    既然堆要求数据有序，那是不是只能存储“数字”类数据，如int，double等？不是的。你可以存储任何类型数据，只要你自己为数据定义一种唯一的排序规则。例如：若你存储字符
-    数据，你可以规定将其ASCII码值大小作为“该字符的大小”；若你存储的是游戏中的若干把武器，你可以规定将武器的攻击力大小作为“该武器的大小”。类似的思想，将不再提及。
+    关键字（Key）可以理解为用于标识数据或确定数据比较关系的一个或多个数据项。 在排序等问题中，通常根据关键字的值来确定数据的大小关系。例如，对于字符
+    数据，可以将其 ASCII 码值作为关键字；对于游戏中的武器数据，可以将武器的id或攻击力作为关键字。
 \end{insightbox}
 
 \subsection{堆及其常见操作的实现}
@@ -1510,8 +1513,49 @@ D. 以A、B、C、D、E为叶节点构造一棵二叉树，图示的树并不是
     \begin{tabular}{llll}
         A. 89 & B. 200 & C. 208 & D. 289
     \end{tabular}\\
+    
 
+    10. 请你实现一个算法，求使用二叉链表存储的二叉树的带权路径长度。空树直接返回0。
+    \begin{cppcode}
+        struct node {
+            // int data;  本题仅节点权重有意义，数据可忽略
+            int weight;
+            node* lchild; 
+            node* rchild; 
+        };
+    \end{cppcode}
+    注意：二叉树的带权路径长度（WPL）定义为所有叶节点的带权路径长度之和，非叶节点不参与计算。
 
+    \vspace{\baselineskip}
+
+    11. 某大陆散布着多个地下遗迹，这些地下遗迹都可以被建模成一棵二叉树，根节点为遗迹的入口，向下探索，每个节点代表一个房间，所有处于叶节点的房间都能挖出
+    宝藏，weight(weight>0)表示宝藏的价值。由于遗迹深处的宝藏获取难度更大，某位名为CoreLoop的探险者决定权衡风险与收益，
+     $\frac{1}{\text{节点深度}}*\text{宝藏价值}$ 定义为房间的“诱人值”。请你实现一个算法，帮CoreLoop算出二叉树T中诱人值最大的房间诱
+     人值是多少。（根节点深度定义为1；空树诱人值定义为0）。
+    \begin{cppcode}
+        double CalcAppeal(node* T) {
+            double ans = 0;
+            // your codes...
+
+            return ans;
+        }
+    \end{cppcode}
+    二叉树的节点定义{\color{red}\textbf{同上一题所示}}。你完全可以实现其他函数，并在CalcAppeal中调用。\\
+
+    12. 某位名为CoreLoop的探险者误入了一扇魔法门从而被传送到了一片地底世界，他只能通过前方的地下城回到大陆。该地下城可以被建模为一棵
+    二叉树，每个节点代表一个房间，根节点表示入口，也是必须经过的房间。节点的 weight(weight>0) 表示进入该房间所需消耗的能量，叶节点代表所有可以回到大陆的
+    出口。CoreLoop可以沿任何一条路径经出口走出地下城。请你实现一个算法帮助CoreLoop求出最优路径（消耗能量最小）下，逃离地下城需要消耗的能量值。root保证不是空树。
+    \begin{cppcode}
+        struct node {
+            int weight;     // 进入房间需要消耗的能量
+            node* lchild; 
+            node* rchild; 
+        };
+        int MinEscapeCost(node* root) {
+            
+        }
+    \end{cppcode}
+    
 
 \end{exercise}
 \clearpage
@@ -1581,5 +1625,370 @@ D. 以A、B、C、D、E为叶节点构造一棵二叉树，图示的树并不是
         \includegraphics[width=0.89\textwidth]{assets/pics_and_ppts/ch4/21408_哈夫曼树构造过程.png}
     \end{center}
 
+    \vspace{\baselineskip}
+
+    10. 本题可以记录一个变量total，递归地访问每一个节点，将所有访问到的叶节点的带权路径长度累加记录，最终total的值就是树的带权路径长度WPL。这里我们给出另一种
+    思路的实现代码：
+    
+    不难发现，每棵子树T的WPL等于其左子树与右子树的WPL之和。因此求T的WPL，可以递归地转化为求T->lchild以及T->rchild的WPL。递归边界就是左子树或右子树为空树。
+    代码如下所示。
+    \begin{cppcode}
+        int WPL(node* root, int depth) {
+            // 空树，直接返回0
+            if(root == NULL) return 0;
+            // 当前递归到的，以root为根节点的子树，其左右子树都是空树，因此root的WPL可以直接计算。
+            if(root->lchild == NULL && root->rchild == NULL) {
+                return root->weight * (depth-1);    // 深度为depth的节点，根节点到其路径长度为depth-1
+            }
+            // root还有子树，需要递归地计算子树的WPL并加到一起，作为root的WPL返回
+            int total = 0;    
+            if(root->lchild != NULL) {
+                total += WPL(root->lchild, depth+1);
+            }
+            if(root->rchild != NULL) {
+                total += WPL(root->rchild, depth+1);
+            }
+
+            return total;
+        }
+    \end{cppcode}
+    调用WPL(T, 1)即可求出T的带权路径长度。注意：我们这里按照惯例，将根节点深度定义成了1，这恰好能正确处理“只有一个根节点的树”的情况。\\
+
+    11. 实际上本题依然是通过叶节点的深度和权值计算出叶结点的“诱人值”，可以看成某种“特殊的带权路径长度”，只不过求WPL是累加，而本题是“记录最大”。我们可以通过一个引用变量（或指针）记录
+    递归过程中的最大值，代码如下：
+    \begin{cppcode}
+    
+        void visit(node* root, int depth, double& max_appeal) {
+            if(root == NULL) return ;
+
+            // 叶子节点，有宝藏的房间
+            if(root->lchild == NULL && root->rchild == NULL) {
+                double appeal = (1.0/dpeth) * root->weight;
+                // 本房间的“诱人值”比之前遇到的所有房间都大，更新max_appeal
+                if(appeal > max_appeal) {
+                    max_appeal = appeal;
+                }
+            }
+            if(root->lchild != NULL) {
+                visit(root->lchild, depth+1, max_appeal);
+            }
+            if(root->rchild != NULL) {
+                visit(root->rchild, depth+1, max_appeal);
+            }
+            
+        }
+        
+        double CalcAppeal(node* T) {
+            double ans = 0;
+            // your codes...
+            visit(T, 1, ans);
+            return ans;
+        }
+    \end{cppcode}
+    \vspace{\baselineskip}
+
+    12. 本题的核心思想在于，对于以节点u为起点的逃生路线有：
+    \[
+        MinCost(u)=weight(u)+\min(MinCost(left),MinCost(right))
+    \]
+    left、right分别表示u的左右子树。想通了这一点，题目就变得非常简单。请参见代码与注释。
+    \begin{cppcode}
+        int MinEscapeCost(node* root) {
+            if(root == NULL) return 0;
+
+            // 叶子节点，出口找到了 
+            if(root->lchild == NULL && root->rchild == NULL) {
+                return root->weight;
+            }
+            // 左边是死路，只能从右边走
+            if(root->lchild == NULL) {
+                return root->weight + MinEscapeCost(root->rchild);
+            }
+            // 右边是死路
+            if(root->rchild == NULL) {
+                return root->weight + MinEscapeCost(root->lchild);
+            }
+
+            // 两边都能走，递归计算两边代价后，选代价小的那一条路
+            int ltree_cost = MinEscapeCost(root->lchild);
+            int rtree_cost = MinEscapeCost(root->rchild);
+
+            return root->weight + min(ltree_cost, rtree_cost);
+        }
+    \end{cppcode}
+    \vspace{\baselineskip}
+
 \end{exerciseanswer}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{二叉查找树}
+
+在一组混乱、无序的线性表中查找关键字为某值的数据，平均时间复杂度为O(n)。若数据存放在有序的顺序表中，使用二分查找平均时间复杂度可以达到O(logn)。但是顺序表难以维护动态数据：
+当表中元素增加或删除时，需要移动大量元素，移动操作的平均时间复杂度为O(n)。
+
+二叉查找树的思想类似二分查找，将元素通过某种有序的方式组织起来，以达到较为高效的元素查找效率。经过本节的研究我们将看到，
+在二叉查找树中查找元素的\uline{平均}时间复杂度为O(logn)，插入、删除元素的\uline{平均}时间复杂度同样是O(logn)。
+
+\begin{definitionbox}
+    \term{二叉查找树}要么是一棵空树，要么是：\\
+
+    一棵由根节点、左子树和右子树构成的二叉树，其中左子树和右子树均是二叉查找树，并且左子树上所有节点的关键字均小于等于根节点的关键字，右子树上所有节点的
+    关键字均大于根节点的关键字。
+\end{definitionbox}
+图\ref{fig:几棵不同的二叉查找树}展示了几棵不同的二叉查找树。
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.78\textwidth]{assets/pics_and_ppts/ch4/几棵不同的二叉查找树.png}
+    \caption{几棵不同的二叉查找树}
+    \label{fig:几棵不同的二叉查找树}
+\end{figure}
+可以看到，二叉查找树其实是一种\uline{有序}的树形结构。二叉查找树具有“左小、根中、右大”的特征，而按照中序遍历“左-根-右”的方式遍历二叉查找树，得到
+的序列就是一个有序序列。
+
+二叉查找树最重要的意义就在于在动态变化的数据中较为高效地进行查找，如前文所述，其查找、插入和删除均能达到O(logn)的平均时间复杂度。接下来我们就来看看如何实现这些操作。
+
+\subsection{二叉查找树的实现}
+通常情况下，二叉查找树同样采用二叉链表实现：
+\begin{cppcode}
+    struct BSTreeNode { // Binary Search Tree
+        ElemType data;  
+        BSTreeNode* lchild;
+        BSTreeNode* rchild;
+    };
+\end{cppcode}
+为不引入额外的理解负担，我们假设data已经是某种可以比较大小的数据结构，data本身即作为关键字。
+
+\minisection{1.查找操作}
+如何在二叉查找树T中，查找关键字值为e的元素？
+
+由于二叉查找树的特点，根节点其实作为分界线，将左右两棵子树划分成了“两个界域”，若e的值大于根节点，则它不可能出现在左子树中，如图\ref{fig:根节点划分界域}，
+直接递归地在右子树中查找即可。
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.58\textwidth]{assets/pics_and_ppts/ch4/根节点划分界域.png}
+    \caption{}
+    \label{fig:根节点划分界域}
+    
+\end{figure}
+
+类似地，若e更小，则它不可能出现在左子树中。因此在二叉查找树中查找元素，不必像无序线性表那样将所有元素遍历一遍，而是可以舍弃掉大量元素的比较，因此效率更高。
+如果e存在，一定会在查找过程中找到。如果e不存在，则递归一定会进行到某个空节点。
+
+
+具体来说，查找过程如下：从根节点开始，
+\begin{enumerate}
+    \item 若当前节点为空，说明查找失败，返回；否则进入第2步。
+    \item 若e的值等于当前节点，说明查找成功，访问它；
+    \item 若e的值小于当前节点，说明应该往左，因此递归地在当前节点的左子树中查找；
+    \item 若e的值大于当前节点，说明应该往右，因此递归地在当前节点的右子树中查找。
+\end{enumerate}
+代码如下所示：
+
+\begin{cppcode}
+    int BSTSearch(BSTreeNode* root, ElemType e) {
+        if(root == NULL) {
+            return 0;   // 查找失败，e不存在
+        }
+        if(e == root->data) {
+            visit(root);    // 找到了，做你想对它做的事吧！
+            return 1;   // 查找成功
+        }
+        if(e > root->data) {
+            return BSTSearch(root->rchild, e);
+        }
+        if(e < root->data) {
+            return BSTSearch(root->lchild, e);
+        }
+
+    }
+\end{cppcode}
+在图\ref{fig:二叉查找树的查找过程}所示的二叉树中查找8和查找21的过程如图所示。
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.88\textwidth]{assets/pics_and_ppts/ch4/二叉查找树的查找过程.png}
+    \caption{}
+    \label{fig:二叉查找树的查找过程}
+\end{figure}
+显然\uline{平均情况下}，若二叉树中有n个节点，比较次数约为log(n) / 2，因此查找的平均时间复杂度为O(logn)。
+
+
+\minisection{2.插入操作}
+插入节点时，可以从根节点开始，将根节点元素与待插元素比较。若待插元素较小（或相等），则说明该节点需要在左子树中插入，此时，若：\\
+\Circled{1} 左子树为空，则插入位置已经找到，直接插入；\\
+\Circled{2} 左子树非空，则递归地进入左子树，进行同样的操作。\\
+反之若待插元素大于根节点，则递归地进入右子树。如此递归进行下去，直至找到正确的位置。具体实现代码如下：
+
+\begin{cppcode}
+    void InsertBSTree(node* &root, int e) {
+        if(root == NULL) {
+            // 空树，直接插入就行
+            node* new_node = (node*)malloc(sizeof(node));
+            new_node->data = e;
+            new_node->lchild = NULL;
+            new_node->rchild = NULL;
+            root = new_node;
+            return ;
+        }
+        if(e <= root->data) {   // 待插元素较小
+            if(root->lchild == NULL) {  // 左子树为空，说明找到了插入位置
+                node* new_node = (node*)malloc(sizeof(node));
+                new_node->data = e;
+                new_node->lchild = NULL;
+                new_node->rchild = NULL;
+                root->lchild = new_node;
+            } else {    // 递归地进入左子树
+                InsertBSTree(root->lchild, e);    
+            }
+        } 
+        if(e > root->data) {    // 待插元素较大
+            if(root->rchild == NULL) {  // 右子树为空，说明找到了插入位置
+                node* new_node = (node*)malloc(sizeof(node));
+                new_node->data = e;
+                new_node->lchild = NULL;
+                new_node->rchild = NULL;
+                root->rchild = new_node;
+            } else {   // 递归地进入右子树
+                InsertBSTree(root->rchild, e);    
+            }
+        }
+    }
+\end{cppcode}
+在图\ref{fig:二叉查找树的插入过程}所示的二叉树中分别插入8和插入21的过程如图所示。
+\begin{figure}
+    \centering
+    \includegraphics[width=0.89\textwidth]{assets/pics_and_ppts/ch4/二叉查找树的插入过程.png}
+    \caption{}
+    \label{fig:二叉查找树的插入过程}
+\end{figure}
+
+\begin{notebox}{提示}
+    根据不同场景下需求的不同，可以规定二叉查找树中允许有多个元素关键字相等，也可以规定二叉查找树中不允许有关键字相等的重复元素。我们这里以更复杂的情形---
+    允许重复关键字为例来介绍。若不允许重复关键字，插入时找到了某元素等于待插节点，则说明该节点已存在，无需继续插入。
+
+\end{notebox}
+
+\minisection{3.由已有数据建立二叉查找树}
+假设数组arr[]中存放了n个数据，用这些数据建立一棵二叉查找树的过程，其实就是将它们一一插入二叉查找树的过程。代码如下所示：
+\begin{cppcode}
+    BSTreeNode* CreateBSTree(ElemType arr[], int n) {
+        BSTreeNode* root = NULL;
+        for(int i=0; i<n; i++) {
+            InsertBSTree(root, arr[i]);
+        }
+        return root;
+    }
+\end{cppcode}
+需要注意的是，即使是同样的一组数据，如果插入它们的顺序不同，也可能生成不同的二叉查找树。例如插入顺序为{1,2,3,4,5,6,7,8,9}，会得到一棵“斜向右下的一条直线”的树，深度
+为9；而插入顺序为{9,8,7,6,5,4,3,2,1}，树形则会是“斜向左下的一条直线”。
+
+
+\minisection{4.删除操作}
+在二叉查找树T中删除关键字为e的节点，如何做？
+
+与插入操作不同，插入操作一定能“陷入”一棵空树作为插入位置，而对于删除操作，被删节点很可能还有复杂的子树。显然：
+
+\Circled{1} 对于待删节点是叶节点，直接释放掉该节点即可。
+
+\Circled{2} 若待删节点是非叶节点，该怎么办呢？常见的做法是找到待删节点的\term{中序前驱}或\term{中序后继}，用中序前驱或中序后继覆盖掉待删节点，
+然后问题便转化成了递归地在左子树中删除中序前驱，或在右子树中删除中序后继，如此向子树递归、向子树的子树递归、向子树的子树的子树递归......
+总会将问题\uwave{化归}为\Circled{1}，即待删节点是叶节点。
+
+在二叉查找树中，比某节点小的最大节点一定是中序遍历序列中，该节点的前驱，称为该节点的\term{中序前驱}，相应地，比某节点大的最小节点称为该节点的\term{中序后继}。
+显然，节点的中序前驱一定是该节点左子树中最右边的节点（也就是从左子树根节点开始不断沿着rchild往右下走，直到rchild为NULL时的节点），而节点的中序后继一定是
+该节点右子树中最左边的节点（也就是从右子树的根节点开始不断沿着lchild往左下走，直到lchild为NULL时的节点）。如图\ref{fig:中序前驱和中序后继}所示，节点12的
+中序前驱是11，中序后继是13。
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.89\textwidth]{assets/pics_and_ppts/ch4/中序前驱和中序后继.png}
+    \caption{}
+    \label{fig:中序前驱和中序后继}
+\end{figure}
+
+我们先给出两个辅助函数，用于寻找节点的中序前驱和中序后继：
+\begin{cppcode}
+// 寻找节点node的中序前驱
+    BSTreeNode* FindInOrderPre(BSTreeNode* node) {
+        // 该节点没有中序前驱，或中序前驱不存在于子树中
+        if(node->lchild == NULL) {
+            return NULL;
+        }
+        BSTreeNode* ret = node->lchild;
+        while(ret->rchild != NULL) {
+            ret = ret->rchild;
+        }
+        return ret;
+        
+    }
+// 寻找节点node的中序后继
+    BSTreeNode* FindInOrderPost(BSTreeNode* node) {
+        // 该节点没有中序后继，或中序后继不存在于子树中
+        if(node->rchild == NULL) {
+            return NULL;
+        }
+        BSTreeNode* ret = node->rchild;
+        while(ret->lchild != NULL) {
+            ret = ret->lchild;
+        }
+        return ret;
+        
+    }
+\end{cppcode}
+
+根据上面的讨论，我们给出在二叉查找树T中删除关键字为e的节点的详细思路：
+
+\Circled{1} 如果e大于当前节点，说明待删元素在右子树中，递归地在右子树中删除e；
+
+\Circled{2} 如果e小于当前节点，类似地，递归地在左子树中删除e；
+
+\Circled{3} 如果当前节点为空（NULL），说明树中不存在关键字为e的元素，直接返回即可；
+
+\Circled{4} 如果e等于当前节点，说明找到了要删除的节点，进入删除操作：
+
+a）若当前节点是叶节点，直接删除即可；
+
+b）若当前节点有左孩子，那么可以在左子树中寻找节点的中序前驱pre，用pre的数据覆盖掉当前节点的数据，之后在左子树中删除节点pre；
+
+c）若当前节点有右孩子，那么可以在右子树中寻找节点的中序后继post，用post的数据覆盖掉当前节点的数据，之后在右子树中删除节点post。
+
+完整的删除代码如下所示：
+\begin{cppcode}
+// 在树root中，删除值为e的节点
+    void DeleteBSTree(BSTreeNode* &root, ElemType e) {
+        if(root == NULL) {
+            return ;
+        }
+        if(e < root->data) {
+            DeleteBSTree(root->lchild, e);
+        }
+        if(e > root->data) {
+            DeleteBSTree(root->rchild, e);
+        }
+        if(e == root->data) {
+            // root是叶节点
+            if(root->lchild == NULL && root->rchild == NULL) {
+                BSTreeNode* to_free = root;
+                // root = NULL是为了改变链条，让其父节点的孩子指针指向NULL
+                root = NULL;
+                free(to_free);
+            }
+            // root不是叶节点
+            else {
+                // 有左子树
+                if(root->lchild != NULL) {
+                    BSTreeNode* pre = FindInOrderPre(root);
+                    root->data = pre->data;
+                    DeleteBSTree(root->lchild, pre->data);
+                } 
+                // 有右子树
+                else if(root->rchild != NULL) {
+                    BSTreeNode* post = FindInOrderPost(root);
+                    root->data = post->data;
+                    DeleteBSTree(root->rchild, post->data);
+                }
+            }
+        }
+    }
+\end{cppcode}
+
 

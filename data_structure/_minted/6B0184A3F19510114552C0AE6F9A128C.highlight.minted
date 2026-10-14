@@ -1,0 +1,28 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{visit}\PYG{p}{(}\PYG{n}{node}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{root}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{depth}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{max\PYGZus{}appeal}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{root}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{c+c1}{// 叶子节点，有宝藏的房间}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{lchild}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{rchild}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{appeal}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{(}\PYG{l+m+mf}{1.0}\PYG{o}{/}\PYG{n}{dpeth}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{weight}\PYG{p}{;}
+\PYG{+w}{        }\PYG{c+c1}{// 本房间的“诱人值”比之前遇到的所有房间都大，更新max\PYGZus{}appeal}
+\PYG{+w}{        }\PYG{k}{if}\PYG{p}{(}\PYG{n}{appeal}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{max\PYGZus{}appeal}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{max\PYGZus{}appeal}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{appeal}\PYG{p}{;}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{lchild}\PYG{+w}{ }\PYG{o}{!}\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{visit}\PYG{p}{(}\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{lchild}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{depth}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{max\PYGZus{}appeal}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{rchild}\PYG{+w}{ }\PYG{o}{!}\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{visit}\PYG{p}{(}\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{rchild}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{depth}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{max\PYGZus{}appeal}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n+nf}{CalcAppeal}\PYG{p}{(}\PYG{n}{node}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{T}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{ans}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{    }\PYG{c+c1}{// your codes...}
+\PYG{+w}{    }\PYG{n}{visit}\PYG{p}{(}\PYG{n}{T}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ans}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{ans}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

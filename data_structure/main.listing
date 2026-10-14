@@ -1,25 +1,22 @@
-        int MinCost(int w[], int n) {
-            priority_queue<int, vector<int>, greater<int>> min_heap;
-            // 在下方完成你的代码
-            int total_cost = 0;
+        int MinEscapeCost(node* root) {
+            if(root == NULL) return 0;
 
-            for(int i=0; i<n; i++) {
-                min_heap.push(w[i]);
+            // 叶子节点，出口找到了
+            if(root->lchild == NULL && root->rchild == NULL) {
+                return root->weight;
             }
-            // 做n-1次
-            for(int i=1; i<=n-1; i++) {
-                // 取出两个重量最小的：w1和w2
-                int w1 = min_heap.top();
-                min_heap.pop();
-                int w2 = min_heap.top();
-                min_heap.pop();
-
-                // 体力消耗为w1+w2
-                int union_cost = w1 + w2;
-                total_cost += union_cost;
-
-                // 合成一堆后放回堆中
-                min_heap.push(union_cost);
+            // 左边是死路，只能从右边走
+            if(root->lchild == NULL) {
+                return root->weight + MinEscapeCost(root->rchild);
             }
-            return total_cost;
+            // 右边是死路
+            if(root->rchild == NULL) {
+                return root->weight + MinEscapeCost(root->lchild);
+            }
+
+            // 两边都能走，递归计算两边代价后，选代价小的那一条路
+            int ltree_cost = MinEscapeCost(root->lchild);
+            int rtree_cost = MinEscapeCost(root->rchild);
+
+            return root->weight + min(ltree_cost, rtree_cost);
         }

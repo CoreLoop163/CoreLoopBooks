@@ -14,6 +14,7 @@
 \contentsline {subsection}{\numberline {2.4.2}插入和删除}{25}{subsection.2.4.2}%
 \contentsline {subsection}{\numberline {2.4.3}空间利用}{25}{subsection.2.4.3}%
 \contentsline {subsection}{\numberline {2.4.4}如何选择}{25}{subsection.2.4.4}%
+\contentsline {section}{ 习题 1 }{28}{exercise.1}%
 \contentsline {section}{\numberline {2.5}单链表的常见变态}{31}{section.2.5}%
 \contentsline {subsection}{\numberline {2.5.1}双链表}{31}{subsection.2.5.1}%
 \contentsline {subsection}{\numberline {2.5.2}循环链表}{33}{subsection.2.5.2}%
@@ -30,6 +31,7 @@
 \contentsline {subsection}{\numberline {3.2.2}队列的顺序存储}{49}{subsection.3.2.2}%
 \contentsline {section}{\numberline {3.3}栈的进一步理解}{53}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}表达式的转换与求值}{56}{subsection.3.3.1}%
+\contentsline {section}{ 习题 2 }{63}{exercise.2}%
 \contentsline {chapter}{\numberline {第四章\hspace {.3em}}树与二叉树}{69}{chapter.4}%
 \contentsline {section}{\numberline {4.1}树}{69}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}*目录树的简单实现}{72}{subsection.4.1.1}%
@@ -37,9 +39,13 @@
 \contentsline {section}{\numberline {4.2}二叉树的基本内容介绍}{75}{section.4.2}%
 \contentsline {subsection}{\numberline {4.2.1}二叉树的实现}{77}{subsection.4.2.1}%
 \contentsline {subsection}{\numberline {4.2.2}二叉树的遍历}{79}{subsection.4.2.2}%
+\contentsline {section}{ 习题 3 }{90}{exercise.3}%
 \contentsline {section}{\numberline {4.3}哈夫曼树与哈夫曼编码}{95}{section.4.3}%
 \contentsline {subsection}{\numberline {4.3.1}哈夫曼编码}{98}{subsection.4.3.1}%
 \contentsline {section}{\numberline {4.4}堆}{101}{section.4.4}%
 \contentsline {subsection}{\numberline {4.4.1}堆及其常见操作的实现}{101}{subsection.4.4.1}%
 \contentsline {subsection}{\numberline {4.4.2}堆的经典应用}{107}{subsection.4.4.2}%
-\contentsline {chapter}{习题参考答案}{113}{chapter*.55}%
+\contentsline {section}{ 习题 4 }{109}{exercise.4}%
+\contentsline {section}{\numberline {4.5}二叉查找树}{113}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}二叉查找树的实现}{114}{subsection.4.5.1}%
+\contentsline {chapter}{习题参考答案}{121}{chapter*.60}%

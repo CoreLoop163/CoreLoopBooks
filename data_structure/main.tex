@@ -567,12 +567,17 @@
     \quad
     \IfExistSolutionTF{
         （参考答案见习题
-        \GetExerciseProperty{counter}~参考答案，第
+        \GetExerciseProperty{counter}\ 参考答案，第
         \pageref{exercise-answer:\ExerciseID}页）
     }{}
     \par
     \medskip
     \label{exercise:\ExerciseID}
+
+    % 将当前习题写入目录
+    \addcontentsline{toc}{section}{
+        习题 \GetExerciseProperty{counter}
+    }
 }{
     \par
     \medskip

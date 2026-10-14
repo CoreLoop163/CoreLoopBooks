@@ -1,0 +1,38 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+c1}{// 在树root中，删除值为e的节点}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{DeleteBSTree}\PYG{p}{(}\PYG{n}{BSTreeNode}\PYG{o}{*}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{root}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ElemType}\PYG{+w}{ }\PYG{n}{e}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{if}\PYG{p}{(}\PYG{n}{root}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{k}{return}\PYG{+w}{ }\PYG{p}{;}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{k}{if}\PYG{p}{(}\PYG{n}{e}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{data}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{DeleteBSTree}\PYG{p}{(}\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{lchild}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{e}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{k}{if}\PYG{p}{(}\PYG{n}{e}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{data}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{DeleteBSTree}\PYG{p}{(}\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{rchild}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{e}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{k}{if}\PYG{p}{(}\PYG{n}{e}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{data}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{c+c1}{// root是叶节点}
+\PYG{+w}{            }\PYG{k}{if}\PYG{p}{(}\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{lchild}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{rchild}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{                }\PYG{n}{BSTreeNode}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{to\PYGZus{}free}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{root}\PYG{p}{;}
+\PYG{+w}{                }\PYG{c+c1}{// root = NULL是为了改变链条，让其父节点的孩子指针指向NULL}
+\PYG{+w}{                }\PYG{n}{root}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{;}
+\PYG{+w}{                }\PYG{n}{free}\PYG{p}{(}\PYG{n}{to\PYGZus{}free}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{            }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{            }\PYG{c+c1}{// root不是叶节点}
+\PYG{+w}{            }\PYG{k}{else}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{                }\PYG{c+c1}{// 有左子树}
+\PYG{+w}{                }\PYG{k}{if}\PYG{p}{(}\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{lchild}\PYG{+w}{ }\PYG{o}{!}\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{                    }\PYG{n}{BSTreeNode}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{pre}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{FindInOrderPre}\PYG{p}{(}\PYG{n}{root}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{                    }\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{data}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{pre}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{data}\PYG{p}{;}
+\PYG{+w}{                    }\PYG{n}{DeleteBSTree}\PYG{p}{(}\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{lchild}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{pre}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{data}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{                }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{                }\PYG{c+c1}{// 有右子树}
+\PYG{+w}{                }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{(}\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{rchild}\PYG{+w}{ }\PYG{o}{!}\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{                    }\PYG{n}{BSTreeNode}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{post}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{FindInOrderPost}\PYG{p}{(}\PYG{n}{root}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{                    }\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{data}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{post}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{data}\PYG{p}{;}
+\PYG{+w}{                    }\PYG{n}{DeleteBSTree}\PYG{p}{(}\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{rchild}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{post}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{data}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{                }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{            }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

@@ -1,0 +1,8 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n+nf}{CalcAppeal}\PYG{p}{(}\PYG{n}{node}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{T}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{ans}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{    }\PYG{c+c1}{// your codes...}
+
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{ans}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}
