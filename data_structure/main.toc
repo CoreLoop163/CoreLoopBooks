@@ -48,4 +48,6 @@
 \contentsline {section}{ 习题 4 }{109}{exercise.4}%
 \contentsline {section}{\numberline {4.5}二叉查找树}{113}{section.4.5}%
 \contentsline {subsection}{\numberline {4.5.1}二叉查找树的实现}{114}{subsection.4.5.1}%
-\contentsline {chapter}{习题参考答案}{121}{chapter*.60}%
+\contentsline {section}{\numberline {4.6}平衡二叉树}{120}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}平衡二叉树的插入操作}{122}{subsection.4.6.1}%
+\contentsline {chapter}{习题参考答案}{125}{chapter*.64}%

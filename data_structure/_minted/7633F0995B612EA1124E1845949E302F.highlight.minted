@@ -1,0 +1,11 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+c1}{// 对节点root左旋}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{LRotate}\PYG{p}{(}\PYG{n}{AVLTreeNode}\PYG{o}{*}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{root}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{AVLTreeNode}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{tmp}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{rchild}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{rchild}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{tmp}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{lchild}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{tmp}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{lchild}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{root}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{UpdateHeight}\PYG{p}{(}\PYG{n}{root}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{UpdateHeight}\PYG{p}{(}\PYG{n}{tmp}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{root}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{tmp}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

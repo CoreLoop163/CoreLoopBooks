@@ -22,6 +22,7 @@
 \PYG{+w}{            }\PYG{k}{else}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
 \PYG{+w}{                }\PYG{c+c1}{// 有左子树}
 \PYG{+w}{                }\PYG{k}{if}\PYG{p}{(}\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{lchild}\PYG{+w}{ }\PYG{o}{!}\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{NULL}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{                    }\PYG{c+c1}{// 若有左子树，则一定能找到中序前驱，所以pre一定不是NULL}
 \PYG{+w}{                    }\PYG{n}{BSTreeNode}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{pre}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{FindInOrderPre}\PYG{p}{(}\PYG{n}{root}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{                    }\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{data}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{pre}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{data}\PYG{p}{;}
 \PYG{+w}{                    }\PYG{n}{DeleteBSTree}\PYG{p}{(}\PYG{n}{root}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{lchild}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{pre}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{data}\PYG{p}{)}\PYG{p}{;}

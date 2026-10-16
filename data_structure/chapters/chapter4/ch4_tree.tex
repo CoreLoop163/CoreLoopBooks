@@ -1854,7 +1854,8 @@ D. 以A、B、C、D、E为叶节点构造一棵二叉树，图示的树并不是
         }
     }
 \end{cppcode}
-在图\ref{fig:二叉查找树的插入过程}所示的二叉树中分别插入8和插入21的过程如图所示。
+在图\ref{fig:二叉查找树的插入过程}所示的二叉树中分别插入8和插入21的过程如图所示。注意上面的代码中，root变量作为根节点的地址，该地址本身是有可能
+被修改的，因此一定要以引用作为参数，而不能是普通的拷贝传递。
 \begin{figure}
     \centering
     \includegraphics[width=0.89\textwidth]{assets/pics_and_ppts/ch4/二叉查找树的插入过程.png}
@@ -1976,6 +1977,7 @@ c）若当前节点有右孩子，那么可以在右子树中寻找节点的中�
             else {
                 // 有左子树
                 if(root->lchild != NULL) {
+                    // 若有左子树，则一定能找到中序前驱，所以pre一定不是NULL
                     BSTreeNode* pre = FindInOrderPre(root);
                     root->data = pre->data;
                     DeleteBSTree(root->lchild, pre->data);
@@ -1991,4 +1993,159 @@ c）若当前节点有右孩子，那么可以在右子树中寻找节点的中�
     }
 \end{cppcode}
 
+\section{平衡二叉树}
+在上一节中，可能你已经想到了，当我们使用序列{1,2,3,4,5,6,7,8,9}来构造一棵二叉查找树时，形成的树形是斜向右下的一条直线，高度为9。此时，二叉查找树实际上退化为
+了一个线性表。许多具有类似结构特点的二叉查找树对查询、插入等操作带来的优化非常有限。
+
+那么我们能不能在每次插入、删除元素后对树加以调整，让结构依然保持平衡？
+例如当插入1到9时，对树进行如图\ref{fig:1到9插入调整过程}所示的调整。
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1.0\textwidth]{assets/pics_and_ppts/ch4/1到9插入调整过程.png}
+    \caption{}
+    \label{fig:1到9插入调整过程}
+\end{figure}
+这样，二叉查找树始终能保持高效的，O(logn)级别的操作。基于这样的思想，两位先贤，名为G.M.\textbf{A}delse-\textbf{V}elskil以及
+E.M.\textbf{L}andis提出了\term{平衡二叉树}，也被称为\term{AVL树}。AVL树是满足“平衡”要求的二叉查找树。所谓平衡，是指对树中任意节点来说，其左右子树的高度相差
+不超过1。对于一个节点，其左子树的高度减去右子树的高度，差值称为该节点的\term{平衡因子}（可以将节点理解为天平的中点，将其左右子树的高度分别理解为左右托盘的砝码数量）。
+于是我们知道，\term{平衡二叉树要求树中任何一个节点的平衡因子的绝对值不超过1}。
+
+图\ref{fig:1到9插入调整过程}中，c）调整前，节点1的左子树为空树，高度为0，右子树高度为2，因此节点1的
+平衡因子为0-2=-2，左右子树高度相差2，不是平衡二叉树，而调整后，节点2、1、3的平衡因子都是0，因此是一棵平衡二叉树。
+显然树中只要存在一个节点平衡因子的绝对值超过1，该树就不是平衡二叉树，因此我们需要一种手段记录每个节点的平衡因子。通常的做法并不是直接在节点的结构定义中记录平衡因子，
+而是记录以当前节点为根节点的子树的高度：
+\begin{cppcode}
+    struct AVLTreeNode {
+        ElemType data;
+        AVLTreeNode* lchild;
+        AVLTreeNode* rchild;
+        int height;     // 节点高度
+    }
+\end{cppcode}
+
+于是某节点的平衡因子就可以通过其左右子树高度之差计算得来。
+\begin{cppcode}
+// 返回节点root的平衡因子
+    int GetBalance(AVLTreeNode* root) {
+        int lheight;    // 左子树高度
+        int rheight;    // 右子树高度
+
+        // 注意不能直接通过root->lchild->height获取子树高度，若root没有左子树，应认为其左子树高度为0.
+        if(root->lchild == NULL) {
+            lheight = 0;
+        }
+        else {
+            lheight = root->lchild->height;
+        }
+        if(root->rchild == NULL) {
+            rheight = 0;
+        }
+        else {
+            rheight = 0;
+        }
+        return lheight - rheight;
+    }
+\end{cppcode}
+为了此处及后续诸多地方的代码书写简洁，我们封装一个函数来获取节点的高度：
+\begin{cppcode}
+    int GetHeight(AVLTreeNode* root) {
+        if(root == NULL) return 0;
+        return root->height;
+    }
+\end{cppcode}
+于是获取平衡因子的函数就可以简单写成：
+\begin{cppcode}
+    int GetBalance(AVLTreeNode* root) {
+        int lheight = GetHeight(root->lchild);
+        int rheight = GetHeight(root->rchild);
+        return lheight - rheight;
+    }
+\end{cppcode}
+
+显然，当我们在平衡二叉树中插入一个新的节点之后，需要更新该节点的所有\term{祖先节点}的height值，而非祖先的height是不受该新节点的影响的，如图\ref{fig:1到9插入调整过程}
+e），插入5后，节点1的height无需更新。由于节点root的height等于其左子树的height与右子树的height的较大值加一，因此当新节点插入后，可以自下而上依次地更新新节点
+的每一个祖先节点的高度，通过如下函数：
+\begin{cppcode}
+    void UpdateHeight(AVLTreeNode* root) {
+        int lheight = GetHeight(root->lchild);
+        int rheight = GetHeight(root->rchild);
+        root->height = max(lheight, rheight);
+    }
+\end{cppcode}
+
+\begin{insightbox}
+    实际上，有了前面二叉查找树插入操作的递归思想，你可能会想得到，“当新节点插入后，自下而上依次地更新每一个新节点的祖先节点的高度”，
+    这个更新操作的时机就是在函数递归调用，找到正确的插入位置并插入元素之后再“回溯”到访问该节点的函数栈中时。大家可以结合后面平衡二叉树的插入代码体会。
+\end{insightbox}
+
+
+显然，平衡二叉树的查找操作与二叉查找树没有区别。而平衡二叉树的删除操作较为复杂，一般不做讨论。接下来我们就来重点研究平衡二叉树的插入操作。
+
+\subsection{平衡二叉树的插入操作}
+事实上图\ref{fig:1到9插入调整过程} c）所进行的调整，可以称为“进行了以节点1为根的\term{左旋}”。平衡二叉树的插入操作需要视情形对某些节点进行\term{左旋}或\term{右旋}。
+我们先来看相关概念。
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.91\textwidth]{assets/pics_and_ppts/ch4/左旋过程示意图.png}
+    \caption{左旋过程示意图}
+    \label{fig:左旋过程示意图}
+\end{figure}
+如图\ref{fig:左旋过程示意图}所示的过程将以节点A为根的子树进行了向左的旋转，具体过程如下：
+\begin{enumerate}[label=\arabic*）]
+    \item 让B的左子树$T_2$成为A的右子树；
+    \item 让A成为B的左子树；
+    \item 将根节点设定为节点B。
+\end{enumerate}
+像这样的，将原本的根节点A的右孩子“提升”为新的根节点，并且将A及其左子树“向左下沉”的操作，可以称为（以A为根节点的）\term{左旋}。
+在后面的描述中我们简单地称为\textbf{对节点A左旋}。对root左旋的代码如下所示：
+\begin{cppcode}
+// 对节点root左旋
+    void LRotate(AVLTreeNode* &root) {
+        AVLTreeNode* tmp = root->rchild;
+        root->rchild = tmp->lchild;
+        tmp->lchild = root;
+        UpdateHeight(root);
+        UpdateHeight(tmp);
+        root = tmp;
+    }
+\end{cppcode}
+
+相应地，\term{右旋}是与左旋对称的过程，图\ref{fig:右旋过程示意图}展示了对节点B右旋的过程。
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.91\textwidth]{assets/pics_and_ppts/ch4/右旋过程示意图.png}
+    \caption{右旋过程示意图}
+    \label{fig:右旋过程示意图}
+\end{figure}
+类似地可以写出代码：
+\begin{cppcode}
+// 对节点root右旋
+    void RRotate(AVLTreeNode* &root) {
+        AVLTreeNode* tmp = root->lchild;
+        root->lchild = tmp->rchild;
+        tmp->rchild = root;
+        UpdateHeight(root);
+        UpdateHeight(tmp);
+        root = tmp;
+    }
+\end{cppcode}
+
+以上介绍的左旋和右旋操作，正是用于失衡的调整。已经被证明，若失衡，我们只需要把新插入节点的所有祖先节点中，
+最靠近新插入节点的那个失衡节点调整到正常，则路径上的所有节点就都会平衡。而最靠近新插入节点的失衡节点，其失衡的情形一定是
+如图\ref{fig:四种失衡情形}所示四种情形之一。
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{assets/pics_and_ppts/ch4/四种失衡情形.png}
+    \caption{四种失衡情形}
+    \label{fig:四种失衡情形}
+
+\end{figure}
+
+图中用虚线表示新插入节点，根节点表示最靠近新插入节点的失衡节点。若新插入节点在根节点的右子树（R）的右子树（R）中，则称这种失衡情形为\term{RR型}，
+如a）所示；若新插入节点在根节点的右子树（R）的左子树（L）中，则称这种失衡情形为\term{RL型}，如b）所示；相应地，c）和d）分别被称为\term{LL型}
+和\term{LR型}。
+
+
+
+一个很让人放心的事实是，这四种情形都可以通过若干次左旋或右旋的操作调整，从而重新达到平衡。
 
