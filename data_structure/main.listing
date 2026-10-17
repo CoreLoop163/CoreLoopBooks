@@ -1,22 +1,20 @@
-        int MinEscapeCost(node* root) {
-            if(root == NULL) return 0;
+// 沿路径查找到了NULL，说明该路径上不存在有用的信息。
+    if( root == NULL ) return NULL;
 
-            // 叶子节点，出口找到了
-            if(root->lchild == NULL && root->rchild == NULL) {
-                return root->weight;
-            }
-            // 左边是死路，只能从右边走
-            if(root->lchild == NULL) {
-                return root->weight + MinEscapeCost(root->rchild);
-            }
-            // 右边是死路
-            if(root->rchild == NULL) {
-                return root->weight + MinEscapeCost(root->lchild);
-            }
+    node* left = LowestCommonAncestor(root->lchild, 4, 5);
+    node* right = LowestCommonAncestor(root->rchild, 4, 5);
 
-            // 两边都能走，递归计算两边代价后，选代价小的那一条路
-            int ltree_cost = MinEscapeCost(root->lchild);
-            int rtree_cost = MinEscapeCost(root->rchild);
+// 若找到了某待查关键字，将该节点指针向上返回
+    if( root == p || root == q ) return root;
 
-            return root->weight + min(ltree_cost, rtree_cost);
-        }
+// 这种情况成立，则一定是left和right分别是待查找的两个关键字的指针。此时root就是公共祖先，向上返回，一直传递上去。
+    if (left != NULL && right != NULL)
+        return root;
+
+    // 此前（更下层的递归中）存在有用的信息（左子树中有待查关键字，或已经在左子树中找到了最近公共祖先），将该有用的信息向上返回，传递上去
+    if(left) return left;
+    // 此前（更下层的递归中）存在有用的信息（右子树中有待查关键字，或已经在右子树中找到了最近公共祖先），将该有用的信息向上返回，传递上去
+    if(right) return right;
+
+    // 若左右子树都不存在有用的信息，返回NULL，表示这条路径上没有有用的信息。
+    return NULL;

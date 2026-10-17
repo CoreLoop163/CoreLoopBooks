@@ -1,0 +1,11 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{node}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{key}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{node}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{lchild}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{node}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{rchild}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}\PYG{p}{;}
+
+\PYG{n}{node}\PYG{o}{*}\PYG{+w}{ }\PYG{n+nf}{LowestCommonAncestor}\PYG{p}{(}\PYG{n}{node}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{root}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

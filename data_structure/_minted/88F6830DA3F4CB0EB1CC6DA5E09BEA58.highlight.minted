@@ -1,0 +1,9 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{node}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{key}\PYG{p}{;}\PYG{+w}{    }\PYG{c+c1}{// 关键字}
+\PYG{+w}{    }\PYG{n}{LinkList}\PYG{o}{\PYGZlt{}}\PYG{n}{ElemType}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{datas}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{// datas是一个链表，保存所有关键字为key的数据。}
+\PYG{+w}{    }\PYG{n}{node}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{lchild}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{node}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{rchild}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{height}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}\PYG{p}{;}
+\end{MintedVerbatim}
