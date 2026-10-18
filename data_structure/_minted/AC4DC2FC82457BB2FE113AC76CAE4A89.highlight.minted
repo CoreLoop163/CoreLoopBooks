@@ -1,0 +1,5 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+cm}{/* 类似 “int a;”中int是类型，a是变量名。}
+\PYG{c+cm}{这里 vector\PYGZlt{}int\PYGZgt{} 是类型，arr是你定义的变量名。*/}
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{arr}\PYG{p}{;}
+\end{MintedVerbatim}

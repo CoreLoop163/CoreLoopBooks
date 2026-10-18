@@ -1,0 +1,6 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{int\PYGZus{}arr}\PYG{p}{;}\PYG{+w}{        }\PYG{c+c1}{// 一个空的，容纳int型元素的不定长数组}
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{char}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{char\PYGZus{}arr}\PYG{p}{;}\PYG{+w}{      }\PYG{c+c1}{// 一个空的，容纳char型元素的不定长数组}
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{double}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{double\PYGZus{}arr}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{// 一个空的，容纳 double 型元素的不定长数组}
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{vectorint\PYGZus{}arr}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// 容纳元素类型为 vector\PYGZlt{}int\PYGZgt{} 的不定长数组}
+\end{MintedVerbatim}

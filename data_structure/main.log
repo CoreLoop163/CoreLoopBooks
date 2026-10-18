@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.5) (preloaded format=xelatex 2026.9.20)  17 OCT 2026 21:07
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.5) (preloaded format=xelatex 2026.9.20)  18 OCT 2026 22:05
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1691,11 +1691,11 @@ able
 \pydata@fh@0=\write9
 \openout9 = `_FAD58DE7366495DB4650CFEFAC2FCD61.data.minted'.
 
-runsystem(latexminted config  --timestamp 20261017210733 FAD58DE7366495DB4650CF
+runsystem(latexminted config  --timestamp 20261018220506 FAD58DE7366495DB4650CF
 EFAC2FCD61)...executed.
 
  (_FAD58DE7366495DB4650CFEFAC2FCD61.config.minted)
-runsystem(latexminted cleanconfig  --timestamp 20261017210733 FAD58DE7366495DB4
+runsystem(latexminted cleanconfig  --timestamp 20261018220506 FAD58DE7366495DB4
 650CFEFAC2FCD61)...executed.
 
 
@@ -1992,23 +1992,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 113--114
 
 \openout8 = `main.listing'.
 
-(_minted/34A12D93AD3CFA29E2DF5A30CDEB7FDC.highlight.minted))
-Underfull \hbox (badness 10000) in paragraph at lines 128--764
+(_minted/34A12D93AD3CFA29E2DF5A30CDEB7FDC.highlight.minted)
+Underfull \hbox (badness 10000) in paragraph at lines 128--133
 
  []
 
-[30]
+\openout8 = `main.listing'.
+
+(_minted/AC4DC2FC82457BB2FE113AC76CAE4A89.highlight.minted) [30]
+\openout8 = `main.listing'.
+
+
+(_minted/CEF240FEFCF5299D15E6A1A383E84FB9.highlight.minted)) [31]
 \openout8 = `main-bookexercise-1-solution-body.tex'.
 
 \openout8 = `main.listing'.
 
- (_minted/9C66BE8C7E3766023978F47D2D058CE6.highlight.minted)
+
+(_minted/9C66BE8C7E3766023978F47D2D058CE6.highlight.minted)
 File: assets/pics_and_ppts/ch2/双链表示意图.png Graphic file (type bmp)
 <assets/pics_and_ppts/ch2/双链表示意图.png>
 \openout8 = `main.listing'.
 
 
-(_minted/04F0DFC8C15736CBBF65C792C83EFA67.highlight.minted) [31
+(_minted/04F0DFC8C15736CBBF65C792C83EFA67.highlight.minted) [32
 
 ]
 \openout8 = `main.listing'.
@@ -2017,10 +2024,10 @@ File: assets/pics_and_ppts/ch2/双链表示意图.png Graphic file (type bmp)
 (_minted/D206D2ADA075654179B82DE2001AC110.highlight.minted)
 File: assets/pics_and_ppts/ch2/循环链表示意图.png Graphic file (type bmp)
 <assets/pics_and_ppts/ch2/循环链表示意图.png>
- [32]
+ [33]
 File: assets/pics_and_ppts/ch2/静态链表示意图.png Graphic file (type bmp)
 <assets/pics_and_ppts/ch2/静态链表示意图.png>
- [33]
+ [34]
 \openout8 = `main.listing'.
 
 
@@ -2032,10 +2039,8 @@ File: assets/pics_and_ppts/ch2/静态链表示意图.png Graphic file (type bmp)
 \openout8 = `main.listing'.
 
 
-(_minted/1188C0CE9A7822DA864B7AD4DF28202B.highlight.minted) [34])
-(chapters/chapter3/ch3_stack_and_queue.tex [35] [36
-
-]
+(_minted/1188C0CE9A7822DA864B7AD4DF28202B.highlight.minted) [35])
+(chapters/chapter3/ch3_stack_and_queue.tex [36]
 第三章
 File: assets/pics_and_ppts/ch3/洗澡穿脱衣服的例子.png Graphic file (type bmp)
 <assets/pics_and_ppts/ch3/洗澡穿脱衣服的例子.png>
@@ -2051,7 +2056,9 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 25.
 See the caption package documentation for explanation.
 
-[37]
+[37
+
+]
 File: assets/pics_and_ppts/ch3/队列示意图.png Graphic file (type bmp)
 <assets/pics_and_ppts/ch3/队列示意图.png>
 
@@ -2892,17 +2899,57 @@ Underfull \hbox (badness 10000) in paragraph at lines 45--49
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--51
+
+ []
+
+File: assets/pics_and_ppts/ch4/习题_寻找公共祖先答案图.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch4/习题_寻找公共祖先答案图.png>
 \openout8 = `main.listing'.
 
-(_minted/F4DE413A2FFAD23DC9C2578DE2F8C3BE.highlight.minted)) [131]
+(_minted/F4DE413A2FFAD23DC9C2578DE2F8C3BE.highlight.minted)
+Underfull \hbox (badness 10000) in paragraph at lines 73--75
+
+ []
+
+\openout8 = `main.listing'.
+
+(_minted/E3912FD0102D0D77D732A2E1416A24A0.highlight.minted) [131]
+\openout8 = `main.listing'.
+
+
+(_minted/E62E89A2AC2496C4565F582DFFA3402E.highlight.minted)
+File: assets/pics_and_ppts/ch4/22408T1T2.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch4/22408T1T2.png>
+File: assets/pics_and_ppts/ch4/22408T1存储.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch4/22408T1存储.png>
+File: assets/pics_and_ppts/ch4/22408T2存储.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch4/22408T2存储.png>
+) [132]
 \openout8 = `main-bookexercise-5-solution-body.tex'.
 
-) [132
+)
+(chapters/C++重点内容整理.tex
+\openout8 = `main.listing'.
 
+
+(_minted/24A66D29549DA212BC7533D21C257D47.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/8B99983529D58DDBD39DBA2DE976648E.highlight.minted) [133
 
 
 ]
-[133] (main-bookexercise-1-solution-body.tex
+\openout8 = `main.listing'.
+
+
+(_minted/50586C08A34C913D007F8C4D1634A34E.highlight.minted)) [134] [135
+
+
+]
+(main-bookexercise-1-solution-body.tex
 Underfull \hbox (badness 10000) in paragraph at lines 10--12
 
  []
@@ -2931,7 +2978,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--35
 
 \openout8 = `main.listing'.
 
-(_minted/C84CC9D6B04CB47AB056D30A0AC3933B.highlight.minted) [134
+(_minted/C84CC9D6B04CB47AB056D30A0AC3933B.highlight.minted) [136
 
 ]
 \openout8 = `main.listing'.
@@ -2944,7 +2991,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 74--75
 
 \openout8 = `main.listing'.
 
-(_minted/63ED7D6272672BC6B67C5FE4F2A1E320.highlight.minted) [135]
+(_minted/63ED7D6272672BC6B67C5FE4F2A1E320.highlight.minted) [137]
 \openout8 = `main.listing'.
 
 
@@ -2952,7 +2999,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 74--75
 \openout8 = `main.listing'.
 
 
-(_minted/BDFF3E54B5334CA5D57D73502D60C884.highlight.minted) [136]
+(_minted/BDFF3E54B5334CA5D57D73502D60C884.highlight.minted) [138]
 \openout8 = `main.listing'.
 
 
@@ -2960,11 +3007,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 74--75
 \openout8 = `main.listing'.
 
 
-(_minted/85FFD4595827520FBFA514756D7ECE83.highlight.minted) [137]
+(_minted/85FFD4595827520FBFA514756D7ECE83.highlight.minted) [139]
 \openout8 = `main.listing'.
 
 
-(_minted/243B3D3F07B9CC0226C9543007525726.highlight.minted) [138]) [139]
+(_minted/243B3D3F07B9CC0226C9543007525726.highlight.minted) [140]
+Underfull \hbox (badness 10000) in paragraph at lines 239--240
+
+ []
+
+
+Overfull \hbox (5.28601pt too wide) in paragraph at lines 243--244
+[]\TU/SimSun(0)/m/n/10.53937 我 们 定 义 一 个 \TU/lmr/m/n/10.53937 vector<int> ret; 
+\TU/SimSun(0)/m/n/10.53937 遍 历 一 遍 原 数 组 \TU/lmr/m/n/10.53937 arr\TU/SimSun(0)/
+m/n/10.53937 ，|  若 \TU/lmr/m/n/10.53937 arr[i] > k\TU/SimSun(0)/m/n/10.53937 ，|
+  则 将 其 \TU/lmr/m/n/10.53937 push_back
+ []
+
+\openout8 = `main.listing'.
+
+(_minted/B8D94A680A8AF831D48B762FD88FD7D8.highlight.minted) [141]) [142]
 (main-bookexercise-2-solution-body.tex
 Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
@@ -3010,7 +3072,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--34
 
  []
 
-[140
+[143
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 35--36
@@ -3057,10 +3119,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 60--62
 
  []
 
-[141]
+[144]
 \openout8 = `main.listing'.
 
- (_minted/5D2E311A209E233BFD851EEF2CF34972.highlight.minted)) [142]
+ (_minted/5D2E311A209E233BFD851EEF2CF34972.highlight.minted)) [145]
 (main-bookexercise-3-solution-body.tex
 Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
@@ -3086,7 +3148,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 43--47
 
  []
 
-[143
+[146
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 48--50
@@ -3123,7 +3185,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 84--86
 
  []
 
-[144]
+[147]
 File: assets/pics_and_ppts/ch4/09年408选择.png Graphic file (type bmp)
 <assets/pics_and_ppts/ch4/09年408选择.png>
 
@@ -3151,7 +3213,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 106--108
 
  []
 
-[145]
+[148]
 Underfull \hbox (badness 10000) in paragraph at lines 113--115
 
  []
@@ -3167,7 +3229,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 116--118
 \openout8 = `main.listing'.
 
 
-(_minted/CD7CFA84A243E656E7A62AC6A8FC0DCF.highlight.minted) [146]
+(_minted/CD7CFA84A243E656E7A62AC6A8FC0DCF.highlight.minted) [149]
 Underfull \hbox (badness 10000) in paragraph at lines 150--151
 
  []
@@ -3181,7 +3243,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 165--166
 
 \openout8 = `main.listing'.
 
-(_minted/F5C02BEFEBF05911B4B8764AF2E16414.highlight.minted) [147]) [148]
+(_minted/F5C02BEFEBF05911B4B8764AF2E16414.highlight.minted) [150]) [151]
 (main-bookexercise-4-solution-body.tex
 Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
@@ -3209,7 +3271,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--20
 
 \openout8 = `main.listing'.
 
-(_minted/5DAB63A4671D94CDF85833CA4BF87481.highlight.minted) [149
+(_minted/5DAB63A4671D94CDF85833CA4BF87481.highlight.minted) [152
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 67--68
@@ -3220,18 +3282,18 @@ File: assets/pics_and_ppts/ch4/21408_哈夫曼树构造过程.png Graphic file (
 <assets/pics_and_ppts/ch4/21408_哈夫曼树构造过程.png>
 \openout8 = `main.listing'.
 
-(_minted/0002A310DC72EA8D700CD759E50417B7.highlight.minted) [150]
+(_minted/0002A310DC72EA8D700CD759E50417B7.highlight.minted) [153]
 Underfull \hbox (badness 10000) in paragraph at lines 101--102
 
  []
 
 \openout8 = `main.listing'.
 
-(_minted/6B0184A3F19510114552C0AE6F9A128C.highlight.minted) [151]
+(_minted/6B0184A3F19510114552C0AE6F9A128C.highlight.minted) [154]
 \openout8 = `main.listing'.
 
 
-(_minted/A0BB0ABF5D95BC93B37F121FB4CE9A18.highlight.minted)) [152]
+(_minted/A0BB0ABF5D95BC93B37F121FB4CE9A18.highlight.minted)) [155]
 (main-bookexercise-5-solution-body.tex
 Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
@@ -3259,7 +3321,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--24
 File: assets/pics_and_ppts/ch4/10408_平衡二叉树插入后37的左右孩子值答案图.png Graphic file (type
  bmp)
 <assets/pics_and_ppts/ch4/10408_平衡二叉树插入后37的左右孩子值答案图.png>
-[153
+[156
 
 ]
 File: assets/pics_and_ppts/ch4/20408哪一个序列不能生成图示二叉排序树答案图.png Graphic file (type 
@@ -3267,15 +3329,15 @@ bmp)
 <assets/pics_and_ppts/ch4/20408哪一个序列不能生成图示二叉排序树答案图.png>
 \openout8 = `main.listing'.
 
- (_minted/5B1A8E692D71DEE6C0719E7FD68B969C.highlight.minted)
+ (_minted/07EE2378A89EA399E751A4EF7F1F65EA.highlight.minted)
 \openout8 = `main.listing'.
 
 
-(_minted/F04896F5CB5C6BCD33186E6A2B7B1556.highlight.minted)
+(_minted/C7952B295F8239791FE58EB72D8E5C6E.highlight.minted)
 \openout8 = `main.listing'.
 
 
-(_minted/FFF502697D82E82BBE4BC83F31710A9D.highlight.minted) [154]
+(_minted/4B91EE1B4FFBFFE83434D056FA4C96DF.highlight.minted) [157]
 Underfull \hbox (badness 10000) in paragraph at lines 96--98
 
  []
@@ -3287,12 +3349,38 @@ Underfull \hbox (badness 10000) in paragraph at lines 105--109
 
  []
 
-[155]
+[158]
 Underfull \hbox (badness 10000) in paragraph at lines 122--124
 
  []
 
-) (chapters/the_end.tex [156]) [157
+
+Underfull \hbox (badness 10000) in paragraph at lines 133--135
+
+ []
+
+\openout8 = `main.listing'.
+
+(_minted/D1FF214F21045421EA5918142803D36B.highlight.minted) [159]
+\openout8 = `main.listing'.
+
+
+(_minted/BBB98CC4B7AC5B9F971BC401F979E8C1.highlight.minted)
+File: assets/pics_and_ppts/ch4/22408错误思路示例.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch4/22408错误思路示例.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 191--192
+
+ []
+
+\openout8 = `main.listing'.
+
+(_minted/6DAF516EE6B1B8ED1BD4C30B5F04EEFB.highlight.minted) [160]
+\openout8 = `main.listing'.
+
+
+(_minted/6AF4291B68C931EA02DECDB32B7044E7.highlight.minted) [161])
+(chapters/the_end.tex [162]) [163
 
 ] (main.aux (main.xsim))
  ***********
@@ -3304,15 +3392,15 @@ L3 programming layer <2026/08/21>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 3F240EF838E63F49B42C0BB8AF04D00C;5797.
+(rerunfilecheck)             Checksum: B7FCF0900F366A23C0A2C16A20751ED7;5993.
  ) 
 Here is how much of TeX's memory you used:
- 49053 strings out of 402560
- 1225868 string characters out of 5445169
- 1696741 words of memory out of 5000000
- 76991 multiletter control sequences out of 15000+600000
+ 49184 strings out of 402560
+ 1231559 string characters out of 5445169
+ 1696112 words of memory out of 5000000
+ 77079 multiletter control sequences out of 15000+600000
  637672 words of font info for 120 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  106i,13n,118p,1299b,1862s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (165 pages).
+Output written on main.pdf (171 pages).

@@ -1,20 +1,32 @@
-// 沿路径查找到了NULL，说明该路径上不存在有用的信息。
-    if( root == NULL ) return NULL;
+    void InOrderTravel(SqBiTree tree, int i, int& pre, bool& ans);
 
-    node* left = LowestCommonAncestor(root->lchild, 4, 5);
-    node* right = LowestCommonAncestor(root->rchild, 4, 5);
+    bool IsBST(SqBiTree tree) {
+        // 先假设是二叉搜索树，若遍历过程发现不满足，将ans置为false。
+        bool ans = true;
+        // 树中节点都是正整数，因此将第一个节点的前驱初始化为0或任意负数即可。
+        int pre = -10;
+        InOrderTravel(tree, 1, pre, ans);
+        return ans;
+    }
 
-// 若找到了某待查关键字，将该节点指针向上返回
-    if( root == p || root == q ) return root;
+    void InOrderTravel(SqBiTree tree, int i, int& pre, bool& ans) {
+        // 节点不存在，直接返回
+        if(i > tree.ElemNum || tree.SqBiTNode[i] == -1) return;
+        // 已经可以做否定断定，无需继续遍历
+        if(ans == false) return ;
 
-// 这种情况成立，则一定是left和right分别是待查找的两个关键字的指针。此时root就是公共祖先，向上返回，一直传递上去。
-    if (left != NULL && right != NULL)
-        return root;
+        // 先访问左子树
+        InOrderTravel(tree, 2*i, pre, ans);
 
-    // 此前（更下层的递归中）存在有用的信息（左子树中有待查关键字，或已经在左子树中找到了最近公共祖先），将该有用的信息向上返回，传递上去
-    if(left) return left;
-    // 此前（更下层的递归中）存在有用的信息（右子树中有待查关键字，或已经在右子树中找到了最近公共祖先），将该有用的信息向上返回，传递上去
-    if(right) return right;
+        // 若当前访问节点小于等于其前驱，说明不是二叉搜索树
+        if(tree.SqBiTNode[i] <= pre) {
+            ans = false;
+            return;
+        }
+        // 将下一个待访问节点的中序前驱更新为当前节点
+        pre = tree.SqBiTNode[i];
 
-    // 若左右子树都不存在有用的信息，返回NULL，表示这条路径上没有有用的信息。
-    return NULL;
+        // 访问右子树
+        InOrderTravel(tree, 2*i+1, pre, ans);
+        return;
+    }

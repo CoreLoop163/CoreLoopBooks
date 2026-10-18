@@ -15,11 +15,11 @@
 \contentsline {subsection}{\numberline {2.4.3}空间利用}{25}{subsection.2.4.3}%
 \contentsline {subsection}{\numberline {2.4.4}如何选择}{25}{subsection.2.4.4}%
 \contentsline {section}{ 习题 1 }{28}{exercise.1}%
-\contentsline {section}{\numberline {2.5}单链表的常见变态}{31}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}双链表}{31}{subsection.2.5.1}%
-\contentsline {subsection}{\numberline {2.5.2}循环链表}{33}{subsection.2.5.2}%
-\contentsline {subsection}{\numberline {2.5.3}静态链表}{33}{subsection.2.5.3}%
-\contentsline {section}{\numberline {2.6}本章小结}{35}{section.2.6}%
+\contentsline {section}{\numberline {2.5}单链表的常见变态}{32}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}双链表}{32}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}循环链表}{34}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.3}静态链表}{34}{subsection.2.5.3}%
+\contentsline {section}{\numberline {2.6}本章小结}{36}{section.2.6}%
 \contentsline {chapter}{\numberline {第三章\hspace {.3em}}栈和队列}{37}{chapter.3}%
 \contentsline {section}{\numberline {3.1}栈}{38}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}顺序栈的常见操作实现}{40}{subsection.3.1.1}%
@@ -51,4 +51,6 @@
 \contentsline {section}{\numberline {4.6}平衡二叉树}{119}{section.4.6}%
 \contentsline {subsection}{\numberline {4.6.1}平衡二叉树的插入操作}{122}{subsection.4.6.1}%
 \contentsline {section}{ 习题 5 }{130}{exercise.5}%
-\contentsline {chapter}{习题参考答案}{133}{chapter*.69}%
+\contentsline {chapter}{C++重点内容整理}{133}{chapter*.69}%
+\contentsline {section}{vector}{133}{section*.70}%
+\contentsline {chapter}{习题参考答案}{135}{chapter*.71}%

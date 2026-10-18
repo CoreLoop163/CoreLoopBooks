@@ -1,0 +1,43 @@
+\chapter*{C++重点内容整理}
+\addcontentsline{toc}{chapter}{C++重点内容整理}
+\markboth{C++重点内容整理}{C++重点内容整理}
+
+本书中出现了许多C++中的最为重点的内容，为方便查阅，将其整理于此。
+\section*{vector}
+\addcontentsline{toc}{section}{vector}
+
+vector是C++标准库为我们提供的类模板。可以将vector理解成保存同类型元素的一个不定长数组。我们可以通过在尖括号中指定元素的类型，来定义不同类型的数组，如：
+\begin{cppcode}
+    vector<int> int_arr;        // 一个空的，容纳int型元素的不定长数组
+    vector<char> char_arr;      // 一个空的，容纳char型元素的不定长数组
+    vector<double> double_arr;  // 一个空的，容纳 double 型元素的不定长数组
+    vector<vector<int> > vectorint_arr; // 容纳元素类型为 vector<int> 的不定长数组
+\end{cppcode}
+
+\minisection{返回vector中元素的数量}
+可以通过\textbf{v.size()返回v中元素的数量}。
+
+\minisection{访问vector中的元素}
+vector中的元素下标从0开始，支持下标访问运算符：“[]”。可以通过\textbf{v[idx]返回v中第idx个位置上元素的引用}。注意：
+\begin{enumerate}
+    \item 由于返回的是引用，因此可以修改原数组中的元素，这一点和C语言原生数组类似；
+    \item 下标访问只能访问v中已有元素。任何非法的下标访问（idx < 0 或 idx >= v.size() ）都是不安全的，将导致未定义行为。
+\end{enumerate}
+
+\minisection{向vector对象中添加元素}
+我们可以使用vector的成员函数\term{push\_back}向其中添加元素，如：
+\begin{cppcode}
+    vector<int> v;  // 空的vector对象，v
+    for(int i=0; i<100; i++) {
+        v.push_back(i); // 依次把整数值放到v的尾部
+    }
+    // 循环结束后v有100个元素，值分别为0到99
+\end{cppcode}
+注意：不能用下标形式添加元素。如：
+\begin{cppcode}
+    vector<int> v;
+    for(int i=0; i<100; i++) {
+        v[i] = i;
+    }
+\end{cppcode}
+这段代码是绝对错误的。因为v是一个空的vector，根本不包含任何元素，所以不能通过下标去访问任何元素。正确的做法是使用push\_back。
