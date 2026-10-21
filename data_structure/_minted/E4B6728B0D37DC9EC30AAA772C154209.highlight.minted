@@ -1,0 +1,3 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{AdjEdge}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{AdjL\PYGZus{}v2}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{// 顶点v2的所有出边信息}
+\end{MintedVerbatim}

@@ -1,0 +1,11 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{VertexInfo}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{     }\PYG{c+c1}{// 顶点携带的信息}
+\PYG{+w}{    }\PYG{k+kt}{char}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{name}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// 据点的名字}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{weight}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// 该据点的战略价值（重要性）}
+\PYG{+w}{    }\PYG{c+c1}{//...}
+\PYG{p}{\PYGZcb{}}\PYG{p}{;}
+
+\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{EdgeInfo}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{    }\PYG{c+c1}{// 边携带的信息}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{weight}\PYG{p}{;}\PYG{+w}{     }\PYG{c+c1}{// 边权，可能是两据点间行军需要的时间，也可能是两据点间铺设通信电线需要的花费等等}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

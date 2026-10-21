@@ -51,6 +51,14 @@
 \contentsline {section}{\numberline {4.6}平衡二叉树}{119}{section.4.6}%
 \contentsline {subsection}{\numberline {4.6.1}平衡二叉树的插入操作}{122}{subsection.4.6.1}%
 \contentsline {section}{ 习题 5 }{130}{exercise.5}%
-\contentsline {chapter}{C++重点内容整理}{133}{chapter*.69}%
-\contentsline {section}{vector}{133}{section*.70}%
-\contentsline {chapter}{习题参考答案}{135}{chapter*.71}%
+\contentsline {chapter}{\numberline {第五章\hspace {.3em}}图}{135}{chapter.5}%
+\contentsline {section}{\numberline {5.1}图的存储}{138}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}邻接矩阵}{138}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}邻接表}{140}{subsection.5.1.2}%
+\contentsline {section}{\numberline {5.2}图的遍历}{142}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}深度优先搜索（DFS）}{142}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}广度优先搜索（BFS）}{143}{subsection.5.2.2}%
+\contentsline {chapter}{C++重点内容整理}{145}{chapter*.75}%
+\contentsline {section}{vector}{145}{section*.76}%
+\contentsline {section}{引用}{146}{section*.77}%
+\contentsline {chapter}{习题参考答案}{149}{chapter*.78}%

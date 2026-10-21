@@ -1,6 +1,7 @@
 \chapter*{C++重点内容整理}
 \addcontentsline{toc}{chapter}{C++重点内容整理}
 \markboth{C++重点内容整理}{C++重点内容整理}
+\label{ch:C++重点内容整理}
 
 本书中出现了许多C++中的最为重点的内容，为方便查阅，将其整理于此。
 \section*{vector}
@@ -41,3 +42,61 @@ vector中的元素下标从0开始，支持下标访问运算符：“[]”。�
     }
 \end{cppcode}
 这段代码是绝对错误的。因为v是一个空的vector，根本不包含任何元素，所以不能通过下标去访问任何元素。正确的做法是使用push\_back。
+
+
+\section*{引用}
+\addcontentsline{toc}{section}{引用}
+类似指针，\term{引用}也是一种复合类型，引用为对象起了另外一个名字，是某对象的一个别名。就像通过 “\*” 符号定义指针那样，可以通过“\&”符号来定义引用，如：
+\begin{cppcode}
+    int a = 5;      
+    int* pa = &a;   // pa是指向a的指针
+    int& ra = a;    // ra是a的一个别名
+    cout << a << endl;  // 打印a，输出：5
+\end{cppcode}
+注意“\&”在C++中不仅有取地址的含义，在声明引用时，“\&”组成了声明符的一部分。就像“\*”既可以表示取指针变量指向的值，又可以作为声明符声明指针一样。
+
+由于引用类型的对象只是另外某对象的一个别名，因此引用在定义时必须初始化。如：
+\begin{cppcode}
+    int& rb;    // 编译报错，引用必须被初始化
+\end{cppcode}
+
+定义了一个引用之后，对其进行的所有操作都是在与之绑定的对象上进行的：
+\begin{cppcode}
+    ra = 10;    // 把10赋值给ra所引用的对象，即赋值给a
+    cout << a << endl;  // 输出：10
+    cout << ra << endl; // 输出：10
+\end{cppcode}
+为引用赋值，实际上是把值赋给了与引用绑定的对象。获取引用的值，实际上是获取了与引用绑定的对象的值。甚至取引用对象的地址，取的都是引用对象所引用的那个对象的地址：
+\begin{cppcode}
+    cout << (&ra == &a) << endl;    // 输出：1
+\end{cppcode}
+
+\vspace{\baselineskip}
+
+这也就是为什么\textbf{函数传参时，作为引用传参能够修改原变量的值}，类似指针一样：
+\begin{cppcode}
+    void ref(int& a) {
+        a = 10;
+    }
+    void pointer(int* a) {
+        *a = 20;
+    }
+    void value(int a) {
+        a = 30;
+    }
+    int main() {
+        int t = 5;
+        
+        ref(t);
+        cout << t << endl;  // 输出：10
+        
+        pointer(&t);        
+        cout << t << endl;  // 输出：20
+
+        value(t);
+        cout << t << endl;  // 输出：20
+
+        return 0;
+    }
+\end{cppcode}
+

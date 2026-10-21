@@ -1,0 +1,6 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{a}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{5}\PYG{p}{;}
+\PYG{k+kt}{int}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{pa}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{a}\PYG{p}{;}\PYG{+w}{   }\PYG{c+c1}{// pa是指向a的指针}
+\PYG{k+kt}{int}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{ra}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{;}\PYG{+w}{    }\PYG{c+c1}{// ra是a的一个别名}
+\PYG{n}{cout}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{a}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{endl}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{// 打印a，输出：5}
+\end{MintedVerbatim}

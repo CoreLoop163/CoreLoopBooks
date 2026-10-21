@@ -1,0 +1,12 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{AdjEdge}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{u}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{// 邻接顶点的编号}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{weight}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// 当前顶点到u的边的权值。若需要更多边的信息，可自定义EdgeInfo类型}
+\PYG{p}{\PYGZcb{}}\PYG{p}{;}
+\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{LGraph}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{AdjEdge}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{AdjList}\PYG{p}{[}\PYG{n}{MAX\PYGZus{}VNUM}\PYG{p}{]}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{// 邻接表}
+\PYG{+w}{    }\PYG{n}{VertexInfo}\PYG{+w}{ }\PYG{n}{v}\PYG{p}{[}\PYG{n}{MAX\PYGZus{}VNUM}\PYG{p}{]}\PYG{p}{;}\PYG{+w}{     }\PYG{c+c1}{// 存放顶点信息}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{current\PYGZus{}vnum}\PYG{p}{;}\PYG{+w}{           }\PYG{c+c1}{// 当前顶点数}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{current\PYGZus{}enum}\PYG{p}{;}\PYG{+w}{           }\PYG{c+c1}{// 当前边数}
+\PYG{p}{\PYGZcb{}}\PYG{p}{;}
+\end{MintedVerbatim}

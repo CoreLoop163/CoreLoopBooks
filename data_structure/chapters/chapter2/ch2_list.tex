@@ -762,6 +762,8 @@ $$ L'=(a_1,a_n,a_2,a_{n-1},a_3,a_{n-2},\cdots) $$
 2）根据设计思想，采用 C 或 C++ 语言描述算法，关键之处给出注释；\\
 3）说明所设计算法的时间复杂度。\\
 
+
+\bookmark{bookmark:waypoint-6}{waypoint-6}
 11. C++标准库为我们封装好了某个数据结构：vector<>。这是一个不定长数组，你可以在尖括号中定义你想要存放的元素类型，如
 vector<int>表示“元素类型为int的不定长数组”类型。你可以使用如下代码定义一个空的不定长数组arr：
 \begin{cppcode}
@@ -776,7 +778,7 @@ vector<int>表示“元素类型为int的不定长数组”类型。你可以使
     \item int tmp = arr[idx]; // 返回arr中下标为idx的元素并赋值给tmp, 若 idx<0 或 idx>=arr.size()，则访问是非法的。
 \end{enumerate}
 
-现在给定某不定长数组arr（其中元素数量大于0），请你将其中所有值大于k的元素按顺序保存在一个新的vector中，并返回这个新的vector。
+现在给定某不定长数组arr（其中元素数量大于0），请你将其中所有值大于k的元素按原位序保存在一个新的vector中，并返回这个新的vector。
 \begin{cppcode}
     vector<int> FilterGreaterThanK(vector<int> arr, int k) {
 
@@ -1037,8 +1039,8 @@ void Rearrange(NODE *head) {
         return ret;
     }
 \end{cppcode}
-注意，向vector中加入元素，一定要用arr.push\_back(e)，而不能是arr[arr.size()] = e。arr[arr.size()] 这种代码实际上属于越界访问，会导致\term{未定义行为}。
-关于vector的更多内容感兴趣请参考{\color{red}\textbf{本书结尾内容。}}
+注意，向vector中加入元素e，一定要用arr.push\_back(e)，而不能是arr[arr.size()] = e。arr[arr.size()] 这种代码实际上属于越界访问，会导致\term{未定义行为}。
+关于vector的更多内容感兴趣请参考本书末，C++重点内容整理（第\pageref{ch:C++重点内容整理}页）。
 
 
 \end{exerciseanswer}    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
