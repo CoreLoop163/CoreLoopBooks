@@ -1,0 +1,4 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{queue}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{iq}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{// 存放int的队列}
+\PYG{n}{queue}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{dq}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{// 存放double的队列}
+\end{MintedVerbatim}

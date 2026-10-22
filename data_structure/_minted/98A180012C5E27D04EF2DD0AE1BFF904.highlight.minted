@@ -2,7 +2,7 @@
 \PYG{c+c1}{// MAX\PYGZus{}VNUM为该结构可存储的图的最大顶点数}
 \PYG{+w}{    }\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{MGraph}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// M：Matrix版}
 \PYG{+w}{        }\PYG{n}{VertexInfo}\PYG{+w}{ }\PYG{n}{v}\PYG{p}{[}\PYG{n}{MAX\PYGZus{}VNUM}\PYG{p}{]}\PYG{+w}{ }\PYG{p}{;}
-\PYG{+w}{        }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{AdjM}\PYG{p}{[}\PYG{n}{MAX\PYGZus{}VNUM}\PYG{p}{]}\PYG{p}{[}\PYG{n}{MAX\PYGZus{}VNUM}\PYG{p}{]}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{AdjM}\PYG{p}{[}\PYG{n}{MAX\PYGZus{}VNUM}\PYG{p}{]}\PYG{p}{[}\PYG{n}{MAX\PYGZus{}VNUM}\PYG{p}{]}\PYG{p}{;}\PYG{+w}{   }\PYG{c+c1}{// 邻接矩阵}
 \PYG{+w}{        }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{current\PYGZus{}vnum}\PYG{p}{;}\PYG{+w}{   }\PYG{c+c1}{// 当前顶点数}
 \PYG{+w}{        }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{current\PYGZus{}enum}\PYG{p}{;}\PYG{+w}{   }\PYG{c+c1}{// 当前边数}
 \PYG{+w}{    }\PYG{p}{\PYGZcb{}}\PYG{p}{;}

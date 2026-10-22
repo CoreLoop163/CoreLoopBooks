@@ -54,11 +54,16 @@
 \contentsline {chapter}{\numberline {第五章\hspace {.3em}}图}{135}{chapter.5}%
 \contentsline {section}{\numberline {5.1}图的存储}{138}{section.5.1}%
 \contentsline {subsection}{\numberline {5.1.1}邻接矩阵}{138}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}邻接表}{140}{subsection.5.1.2}%
-\contentsline {section}{\numberline {5.2}图的遍历}{142}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}深度优先搜索（DFS）}{142}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}广度优先搜索（BFS）}{143}{subsection.5.2.2}%
-\contentsline {chapter}{C++重点内容整理}{145}{chapter*.75}%
-\contentsline {section}{vector}{145}{section*.76}%
-\contentsline {section}{引用}{146}{section*.77}%
-\contentsline {chapter}{习题参考答案}{149}{chapter*.78}%
+\contentsline {subsection}{\numberline {5.1.2}邻接表}{139}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}二者获取邻接信息的对比}{142}{subsection.5.1.3}%
+\contentsline {section}{\numberline {5.2}图的遍历}{144}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}深度优先搜索（DFS）}{144}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}广度优先搜索（BFS）}{146}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}DFS和BFS的实现}{147}{subsection.5.2.3}%
+\contentsline {section}{ 习题 6 }{153}{exercise.6}%
+\contentsline {chapter}{C++重点内容整理}{155}{chapter*.78}%
+\contentsline {section}{vector}{155}{section*.79}%
+\contentsline {section}{引用}{156}{section*.80}%
+\contentsline {section}{stack}{157}{section*.81}%
+\contentsline {section}{queue}{158}{section*.82}%
+\contentsline {chapter}{习题参考答案}{161}{chapter*.83}%

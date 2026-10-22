@@ -99,10 +99,11 @@
 王国的后来者对类似的概念，在有向图上做了如下约定：
 \begin{enumerate}
     \item 有向图中，某顶点v的度分为\term{入度}和\term{出度}。\term{入度}是“进来到该顶点的边数”，即以顶点v为终点的有向边的数量，而\term{出度}是
-    “从该顶点出去的边数”，即以顶点v为起点的有向边的数量。
+    “从该顶点出去的边数”，即以顶点v为起点的有向边的数量。顶点的出度和入度之和称为顶点的\term{度}。
     \item 在有向图G中，若从顶点v到w，以及从w到v之间都有路径，则称这两个顶点是\term{强连通的}。若图中任意一对顶点都是强连通的，则称该图为\term{强连通图}。
     类似地，有向图中的一个极大强连通子图称为一个\term{强连通分量}，孤立顶点被认为是一个强连通分量。
 \end{enumerate}
+连通分量和强连通分量通常也被称为\term{连通块}。
 
 为加深记忆，指挥官们以如图\ref{fig:图的基本概念}的例子进行了一番交流：$G_1$是一个有5个顶点、4条边的图，由于它存在两个顶点不连通（如D与A），
 因此它是一个非连通图；由ABC及连通它们的边$e_1$、$e_2$、$e_3$所构成的\term{子图}，是图$G_1$的一个连通分量，同理D、E及$e_4$也构成了一个连通分量。
@@ -178,7 +179,7 @@
 // MAX_VNUM为该结构可存储的图的最大顶点数
     struct MGraph { // M：Matrix版
         VertexInfo v[MAX_VNUM] ;
-        int AdjM[MAX_VNUM][MAX_VNUM];
+        int AdjM[MAX_VNUM][MAX_VNUM];   // 邻接矩阵
         int current_vnum;   // 当前顶点数
         int current_enum;   // 当前边数
     };
@@ -217,7 +218,7 @@
         int weight; // 当前顶点到u的边的权值。若需要更多边的信息，可自定义EdgeInfo类型
     };
 \end{cppcode}
-由于无法确定每个节点有多少条出边，因此，\bookmarkref{bookmark:waypoint-6}{waypoint-6}处介绍的不定长数组vector用在此处就非常合适。
+由于无法确定每个顶点有多少条出边，因此，\bookmarkref{bookmark:waypoint-6}{waypoint-6}处介绍的不定长数组vector用在此处就非常合适。
 对于$v_2$，我们就可以通过一个元素类型为AdjEdge的vector，将其所有出边的信息记录下来：
 \begin{cppcode}
     vector<AdjEdge> AdjL_v2;  // 顶点v2的所有出边信息
@@ -260,7 +261,7 @@
 由于顶点v的邻接表记录的是顶点v的\term{出边}的信息，因此对于无向图，若存在边$(u,v)$，那么同时需要在AdjList[u] 中记录 v，并在 AdjList[v] 中记录 u。
 因此，无向图中的一条实际边通常对应邻接表中的两个表项。
 
-显然对于无权图，AdjEdge类型只存储邻接节点的编号u即可。
+显然对于无权图，AdjEdge类型只存储邻接顶点的编号u即可。
 
 前面的例子中的图及其完整的邻接表如图\ref{fig:06完整的邻接表示意}所示。
 \begin{figure}[htbp]
@@ -273,15 +274,99 @@
 容易知道邻接矩阵表示法下，存储一个图需要的存储空间与图的边数 $M$ 无关。而对于邻接表法，要存储有$N$个顶点、$M$条边的图，则需要维护$N$个邻接表，
 对于无向图，总共需要$2M$个表项，对于有向图总共需要$M$个表项，因此，邻接表法存储一个图需要的存储空间为$O(N+M)$。\\
 
+\subsection{二者获取邻接信息的对比}
+可以看到，无论是邻接表存储法，还是邻接矩阵存储法，对于N个顶点的信息存储都是一致的，使用一个额外的数组来存储。二者区别就在于对于每个顶点的邻接信息，即
+顶点与顶点、顶点与边的关系如何存储。二者存储方式的不同，也带来了一些获取邻接信息上的差异。
 
-指挥官们决定先从首都派出一名信使，将大敌来犯的消息通知到每一个据点的士兵以及居民们。然而，各据点之间的道路错综复杂，信使不可能毫无
-章法地四处奔走。怎样规划通知顺序，才能确保每个据点都不会遗漏？
+\noindent \Circled{1} 邻接矩阵
+
+对于\uline{有向图}，要知道v的所有\uline{出边}信息，遍历一遍图的邻接矩阵的下标为v的那一行即可：
+\begin{cppcode}
+    for(int i=0; i<G.current_vnum; i++) {
+        if(G.AdjM[v][i] != 0) {
+            // v有一条到i的出边，G.AdjM[v][i]的值即是该边的权值
+        } else {
+            // v到i不存在出边
+        }
+    }
+\end{cppcode}
+类似地要知道v的所有入边信息，遍历下标为v的那一列即可。显然遍历的过程中若记录有效边的数量，就得到了顶点出度、入度的信息。
+
+对于\uline{无向图}，只遍历下标为v的行或下标为v的列即可得到该顶点的所有邻接信息。
+\begin{cppcode}
+    for(int i=0; i<G.current_vnum, i++) {
+        if(G.AdjM[v][i] != 0) {
+            // v到i存在无向边，G.AdjM[v][i]的值即是该边的权值
+        } else {
+            // v到i不存在边
+        }
+    }
+\end{cppcode}
+同样地，若遍历过程中记录有效边的数量，就得到了无向图某顶点度的信息。
+
+\noindent \Circled{2} 邻接表
+
+对于邻接表存储的\uline{有向图}，v的邻接表存储的就是v的所有出边信息。要知道顶点v的所有\uline{出边信息}很简单，遍历v的邻接表即可：
+\begin{cppcode}
+    for(int i=0; i<G.AdjList[v].size(); i++) {
+        // G.AdjList[v][i]就是v的邻接表的第i个表项，即与v邻接的第i个顶点和边权的信息。
+    }
+\end{cppcode}
+同时，表长G.AdjList[v].size()就是顶点v的出度。
+
+但是，对于邻接表存储的有向图，要知道顶点v的所有\uline{入边信息}，就需要将所有顶点的邻接表均查找一遍：
+\begin{cppcode}
+    // 遍历一遍所有顶点的邻接表
+    for(int i=0; i<G.current_vnum; i++) {
+        // 遍历顶点i的邻接表的所有表项
+        for(int j=0; j<G.AdjList[i].size(); j++) {
+            // 顶点i的第j个邻接点为v
+            if(G.AdjList[i][j].u == v) {
+                // 找到了v的一条入边，这是一条从i指向v的边，权值为G.AdjList[i][j].weight
+                // 若需要计算v的入度，在此处累加。
+            }
+        }
+    }
+\end{cppcode}
+
+二者对比如表\ref{table:邻接矩阵与邻接表的操作效率对比}所示：
+\begin{table}[htbp]
+    \centering
+    \caption{邻接矩阵与邻接表的操作效率对比}
+    \begin{tabular}{|l|c|c|}
+        \hline
+        操作 & 邻接矩阵 & 邻接表 \\
+        \hline
+        查找顶点 $v$ 的所有出边
+        & $O(N)$
+        & $O(\deg^+(v))$ \\
+        \hline
+        查找顶点 $v$ 的所有入边
+        & $O(N)$
+        & $O(N+M)$ \\
+        \hline
+        获取有向图顶点 $v$ 的出度
+        & $O(N)$
+        & $O(1)$（直接读取表项数量） \\
+        \hline
+        获取有向图顶点 $v$ 的入度
+        & $O(N)$
+        & $O(N+M)$（未额外维护入边信息） \\
+        \hline
+    \end{tabular}
+    \label{table:邻接矩阵与邻接表的操作效率对比}
+\end{table}
+这里 \(N\) 表示顶点数，\(M\) 表示边数，\(\deg^+(v)\) 表示顶点 \(v\) 的出度。
+
+
+有了以上扎实的模型基础，指挥官们计划了第一步行动。他们决定先从首都派出一名信使，将大敌来犯的消息通知到每一个据点的士兵以及居民们。
+然而，各据点之间的道路错综复杂，信使不可能毫无章法地四处奔走。怎样规划通知顺序，才能确保每个据点都不会遗漏？
 
 \section{图的遍历}
 
-指挥官们给出了两种方式，也是王国的后来者总结出的两种图的遍历方式。
+指挥官们给出了两种方式，也是王国的后来者总结出的两种图的遍历方式，总结如下。
 \subsection{深度优先搜索（DFS）}
-深度优先搜索的过程就像是“不分黑白地一股脑儿往前冲，直到撞了墙，才按原路返回，继续探索未探索过的其他路（当然也是继续冲、撞墙、返回，冲、撞墙、返回......）。”
+深度优先搜索（Depth First Search, DFS）的过程就像是“不分黑白地一股脑儿往前冲，直到撞了墙，才按原路返回，继续探索未探索过的其他路（当然也是继续冲、撞墙、返回，冲、撞墙、返回......）。”
 
 具体来说，信使从首都（起点，记为v）出发，访问与v邻接且未被访问过的任意一个顶点u，
 之后从u出发（而非回到v），再访问与u邻接且未被访问过的任意一个顶点u\textquotesingle，之后从u\textquotesingle 出发，继续访
@@ -299,7 +384,7 @@ d）访问$v_4$，此时已深入最深处，与$v_4$邻接的所有顶点均已
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=1.1\textwidth]{assets/pics_and_ppts/ch5/07深度优先遍历过程.png}
+    \includegraphics[width=1.08\textwidth]{assets/pics_and_ppts/ch5/07深度优先遍历过程.png}
     \caption{深度优先搜索}
     \label{fig:深度优先搜索过程}
 \end{figure}
@@ -313,19 +398,383 @@ g）访问$v_5$。之后退回到$v_2$（无顶点未访问），$v_1$（无顶�
 
 
 \subsection{广度优先搜索（BFS）}
-如果说深度优先搜索（DFS）是“一路走到底，不撞南墙不回头”，那么广度优先搜索（BFS）就是“浅尝辄止，先慢慢探清周围环境，再继续往深处走”。
+如果说深度优先搜索（DFS）是“一路走到底，不撞南墙不回头”，那么广度优先搜索（Breadth First Search, BFS）就是“浅尝辄止，先慢慢探清周围环境，再继续往深处走”。
 
-
-具体来说，假设从v出发，首先访问起始顶点v，并将v的所有邻接的、尚未被访问过的顶点$v_1$, $v_2$, ..., $v_n$作为“待访问与出发的顶点”，依次访问它们，完成访问后，
-将它们的各个尚未被访问过的邻接顶点$v_{11}$, $v_{12}$, ..., $v_{nm}$作为“待访问与出发的顶点”，然后依次访问它们......如此
-重复，直至图中所有顶点均被访问一遍。
-
-实际上广度优先搜索和树的层序遍历非常相似。可以想象平静的水面落下一个小球而泛起层层涟漪，广度优先搜索即是先访问中心点，之后访问距中心点最近的“第一层涟漪”，
+实际上广度优先搜索和树的层序遍历非常相似。可以想象平静的水面落下一个小铁球而泛起层层涟漪，广度优先搜索即是先访问中心点，之后访问距中心点最近的“第一层涟漪”，
 之后访问“第二层涟漪”，第三层......，直到全部访问完成。
 
+具体来说，假设从v出发，首先访问起始顶点v，并“发现”v的所有未被访问的邻接顶点$v_1$, $v_2$, ..., $v_n$，这些顶点即是“第二层涟漪”，依次访问它们，访问时，
+又会发现第三层涟漪$v_{11}$, $v_{12}$, ..., $v_{nm}$......如此往复，直至图中所有顶点均被访问一遍。\\
+
+我们以图\ref{fig:广度优先遍历过程}来直观地感受一下广度优先搜索的过程。拟以$v_0$作为起点：\\[0.3em]
+a）访问$v_0$，看到$v_0$的邻接顶点有$v_1$和$v_3$，于是将这两个顶点作为“第二层”的顶点，此时“第一层涟漪”已访问完毕，“第二层涟漪”有两个，任选一个，假设
+选择$v_1$；\\[0.3em]
+b）访问$v_1$，此时发现了“第三层涟漪”的一个顶点$v_2$，先将它记下来。准备继续访问第二层未访问完的顶点$v_3$。\\[0.3em]
+c）访问$v_3$，发现$v_3$的邻接顶点$v_6$尚未被访问，因此也将它记下来，作为“第三层涟漪”的一部分。至此，第二层顶点均已访问完毕，准备访问第三层，假设选择
+$v_2$；\\[0.3em]
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1.13\textwidth]{assets/pics_and_ppts/ch5/08广度优先遍历过程.png}
+    \caption{广度优先搜索}
+    \label{fig:广度优先遍历过程}
+\end{figure}
+
+\noindent d）访问$v_2$，发现与$v_2$邻接的有$v_4$和$v_5$还未访问，因此将它们记下来，作为“第四层涟漪”的一部分；然后准备访问第三层剩下的$v_6$；\\[0.3em]
+e）访问$v_6$，$v_6$没有尚未访问的邻接顶点，因此从$v_6$没有发现新的“第四层涟漪”。至此第三层均已访问完毕。准备开始访问第四层\\[0.3em]
+f）访问$v_4$，没发现新的顶点；\\[0.3em]
+g）访问$v_5$，没发现新的顶点。此时所有顶点均已访问过一遍，没有新的层了，结束。\\[0.3em]
+
+以上过程得到的广度优先搜索访问序列是\{$v_0$, $v_1$, $v_3$, $v_2$, $v_6$, $v_4$, $v_5$\}。这就是广度优先搜索，总是先“摸清楚周围
+的环境，再继续向更深处进发”。
+
+至此，“深”和“广”的语义已经很明确，“深度优先”总是冲到最“深”处，而“广度优先”总是先向“广”阔的四周探索。
 
 
 
-深度优先遍历总是“最晚看见的顶点最先被访问”，而广度优先总是“最早看见的顶点最先被访问”。
 
+\subsection{DFS和BFS的实现}
+可以看到，广度优先搜索（BFS）总是“越早看见的顶点越先被访问”（因为层数小），而深度优先搜索（DFS）总是“越晚看见的顶点越先被访问”（因为一路往前冲而不是回头）。
+这正与队列和栈的“先进先出”与“后进先出”的特点相符合。
+
+如果你研究过\bookmarkref{bookmark:waypoint-3}{waypoint-3}处的问题，可以
+进一步理解：实际上广度优先（BFS）的过程中，“顶点们”成为了“仍然等待某事发生，并且优先处理\uline{先来者}的数据”，而深度优先（DFS）的过程中，“顶点们”则是“仍然
+等待某事发生，并且优先处理\uline{后来者}的数据”：
+\begin{enumerate}
+    \item 在广度优先（BFS）中，顶点们等待被访问，并且先来的先访问；
+    \item 而在深度优先（DFS）中，顶点们等待被访问，并且后来的先访问。
+\end{enumerate}
+
+有了以上思维过程，我们就可以非常清晰地给出二者的代码实现过程。
+
+\minisection{深度优先搜索（DFS）的实现}
+创建一个栈s，访问起点，并将起点的所有邻接且尚未被访问过的顶点入栈。之后：
+\begin{enumerate}
+    \item 若栈空，说明没有待访问的顶点了，算法结束，否则，进入第二步；
+    \item 从栈顶取出一个顶点，访问之，并将该顶点的所有邻接且未被访问过的顶点入栈；回到第一步。
+\end{enumerate}
+如此循环直至栈空，则所有顶点均被访问一遍。
+
+如何确定某顶点是否已经访问过？最常见的办法是维护一个一维数组：
+\begin{cppcode}
+    bool visited[MAX_VNUM]; // 所有元素初始为false，表示还未访问
+\end{cppcode}
+visited[i]为true则表示已经访问过了。
+
+以\uline{邻接矩阵}存储的图为例，深度优先搜索的代码如下所示：
+\begin{cppcode}
+/************** 邻接矩阵结构定义 ***************/
+// // MAX_VNUM为该结构可存储的图的最大顶点数
+//     struct MGraph { 
+//         VertexInfo v[MAX_VNUM] ;
+//         int AdjM[MAX_VNUM][MAX_VNUM];
+//         int current_vnum;   // 当前顶点数
+//         int current_enum;   // 当前边数
+//     };
+
+// 输入图G以及起点编号start_idx，以DFS方式对每一个顶点执行某函数visit()
+    void DFS(MGraph G, int start_idx) {
+        bool visited[G.current_vnum];
+        // 初始化visited[]数组
+        for(int i=0; i<G.current_vnum; i++) {
+            visited[i] = 0;
+        }
+
+        stack<int> s;   // 栈中存储顶点编号即可
+        s.push(start_idx);
+        visited[start_idx] = true;
+        while(!s.empty()) {
+            // 访问栈顶顶点v
+            int v = s.top();
+            s.pop();
+            visit(G.v[v]);   // 访问v
+            
+            // 将与v邻接的所有尚未访问的顶点入栈
+            for(int i=0; i<G.current_vnum; i++) {
+                if(G.AdjM[v][i] != 0 && visited[i] == false) {
+                    s.push(i);
+                    visited[i] = true;
+                }
+            }
+        } // end while
+    }
+\end{cppcode}
+
+
+若图是通过\uline{邻接表}存储的，与邻接矩阵存储的代码有什么区别呢？其实仅在寻找v的所有邻接点时，代码有区别。邻接表版本代码如下：
+\begin{cppcodeHighlight}[14,31-37]
+/************ 邻接表结构定义 *************/
+// struct AdjEdge {
+//     int u;  // 邻接顶点的编号
+//     int weight; // 当前顶点到u的边的权值。
+// };
+// struct LGraph {
+//     vector<AdjEdge> AdjList[MAX_VNUM];  // 邻接表
+//     VertexInfo v[MAX_VNUM];     // 存放顶点信息
+//     int current_vnum;           // 当前顶点数
+//     int current_enum;           // 当前边数
+// };
+
+// 输入图G以及起点编号start_idx，以DFS方式对每一个顶点执行某函数visit()
+    void DFS(LGraph G, int start_idx) {
+        bool visited[G.current_vnum];
+        // 初始化visited[]数组
+        for(int i=0; i<G.current_vnum; i++) {
+            visited[i] = 0;
+        }
+
+        stack<int> s;   // 栈中存储顶点编号即可
+        s.push(start_idx);
+        visited[start_idx] = true;
+        while(!s.empty()) {
+            // 访问栈顶顶点v
+            int v = s.top();
+            s.pop();
+            visit(G.v[v]);   // 访问v
+            
+            // 将与v邻接的所有尚未访问的顶点入栈
+            for(int i=0; i<G.AdjList[v].size(); i++) {
+                // G.AdjList[v]是v的邻接表，G.AdjList[v][i]是该表中第i个元素
+                int u = G.AdjList[v][i].u;
+                if(visited[u] == false) {
+                    s.push(u);
+                    visited[u] = true;
+                }
+            }
+        } // end while
+    
+    }
+\end{cppcodeHighlight}
+
+\minisection{广度优先搜索（BFS）的实现}
+根据前面的思维过程很容易知道，将深度优先搜索代码中的栈换成队列即是广度优先搜索。邻接矩阵版：
+
+\begin{cppcodeHighlight}[9-10,12-15,21]
+// 输入图G以及起点编号start_idx，以BFS方式对每一个顶点执行某函数visit()
+    void BFS(MGraph G, int start_idx) {
+        bool visited[G.current_vnum];
+        // 初始化visited[]数组
+        for(int i=0; i<G.current_vnum; i++) {
+            visited[i] = 0;
+        }
+
+        queue<int> q;   // 队列中存储顶点编号即可
+        q.push(start_idx);
+        visited[start_idx] = true;
+        while(!q.empty()) {
+            // 访问队首顶点v
+            int v = q.front();
+            q.pop();
+            visit(G.v[v]);   // 访问v
+            
+            // 将与v邻接的所有尚未访问的顶点入队
+            for(int i=0; i<G.current_vnum; i++) {
+                if(G.AdjM[v][i] != 0 && visited[i] == false) {
+                    q.push(i);
+                    visited[i] = true;
+                }
+            }
+        } // end while
+    }
+\end{cppcodeHighlight}
+
+邻接表版：
+\begin{cppcodeHighlight}[9-10,12-15,23]
+// 输入图G以及起点编号start_idx，以BFS方式对每一个顶点执行某函数visit()
+    void BFS(LGraph G, int start_idx) {
+        bool visited[G.current_vnum];
+        // 初始化visited[]数组
+        for(int i=0; i<G.current_vnum; i++) {
+            visited[i] = 0;
+        }
+
+        queue<int> q;   // 队列中存储顶点编号即可
+        q.push(start_idx);
+        visited[start_idx] = true;
+        while(!q.empty()) {
+            // 访问队首顶点v
+            int v = q.front();
+            q.pop();
+            visit(G.v[v]);   // 访问v
+            
+            // 将与v邻接的所有尚未访问的顶点入队
+            for(int i=0; i<G.AdjList[v].size(); i++) {
+                // G.AdjList[v]是v的邻接表，G.AdjList[v][i]是该表中第i个元素
+                int u = G.AdjList[v][i].u;
+                if(visited[u] == false) {
+                    q.push(u);
+                    visited[u] = true;
+                }
+            }
+        } // end while
+    }
+\end{cppcodeHighlight}
+上面代码中使用到的stack和queue是C++标准库为我们提供的栈和队列的数据结构。我们曾在\bookmarkref{bookmark:waypoint-7}{waypoint-7}处介绍过。
+
+\begin{thinkbox}
+    你也许会有疑问，将visited[i]标记为true的时机，难道不应该是访问i之后吗？代码中怎么将i入队（还未访问）时就将visited[i]标记为true了？\\
+
+    访问后标记当然是正确的做法。但事实上，入队时即标记同样是正确的，并且是更优的做法。你可以想一想，为什么正确？为什么更优？
+    （可以结合图\ref{fig:广度优先遍历过程}的搜索过程思考）。
+\end{thinkbox}
+
+\vspace{\baselineskip}
+
+以上便是图最常见的两种遍历方式：广度优先搜索和深度优先搜索。信使任选一种方式，即可确保每个据点都不会遗漏。但是，信使很快发现了这样一个问题，如图
+\ref{fig:一个非连通图}所示，信使走到据点A后，发现通往D、E的桥梁已经倒塌，而他无论如何也找不到其他路通往D、E这两个城镇。
+
+\begin{wrapfigure}{r}{0.38\textwidth}
+    \centering
+    \includegraphics[width=0.19\textwidth]{assets/pics_and_ppts/ch5/09一个非连通图.png}
+    \caption{无法抵达对岸的城镇}
+    \label{fig:一个非连通图}
+\end{wrapfigure}
+
+信使回去汇报后，指挥官们发现类似的非连通区域还有很多，于是立即快马加鞭地组织人手修路搭桥，将王国地图修复成了一个\term{连通图}。
+
+思渡者啊，你也许会想，若实际中某图存在从起点出发不可达的顶点，即图是一个非连通图，该如何遍历它呢？其实只需要对图中每一个顶点均执行一次上面的DFS或BFS即可，
+伪代码如下：
+
+\begin{cppcode}
+    Graph G;    // 假设G已经存储了图@\ref{fig:一个非连通图}@所示的图
+    for(int i=0; i<N; i++) {
+        if(!visited[i]) {
+            DFS(G, i);
+        }
+    }
+\end{cppcode}
+以上代码会对G中所有顶点（包括顶点D、E、A等）依次判断，若未访问过，则对其执行DFS。显然，当首次对A所在的连通块执行DFS时，会将其中所有顶点标记为已访问，之后
+循环中判断时，则不会对连通块中的其他顶点执行DFS了。首次对D和E所在的连通块执行DFS时有类似的情况。
+
+根据指挥官给出的方法，信使无一疏漏地将大敌来犯的消息传遍了王国的每一座城池、每一座要塞。士兵和居民们纷纷武装起来，布起防御系统，准备迎接那场即将到来的大战。
+
+\clearpage%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{exercise}
+1. 关于下图所示的无向图，下列说法错误的是\underline{\hspace{1cm}}
+\begin{center}
+    \includegraphics[width=0.48\textwidth]{assets/pics_and_ppts/ch5/习题01，图的基本概念.png}
+\end{center}
+
+\noindent A. 顶点A的度为3\\
+B. 顶点A与顶点E是不连通的\\
+C. 该图有3个连通分量\\
+D. 对于顶点H所在的连通分量，若以H为起点，其深度优先搜索序列可以是\{H, I, J\}\\
+
+2. 关于下图所示的有向图$G$以及其三个子图$G_1$, $G_2$, $G_3$，下列说法错误的是\underline{\hspace{1cm}}
+
+\begin{center}
+    \includegraphics[width=0.72\textwidth]{assets/pics_and_ppts/ch5/习题02，图的基本概念.png}
+\end{center}
+
+\noindent A. 三个子图$G_1$, $G_2$, $G_3$中，仅$G_3$是强连通的\\
+B. 图G的强连通分量数大于3\\
+C. 顶点A的出度为3\\
+D. 顶点F的出度为1\\
+
+3. （某年408真题）下列关于无向连通图特性的叙述中，正确的是\underline{\hspace{1cm}}。
+
+\(\mathrm{I}\). 所有顶点的度之和为偶数。
+
+\(\mathrm{II}\). 边数大于顶点个数减 1。
+
+\(\mathrm{III}\). 至少有一个顶点的度为 1。\\
+A. 只有 \(\mathrm{I}\) \\
+B. 只有 \(\mathrm{II}\) \\
+C. \(\mathrm{I}\) 和 \(\mathrm{II}\) \\
+D. \(\mathrm{I}\) 和 \(\mathrm{III}\) \\
+
+4. 思考：有N个顶点的无向图，至多有多少条边？（不允许存在自环和重复边）。\\
+
+5. 思考：有N个顶点的无向图，要保证它是连通图，至少要有多少条边？\\
+
+6. 若无向图$G=(V, E)$有7个顶点，无边。现在要向图$G$中添加若干条边。请问，要保证无论怎样添加，添加$N$条边后图一定是连通的，则$N$最小是\underline{\hspace{1cm}}\\[0.5em]
+\begin{tabular}{llll}
+    A. 6 & B. 15 & C. 16 & D. 21
+\end{tabular}
+
+\vspace{\baselineskip}
+
+7. 设某无向图的邻接矩阵A如下所示，若0表示边不存在，则各顶点的度依次是\underline{\hspace{1cm}}\\
+\[
+A =
+\begin{bmatrix}
+0 & 1 & 0 & 1 \\
+1 & 0 & 1 & 1 \\
+0 & 1 & 0 & 0 \\
+1 & 1 & 0 & 0
+\end{bmatrix}
+\]
+
+\begin{tabular}{llll}
+    A. 2,3,1,2 & B. 4,6,2,4 & C. 0,1,2,3 & D. 999,1000,1001,7820
+\end{tabular}
+
+\vspace{\baselineskip}
+
+8. 若上题的矩阵A表示的是某有向图的邻接矩阵，则各顶点的度依次是\underline{\hspace{1cm}}
+
+提示：有向图中顶点的度定义为该顶点的入度和出度之和。\\
+\begin{tabular}{llll}
+    A. 2,3,1,2 & B. 4,6,2,4 & C. 0,1,2,3 & D. 999,1000,1001,7820
+\end{tabular}
+
+\vspace{\baselineskip}
+
+9. 
+
+
+\end{exercise}
+\clearpage
+
+\begin{exerciseanswer}
+1. 选B。顶点A与顶点E存在相互连通的路径: A -> D -> E 以及 E -> D -> A，选项B错误。\\
+
+2. 选D。A项，存在两顶点A、E，A到E无路径，所以$G_1$不是强连通的；对于$G_2$，F到G无路径，因此$G_2$不是强连通的；$G_3$任意两顶点之间都有路径，是强连通的。B项，
+图$G$存在以下强连通分量：
+\begin{center}
+    \includegraphics[width=0.58\textwidth]{assets/pics_and_ppts/ch5/习题02，图的基本概念答案图.png}
+\end{center}
+显然数量大于3。C项，顶点A出度为3，入度为1，C正确。D项，顶点F出度为0，入度为1，D错误。\\
+
+3. 选A。下图所示的图是一个无向连通图，但不具有\(\mathrm{II}\)与\(\mathrm{III}\)的特性。只有\(\mathrm{I}\)正确。
+\begin{center}
+    \includegraphics[width=0.19\textwidth]{assets/pics_and_ppts/ch5/习题03，09408无向连通图特性答案图.png}
+\end{center}
+
+\vspace{\baselineskip}
+
+4. 要使得边数达到最大，一定是任意两个顶点之间都有一条边。因此最大边数是从N个顶点选出2个的组合数：
+\[
+    C_N^2 = \frac{N(N-1)}{2}
+\]
+
+另一种理解方式：第1个顶点可以与另外N-1个顶点各形成一条边，共N-1条；第2个顶点可以和剩下的N-2个顶点各
+形成一条边，共N-2条......第N-1个顶点可以和剩下的1个顶点组成1条边，此时，任意两个顶点都有边存在了，达到最大。因此最大边数为
+\[
+    (N-1) + (N-2) + ... + 2 + 1 = \frac{(N-1)(1+N-1)}{2} = \frac{N(N-1)}{2}
+\]
+
+事实上，对于不存在重复边、不存在自环（即指向自身的边）的图，通常称其为\term{简单图}。对于有N个顶点的无向图，其边数最大为\(\frac{N(N-1)}{2}\)，
+有\(\frac{N(N-1)}{2}\)条边的无向图就被称为\term{完全图}，也被称为\term{简单完全图}，完全图中的任意两个顶点之间均存在边。
+而对于有向图，显然边数最大为\(2\cdot  \frac{N(N-1)}{2} = N(N-1)\)，因此，将有\(N(N-1)\)条边的有向图称为\term{有向完全图}，
+有向完全图中的任意两个顶点之间都存在方向相反的两条边。\\
+
+5. 要保证连通性，边数最少的情况就是“用一根线将所有顶点串起来”，如图所示：
+\begin{center}
+    \includegraphics[width=0.52\textwidth]{assets/pics_and_ppts/ch5/习题04，N个顶点的连通图最少边数答案.png}
+\end{center}
+在此情况下，再少一条边，则图将不连通。显然此情况边数等于顶点数减一。即：\textbf{有N个顶点的无向图，要保证它是连通图，至少要有N-1条边。换句话说，
+有N个顶点的无向图，若边数小于N-1，则它一定是不连通的。}
+
+也可以这样理解：对于N个顶点、无边的无向图，显然有N个连通块。之后每添加1条边，一定能让两个本不连通的块连通起来。因此，添加N-1条边后，就只剩一个连通块了。\\
+
+6. 选C：16。若N为15，则存在一种方式：将其中6个顶点通过这\(\frac{6\cdot (6-1)}{2} = 15\)条边连接为一个完全图，将第七个顶点孤立在外，使得图G不连通。而若N为16，
+多出来的一条边一定可以让第七个顶点与另外6个连通。\\
+
+7. 选A。图的邻接矩阵AdjM[i][j]存储的是编号为$i$的顶点到编号为$j$的顶点的边的信息。0表示无边，那么编号为$i$的顶点的度
+就等于邻接矩阵第 \(i\) 行（或第 \(i\) 列）中非零元素的数量。\\
+
+8. 选B。 如果是有向图，那么AdjM[i][*]，即第$i$行的非0元素数量，是顶点$i$的出度，而AdjM[*][i]，即第$i$列的非0元素数量，是顶点$i$的入度，二者加起来才是顶点$i$的度。\\
+
+\end{exerciseanswer}
 

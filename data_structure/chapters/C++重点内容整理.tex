@@ -7,7 +7,13 @@
 \section*{vector}
 \addcontentsline{toc}{section}{vector}
 
-vector是C++标准库为我们提供的类模板。可以将vector理解成保存同类型元素的一个不定长数组。我们可以通过在尖括号中指定元素的类型，来定义不同类型的数组，如：
+vector是C++标准库为我们提供的类模板。可以将vector理解成保存同类型元素的一个不定长数组。使用vector需要包含相应的头文件：
+\begin{cppcode}
+    #include <vector>
+\end{cppcode}
+
+
+我们可以通过在尖括号中指定元素的类型，来定义不同类型的数组，如：
 \begin{cppcode}
     vector<int> int_arr;        // 一个空的，容纳int型元素的不定长数组
     vector<char> char_arr;      // 一个空的，容纳char型元素的不定长数组
@@ -22,7 +28,7 @@ vector是C++标准库为我们提供的类模板。可以将vector理解成保�
 vector中的元素下标从0开始，支持下标访问运算符：“[]”。可以通过\textbf{v[idx]返回v中第idx个位置上元素的引用}。注意：
 \begin{enumerate}
     \item 由于返回的是引用，因此可以修改原数组中的元素，这一点和C语言原生数组类似；
-    \item 下标访问只能访问v中已有元素。任何非法的下标访问（idx < 0 或 idx >= v.size() ）都是不安全的，将导致未定义行为。
+    \item 下标访问只能访问v中已有元素。任何非法的下标访问（idx < 0 或 idx >= v.size() ）都是不安全的，将导致\term{未定义行为（Undefined Behavior，UB）}。
 \end{enumerate}
 
 \minisection{向vector对象中添加元素}
@@ -100,3 +106,77 @@ vector中的元素下标从0开始，支持下标访问运算符：“[]”。�
     }
 \end{cppcode}
 
+\section*{stack}
+\addcontentsline{toc}{section}{stack}
+类似vector，stack同样是C++标准库为我们提供的类模板，模板参数就是栈中存放的元素类型。使用stack需要include相应头文件：
+\begin{cppcode}
+    #include <stack>
+\end{cppcode}
+
+通过指定模板参数，我们就可以定义存放不同类型元素的栈。如：
+\begin{cppcode}
+    stack<int> is;  // 存放int的栈
+    stack<int> ds;  // 存放double的栈
+\end{cppcode}
+甚至：
+\begin{cppcode}
+    stack<vector<int> > vis;    // 存放不定长数组的栈
+\end{cppcode}
+
+栈s的一些常用操作如下：
+\begin{enumerate}[label=\arabic*）]
+    \item s.push(e);    // 将值为e的元素入栈
+    \item int t = s.top();      // 返回s的栈顶元素的引用（但不弹出该元素），将其值拷贝给t
+    \item s.pop();      // 弹出栈顶元素
+    \item s.empty();    // 若栈s为空，此处返回值为true，否则返回false。
+\end{enumerate}
+
+注意，使用top()操作和pop()操作时，一定要保证栈是非空的，否则将导致\term{未定义行为（Undefined Behavior，UB）}。
+
+
+\section*{queue}
+\addcontentsline{toc}{section}{queue}
+类似vector和stack，queue同样是C++标准库为我们提供的类模板，模板参数就是队列中存放的元素类型。使用queue需要include相应头文件：
+\begin{cppcode}
+    #include <queue>
+\end{cppcode}
+
+通过指定模板参数，我们就可以定义存放不同类型元素的队列。如：
+\begin{cppcode}
+    queue<int> iq;  // 存放int的队列
+    queue<int> dq;  // 存放double的队列
+\end{cppcode}
+甚至：
+\begin{cppcode}
+    queue<vector<int> > viq;    // 存放不定长数组的队列
+\end{cppcode}
+
+队列q的一些常用操作如下：
+\begin{enumerate}[label=\arabic*）]
+    \item q.push(e);    // 将值为e的元素入队
+    \item int t = q.front();      // 返回q的队首元素的引用（但不将该元素出队），将其值拷贝给t
+    \item q.pop();      // 将队首元素出队
+    \item q.empty();    // 若队列q为空，此处返回值为true，否则返回false。
+\end{enumerate}
+
+注意，使用front()操作和pop()操作时，一定要保证队列是非空的，否则将导致\term{未定义行为（Undefined Behavior，UB）}。
+
+
+\begin{firekeeper}{}
+思渡者啊的撒发射点富士达法撒旦法撒旦
+十大fsad a带释放
+
+阿斯顿法撒旦法撒旦阿迪斯法撒旦阿斯顿f撒旦
+发大水的撒发大水
+
+
+的撒法撒旦
+
+
+发大水范德萨的萨芬的撒发士大夫阿斯顿法撒旦阿斯蒂芬飒
+\end{firekeeper}
+
+
+
+
+\includegraphics[height=2cm]{assets/pics_and_ppts/pics/firekeeper.png}%

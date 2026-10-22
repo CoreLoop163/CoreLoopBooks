@@ -1,0 +1,4 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{stack}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{is}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{// 存放int的栈}
+\PYG{n}{stack}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{ds}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{// 存放double的栈}
+\end{MintedVerbatim}

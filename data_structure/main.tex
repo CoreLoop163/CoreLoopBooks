@@ -29,6 +29,9 @@
 \captionsetup[figure]{
     labelsep=space
 }
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage{amsmath}
 
 % 通过\uline, \uwave为文字添加下划线、下波浪线
 \usepackage[normalem]{ulem}
@@ -447,6 +450,115 @@
         arc=2pt
     }
 }
+
+% ============================================================
+% 维火女对话框：柔和、优雅、复古粉棕风格
+% 依赖：tcolorbox、TikZ、graphicx
+% ============================================================
+
+\definecolor{FireBoxBg}{RGB}{253,246,244}
+\definecolor{FireBoxBorder}{RGB}{218,178,168}
+\definecolor{FireBoxAccent}{RGB}{190,112,112}
+\definecolor{FireBoxText}{RGB}{90,70,65}
+\definecolor{FireTagBg}{RGB}{245,225,218}
+\definecolor{FireLine}{RGB}{222,181,160}
+\definecolor{FireIcon}{RGB}{164,91,84}
+
+\newtcolorbox{firekeeper}[1]{
+    enhanced,
+    breakable,
+    % ---------- 主体面板 ----------
+    colback=FireBoxBg,
+    colframe=FireBoxBorder,
+    boxrule=0.8pt,
+    arc=5mm,
+    % 已去掉左侧粗竖线
+    left=15pt,
+    right=15pt,
+    top=25pt,
+    bottom=13pt,
+    before skip=1.2em,
+    after skip=1.2em,
+    fontupper=\color{FireBoxText},
+    title={},
+    % ---------- 右上角人物（修复锚点与位置）----------
+    overlay={
+        \node[
+            anchor=north west,
+            text=red,
+            font=\Huge
+        ] at (frame.north west) {TEST};
+    },
+    % ---------- 标题牌、火焰、装饰线 ----------
+    overlay unbroken and first={%
+        overlay={
+            \node[
+                anchor=north east,
+                inner sep=0pt,
+                outer sep=0pt
+            ] at ([xshift=-10pt,yshift=8pt]frame.north east) {%
+                \includegraphics[height=3.2cm]{firekeeper.png}%
+            };
+        },
+        % 标题胶囊框
+        \node[
+            anchor=west,
+            rounded corners=6pt,
+            draw=FireBoxBorder,
+            line width=0.85pt,
+            fill=FireTagBg,
+            minimum width=2.3cm,
+            minimum height=0.70cm,
+            inner xsep=12pt,
+            inner ysep=3pt
+        ] (firekeepertitlebox)
+        at ([xshift=12pt,yshift=-1pt]frame.north west) {};
+        % 火焰图标：缩小并置于标题框内部
+        \begin{scope}[shift={([xshift=23pt,yshift=-5pt]frame.north west)}, scale=0.88]
+            \path[fill=FireIcon]
+                (0,0)
+                .. controls (-5pt,4pt) and (-4pt,9pt) ..
+                (-1pt,13pt)
+                .. controls (-1pt,9pt) and (4pt,9pt) ..
+                (4pt,5pt)
+                .. controls (5pt,2pt) and (3pt,-1pt) ..
+                (0,0)
+                -- cycle;
+            % 火焰内芯
+            \path[fill=FireTagBg]
+                (0,1.5pt)
+                .. controls (-1.5pt,4pt) and (1pt,5pt) ..
+                (1.5pt,7pt)
+                .. controls (3pt,4pt) and (2pt,2pt) ..
+                (0,1.5pt)
+                -- cycle;
+        \end{scope}
+        % 标题文字：缩小，并在胶囊框内垂直居中
+        \node[
+            anchor=west,
+            text=FireIcon,
+            font=\CJKfamily{song}\fontsize{12}{18}\selectfont
+        ] at ([xshift=26pt,yshift=0pt]frame.north west)
+        {维火女};
+        % 标题框右侧引线：上移，与标题框中线对齐
+        \draw[
+            FireLine,
+            line width=0.75pt
+        ]
+        ([xshift=2.55cm,yshift=-5pt]frame.north west)
+        --
+        ([xshift=3.6cm,yshift=-5pt]frame.north west);
+        % 引线末端的小菱形
+        \fill[FireLine]
+        ([xshift=3.6cm,yshift=-5pt]frame.north west)
+        -- ++(2pt,2pt)
+        -- ++(2pt,-2pt)
+        -- ++(-2pt,-2pt)
+        -- cycle;
+    }
+}
+
+
 
 % ============================================================
 % 概念展示块

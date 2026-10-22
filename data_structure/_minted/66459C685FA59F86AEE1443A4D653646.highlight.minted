@@ -1,0 +1,43 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+cm}{/************ 邻接表结构定义 *************/}
+\PYG{c+c1}{// struct AdjEdge \PYGZob{}}
+\PYG{c+c1}{//     int u;  // 邻接顶点的编号}
+\PYG{c+c1}{//     int weight; // 当前顶点到u的边的权值。}
+\PYG{c+c1}{// \PYGZcb{};}
+\PYG{c+c1}{// struct LGraph \PYGZob{}}
+\PYG{c+c1}{//     vector\PYGZlt{}AdjEdge\PYGZgt{} AdjList[MAX\PYGZus{}VNUM];  // 邻接表}
+\PYG{c+c1}{//     VertexInfo v[MAX\PYGZus{}VNUM];     // 存放顶点信息}
+\PYG{c+c1}{//     int current\PYGZus{}vnum;           // 当前顶点数}
+\PYG{c+c1}{//     int current\PYGZus{}enum;           // 当前边数}
+\PYG{c+c1}{// \PYGZcb{};}
+
+\PYG{c+c1}{// 输入图G以及起点编号start\PYGZus{}idx，以DFS方式对每一个顶点执行某函数visit()}
+\PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{DFS}\PYG{p}{(}\PYG{n}{LGraph}\PYG{+w}{ }\PYG{n}{G}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{start\PYGZus{}idx}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n}{visited}\PYG{p}{[}\PYG{n}{G}\PYG{p}{.}\PYG{n}{current\PYGZus{}vnum}\PYG{p}{]}\PYG{p}{;}
+\PYG{+w}{        }\PYG{c+c1}{// 初始化visited[]数组}
+\PYG{+w}{        }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{n}{G}\PYG{p}{.}\PYG{n}{current\PYGZus{}vnum}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{+}\PYG{o}{+}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{visited}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{        }\PYG{n}{stack}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{;}\PYG{+w}{   }\PYG{c+c1}{// 栈中存储顶点编号即可}
+\PYG{+w}{        }\PYG{n}{s}\PYG{p}{.}\PYG{n}{push}\PYG{p}{(}\PYG{n}{start\PYGZus{}idx}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{visited}\PYG{p}{[}\PYG{n}{start\PYGZus{}idx}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{true}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{while}\PYG{p}{(}\PYG{o}{!}\PYG{n}{s}\PYG{p}{.}\PYG{n}{empty}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{c+c1}{// 访问栈顶顶点v}
+\PYG{+w}{            }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{v}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{.}\PYG{n}{top}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{            }\PYG{n}{s}\PYG{p}{.}\PYG{n}{pop}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{            }\PYG{n}{visit}\PYG{p}{(}\PYG{n}{G}\PYG{p}{.}\PYG{n}{v}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}\PYG{+w}{   }\PYG{c+c1}{// 访问v}
+
+\PYG{+w}{            }\PYG{c+c1}{// 将与v邻接的所有尚未访问的顶点入栈}
+\PYG{+w}{            }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{n}{G}\PYG{p}{.}\PYG{n}{AdjList}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{p}{.}\PYG{n}{size}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{+}\PYG{o}{+}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{                }\PYG{c+c1}{// G.AdjList[v]是v的邻接表，G.AdjList[v][i]是该表中第i个元素}
+\PYG{+w}{                }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{u}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{G}\PYG{p}{.}\PYG{n}{AdjList}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{p}{.}\PYG{n}{u}\PYG{p}{;}
+\PYG{+w}{                }\PYG{k}{if}\PYG{p}{(}\PYG{n}{visited}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{false}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{                    }\PYG{n}{s}\PYG{p}{.}\PYG{n}{push}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{                    }\PYG{n}{visited}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{true}\PYG{p}{;}
+\PYG{+w}{                }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{            }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{c+c1}{// end while}
+
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}
