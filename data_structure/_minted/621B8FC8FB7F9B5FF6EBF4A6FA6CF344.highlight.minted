@@ -1,0 +1,9 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{N}\PYG{c+cm}{/* = 100*/}\PYG{p}{;}
+\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n}{visited}\PYG{p}{[}\PYG{n}{N}\PYG{p}{]}\PYG{p}{;}\PYG{+w}{    }\PYG{c+c1}{// 已初始化为false}
+
+\PYG{c+c1}{// AdjList[i] 已存放编号为i的顶点的邻接表，邻接表元素类型int，含义为与i邻接的顶点编号}
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{CountConnectedComponents}\PYG{p}{(}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{AdjList}\PYG{p}{[}\PYG{n}{N}\PYG{p}{]}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

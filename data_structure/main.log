@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.5) (preloaded format=xelatex 2026.9.20)  23 OCT 2026 00:06
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.5) (preloaded format=xelatex 2026.9.20)  23 OCT 2026 21:54
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1433,11 +1433,12 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layoutvoffset=\dimen394
 \Gm@dimlist=\toks60
 
-(D:\MikTex\tex/latex/geometry\geometry.cfg))
-Package hyperref Info: Option `colorlinks' set `true' on input line 118.
+(D:\MikTex\tex/latex/geometry\geometry.cfg)) (src/styles.tex
+Package hyperref Info: Option `colorlinks' set `true' on input line 72.
 \c@tcb@cnt@cppcodeNum=\count433
- (D:\MikTex\tex/latex/xsim\xsim.sty (D:\MikTex\tex/latex/l3packages/l3keys2e\l3
-keys2e.sty
+
+(D:\MikTex\tex/latex/xsim\xsim.sty
+(D:\MikTex\tex/latex/l3packages/l3keys2e\l3keys2e.sty
 Package: l3keys2e 2025-10-09 LaTeX2e option processing using LaTeX3 keys
 )
 (D:\MikTex\tex/latex/xsim\xsimverb.sty
@@ -1495,33 +1496,34 @@ Loading module `definitions' ...
 \c@exercise=\count444
 \c@exerciseanswer=\count445
 \c@numberofexercises=\count446
+)
 \g_xsim_collection_bookexercise_in_all exercises_int=\count447
 \c@totalbookexerciseinall exercises=\count448
 Package translations Info: No language package found. I am going to use `englis
-h' as default language. on input line 807.
+h' as default language. on input line 73.
  (main.aux (main.xsim))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 807.
-LaTeX Font Info:    ... okay on input line 807.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 807.
-LaTeX Font Info:    ... okay on input line 807.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 807.
-LaTeX Font Info:    ... okay on input line 807.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 807.
-LaTeX Font Info:    ... okay on input line 807.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 807.
-LaTeX Font Info:    ... okay on input line 807.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 807.
-LaTeX Font Info:    ... okay on input line 807.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 807.
-LaTeX Font Info:    ... okay on input line 807.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 807.
-LaTeX Font Info:    ... okay on input line 807.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 807.
-LaTeX Font Info:    ... okay on input line 807.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 807.
-LaTeX Font Info:    ... okay on input line 807.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
 
 Package fontspec Info: 
 (fontspec)             Adjusting the maths setup (use [no-math] to avoid
@@ -1529,64 +1531,63 @@ Package fontspec Info:
 
 \symlegacymaths=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 807.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 807.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 807.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 807.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 807.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 807.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 807.
-LaTeX Font Info:    Redeclaring math accent \check on input line 807.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 807.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 807.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 807.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 807.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 807.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 807.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 807.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 807.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 807.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 807.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 807.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 807.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 807.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 807.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 807.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 807.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 73.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 73.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 73.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 73.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 73.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 73.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 73.
+LaTeX Font Info:    Redeclaring math accent \check on input line 73.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 73.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 73.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 73.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 73.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 73.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 73.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 73.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 73.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 73.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 73.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 73.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 73.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 73.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 73.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 73.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 73.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 807.
-
+(Font)              `operators' in the math version `normal' on input line 73.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 807.
+(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 73.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 807.
+(Font)              `operators' in the math version `bold' on input line 73.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 807.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 73.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 807.
+(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 73.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 807.
+(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 73.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 807.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 73.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 807.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 73.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 807.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 73.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 807.
+(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 73.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 807.
+(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 73.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 807.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 73.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 807.
-LaTeX Info: Redefining \microtypecontext on input line 807.
-Package microtype Info: Applying patch `item' on input line 807.
-Package microtype Info: Applying patch `toc' on input line 807.
-Package microtype Info: Applying patch `eqnum' on input line 807.
-Package microtype Info: Applying patch `footnote' on input line 807.
-Package microtype Info: Applying patch `verbatim' on input line 807.
-LaTeX Info: Redefining \microtypesetup on input line 807.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 73.
+LaTeX Info: Redefining \microtypecontext on input line 73.
+Package microtype Info: Applying patch `item' on input line 73.
+Package microtype Info: Applying patch `toc' on input line 73.
+Package microtype Info: Applying patch `eqnum' on input line 73.
+Package microtype Info: Applying patch `footnote' on input line 73.
+Package microtype Info: Applying patch `verbatim' on input line 73.
+LaTeX Info: Redefining \microtypesetup on input line 73.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: No adjustment of tracking.
@@ -1598,7 +1599,7 @@ File: mt-LatinModernRoman.cfg 2026/02/26 v1.2 microtype config. file: Latin Mod
 ern Roman (RS)
 )
 \c@lstlisting=\count449
-Package hyperref Info: Link coloring ON on input line 807.
+Package hyperref Info: Link coloring ON on input line 73.
  (main.out) (main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
@@ -1650,14 +1651,14 @@ File: translations-basic-dictionary-english.trsl (english translation file `tra
 nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `english'. on input line 807.
+or `english'. on input line 73.
  [1
 
 
 ] [2
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 873--874
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
 
  []
 
@@ -1666,12 +1667,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 873--874
 ] [2
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 889--890
+Underfull \hbox (badness 10000) in paragraph at lines 155--156
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 891--893
+Underfull \hbox (badness 10000) in paragraph at lines 157--159
 
  []
 
@@ -1719,11 +1720,11 @@ able
 \pydata@fh@0=\write9
 \openout9 = `_FAD58DE7366495DB4650CFEFAC2FCD61.data.minted'.
 
-runsystem(latexminted config  --timestamp 20261023000623 FAD58DE7366495DB4650CF
+runsystem(latexminted config  --timestamp 20261023215438 FAD58DE7366495DB4650CF
 EFAC2FCD61)...executed.
 
  (_FAD58DE7366495DB4650CFEFAC2FCD61.config.minted)
-runsystem(latexminted cleanconfig  --timestamp 20261023000623 FAD58DE7366495DB4
+runsystem(latexminted cleanconfig  --timestamp 20261023215438 FAD58DE7366495DB4
 650CFEFAC2FCD61)...executed.
 
 
@@ -2970,14 +2971,23 @@ File: assets/pics_and_ppts/ch4/22408T2存储.png Graphic file (type bmp)
 
 )
 (chapters/chapter5/ch5_graph.tex
-Underfull \hbox (badness 10000) in paragraph at lines 14--17
+File: firekeeper.png Graphic file (type bmp)
+<firekeeper.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--30
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 27--29
+Underfull \hbox (badness 10000) in paragraph at lines 40--42
 
  []
+
+
+Package xeCJK Warning: Unknown CJK family `song' is being ignored.
+(xeCJK)                
+(xeCJK)                Try to use `\setCJKfamilyfont{song}[<...>]{<...>}' to
+(xeCJK)                define it.
 
 [133
 
@@ -2988,12 +2998,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 27--29
 File: assets/pics_and_ppts/ch5/王国.png Graphic file (type bmp)
 <assets/pics_and_ppts/ch5/王国.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 52--53
+Underfull \hbox (badness 10000) in paragraph at lines 63--64
 
  []
 
 [135]
-Underfull \hbox (badness 10000) in paragraph at lines 54--57
+Underfull \hbox (badness 10000) in paragraph at lines 65--68
 
  []
 
@@ -3003,18 +3013,19 @@ File: assets/pics_and_ppts/ch5/图的基本概念.png Graphic file (type bmp)
 File: assets/pics_and_ppts/ch5/图G3的三个强连通分量.png Graphic file (type bmp)
 <assets/pics_and_ppts/ch5/图G3的三个强连通分量.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 129--130
+Underfull \hbox (badness 10000) in paragraph at lines 142--143
 
  []
 
+[137]
 \openout8 = `main.listing'.
 
-(_minted/26C69D5BDD1C17BA1F7714542CA37832.highlight.minted) [137]
+ (_minted/26C69D5BDD1C17BA1F7714542CA37832.highlight.minted)
 \openout8 = `main.listing'.
 
 
 (_minted/56F23C5A14BABCA11CAD16322AD06109.highlight.minted) [138]
-Underfull \hbox (badness 10000) in paragraph at lines 171--172
+Underfull \hbox (badness 10000) in paragraph at lines 184--185
 
  []
 
@@ -3046,12 +3057,12 @@ File: assets/pics_and_ppts/ch5/05v2的邻接表.png Graphic file (type bmp)
 File: assets/pics_and_ppts/ch5/06完整邻接表示意.png Graphic file (type bmp)
 <assets/pics_and_ppts/ch5/06完整邻接表示意.png>
 
-Overfull \hbox (7.91154pt too wide) in paragraph at lines 269--270
+Overfull \hbox (7.91154pt too wide) in paragraph at lines 282--283
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 274--276
+Underfull \hbox (badness 10000) in paragraph at lines 287--289
 
  []
 
@@ -3070,36 +3081,36 @@ Underfull \hbox (badness 10000) in paragraph at lines 274--276
 
 
 (_minted/1C01670937B7E22F29D415D2321F472D.highlight.minted) [143] [144]
-Underfull \hbox (badness 10000) in paragraph at lines 378--384
+Underfull \hbox (badness 10000) in paragraph at lines 391--397
 
  []
 
 File: assets/pics_and_ppts/ch5/07深度优先遍历过程.png Graphic file (type bmp)
 <assets/pics_and_ppts/ch5/07深度优先遍历过程.png>
 
-Overfull \hbox (31.64018pt too wide) in paragraph at lines 387--388
+Overfull \hbox (31.64018pt too wide) in paragraph at lines 400--401
  [][] 
  []
 
 [145]
-Underfull \hbox (badness 10000) in paragraph at lines 406--408
+Underfull \hbox (badness 10000) in paragraph at lines 419--421
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 409--415
+Underfull \hbox (badness 10000) in paragraph at lines 422--428
 
  []
 
 File: assets/pics_and_ppts/ch5/08广度优先遍历过程.png Graphic file (type bmp)
 <assets/pics_and_ppts/ch5/08广度优先遍历过程.png>
 
-Overfull \hbox (51.41606pt too wide) in paragraph at lines 418--419
+Overfull \hbox (51.41606pt too wide) in paragraph at lines 431--432
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 423--427
+Underfull \hbox (badness 10000) in paragraph at lines 436--440
 
  []
 
@@ -3123,7 +3134,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 423--427
 
 
 (_minted/C15E6242871D2E6019DEB306B8FC9BD5.highlight.minted) [150]
-Underfull \hbox (badness 10000) in paragraph at lines 615--616
+Underfull \hbox (badness 10000) in paragraph at lines 628--629
 
  []
 
@@ -3131,11 +3142,27 @@ File: assets/pics_and_ppts/ch5/09一个非连通图.png Graphic file (type bmp)
 <assets/pics_and_ppts/ch5/09一个非连通图.png>
 \openout8 = `main.listing'.
 
-(_minted/9EA98E4F2DF213613333E5484A12B891.highlight.minted) [151] [152]
+(_minted/9EA98E4F2DF213613333E5484A12B891.highlight.minted)
+Underfull \hbox (badness 10000) in paragraph at lines 659--661
+
+ []
+
+[151]
+\openout8 = `main.listing'.
+
+ (_minted/3E7B3DEBE78AAB6811A1650259C3BD1E.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/E31FC0D3653C52D0F69FC06E2450DBFF.highlight.minted)
+Underfull \hbox (badness 10000) in paragraph at lines 683--684
+
+ []
+
+[152]
 \openout8 = `main-bookexercise-6-exercise-body.tex'.
 
-
-(main-bookexercise-6-exercise-body.tex
+ (main-bookexercise-6-exercise-body.tex
 File: assets/pics_and_ppts/ch5/习题01，图的基本概念.png Graphic file (type bmp)
 <assets/pics_and_ppts/ch5/习题01，图的基本概念.png>
 
@@ -3150,14 +3177,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--30
 
  []
 
+[153
 
+]
 Underfull \hbox (badness 10000) in paragraph at lines 37--42
 
  []
 
-[153
 
-]
 Underfull \hbox (badness 10000) in paragraph at lines 43--44
 
  []
@@ -3172,10 +3199,88 @@ Underfull \hbox (badness 10000) in paragraph at lines 54--55
 
  []
 
-) [154]
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--81
+
+ []
+
+[154]
+File: assets/pics_and_ppts/ch5/习题05，邻接表表长.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch5/习题05，邻接表表长.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--101
+
+ []
+
+File: assets/pics_and_ppts/ch5/习题06，树上的广度优先.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch5/习题06，树上的广度优先.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 111--116
+
+ []
+
+\openout8 = `main.listing'.
+
+(_minted/A7A8EA9519DBE1528AF62FE059145705.highlight.minted) [155]
+\openout8 = `main.listing'.
+
+
+(_minted/2BE01295E140E38ACBB9617103951919.highlight.minted)
+Underfull \hbox (badness 10000) in paragraph at lines 137--138
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 137--138
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 147--149
+
+ []
+
+\openout8 = `main.listing'.
+
+(_minted/22E7437BE24BC25D1101843D0443F8FC.highlight.minted) [156]
+\openout8 = `main.listing'.
+
+
+(_minted/621B8FC8FB7F9B5FF6EBF4A6FA6CF344.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/ECE94D0B86380F354012F8E6290F37DA.highlight.minted)
+File: assets/pics_and_ppts/ch5/习题07救出维火女.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch5/习题07救出维火女.png>
+\openout8 = `main.listing'.
+
+
+(_minted/E9BE7D3839C2E1023736EAD008550227.highlight.minted) [157]
+Underfull \hbox (badness 10000) in paragraph at lines 212--213
+
+ []
+
+\openout8 = `main.listing'.
+
+(_minted/F05170FFF457678DC9E768E2F5DE41E0.highlight.minted)
+Underfull \hbox (badness 10000) in paragraph at lines 224--228
+
+ []
+
+\openout8 = `main.listing'.
+
+(_minted/3723FD43931EC463B2BD68BACAABD071.highlight.minted) [158]
+Underfull \hbox (badness 10000) in paragraph at lines 237--240
+
+ []
+
+) [159]
 \openout8 = `main-bookexercise-6-solution-body.tex'.
 
-) (chapters/C++重点内容整理.tex
+) (chapters/C++重点内容整理.tex [160
+
+]
 \openout8 = `main.listing'.
 
 
@@ -3187,8 +3292,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 54--55
 \openout8 = `main.listing'.
 
 
-(_minted/8B99983529D58DDBD39DBA2DE976648E.highlight.minted) [155
-
+(_minted/8B99983529D58DDBD39DBA2DE976648E.highlight.minted) [161
 
 ]
 \openout8 = `main.listing'.
@@ -3210,7 +3314,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 54--55
 \openout8 = `main.listing'.
 
 
-(_minted/EAA2E60F30456B193081F5BBF866CF04.highlight.minted) [156]
+(_minted/EAA2E60F30456B193081F5BBF866CF04.highlight.minted) [162]
 \openout8 = `main.listing'.
 
 
@@ -3222,7 +3326,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 54--55
 \openout8 = `main.listing'.
 
 
-(_minted/E25B07B1664331FEF0395F3D97CFF3E6.highlight.minted) [157]
+(_minted/E25B07B1664331FEF0395F3D97CFF3E6.highlight.minted) [163]
 \openout8 = `main.listing'.
 
 
@@ -3238,30 +3342,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 54--55
 \openout8 = `main.listing'.
 
 
-(_minted/140D736E6FE2B5235B8BEBB55143A5A9.highlight.minted) [158]
-Missing character: There is no o in font nullfont!
-Missing character: There is no v in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no y in font nullfont!
-Missing character: There is no = in font nullfont!
-File: firekeeper.png Graphic file (type bmp)
-<firekeeper.png>
-Missing character: There is no , in font nullfont!
-
-Package xeCJK Warning: Unknown CJK family `song' is being ignored.
-(xeCJK)                
-(xeCJK)                Try to use `\setCJKfamilyfont{song}[<...>]{<...>}' to
-(xeCJK)                define it.
-
-File: assets/pics_and_ppts/pics/firekeeper.png Graphic file (type bmp)
-<assets/pics_and_ppts/pics/firekeeper.png>
-) [159] [160
+(_minted/140D736E6FE2B5235B8BEBB55143A5A9.highlight.minted) [164]) [165]
+[166
 
 
-] [161] (main-bookexercise-1-solution-body.tex
+] [167] (main-bookexercise-1-solution-body.tex
 Underfull \hbox (badness 10000) in paragraph at lines 10--12
 
  []
@@ -3290,7 +3375,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--35
 
 \openout8 = `main.listing'.
 
-(_minted/C84CC9D6B04CB47AB056D30A0AC3933B.highlight.minted) [162
+(_minted/C84CC9D6B04CB47AB056D30A0AC3933B.highlight.minted) [168
 
 ]
 \openout8 = `main.listing'.
@@ -3303,7 +3388,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 74--75
 
 \openout8 = `main.listing'.
 
-(_minted/63ED7D6272672BC6B67C5FE4F2A1E320.highlight.minted) [163]
+(_minted/63ED7D6272672BC6B67C5FE4F2A1E320.highlight.minted) [169]
 \openout8 = `main.listing'.
 
 
@@ -3311,7 +3396,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 74--75
 \openout8 = `main.listing'.
 
 
-(_minted/BDFF3E54B5334CA5D57D73502D60C884.highlight.minted) [164]
+(_minted/BDFF3E54B5334CA5D57D73502D60C884.highlight.minted) [170]
 \openout8 = `main.listing'.
 
 
@@ -3319,11 +3404,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 74--75
 \openout8 = `main.listing'.
 
 
-(_minted/85FFD4595827520FBFA514756D7ECE83.highlight.minted) [165]
+(_minted/85FFD4595827520FBFA514756D7ECE83.highlight.minted) [171]
 \openout8 = `main.listing'.
 
 
-(_minted/243B3D3F07B9CC0226C9543007525726.highlight.minted) [166]
+(_minted/243B3D3F07B9CC0226C9543007525726.highlight.minted) [172]
 Underfull \hbox (badness 10000) in paragraph at lines 239--240
 
  []
@@ -3338,7 +3423,7 @@ m/n/10.53937 ，|  若 \TU/lmr/m/n/10.53937 arr[i] > k\TU/SimSun(0)/m/n/10.53937
 
 \openout8 = `main.listing'.
 
-(_minted/B8D94A680A8AF831D48B762FD88FD7D8.highlight.minted) [167]) [168]
+(_minted/B8D94A680A8AF831D48B762FD88FD7D8.highlight.minted) [173]) [174]
 (main-bookexercise-2-solution-body.tex
 Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
@@ -3384,7 +3469,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--34
 
  []
 
-[169
+[175
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 35--36
@@ -3421,7 +3506,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 52--53
 
  []
 
-[170]
+[176]
 \openout8 = `main.listing'.
 
  (_minted/8DAAFB68F61BA50492B05C6C4D3BFF01.highlight.minted)
@@ -3429,14 +3514,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 106--108
 
  []
 
-[171]
+[177]
 Underfull \hbox (badness 10000) in paragraph at lines 109--111
 
  []
 
 \openout8 = `main.listing'.
 
-(_minted/5D2E311A209E233BFD851EEF2CF34972.highlight.minted) [172]) [173]
+(_minted/5D2E311A209E233BFD851EEF2CF34972.highlight.minted) [178]) [179]
 (main-bookexercise-3-solution-body.tex
 Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
@@ -3462,7 +3547,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 43--47
 
  []
 
-[174
+[180
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 48--50
@@ -3499,7 +3584,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 84--86
 
  []
 
-[175]
+[181]
 File: assets/pics_and_ppts/ch4/09年408选择.png Graphic file (type bmp)
 <assets/pics_and_ppts/ch4/09年408选择.png>
 
@@ -3527,7 +3612,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 106--108
 
  []
 
-[176]
+[182]
 Underfull \hbox (badness 10000) in paragraph at lines 113--115
 
  []
@@ -3543,7 +3628,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 116--118
 \openout8 = `main.listing'.
 
 
-(_minted/CD7CFA84A243E656E7A62AC6A8FC0DCF.highlight.minted) [177]
+(_minted/CD7CFA84A243E656E7A62AC6A8FC0DCF.highlight.minted) [183]
 Underfull \hbox (badness 10000) in paragraph at lines 150--151
 
  []
@@ -3557,7 +3642,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 165--166
 
 \openout8 = `main.listing'.
 
-(_minted/F5C02BEFEBF05911B4B8764AF2E16414.highlight.minted) [178]) [179]
+(_minted/F5C02BEFEBF05911B4B8764AF2E16414.highlight.minted) [184]) [185]
 (main-bookexercise-4-solution-body.tex
 Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
@@ -3585,7 +3670,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--20
 
 \openout8 = `main.listing'.
 
-(_minted/5DAB63A4671D94CDF85833CA4BF87481.highlight.minted) [180
+(_minted/5DAB63A4671D94CDF85833CA4BF87481.highlight.minted) [186
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 67--68
@@ -3596,18 +3681,18 @@ File: assets/pics_and_ppts/ch4/21408_哈夫曼树构造过程.png Graphic file (
 <assets/pics_and_ppts/ch4/21408_哈夫曼树构造过程.png>
 \openout8 = `main.listing'.
 
-(_minted/0002A310DC72EA8D700CD759E50417B7.highlight.minted) [181]
+(_minted/0002A310DC72EA8D700CD759E50417B7.highlight.minted) [187]
 Underfull \hbox (badness 10000) in paragraph at lines 101--102
 
  []
 
 \openout8 = `main.listing'.
 
-(_minted/6B0184A3F19510114552C0AE6F9A128C.highlight.minted) [182]
+(_minted/6B0184A3F19510114552C0AE6F9A128C.highlight.minted) [188]
 \openout8 = `main.listing'.
 
 
-(_minted/A0BB0ABF5D95BC93B37F121FB4CE9A18.highlight.minted)) [183]
+(_minted/A0BB0ABF5D95BC93B37F121FB4CE9A18.highlight.minted)) [189]
 (main-bookexercise-5-solution-body.tex
 Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
@@ -3635,7 +3720,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--24
 File: assets/pics_and_ppts/ch4/10408_平衡二叉树插入后37的左右孩子值答案图.png Graphic file (type
  bmp)
 <assets/pics_and_ppts/ch4/10408_平衡二叉树插入后37的左右孩子值答案图.png>
-[184
+[190
 
 ]
 File: assets/pics_and_ppts/ch4/20408哪一个序列不能生成图示二叉排序树答案图.png Graphic file (type 
@@ -3651,7 +3736,7 @@ bmp)
 \openout8 = `main.listing'.
 
 
-(_minted/4B91EE1B4FFBFFE83434D056FA4C96DF.highlight.minted) [185]
+(_minted/4B91EE1B4FFBFFE83434D056FA4C96DF.highlight.minted) [191]
 Underfull \hbox (badness 10000) in paragraph at lines 96--98
 
  []
@@ -3663,7 +3748,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 105--109
 
  []
 
-[186]
+[192]
 Underfull \hbox (badness 10000) in paragraph at lines 122--124
 
  []
@@ -3675,7 +3760,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 133--135
 
 \openout8 = `main.listing'.
 
-(_minted/D1FF214F21045421EA5918142803D36B.highlight.minted) [187]
+(_minted/D1FF214F21045421EA5918142803D36B.highlight.minted) [193]
 \openout8 = `main.listing'.
 
 
@@ -3689,11 +3774,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 191--192
 
 \openout8 = `main.listing'.
 
-(_minted/6DAF516EE6B1B8ED1BD4C30B5F04EEFB.highlight.minted) [188]
+(_minted/6DAF516EE6B1B8ED1BD4C30B5F04EEFB.highlight.minted) [194]
 \openout8 = `main.listing'.
 
 
-(_minted/6AF4291B68C931EA02DECDB32B7044E7.highlight.minted) [189]) [190]
+(_minted/6AF4291B68C931EA02DECDB32B7044E7.highlight.minted) [195]) [196]
 (main-bookexercise-6-solution-body.tex
 Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
@@ -3709,23 +3794,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--18
 File: assets/pics_and_ppts/ch5/习题03，09408无向连通图特性答案图.png Graphic file (type bmp)
 
 <assets/pics_and_ppts/ch5/习题03，09408无向连通图特性答案图.png>
+[197
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--41
+]
+Underfull \hbox (badness 10000) in paragraph at lines 40--44
 
  []
 
-[191
-
-]
 File: assets/pics_and_ppts/ch5/习题04，N个顶点的连通图最少边数答案.png Graphic file (type bmp)
 <assets/pics_and_ppts/ch5/习题04，N个顶点的连通图最少边数答案.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 49--50
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 51--53
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
 
  []
 
@@ -3735,11 +3814,75 @@ Underfull \hbox (badness 10000) in paragraph at lines 54--56
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--58
+Underfull \hbox (badness 10000) in paragraph at lines 57--59
 
  []
 
-) (chapters/the_end.tex [192]) [193
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--61
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 62--63
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 64--65
+
+ []
+
+[198]
+File: assets/pics_and_ppts/ch5/习题06，树上的广度优先答案图.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch5/习题06，树上的广度优先答案图.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 71--72
+
+ []
+
+\openout8 = `main.listing'.
+
+(_minted/DCC5511FF60121AFE19507611D678FB8.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/6D3E8363C2340EEE49029150C41FF290.highlight.minted) [199]
+Underfull \hbox (badness 10000) in paragraph at lines 108--110
+
+ []
+
+\openout8 = `main.listing'.
+
+(_minted/DCD59DF5F5BEE74E585B7FC2FC3B4B34.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/AC2750C9E03A0080D7431B0856003BAA.highlight.minted) [200]
+File: assets/pics_and_ppts/ch5/习题08，任意路径答案图.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch5/习题08，任意路径答案图.png>
+\openout8 = `main.listing'.
+
+
+(_minted/A82F0CE950BD9DC95F9DAADC21218812.highlight.minted) [201] [202]
+File: assets/pics_and_ppts/ch5/习题07救出维火女.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch5/习题07救出维火女.png>
+\openout8 = `main.listing'.
+
+
+(_minted/5EDD7599E76E12D7CF2A5A47B9924108.highlight.minted) [203] [204]
+Underfull \hbox (badness 10000) in paragraph at lines 345--347
+
+ []
+
+\openout8 = `main.listing'.
+
+(_minted/B4433695CD455C0E9D7860DB3A2EA3C1.highlight.minted) [205]
+\openout8 = `main.listing'.
+
+
+(_minted/9DF289726D8970A2CC95DD8A87498219.highlight.minted))
+(chapters/the_end.tex [206]) [207
 
 ] (main.aux (main.xsim))
  ***********
@@ -3751,15 +3894,15 @@ L3 programming layer <2026/08/21>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 9EE177E77BD3D89157A7D165B266E315;7291.
+(rerunfilecheck)             Checksum: 60B29C04FC0085810D3B837CEB55A0B4;7378.
  ) 
 Here is how much of TeX's memory you used:
- 50059 strings out of 402560
- 1262771 string characters out of 5445169
- 1709713 words of memory out of 5000000
- 77819 multiletter control sequences out of 15000+600000
+ 50252 strings out of 402560
+ 1271506 string characters out of 5445169
+ 1725034 words of memory out of 5000000
+ 77950 multiletter control sequences out of 15000+600000
  638001 words of font info for 123 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  106i,13n,118p,1299b,1862s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (203 pages).
+Output written on main.pdf (217 pages).

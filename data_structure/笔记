@@ -1,20 +1,32 @@
+维火女样式
 
-Latex常用字号：
-\Huge	极大
-\huge	很大
-\Large	大
-\large	稍大
-\normalsize	默认
-\small	小一号
-\footnotesize	更小
-\scriptsize	很小
-\tiny	最小
+\begin{firekeeper}{}
+    \begin{wrapfigure}{r}{0.165\textwidth}
+        \vspace{-2cm}
+        \centering
+        \hspace{-3cm}
+        \raisebox{-1.65cm}{%      % 视觉上向上移动 0.5cm (负数则向下)
+            \hspace*{0.10cm}%   % 视觉上向左移动 0.5cm (正数则向右)
+            \scalebox{1.25}{%   % 视觉上缩放 1.25 倍
+                \includegraphics[width=0.30\textwidth]{firekeeper.png}%
+            }%
+        }
+    \end{wrapfigure}
+维火女轻轻抬起
+\end{firekeeper}
 
 
 
-\smallskip：较小的间距。
-\medskip：中等间距。
-\bigskip：较大的间距。
+
 \vspace{\baselineskip}：约一个正文行高的间距。
+
+
+提示中首行缩进：
+\hspace*{1.6em}
+
+
+图片裁剪
+% trim: 左 下 右 上
+\includegraphics[width=0.55\textwidth, trim=0 1.5cm 0 0]{assets/pics_and_ppts/ch2/顺序存储的线性表.png}
 
 

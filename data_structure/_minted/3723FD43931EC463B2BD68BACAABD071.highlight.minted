@@ -1,0 +1,7 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{typedef}\PYG{+w}{ }\PYG{k}{struct}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{numVertices}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{numEdges}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{// 图的顶点数和有向边数}
+\PYG{+w}{    }\PYG{k+kt}{char}\PYG{+w}{ }\PYG{n}{VerticesList}\PYG{p}{[}\PYG{n}{MAXV}\PYG{p}{]}\PYG{p}{;}\PYG{+w}{    }\PYG{c+c1}{// 顶点表，MAXV为已定义常量}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{Matrix}\PYG{p}{[}\PYG{n}{MAXV}\PYG{p}{]}\PYG{p}{[}\PYG{n}{MAXV}\PYG{p}{]}\PYG{p}{;}\PYG{+w}{       }\PYG{c+c1}{// 邻接矩阵}
+\PYG{p}{\PYGZcb{}}\PYG{n}{MGraph}\PYG{p}{;}
+\end{MintedVerbatim}

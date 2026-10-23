@@ -1,0 +1,18 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{N}\PYG{c+cm}{/* = 7 */}\PYG{p}{;}
+
+\PYG{k+kt}{char}\PYG{+w}{ }\PYG{n}{trees}\PYG{p}{[}\PYG{n}{N}\PYG{p}{]}\PYG{+w}{ }\PYG{c+cm}{/*= \PYGZob{}\PYGZsq{}F\PYGZsq{}, \PYGZsq{}F\PYGZsq{}, \PYGZsq{}F\PYGZsq{}, \PYGZsq{}F\PYGZsq{}, \PYGZsq{}F\PYGZsq{}, \PYGZsq{}F\PYGZsq{}, \PYGZsq{}T\PYGZsq{}\PYGZcb{}*/}\PYG{p}{;}\PYG{+w}{    }\PYG{c+c1}{// 保存顶点数据}
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{Matrix}\PYG{p}{[}\PYG{n}{N}\PYG{p}{]}\PYG{p}{[}\PYG{n}{N}\PYG{p}{]}\PYG{+w}{ }\PYG{c+cm}{/*= \PYGZob{}    // 邻接矩阵}
+\PYG{c+cm}{    \PYGZob{} 0, 1, 1, 1, 0, 0, 0 \PYGZcb{},}
+\PYG{c+cm}{    \PYGZob{} 1, 0, 0, 1, 1, 0, 0 \PYGZcb{},}
+\PYG{c+cm}{    \PYGZob{} 1, 0, 0, 1, 0, 0, 0 \PYGZcb{},}
+\PYG{c+cm}{    \PYGZob{} 1, 1, 1, 0, 0, 1, 0 \PYGZcb{},}
+\PYG{c+cm}{    \PYGZob{} 0, 1, 0, 0, 0, 1, 0 \PYGZcb{},}
+\PYG{c+cm}{    \PYGZob{} 0, 0, 0, 1, 1, 0, 1 \PYGZcb{},}
+\PYG{c+cm}{    \PYGZob{} 0, 0, 0, 0, 0, 1, 0 \PYGZcb{},}
+\PYG{c+cm}{\PYGZcb{}*/}\PYG{p}{;}
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{FindPath}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{u}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

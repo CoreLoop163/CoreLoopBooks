@@ -61,9 +61,10 @@
 \contentsline {subsection}{\numberline {5.2.2}广度优先搜索（BFS）}{146}{subsection.5.2.2}%
 \contentsline {subsection}{\numberline {5.2.3}DFS和BFS的实现}{147}{subsection.5.2.3}%
 \contentsline {section}{ 习题 6 }{153}{exercise.6}%
-\contentsline {chapter}{C++重点内容整理}{155}{chapter*.78}%
-\contentsline {section}{vector}{155}{section*.79}%
-\contentsline {section}{引用}{156}{section*.80}%
-\contentsline {section}{stack}{157}{section*.81}%
-\contentsline {section}{queue}{158}{section*.82}%
-\contentsline {chapter}{习题参考答案}{161}{chapter*.83}%
+\contentsline {section}{\numberline {5.3}最短路径}{160}{section.5.3}%
+\contentsline {chapter}{C++重点内容整理}{161}{chapter*.80}%
+\contentsline {section}{vector}{161}{section*.81}%
+\contentsline {section}{引用}{162}{section*.82}%
+\contentsline {section}{stack}{163}{section*.83}%
+\contentsline {section}{queue}{164}{section*.84}%
+\contentsline {chapter}{习题参考答案}{167}{chapter*.85}%

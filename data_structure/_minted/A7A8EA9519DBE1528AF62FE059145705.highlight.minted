@@ -1,0 +1,7 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n}{AdjM}\PYG{p}{[}\PYG{n}{N}\PYG{p}{]}\PYG{p}{[}\PYG{n}{N}\PYG{p}{]}\PYG{p}{;}\PYG{+w}{    }\PYG{c+c1}{// 假设该数组已经正确存储了G的邻接矩阵}
+\PYG{c+c1}{// 返回所有顶点的度数之和}
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{DegreeSum}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{N}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{// 在此处完成你的代码}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

@@ -8,7 +8,20 @@
 最小生成树：Kruskal 算法如何利用并查集。
 其他图算法。
 
-\begin{notebox}{维火女}
+
+\begin{firekeeper}{}
+    \begin{wrapfigure}{r}{0.165\textwidth}
+        \vspace{-2cm}
+        \centering
+        \hspace{-3cm}
+        \raisebox{-1.65cm}{%      % 视觉上向上移动 0.5cm (负数则向下)
+            \hspace*{0.10cm}%   % 视觉上向左移动 0.5cm (正数则向右)
+            \scalebox{1.25}{%   % 视觉上缩放 1.25 倍
+                \includegraphics[width=0.30\textwidth]{firekeeper.png}%
+            }%
+        }
+    \end{wrapfigure}
+
     \hspace*{1.6em} 亲爱的余火大人，恭喜您成功觐见了王者---树与二叉树，并从那古老而伟大的王座之前，获得了属于王的力量。
     
     \hspace*{1.6em} 接下来，您将踏入的区域名为万象之都。
@@ -28,9 +41,7 @@
     因为对我而言，您并非只是那位不断前行的思渡者。\\
 
     \hspace*{1.6em} 您也是……我由衷牵挂着的人啊。
-
-\end{notebox}
-
+\end{firekeeper}
 
 \chapter{图}
 深夜，王都的钟声突然响起。
@@ -90,11 +101,13 @@
 \end{center}
 \end{bulk}
 
-王国的指挥官们认为，据点之间的道路若存在，则一定是可以双向通行的，因此他们使用\term{无向图}来描述王国。为方便交流，他们对无向图做了如下约定：
+王国的指挥官们认为，据点之间的道路若存在，则一定是可以双向通行的，因此他们使用\term{无向图}来描述王国。
+为方便交流，他们对无向图做了如下约定：
 \begin{enumerate}
     \item 将某顶点v的\term{度}定义为依附于顶点v的边的数量；
     \item 在无向图G中，若顶点v和顶点w之间有路径存在，则称这两个顶点是\term{连通的}。若图G中任意两个顶点都是连通的，则称图G为\term{连通图}，否则
     称为\term{非连通图}。无向图中的一个极大连通子图称为一个\term{连通分量}，孤立顶点被认为是一个连通分量。
+    \item 由于无向图中边是双向的，因此一条边既可以看作出边，也可以看作入边。
 \end{enumerate}
 王国的后来者对类似的概念，在有向图上做了如下约定：
 \begin{enumerate}
@@ -232,7 +245,7 @@
 \end{figure}
 
 \begin{notebox}{提示}
-    事实上更好的做法是通过链表来实现邻接表（可以想想为什么），但二者思想是类似的。链表实现复杂，况且大多数情况下vector性能已经足够好。
+    事实上很多时候，更好的做法是通过链表来实现邻接表（可以想想为什么），但二者思想是类似的。链表实现复杂，况且大多数情况下vector性能已经足够好。
     为了给大家带来更强的实用性，本章中邻接表拟采用vector实现。
 \end{notebox}
 
@@ -644,11 +657,35 @@ visited[i]为true则表示已经访问过了。
     }
 \end{cppcode}
 以上代码会对G中所有顶点（包括顶点D、E、A等）依次判断，若未访问过，则对其执行DFS。显然，当首次对A所在的连通块执行DFS时，会将其中所有顶点标记为已访问，之后
-循环中判断时，则不会对连通块中的其他顶点执行DFS了。首次对D和E所在的连通块执行DFS时有类似的情况。
+循环中判断时，则不会对连通块中的其他顶点执行DFS了。首次对D和E所在的连通块执行DFS时有类似的情况。\\
+
+以上两种遍历的实现都是非递归实现。事实上，由于深度优先搜索的特性，通过递归的方式实现深度优先搜索是非常简单的：
+\begin{cppcode}
+    bool visited[N];    // 初始化为false
+    void DFS(int v) {
+        visit(v);   // 访问v
+        visited[v] = true;
+        for(v的每一个邻接点u) { // 递归地访问v的邻接点，适配邻接矩阵或邻接表就行了。
+            if(!visited[u]) {
+                DFS(u);
+            }
+        }
+    }
+\end{cppcode}
+要遍历非连通图，分别以每一个顶点为起点调用以上函数即可：
+\begin{cppcode}
+    void Travel() {
+        for(int i=0; i<N; i++) {
+            DFS(i);
+        }
+    }
+\end{cppcode}
+由于递归调用过程中，操作系统要开出很多个函数栈，因此递归的方式往往空间复杂度更大，但递归算法在很多情况下也是有用的。\\
+
 
 根据指挥官给出的方法，信使无一疏漏地将大敌来犯的消息传遍了王国的每一座城池、每一座要塞。士兵和居民们纷纷武装起来，布起防御系统，准备迎接那场即将到来的大战。
 
-\clearpage%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter*{--- BONFIRE ENCOUNTERED ---}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{exercise}
 1. 关于下图所示的无向图，下列说法错误的是\underline{\hspace{1cm}}
 \begin{center}
@@ -713,14 +750,175 @@ A =
 
 8. 若上题的矩阵A表示的是某有向图的邻接矩阵，则各顶点的度依次是\underline{\hspace{1cm}}
 
-提示：有向图中顶点的度定义为该顶点的入度和出度之和。\\
+提示：有向图中顶点的度定义为该顶点的入度和出度之和。\\[0.5em]
 \begin{tabular}{llll}
     A. 2,3,1,2 & B. 4,6,2,4 & C. 0,1,2,3 & D. 999,1000,1001,7820
 \end{tabular}
 
 \vspace{\baselineskip}
 
-9. 
+9. 如下图所示的图$G$若使用邻接表存储，顶点A和C的邻接表表长分别是多少？\underline{\hspace{1cm}}\\
+
+\begin{center}
+    \includegraphics[width=0.27\textwidth]{assets/pics_and_ppts/ch5/习题05，邻接表表长.png}
+\end{center}
+
+\begin{tabular}{llll}
+    A. 3,3 & B. 1,4 & C. 3,1 & D. 4,4
+\end{tabular}
+
+\vspace{\baselineskip}
+
+10. 对于上题图以顶点E为起点进行深度优先搜索，不可能得到的搜索序列是\underline{\hspace{1cm}}\\
+\begin{tabular}{ll}
+    A. \{E,D,C,A,B\}& B. \{E,C,A,D,B\}\\
+    C. \{E,C,A,B,D\}& D. \{E,C,D,A,B\}\\
+\end{tabular}
+
+\vspace{\baselineskip}
+
+11. 对于下图所示的图$G$，以0号顶点为起点进行广度优先搜索，不可能得到的序列是\underline{\hspace{1cm}}\\
+\begin{center}
+    \includegraphics[width=0.33\textwidth]{assets/pics_and_ppts/ch5/习题06，树上的广度优先.png}
+\end{center}
+\begin{tabular}{ll}
+    A. \{0,1,2,3,4,5,6\}& B. \{0,2,1,6,5,4,3\}\\
+    C. \{0,3,4,5,6,1,2\}& D. \{0,1,2,3,4,6,5\}\\
+\end{tabular}
+
+\vspace{\baselineskip}
+
+12. 关于图的两种遍历算法：深度优先搜索（DFS）和广度优先搜索（BFS），下列说法错误的是\underline{\hspace{1cm}}\\[0.5em]
+A. 深度优先搜索通常通过队列实现，而广度优先搜索通常通过栈实现\\
+B. 对于同一个图，深度优先搜索、广度优先搜索序列可能不唯一，取决于具体实现\\
+C. 深度优先搜索能够访问到起点所在连通块的每一个顶点，不会遗漏 \\
+D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，不会遗漏\\
+
+13. 对于有N个顶点，未知边数的无向无权图$G$, 分别编写以下两个函数：\\[0.5em]
+1）若图G采用邻接矩阵存储，求其所有顶点的度数之和：
+\begin{cppcode}
+    bool AdjM[N][N];    // 假设该数组已经正确存储了G的邻接矩阵
+    // 返回所有顶点的度数之和
+    int DegreeSum(int N) {
+        // 在此处完成你的代码
+    }
+    
+\end{cppcode}
+
+2）若图G采用邻接表存储，求其所有顶点的度数之和；
+\begin{cppcode}
+    vector<int> AdjList[N]; // 该数组已经正确存储了G的邻接表
+    // 返回所有顶点的度数之和
+    int DegreeSum(int N) {
+        // 在此处完成你的代码
+    }
+\end{cppcode}
+
+随意画出一个无向图，脑中模拟你代码的运行过程并计算出结果，你发现了什么规律吗？对于有向图有类似的规律吗？\\\\
+
+
+
+【14、15、16、17题基于此背景】传说在《前有数据结构》大陆某处神秘的角落有一片森林，其中有一棵樱花树无时不刻地施展着她的魔法，为世人祈福，带来幸运。可是
+该魔法也无时不刻地侵蚀着她自身，这些痛苦会凝聚成泪滴积于花瓣之上，将其饮下，便能抚平樱树的悲怆，化作自身的庇佑。
+
+火光摇曳中，你在帐篷中沉睡过去。维火女凝视着你满身的疲惫与疮痍，眼底盛满了心疼与依恋。她不再忍心见你独自背负这苦难，便悄然别过营火，
+孤身涉足那片未知的森林，去寻找并带回那代表着祝福与庇佑的樱花之泪。
+
+天亮了。维火女已到达了那片森林，并寄回一封信，上面刻着森林的地图。森林中有N(N<=100)棵树木，编号为0到N-1，一些树木之间通过双向的灵魂通路相连，
+而有些树木则无法抵达。\\
+
+
+14. 维火女从编号为0的树木处出发，试图探索可达的所有树木，以找到那具有魔法的樱花树。假设地图采用邻接表存储，请你编写一个递归版本的DFS函数，计算维火女从起点0出发，
+总共可以访问到多少棵不同的树木？（包含起点本身）。
+
+\begin{cppcode}
+    const int N/* = 100*/;
+    bool visited[N];    // 已初始化为false
+
+    // AdjList[i] 已存放编号为i的顶点的邻接表，邻接表元素类型int，含义为与i邻接的顶点编号
+    int CountAccessibleTrees(vector<int> AdjList[N]) {
+        
+    }
+\end{cppcode}
+
+\vspace{\baselineskip}
+
+15. 假设地图采用邻接表存储，请你用非递归的DFS或BFS计算，这片森林有多少个连通块？
+\begin{cppcode}
+    const int N/* = 100*/;
+    bool visited[N];    // 已初始化为false
+
+    // AdjList[i] 已存放编号为i的顶点的邻接表，邻接表元素类型int，含义为与i邻接的顶点编号
+    int CountConnectedComponents(vector<int> AdjList[N]) {
+        
+    }
+\end{cppcode}
+
+\vspace{\baselineskip}
+
+*16. N棵树木的信息已存储于一个char类型的数组中：
+\begin{cppcode}
+    char trees[N];
+\end{cppcode}
+若某棵树是普通树木，其值为\textquotesingle F\textquotesingle, 若它是那棵魔法樱树，则其值为\textquotesingle T\textquotesingle。
+假设地图采用\term{邻接矩阵}存储，维火女从起点u出发，能否抵达樱花树？若能，输出一条可行的路径，否则输出“......”。
+以下图地图为例，若起点u为0，你可以输出“01356”、“0356”或“0231456”等，但不能输出“0456”、“06”等等不合法的路径；若起点u不在此连通块，输出“......”。
+\begin{center}
+    \includegraphics[width=0.37\textwidth]{assets/pics_and_ppts/ch5/习题07救出维火女.png}
+\end{center}
+
+\begin{cppcode}
+    const int N/* = 7 */;
+    
+    char trees[N] /*= {'F', 'F', 'F', 'F', 'F', 'F', 'T'}*/;    // 保存顶点数据
+    int Matrix[N][N] /*= {    // 邻接矩阵
+        { 0, 1, 1, 1, 0, 0, 0 },
+        { 1, 0, 0, 1, 1, 0, 0 },
+        { 1, 0, 0, 1, 0, 0, 0 },
+        { 1, 1, 1, 0, 0, 1, 0 },
+        { 0, 1, 0, 0, 0, 1, 0 },
+        { 0, 0, 0, 1, 1, 0, 1 },
+        { 0, 0, 0, 0, 0, 1, 0 },
+    }*/;
+    
+    void FindPath(int u) {
+
+    }
+\end{cppcode}
+
+*17. 若上题要求当樱花树可以抵达时，输出所有可行路径中距离最短的一条（途径顶点数最少的），并同时输出路径的长度（经过的边的数量）；不可抵达时同样
+输出“......”，请写出代码。
+
+若有多条路径最短，任意输出一条即可。\\
+
+18. （某年408真题）已知无向连通图存在EL路径的充要条件是度为奇数的顶点数为0或2。
+设无向连通图$G$采用邻接矩阵存储，类型定义如下：
+\begin{cppcode}
+    typedef struct {
+        int numVertices, numEdges;  // 图中实际的顶点数和边数
+        char VerticesList[MAXV];    // 顶点表。MAXV为已定义常量
+        int Matrix[MAXV][MAXV];       // 邻接矩阵
+    }MGraph;
+\end{cppcode}
+
+若顶点$i$到$j$存在边，则Edge[i][j]为1，否则为0。请设计算法int IsExistEL(MGraph G)，判断$G$是否存在EL路径，若存在，返回1，否则返回0。要求：\\
+1）给出算法的基本设计思想；\\
+2）根据设计思想，采用C或C++语言描述算法，关键之处给出注释；\\
+3）说明你所设计算法的时间和空间复杂度。\\
+
+19. （某年408真题）将有向图中出度大于入度的顶点称为K顶点。若图采用邻接矩阵存储，类型定义如下：
+\begin{cppcode}
+    typedef struct {
+        int numVertices, numEdges;  // 图的顶点数和有向边数
+        char VerticesList[MAXV];    // 顶点表，MAXV为已定义常量
+        int Matrix[MAXV][MAXV];       // 邻接矩阵
+    }MGraph;
+\end{cppcode}
+若顶点$i$到$j$存在边，则Edge[i][j]为1，否则为0。请你设计一个算法int PrintKVertices(MGraph G)，输出G中的所有K顶点，并返回K顶点的个数。要求：\\
+1）给出算法的基本设计思想；\\
+2）根据设计思想，采用C或C++语言描述算法，关键之处给出注释。\\
+
+
 
 
 \end{exercise}
@@ -754,7 +952,10 @@ A =
     (N-1) + (N-2) + ... + 2 + 1 = \frac{(N-1)(1+N-1)}{2} = \frac{N(N-1)}{2}
 \]
 
-事实上，对于不存在重复边、不存在自环（即指向自身的边）的图，通常称其为\term{简单图}。对于有N个顶点的无向图，其边数最大为\(\frac{N(N-1)}{2}\)，
+事实上，对于不存在重复边、不存在自环（即指向自身的边）的图，通常称其为\term{简单图}。若无特殊说明，
+本书中提到的所有图均为简单图。
+
+对于有N个顶点的无向图，其边数最大为\(\frac{N(N-1)}{2}\)，
 有\(\frac{N(N-1)}{2}\)条边的无向图就被称为\term{完全图}，也被称为\term{简单完全图}，完全图中的任意两个顶点之间均存在边。
 而对于有向图，显然边数最大为\(2\cdot  \frac{N(N-1)}{2} = N(N-1)\)，因此，将有\(N(N-1)\)条边的有向图称为\term{有向完全图}，
 有向完全图中的任意两个顶点之间都存在方向相反的两条边。\\
@@ -776,5 +977,342 @@ A =
 
 8. 选B。 如果是有向图，那么AdjM[i][*]，即第$i$行的非0元素数量，是顶点$i$的出度，而AdjM[*][i]，即第$i$列的非0元素数量，是顶点$i$的入度，二者加起来才是顶点$i$的度。\\
 
+9. 选C。邻接表存储方式，为每个顶点维护一个线性表，存放其所有\term{出边}的信息，顶点A有3条出边，顶点C有1条出边，选C。\\
+
+10. 选D。D项序列\{E,C,D,A,B\}，探索完前两个顶点E、C，与C邻接的顶点尚有A未被访问，仍可以向更深处探索，而序列中下一个探索了D，说明不是深度优先的策略。\\
+
+11. 选C。本题意在更直观地揭示树的层序遍历与图的广度优先遍历之间的关联。它们都是像涟漪一样从中心向外“扩散”：
+\begin{center}
+    \includegraphics[width=0.39\textwidth]{assets/pics_and_ppts/ch5/习题06，树上的广度优先答案图.png}
+\end{center}
+
+12. 选A。广度优先是越早看见的顶点越先被访问，是“先进先出”的，因此通常用队列实现，而不是栈；深度优先是“后进先出”的，通常用栈实现，A错误。\\
+
+13. 1）邻接矩阵版：
+\begin{cppcode}
+    bool AdjM[N][N];    // 假设该数组已经正确存储了G的邻接矩阵
+    // 返回所有顶点的度数之和
+    int DegreeSum(int N) {
+        // 在此处完成你的代码
+        int ret = 0;
+        for(int i=0; i<N; i++) {
+            for(int j=0; j<N; j++) {
+                if(AdjM[i][j] == 1) {
+                    ret += 1;
+                }
+            }
+        }
+        return ret;
+    }
+    
+\end{cppcode}
+
+2）邻接表版：
+\begin{cppcode}
+    vector<int> AdjList[N]; // 该数组已经正确存储了G的邻接表
+    // 返回所有顶点的度数之和
+    int DegreeSum(int N) {
+        // 在此处完成你的代码
+        int ret = 0;
+        for(int i=0; i<N; i++) {
+            ret += AdjList[i].size();
+        }
+        return ret;
+    }
+\end{cppcode}
+
+事实上，对于无向图，一条边必定连接两个顶点，为这两个顶点各贡献一个度。因此，无向图中所有顶点的度数之和一定是图的边数的 2 倍。这个事实被称为\term{“牵手定理”}。
+
+类似地，对于有向图，一条有向边始于一个顶点（贡献 1 个出度）、终于一个顶点（贡献 1 个入度），因此有向图中所有顶点的出度之和
+（或入度之和）等于图的边数 $M$，而有向图的总度数之和（入度 + 出度）同样是边数的 2 倍（$2M$）。\\
+
+
+
+14. 显然，本题从起点出发，DFS遍历一遍，“访问”一个节点的过程就是将全局计数器加一的过程，而不需要对顶点自身做任何操作。代码如下：
+\begin{cppcode}
+    const int N/* = 100*/;
+    bool visited[N];    // 已初始化为false
+
+    void DFS(int v, int& count, vector<int> AdjList[N]) {
+        count += 1;
+        visited[v] = true;
+        for(int i=0; i<AdjList[v].size(); i++) {
+            int adj_vertex = AdjList[v][i];
+            if(!visited[adj_vertex]) {
+                DFS(adj_vertex, count, AdjList);
+            }
+        }
+    }
+
+    int CountAccessibleTrees(vector<int> AdjList[N]) {
+        int count = 0;
+        // 从起点0出发，全局计数器count以引用传递，每访问一个顶点时计数。
+        DFS(0, count, AdjList);
+        return count;
+    }
+\end{cppcode}
+
+\vspace{\baselineskip}
+
+15. 这是非常经典的求图的连通块的问题。我们检查一遍图的所有顶点，若其没被访问过，说明这是一个新的需要计数的连通块，于是计数加一，并以该顶点为起点执行BFS或DFS，将该
+连通块的所有顶点标记为已访问。反之若顶点已被访问，说明它属于之前遍历过的某个连通块，已经被计数过了。
+\begin{cppcode}
+    const int N/* = 100*/;
+    bool visited[N];    // 已初始化为false
+
+    // 以v为起点，遍历v所在的连通块
+    void BFS(int v, vector<int> AdjList[N]) {
+        queue<int> q;
+        q.push(v);
+        visited[v] = true;
+        while(!q.empty()) {
+            int cur_vertex = q.front();
+            q.pop();
+            for(int i=0; i<AdjList[v].size(); i++) {
+                int adj_vertex = AdjList[cur_vertex][i];
+                if(!visited[adj_vertex]) {
+                    q.push(adj_vertex);
+                    visited[adj_vertex] = true;
+                }
+            }
+        }
+    }
+
+    int CountConnectedComponents(vector<int> AdjList[N]) {
+        int count = 0;
+        for(int i=0; i<N; i++) {
+            if(!visited[i]) {   // 该顶点所在的连通块没被计数过
+                count += 1;
+                BFS(i, AdjList);
+            }
+        }
+        return count;
+    }
+\end{cppcode}
+
+\vspace{\baselineskip}
+
+*16. 要将路径记录下来，就要在遍历的过程中按顺序记录每一个走过的顶点，一旦达到目标顶点，一条路径就找到了。本题的难点在于，当走进一条错误的路径之后，
+如何正确地进行\term{回溯}？如图所示，
+\begin{center}
+    \includegraphics[width=0.23\textwidth]{assets/pics_and_ppts/ch5/习题08，任意路径答案图.png}
+\end{center}
+若从0出发进入了1，此时记录的路径是“01”，回到0后，要将路径回溯到“0”。显然，由于回退时总是将“\uline{后}路过的顶点\uline{先}从路径中拿掉”，因此可以使用一个
+栈保存所经过的路径。回溯时，将顶点从栈顶弹出即可。
+
+对于非递归的DFS或BFS算法，栈或队列中存储的是待访问的节点，但这些节点的访问顺序无法形成一条有效的路径。BFS下，显然顶点访问顺序很可能不是一条合法路径，
+而DFS则存在“瞬移”现象。若使用非递归算法，需要额外维护路径信息，较为复杂。
+
+而递归算法一定是一步一个脚印地，沿着合法路径在前进或回溯。回溯时，与非递归算法不同的是，非递归算法的下一个“出发点”是由栈中元素决定的，而递归算法则是顺着
+操作系统调用栈，一个一个地沿着来时的路返回。因此对于非递归算法难以直接将“01”回溯为“0”，而递归算法则非常容易。这里给出递归算法求一条路径的代码。
+\begin{cppcode}
+    const int N/* = 7 */;
+    char trees[N] /*= {'F', 'F', 'F', 'F', 'F', 'F', 'T'}*/;    // 保存顶点数据
+    int Matrix[N][N] /*= {    // 邻接矩阵
+        { 0, 1, 1, 1, 0, 0, 0 },
+        { 1, 0, 0, 1, 1, 0, 0 },
+        { 1, 0, 0, 1, 0, 0, 0 },
+        { 1, 1, 1, 0, 0, 1, 0 },
+        { 0, 1, 0, 0, 0, 1, 0 },
+        { 0, 0, 0, 1, 1, 0, 1 },
+        { 0, 0, 0, 0, 0, 1, 0 },
+    }*/;
+    // 存在解返回true，否则返回false
+    bool DFS(int v, stack<int>& track, bool visited[]) {
+        visited[v] = true;
+        track.push(v);  /* 先假设经由该顶点v能到达樱树，在轨迹中记录此顶点，若后面发现无法到达，回溯。 */
+        bool solved = false;    // 先假设不存在解，若递归过程中找到了樱树，将结果一层一层地向上带。
+        if(trees[v] == 'T') {
+            solved = true;
+            return solved;
+        }
+        
+        // 从此顶点v开始，向邻接点递归地探索
+        for(int i=0; i<N; i++) {
+            if(!visited[i] && Matrix[v][i] == 1) {
+                // 以此顶点v为（半路）起点，可以找到樱树，返回true
+                if(DFS(i, track, visited) == true) {
+                    solved = true;
+                    return solved;
+                }
+            }
+        }
+        /* 若代码执行至此，说明事实上由此顶点v作为（半路）起点的所有路径均无法找到樱树，于是从轨迹中弹出此顶点，回溯到上一个顶点，继续探索其他路径。 */
+        track.pop();
+        return solved;
+    }
+
+    void FindPath(int u) {
+        // 动态记录轨迹
+        stack<int> track;
+        bool visited[N];
+        for(int i=0; i<N; i++) {
+            visited[i] = false;
+        }
+        // 存在解
+        if(DFS(u, track, visited) == true) {
+            // 栈中保存的是轨迹是相反的，保存到一个vector中之后从后向前打印
+            vector<int> to_print;
+            while(!track.empty()) {
+                to_print.push(track.top());
+                track.pop();
+            }
+            for(int i=to_print.size()-1; i>=0; i--) {
+                cout << to_print[i];
+            }
+            cout << endl;
+        } else {    // 不存在解
+            cout << "......" << endl;
+        }
+    }
+\end{cppcode}
+
+\vspace{\baselineskip}
+
+*17. 要找到所有可行的路径中最短的那一条，就不能在找到一条后直接返回，而是要回溯，继续找其他路径。一种简单的想法是，在遍历过程中，将
+当前已经找到的每一条路径都记录下来，最后再选择一条最短的。这样，我们通过一个
+\begin{bulk}
+    vector<stack<int> > tracks;
+\end{bulk}
+记录所有路径，当找到\textquotesingle T\textquotesingle 时，就将当前记录的路径track放入tracks尾部：
+\begin{bulk}
+    tracks.push\_back(track);
+\end{bulk}
+
+需要注意的是，在寻找路径的过程中，每个顶点有可能被多次访问，因此回溯时不仅要在路径track中将栈顶元素弹出，还要将当前节点重新标记为未访问。比如在下图中，
+假设已经找到了一条路径01356，回溯时若不把这些顶点的visited[]标记为false，会导致后面重新从0出发时，无法达到1和3，从而错过最短路径：“0356”。
+\begin{center}
+    \includegraphics[width=0.30\textwidth]{assets/pics_and_ppts/ch5/习题07救出维火女.png}
+\end{center}
+
+完整的代码如下所示。
+\begin{cppcode}
+    const int N/* = 7 */;
+    char trees[N] /*= {'F', 'F', 'F', 'F', 'F', 'F', 'T'}*/;    // 保存顶点数据
+    int Matrix[N][N] /*= {    // 邻接矩阵
+        { 0, 1, 1, 1, 0, 0, 0 },
+        { 1, 0, 0, 1, 1, 0, 0 },
+        { 1, 0, 0, 1, 0, 0, 0 },
+        { 1, 1, 1, 0, 0, 1, 0 },
+        { 0, 1, 0, 0, 0, 1, 0 },
+        { 0, 0, 0, 1, 1, 0, 1 },
+        { 0, 0, 0, 0, 0, 1, 0 },
+    }*/;
+
+    void DFS(int v, stack<int>& track, bool visited[], vector<stack<int> >& tracks) {
+        visited[v] = true;
+        track.push(v);
+        if(trees[v] == 'T') {
+            tracks.push_back(track);
+
+            // 回溯
+            visited[v] = false;
+            track.pop();
+            return ;
+        }
+
+        for(int i=0; i<N; i++) {
+            if(Matrix[v][i] == 1 && !visited[i]) {
+                DFS(i, track, visited, tracks);
+            }
+        }
+
+        // 回溯
+        visited[v] = false;
+        track.pop();
+    }
+
+    void FindPath(int u) {
+        vector<stack<int> > tracks;
+        stack<int> track;
+        bool visited[N];
+        for(int i=0; i<N; i++) {
+            visited[i] = false;
+        }
+
+        DFS(u, track, visited, tracks);
+        // tracks为空说明从未找到过任何一条路径，不可达。
+        if(tracks.empty()) {
+            cout << "......" << endl;
+        } else {
+            // 判断一下哪条路径长度最短
+            int min_length = 500;
+            int ans_idx = -1;   // 最短路径的下标
+            for(int i=0; i<tracks.size(); i++) {
+                if(tracks[i].size() < min_length) {
+                    ans_idx = i;
+                    min_length = tracks[i].size();
+                }
+            }
+            vector<int> to_print;
+            while(!tracks[ans_idx].empty()) {
+                to_print.push_back(tracks[ans_idx].top());
+                tracks[ans_idx].pop();
+            }
+            for(int i=to_print.size()-1; i>=0; i--) {
+                cout << to_print[i] ;
+            }
+            cout << endl;
+        }
+    }
+\end{cppcode}
+
+事实上，在DFS过程中，可以维护一个变量，记录当前已经找到的所有可行路径的最短长度，在递归到某顶点时，若此时当前路径长度已经大于最短长度，则无需继续递归下去，而是
+直接回溯即可。这种优化策略通常被称为\term{剪枝}，意为在递归树中剪掉一些无意义的路线。
+
+此外，完全可以在DFS搜索过程中只维护和更新“当前已找到的所有路径中最短的那一条路径”，而不必将所有路径都存储起来，这对于存储空间是一个极大的优化。感兴趣的同学
+可以自己尝试写出代码。\\
+
+18. 计算所有顶点的度即可。代码如下：
+\begin{cppcode}
+    int IsExistEL(MGraph G) {
+        int odd_deg_num = 0;    // 计算度为奇数的顶点个数
+        for(int i=0; i<G.numVertices; i++) {
+            int i_degree = 0;   // 计算顶点i的度
+            for(int j=0; j<G.numVertices; j++) {
+                if(G.Matrix[i][j] == 1) {
+                    i_degree += 1;
+                }
+            }
+            if(i_degree%2 == 1) {   // 顶点i是度为奇数的顶点
+                odd_deg_num += 1;
+            }
+        }
+        return (odd_deg_num == 0) || (odd_deg_num == 2);
+    }
+\end{cppcode}
+显然时间复杂度为$O(n^2)$，空间复杂度为$O(1)$。
+
+\vspace{\baselineskip}
+
+19. 遍历一遍邻接矩阵，计算各顶点的入度和出度即可。
+\begin{cppcode}
+    int PrintKVertices(MGraph G) {
+        int ret = 0;    // 计算K顶点的个数
+        for(int i=0; i<G.numVertices; i++) {
+            int out_deg = 0;    // 顶点i的出度
+            int in_deg = 0;     // 入度
+            for(int j=0; j<G.numVertices; j++) {
+                if(G.Matrix[i][j] != 0) out_deg += 1;   // i到j有路径，i的出度+1
+                if(G.Matrix[j][i] != 0) in_deg += 1;    // j到i有路径，i的入度+1
+            }
+            // 出度大于入度，是一个K顶点，输出
+            if(out_deg > in_deg) {
+                cout << G.VerticesList[i];
+                ret += 1;
+            }
+        }
+        return ret;
+    }
+\end{cppcode}
+
 \end{exerciseanswer}
+
+
+\section{最短路径}
+王国的故事还在继续。根据指挥官给出的遍历方法，信使无一疏漏地将大敌来犯的消息传遍了王国的每一座城池、每一座要塞。士兵和居民们纷纷武装起来，
+布起防御系统，准备迎接那场即将到来的大战。
+
+接下来，一位指挥官提出了这样一个问题：若某个据点有重兵来犯，从首都派出军队去该据点支援，走哪条路，能够最快到达？
+
 
