@@ -3,7 +3,8 @@
 \PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{DFS}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{v}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
 \PYG{+w}{    }\PYG{n}{visit}\PYG{p}{(}\PYG{n}{v}\PYG{p}{)}\PYG{p}{;}\PYG{+w}{   }\PYG{c+c1}{// 访问v}
 \PYG{+w}{    }\PYG{n}{visited}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{true}\PYG{p}{;}
-\PYG{+w}{    }\PYG{k}{for}\PYG{p}{(}\PYG{n}{v的每一个邻接点u}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// 递归地访问v的邻接点，适配邻接矩阵或邻接表就行了。}
+\PYG{+w}{    }\PYG{c+c1}{// 递归地访问v的邻接点，适配邻接矩阵或邻接表就行了。}
+\PYG{+w}{    }\PYG{k}{for}\PYG{p}{(}\PYG{n}{v的每一个邻接点u}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
 \PYG{+w}{        }\PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n}{visited}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
 \PYG{+w}{            }\PYG{n}{DFS}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{        }\PYG{p}{\PYGZcb{}}

@@ -3,13 +3,15 @@
 \markboth{C++重点内容整理}{C++重点内容整理}
 \label{ch:C++重点内容整理}
 
-本书中出现了许多C++中的最为重点的内容，为方便查阅，将其整理于此。
+本书中出现了许多C++中的最为重点的内容，为方便查阅，将其整理于此。由于本书重点是《数据结构》，因此此处出现的C++内容只是入门级别，不会为大家带来理解
+上的难度。
 \section*{vector}
 \addcontentsline{toc}{section}{vector}
 
-vector是C++标准库为我们提供的类模板。可以将vector理解成保存同类型元素的一个不定长数组。使用vector需要包含相应的头文件：
+vector是C++标准库为我们提供的类模板。可以将vector理解成保存同类型元素的一个不定长数组。使用vector需要包含相应的头文件及引入命名空间：
 \begin{cppcode}
     #include <vector>
+    using namespace std;    // vector、stack等定义在std命名空间（参考@\pageref{subsec:命名空间}页相关内容@）
 \end{cppcode}
 
 
@@ -108,9 +110,10 @@ vector中的元素下标从0开始，支持下标访问运算符：“[]”。�
 
 \section*{stack}
 \addcontentsline{toc}{section}{stack}
-类似vector，stack同样是C++标准库为我们提供的类模板，模板参数就是栈中存放的元素类型。使用stack需要include相应头文件：
+类似vector，stack同样是C++标准库为我们提供的类模板，模板参数就是栈中存放的元素类型。使用stack需要include相应头文件及引入命名空间：
 \begin{cppcode}
     #include <stack>
+    using namespace std;
 \end{cppcode}
 
 通过指定模板参数，我们就可以定义存放不同类型元素的栈。如：
@@ -129,6 +132,7 @@ vector中的元素下标从0开始，支持下标访问运算符：“[]”。�
     \item int t = s.top();      // 返回s的栈顶元素的引用（但不弹出该元素），将其值拷贝给t
     \item s.pop();      // 弹出栈顶元素
     \item s.empty();    // 若栈s为空，此处返回值为true，否则返回false。
+    \item s.size();     // 返回栈s中元素的数量
 \end{enumerate}
 
 注意，使用top()操作和pop()操作时，一定要保证栈是非空的，否则将导致\term{未定义行为（Undefined Behavior，UB）}。
@@ -136,9 +140,10 @@ vector中的元素下标从0开始，支持下标访问运算符：“[]”。�
 
 \section*{queue}
 \addcontentsline{toc}{section}{queue}
-类似vector和stack，queue同样是C++标准库为我们提供的类模板，模板参数就是队列中存放的元素类型。使用queue需要include相应头文件：
+类似vector和stack，queue同样是C++标准库为我们提供的类模板，模板参数就是队列中存放的元素类型。使用queue需要include相应头文件及引入命名空间：
 \begin{cppcode}
     #include <queue>
+    using namespace std;
 \end{cppcode}
 
 通过指定模板参数，我们就可以定义存放不同类型元素的队列。如：
@@ -157,6 +162,126 @@ vector中的元素下标从0开始，支持下标访问运算符：“[]”。�
     \item int t = q.front();      // 返回q的队首元素的引用（但不将该元素出队），将其值拷贝给t
     \item q.pop();      // 将队首元素出队
     \item q.empty();    // 若队列q为空，此处返回值为true，否则返回false。
+    \item q.size();     // 返回队列q中元素的数量
 \end{enumerate}
 
 注意，使用front()操作和pop()操作时，一定要保证队列是非空的，否则将导致\term{未定义行为（Undefined Behavior，UB）}。
+
+\section*{C++的Hello, World}
+\phantomsection
+\addcontentsline{toc}{section}{Hello, World}
+\label{sec:cpp-hello-world}
+一个入门C语言的源文件，假设叫他“helloworld.c”，大概长这样：
+\begin{cppcode}
+    #include <stdio.h>
+    
+    int main() {
+        printf("Hello, World!\n");
+        return 0;
+    }
+\end{cppcode}
+
+而C++源文件的名字通常以cpp为后缀，和C语言很相似，一个“helloworld.cpp”大概长这样：
+\begin{cppcode}
+    #include <iostream>
+
+    using namespace std;
+    int main() {
+        cout << "Hello, World!" << endl;
+        return 0;
+    }
+\end{cppcode}
+
+我们逐一将上面的代码拆解。
+
+\subsection*{iostream与cin、cout}
+与C类似，
+\begin{cppcode}
+    #include <iostream>
+\end{cppcode}
+是引入iostream这个头文件。iostream是C++标准库提供的标准输入输出流，其中有两个最为常用的功能：cin 和 cout。
+
+正如它们的名字in和out那样，cin用于从标准输入流读（in）数据，而cout用于将数据输出（out）到标准输出流。来看一个简单的例子：
+\begin{cppcode}
+    int a, b;
+    cout << "请输入两个数字：";
+    cin >> a >> b;
+    cout << "它们的和是：" << a + b << endl;  
+\end{cppcode}
+这个程序运行效果如下图所示：
+\begin{center}
+    \includegraphics[width=0.68\textwidth]{assets/pics_and_ppts/C++重点内容整理/cincout效果演示.png}
+\end{center}
+程序运行后，输出图1，然后等待用户输入，用户输入两数并按下回车后，输出图3所示的结果。可以将“endl”简单理解为一个换行符\verb|'\n'|。
+
+在C++中，cin 和 cout 是“流对象”，符号“<<”和“>>”生动地表达了数据的流向。cout的原理（简单理解）如下图所示：
+\begin{center}
+    \includegraphics[width=0.95\textwidth]{assets/pics_and_ppts/C++重点内容整理/数据流向cout.png}
+\end{center}
+
+类似地，cin的原理（简单理解）如下：
+\begin{center}
+    \includegraphics[width=0.89\textwidth]{assets/pics_and_ppts/C++重点内容整理/cin数据流入a.png}
+\end{center}
+所以使用cin可以连续接收多个数据，cout类似。
+
+
+
+进一步理解，事实上“<<”与“>>”都是二元运算符，其左侧操作对象是cout或cin，右侧对象是要读入或输出的数据，而该运算的返回值，事实上就是操作后的相应流对象（cin或cout）。
+比如cin >> a >> b; cin >> a 执行完成后，返回值即是新的cin对象（此时流中还剩" 5"的数据），于是cin >> a >> b 相当于先将3读入a，之后再执行cin >> b，只不过
+此时cin流中的数据只有" 5"了，所以将5读入b。cout也有类似的原理。
+
+同时，printf需要使用\%c, \%d等控制输出类型，与之不同，cout可以自动识别不同类型的数据。如：
+\begin{cppcode}
+    int a = 5;
+    double b = 3.1415;
+    char c = 'a';
+    string d = "hello, world";
+    
+    cout << a << " " << b << " " << c << endl;   // 输出："5 3.1415 a\n"
+    cout << d << endl;  // 输出："hello, world\n"
+
+\end{cppcode}
+
+
+\subsection*{namespace---命名空间}
+\label{subsec:命名空间}
+接下来来看这段代码：
+\begin{cppcode}
+    using namespace std;
+\end{cppcode}
+这行代码的作用是：使用标准库命名空间 std。这样我们在使用 C++ 标准库中的名称时，就可以省略前面的 std::。
+例如，在前面的代码中：
+\begin{cppcode}
+    cout << "请输入两个数字：";
+    cin >> a >> b;
+\end{cppcode}
+实际上cin和cout都属于std这一\term{命名空间}。如果没有写 using namespace std;，我们就需要这样写：
+\begin{cppcode}
+    std::cout << "请输入两个数字：";
+    std::cin >> a >> b;
+\end{cppcode}
+
+using namespace std; 并不是 C++ 程序必须写的一行代码。即使不写它，只要使用 std::cout、std::endl 这样的完整名称，程序依然可以正常运行。
+
+事实上，vector、stack、queue以及绝大多数标准库的重要工具都是定义在std命名空间的。如：std::stack<int>, std::queue<int> 等。
+从工程实践来看，using namespace std; 可能引入名称冲突，因此通常不建议在大型项目的头文件中使用。
+但对于以学习为目的的编程者，使用它可以减少代码中的额外符号，让读者更容易把注意力放在程序本身。\\
+
+顺带说一个很有意思的事：事实上任何合法的C代码，一定是合法的C++代码，并且C风格的字符串char*是可以直接打印到cout的。比如：
+\begin{cppcode}
+    #include <iostream>
+    #include <stdio.h>
+    using namespace std;
+
+    int main() {
+        printf("hello, ");
+        char tmp[10] = "world!";
+        cout << tmp << endl;
+    }
+    
+\end{cppcode}
+输出：
+\begin{center}
+    \includegraphics[width=0.30\textwidth]{assets/pics_and_ppts/C++重点内容整理/C与C++混合输出.png}
+\end{center}

@@ -32,19 +32,12 @@
 \usepackage{xcolor}
 \usepackage{soul}
 \usepackage{amsmath}
-
 % 通过\uline, \uwave为文字添加下划线、下波浪线
 \usepackage[normalem]{ulem}
+\usepackage{fontspec}
 
 % tcolorbox 的 minted 支持
 \tcbuselibrary{minted,skins,breakable}
-
-% ---------- 字体 ----------
-% ctex 会自动处理中文字体。
-% 这里显式指定一个常见的 CJK 字体，便于跨机器时理解配置。
-% 如果你的 Windows 上没有 Noto Serif CJK SC，可删除这两行，让 ctex 自动选择。
-% \setCJKmainfont{Noto Serif CJK SC}
-% \setCJKsansfont{Noto Sans CJK SC}
 
 % ---------- 页面 ----------
 % 奇数页在右边，装订侧在左；偶数页在左边，装订侧在右。

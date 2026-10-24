@@ -1274,17 +1274,21 @@ stack对象支持如下操作：
     \item int t = s.top();      // 返回s的栈顶元素的引用（但不弹出该元素），将其值拷贝给t
     \item s.pop();      // 弹出栈顶元素
     \item s.empty();    // 若栈s为空，此处返回值为true，否则返回false。
+    \item s.size();     // 返回栈s中元素的数量
 \end{enumerate}
-现对于空栈s，给定如下操作序列，说出每次调用s.top()时取到的栈顶元素的值。
+现对于空栈s，给定如下操作序列，说出每次调用s.top()、s.size()时的返回值。
 \begin{enumerate}[label=\arabic*）]
     \item s.push(3);
+    \item s.size(); // 
     \item s.push(5);
-    \item s.top();  // 1
-    \item s.top();  // 2
+    \item s.top();  // 
+    \item s.top();  // 
+    \item s.size(); // 
     \item s.push(6);
     \item s.pop();
     \item s.pop();
-    \item s.top();  // 3
+    \item s.size(); // 
+    \item s.top();  // 
 \end{enumerate}
 
 \vspace{\baselineskip}
@@ -1302,6 +1306,7 @@ queue对象支持如下操作：
     \item int t = q.front();      // 返回q的队首元素的引用（但不将该元素出队），将其值拷贝给t
     \item q.pop();      // 将队首元素出队
     \item q.empty();    // 若队列q为空，此处返回值为true，否则返回false。
+    \item q.size();     // 返回队列q中元素的数量
 \end{enumerate}
 
     现有一数组：
@@ -1393,16 +1398,19 @@ queue对象支持如下操作：
 
     16. 选B。本题比较简单，注意出栈顺序别搞错，同时注意二元运算符op的操作数顺序是b op a而不是a op b，不要搞错就行。\\
 
-    17. 本题意在帮助大家学会 C++ 标准库中提供的栈---stack 的基本使用方法。每次s.top获得的栈顶元素如下：
+    17. 本题意在帮助大家学会 C++ 标准库中提供的栈---stack 的基本使用方法。注意top()仅返回栈顶元素而不将其弹出即可。
     \begin{enumerate}[label=\arabic*）]
         \item s.push(3);
+        \item s.size(); // 1；此时栈中元素：3
         \item s.push(5);
-        \item s.top();  // 1：栈顶为5
-        \item s.top();  // 2：栈顶依然为5
-        \item s.push(6);
-        \item s.pop();
-        \item s.pop();
-        \item s.top();  // 3：栈顶为3
+        \item s.top();  // 5；栈中元素：3，5
+        \item s.top();  // 5；栈中：3，5
+        \item s.size(); // 2；栈中：3，5
+        \item s.push(6);// 栈中：3，5，6
+        \item s.pop();  // 栈中：3，5
+        \item s.pop();  // 栈中：3
+        \item s.size(); // 1；栈中：3
+        \item s.top();  // 3；栈中：3
     \end{enumerate}
 
     \vspace{\baselineskip}
@@ -1439,6 +1447,8 @@ queue对象支持如下操作：
         }
 
     \end{cppcode}
+    关于iostream, using namespace std; 这些，大概是入门C++的“Hello, World”内容。请大家参
+    考\nameref{sec:cpp-hello-world}(第\pageref{sec:cpp-hello-world}页)中的相关内容。
 
     \vspace{\baselineskip}
 

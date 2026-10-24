@@ -30,3 +30,18 @@
 \includegraphics[width=0.55\textwidth, trim=0 1.5cm 0 0]{assets/pics_and_ppts/ch2/顺序存储的线性表.png}
 
 
+
+
+通过名字引用：
+1.定义不编号的 section
+\section*{C++的Hello, World}
+\phantomsection
+\addcontentsline{toc}{section}{C++的Hello, World}
+\label{sec:cpp-hello-world}
+
+引用时：\nameref{sec:cpp-hello-world}
+
+
+引号
+\textquotesingle
+\textquotedbl

@@ -428,7 +428,7 @@ $v_2$；\\[0.3em]
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=1.13\textwidth]{assets/pics_and_ppts/ch5/08广度优先遍历过程.png}
+    \includegraphics[width=1.10\textwidth]{assets/pics_and_ppts/ch5/08广度优先遍历过程.png}
     \caption{广度优先搜索}
     \label{fig:广度优先遍历过程}
 \end{figure}
@@ -454,8 +454,8 @@ g）访问$v_5$，没发现新的顶点。此时所有顶点均已访问过一�
 进一步理解：实际上广度优先（BFS）的过程中，“顶点们”成为了“仍然等待某事发生，并且优先处理\uline{先来者}的数据”，而深度优先（DFS）的过程中，“顶点们”则是“仍然
 等待某事发生，并且优先处理\uline{后来者}的数据”：
 \begin{enumerate}
-    \item 在广度优先（BFS）中，顶点们等待被访问，并且先来的先访问；
-    \item 而在深度优先（DFS）中，顶点们等待被访问，并且后来的先访问。
+    \item 在广度优先（BFS）中，顶点们等待被访问，并且先“被看见”的先访问；
+    \item 而在深度优先（DFS）中，顶点们等待被访问，并且后“被看见”的先访问。
 \end{enumerate}
 
 有了以上思维过程，我们就可以非常清晰地给出二者的代码实现过程。
@@ -486,31 +486,31 @@ visited[i]为true则表示已经访问过了。
 //     };
 
 // 输入图G以及起点编号start_idx，以DFS方式对每一个顶点执行某函数visit()
-    void DFS(MGraph G, int start_idx) {
-        bool visited[G.current_vnum];
-        // 初始化visited[]数组
-        for(int i=0; i<G.current_vnum; i++) {
-            visited[i] = 0;
-        }
-
-        stack<int> s;   // 栈中存储顶点编号即可
-        s.push(start_idx);
-        visited[start_idx] = true;
-        while(!s.empty()) {
-            // 访问栈顶顶点v
-            int v = s.top();
-            s.pop();
-            visit(G.v[v]);   // 访问v
-            
-            // 将与v邻接的所有尚未访问的顶点入栈
-            for(int i=0; i<G.current_vnum; i++) {
-                if(G.AdjM[v][i] != 0 && visited[i] == false) {
-                    s.push(i);
-                    visited[i] = true;
-                }
-            }
-        } // end while
+void DFS(MGraph G, int start_idx) {
+    bool visited[G.current_vnum];
+    // 初始化visited[]数组
+    for(int i=0; i<G.current_vnum; i++) {
+        visited[i] = 0;
     }
+
+    stack<int> s;   // 栈中存储顶点编号即可
+    s.push(start_idx);
+    visited[start_idx] = true;
+    while(!s.empty()) {
+        // 访问栈顶顶点v
+        int v = s.top();
+        s.pop();
+        visit(G.v[v]);   // 访问v
+        
+        // 将与v邻接的所有尚未访问的顶点入栈
+        for(int i=0; i<G.current_vnum; i++) {
+            if(G.AdjM[v][i] != 0 && visited[i] == false) {
+                s.push(i);
+                visited[i] = true;
+            }
+        }
+    } // end while
+}
 \end{cppcode}
 
 
@@ -643,10 +643,10 @@ visited[i]为true则表示已经访问过了。
     \label{fig:一个非连通图}
 \end{wrapfigure}
 
-信使回去汇报后，指挥官们发现类似的非连通区域还有很多，于是立即快马加鞭地组织人手修路搭桥，将王国地图修复成了一个\term{连通图}。
+信使回去汇报后，指挥官们发现类似的\textbf{非连通}区域还有很多，于是立即快马加鞭地组织人手修路搭桥，将王国地图修复成了一个\term{连通图}。
 
 思渡者啊，你也许会想，若实际中某图存在从起点出发不可达的顶点，即图是一个非连通图，该如何遍历它呢？其实只需要对图中每一个顶点均执行一次上面的DFS或BFS即可，
-伪代码如下：
+以图\ref{fig:一个非连通图}为例，伪代码如下：
 
 \begin{cppcode}
     Graph G;    // 假设G已经存储了图@\ref{fig:一个非连通图}@所示的图
@@ -657,7 +657,7 @@ visited[i]为true则表示已经访问过了。
     }
 \end{cppcode}
 以上代码会对G中所有顶点（包括顶点D、E、A等）依次判断，若未访问过，则对其执行DFS。显然，当首次对A所在的连通块执行DFS时，会将其中所有顶点标记为已访问，之后
-循环中判断时，则不会对连通块中的其他顶点执行DFS了。首次对D和E所在的连通块执行DFS时有类似的情况。\\
+循环中判断时，则不会对连通块中的其他顶点执行DFS了。D和E所在的连通块有类似的情况。\\
 
 以上两种遍历的实现都是非递归实现。事实上，由于深度优先搜索的特性，通过递归的方式实现深度优先搜索是非常简单的：
 \begin{cppcode}
@@ -665,7 +665,8 @@ visited[i]为true则表示已经访问过了。
     void DFS(int v) {
         visit(v);   // 访问v
         visited[v] = true;
-        for(v的每一个邻接点u) { // 递归地访问v的邻接点，适配邻接矩阵或邻接表就行了。
+        // 递归地访问v的邻接点，适配邻接矩阵或邻接表就行了。
+        for(v的每一个邻接点u) { 
             if(!visited[u]) {
                 DFS(u);
             }
@@ -724,7 +725,7 @@ D. \(\mathrm{I}\) 和 \(\mathrm{III}\) \\
 
 5. 思考：有N个顶点的无向图，要保证它是连通图，至少要有多少条边？\\
 
-6. 若无向图$G=(V, E)$有7个顶点，无边。现在要向图$G$中添加若干条边。请问，要保证无论怎样添加，添加$N$条边后图一定是连通的，则$N$最小是\underline{\hspace{1cm}}\\[0.5em]
+6. （某年408真题）若无向图$G=(V, E)$有7个顶点，无边。现在要向图$G$中添加若干条边。请问，要保证无论怎样添加，添加$N$条边后图一定是连通的，则$N$最小是\underline{\hspace{1cm}}\\[0.5em]
 \begin{tabular}{llll}
     A. 6 & B. 15 & C. 16 & D. 21
 \end{tabular}
@@ -829,7 +830,7 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
 
 
 14. 维火女从编号为0的树木处出发，试图探索可达的所有树木，以找到那具有魔法的樱花树。假设地图采用邻接表存储，请你编写一个递归版本的DFS函数，计算维火女从起点0出发，
-总共可以访问到多少棵不同的树木？（包含起点本身）。
+总共可以访问到的可达树木有多少棵？（包含起点本身）。
 
 \begin{cppcode}
     const int N/* = 100*/;
@@ -862,6 +863,7 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
 \end{cppcode}
 若某棵树是普通树木，其值为\textquotesingle F\textquotesingle, 若它是那棵魔法樱树，则其值为\textquotesingle T\textquotesingle。
 假设地图采用\term{邻接矩阵}存储，维火女从起点u出发，能否抵达樱花树？若能，输出一条可行的路径，否则输出“......”。
+
 以下图地图为例，若起点u为0，你可以输出“01356”、“0356”或“0231456”等，但不能输出“0456”、“06”等等不合法的路径；若起点u不在此连通块，输出“......”。
 \begin{center}
     \includegraphics[width=0.37\textwidth]{assets/pics_and_ppts/ch5/习题07救出维火女.png}
@@ -886,7 +888,9 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
     }
 \end{cppcode}
 
-*17. 若上题要求当樱花树可以抵达时，输出所有可行路径中距离最短的一条（途径顶点数最少的），并同时输出路径的长度（经过的边的数量）；不可抵达时同样
+
+\label{other:DFS求最短路径}
+*17. 若上题要求当樱花树可以抵达时，输出所有可行路径中距离最短的一条（经过的边数最少的），并同时输出路径的长度（经过的边的数量）；不可抵达时同样
 输出“......”，请写出代码。
 
 若有多条路径最短，任意输出一条即可。\\
@@ -906,7 +910,7 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
 2）根据设计思想，采用C或C++语言描述算法，关键之处给出注释；\\
 3）说明你所设计算法的时间和空间复杂度。\\
 
-19. （某年408真题）将有向图中出度大于入度的顶点称为K顶点。若图采用邻接矩阵存储，类型定义如下：
+19. （某年408真题）已知通常将有向图中出度大于入度的顶点称为K顶点。若图采用邻接矩阵存储，类型定义如下：
 \begin{cppcode}
     typedef struct {
         int numVertices, numEdges;  // 图的顶点数和有向边数
@@ -1028,7 +1032,8 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
 
 
 
-14. 显然，本题从起点出发，DFS遍历一遍，“访问”一个节点的过程就是将全局计数器加一的过程，而不需要对顶点自身做任何操作。代码如下：
+14. 显然，本题从起点出发，DFS遍历一遍，每访问到一个新的顶点，就将计数器加一即可。
+“访问”一个节点的过程就是将全局计数器加一的过程，而不需要对顶点自身做任何其他操作。代码如下：
 \begin{cppcode}
     const int N/* = 100*/;
     bool visited[N];    // 已初始化为false
@@ -1054,8 +1059,9 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
 
 \vspace{\baselineskip}
 
-15. 这是非常经典的求图的连通块的问题。我们检查一遍图的所有顶点，若其没被访问过，说明这是一个新的需要计数的连通块，于是计数加一，并以该顶点为起点执行BFS或DFS，将该
-连通块的所有顶点标记为已访问。反之若顶点已被访问，说明它属于之前遍历过的某个连通块，已经被计数过了。
+15. 这是非常经典的求图的连通块的问题。我们检查一遍图的所有顶点（代码中的循环\Circled{1}），若其没被访问过，说明这是一个新的需要计数的连通块，
+于是计数加一，并以该顶点为起点执行BFS或DFS，将该连通块的所有顶点标记为已访问。反之若顶点已被访问，说明它属于之前遍历过的某
+个连通块，已经被计数过了，跳过即可。
 \begin{cppcode}
     const int N/* = 100*/;
     bool visited[N];    // 已初始化为false
@@ -1080,7 +1086,7 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
 
     int CountConnectedComponents(vector<int> AdjList[N]) {
         int count = 0;
-        for(int i=0; i<N; i++) {
+        for(int i=0; i<N; i++) {    // 循环@\Circled{1}@
             if(!visited[i]) {   // 该顶点所在的连通块没被计数过
                 count += 1;
                 BFS(i, AdjList);
@@ -1151,7 +1157,7 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
         }
         // 存在解
         if(DFS(u, track, visited) == true) {
-            // 栈中保存的是轨迹是相反的，保存到一个vector中之后从后向前打印
+            // 栈中保存的轨迹是相反的，保存到一个vector中之后从后向前打印
             vector<int> to_print;
             while(!track.empty()) {
                 to_print.push(track.top());
@@ -1293,8 +1299,10 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
             int out_deg = 0;    // 顶点i的出度
             int in_deg = 0;     // 入度
             for(int j=0; j<G.numVertices; j++) {
-                if(G.Matrix[i][j] != 0) out_deg += 1;   // i到j有路径，i的出度+1
-                if(G.Matrix[j][i] != 0) in_deg += 1;    // j到i有路径，i的入度+1
+                // i到j有路径，i的出度+1
+                if(G.Matrix[i][j] != 0) out_deg += 1;   
+                // j到i有路径，i的入度+1
+                if(G.Matrix[j][i] != 0) in_deg += 1;    
             }
             // 出度大于入度，是一个K顶点，输出
             if(out_deg > in_deg) {
@@ -1315,4 +1323,150 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
 
 接下来，一位指挥官提出了这样一个问题：若某个据点有重兵来犯，从首都派出军队去该据点支援，走哪条路，能够最快到达？
 
+为了解决这个问题，指挥官们将王国建模成了一个无向带权图，边的权表示走此路径需要消耗的时间。如图\ref{fig:最短路径王国地图}所示。
+\begin{wrapfigure}{l}{0.35\textwidth}
+    \centering
+    \includegraphics[width=0.35\textwidth]{assets/pics_and_ppts/ch5/10最短路径王国地图.png}
+    \caption{}
+    \label{fig:最短路径王国地图}
+\end{wrapfigure}
+
+假设A为首都，如何求A到F的最短路径？一位指挥官指出，最简单的做法就是把所有可能的路径都找出来，然后比较它们的长度。
+这种做法通过DFS进行路径搜索即可实现，如{\color{red}\textbf{习题\ref{exercise:6}第17题}}（
+第\pageref{other:DFS求最短路径}页）所做的那样。但是，这种做法存在一个明显的问题：即使其中许多路径已经不可能成为最短路径，我们仍然要花费时间去搜索它们。
+对图\ref{fig:最短路径王国地图}进行DFS路径搜索的\uwave{搜索树}如图\ref{fig:DFS搜索树}所示。
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1.05\textwidth]{assets/pics_and_ppts/ch5/11DFS搜索树.png}
+    \caption{搜索树}
+    \label{fig:DFS搜索树}
+\end{figure}
+
+可以看到每个叶节点即代表了一条路径的终点，要么是找到了目标顶点，要么是非目标顶点的死路。
+
+要计算首都到其他顶点如B、D等的最短路径，也有类似的情况。DFS效率太差，在顶点数量大、边多时难以接受。
+
+\begin{notebox}{CoreLoop}
+    \hspace{1.6em}我们暂时把思路拉回现实世界。在接下来的内容中，我要尝试做一件事情：与你一起思考并探索迪杰斯特拉算法“诞生”的过程：我们来看一看，当
+    DFS路径搜索绝对无法接受时，问题就摆在我们面前，我们将会有哪些思考和结论？当然，以下的这些内容，已经是站在巨人的肩膀上，相当于
+    “看着图纸研究零件怎么拆”。我想以此过程，向计算机领域的传奇人物——艾兹赫尔·迪杰斯特拉（Edsger W. Dijkstra）致敬。
+
+    \hspace{1.6em}\textbf{如你对此过程兴趣无多，请直接跳至\bookmarkref{bookmark:waypoint-8}{waypoint-8}处，这不会影响后面的旅途。}
+\end{notebox}
+
+我们依然以那雾的彼端，王国的故事为例。正当所有人一筹莫展时，一位指挥官提出了一个想法：
+
+假设顶点i正确的事实最短路径为$mind[i]$，那么，一定有：
+\[
+    mind[i] = min( mind[j_1] + cost(j_1, i), mind[j_2] + cost(j_2, i), ..., mind[j_n] + cost(j_n, i) )
+\] 
+其中，\(j_1, j_2, ..., j_n\)为i的所有邻接点，\(cost(j, i)\)表示顶点j到i的花费。如对于顶点F，一定有：
+\[
+    mind[F] = min( mind[D] + cost(D, F), mind[E] + cost(E, F) )
+\]
+也就是说，要到达F，必然经过D或E，因此F的最短路径就是\Circled{1} D的最短路径 + D到F的花费 与 \Circled{2} E的最短路径 + E到F的花费 这二者之间更小的。
+以上是\textbf{第一个事实}。
+
+那么，D、E的最短路径又如何确定呢？接着，这位指挥官又提出了\textbf{第二个事实}：从起点出发，一定可以一步一步地确认越来越多顶点的最短路径。为什么？请看
+下面的过程。\\
+
+首先，顶点A到自身的花费（即$mind[A]$）一定是能确定的：就是0。这是因为路程花费时间不可能为负，所以A -> xxx -> A的花费一定更大。我们将这种思想记为“不绕弯思想”。
+
+同时，知道了mind[A]之后，对于顶点C：
+\[
+    mind[C] = min( mind[A] + cost(A, C), mind[B] + cost(B, C), mind[E] + cost(E, C) )
+\]
+其中的\(mind[A] + cost(A, C)\)这一项就能计算得出：\(0 + 5 = 5\)。于是我们可以记录下来当前已知的（并非全局的）C的最短路径\(cur\_mind[C] = 5\)，并在未来
+某时刻确定了B、E的\(mind[B]\)和\(mind[E]\)时，若\(mind[B] + cost(B, C) < cur\_mind[C]\) 或 \(mind[E] + cost(E, C) < cur\_mind[C]\)，则可以用B或E
+来更新\(cur\_mind[C]\)，这样最终得到的\(cur\_mind[C]\)一定是全局最短路径。于是我们顺着这个思路，在确定了一个顶点的全局最短路径mind[]时，要尝试更新其所有邻接点的
+最短路径，否则可能错过正确解。
+
+于是在知道了\(mind[A]\)之后我们更新所有A能到达的邻接点的“当前最短路径\(cur\_mind[]\)”，此时：
+\begin{bulk}
+    \begin{center}
+        $cur\_mind[B] = 2$ \\
+        $cur\_mind[C] = 5$
+    \end{center}
+\end{bulk}
+而其他顶点暂未找到一条到达A的路径。如图\ref{fig:思考版迪杰斯特拉算法过程} a）所示。
+
+显然，此时\(cur\_mind[B] = 2\)一定是B的全局最短路径（因为B是所有A的邻接点中花费最小的那个，因此 A -> B 一定
+比 A -> 非B 更短，结合“不绕弯思想”，B此时一定全局最短）。我们用集合$T$记录已经找到全局最短路径的顶点，此时
+\[
+    T = \{A, B\}
+\]
+如前所述，确定了$mind[B]$后，就可以更新与B邻接的C、D、E的当前已知最短路径$cur\_mind[]$信息：
+\begin{bulk}
+        $cur\_mind[C] = min(5, mind[B] + cost(B, C)) = min(5, 2+1) = 3$\\
+        $cur\_mind[D] = mind[B]+cost(B,D) = 2 + 10 = 12$\\
+        $cur\_mind[E] = 2 + 3 = 5$
+\end{bulk}
+如图\ref{fig:思考版迪杰斯特拉算法过程} b）所示。
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.99\textwidth]{assets/pics_and_ppts/ch5/12思考版迪杰斯特拉算法过程.png}
+    \caption{}
+    \label{fig:思考版迪杰斯特拉算法过程}
+    
+\end{figure}
+一个重要事实是，当前已知的所有最短路径$cur\_mind[]$中最小的那个一定就是该顶点的全局最短路径。
+也就是说当前$cur\_mind[C] = 3$最小，因此C的全局最短路径mind[C]一定是3。直观地想，A、B的全局最短已经确定了，而C又是“与A、B邻接的所有顶点中的最短”，
+所以直接到C，一定比先到那些还没确定全局最短的顶点（D、E）然后再绕回来更短。
+
+可是，如何证明？还请听我慢慢道来。
+
+如图\ref{fig:思考版迪杰斯特拉算法过程} b）所示，
+由于A、B已确定全局最短路径，C还未确定，且所有可以到达C的路径中一定至少存在一个还未确定的顶点（至少有一个C还未确定），
+我们假设\uline{存在}某条路径PATH到C的距离比$cur\_mind[C]$更短：
+\begin{bulk}
+    \begin{center}
+        PATH: A -> xxx -> P -> X -> xxx -> C
+    \end{center}
+\end{bulk}
+我们用X表示路径PATH中的第一个尚未确定最短路径的顶点，则它的前一个顶点P的最短路径一定已经确定。记这条路径PATH的长度为$L\_PATH$，
+则我们实际上假设了
+\[
+    L\_PATH < cur\_mind[C]
+\]
+接下来，我们来一点一点证出该假设与事实相悖，从而推翻该假设。
+
+由于P的最短路径已经确定，因此$cur\_mind[X]$一定已经由P点更新过，即此时一定有：
+\[
+    cur_mind[X] <= mind[P] + cost(P, X)  // 式1
+\]
+上不等式右边即是假设的那条路径PATH到X时的长度（A -> xxx -> P -> X的长度）。而由于图没有负权边，因此
+\begin{bulk}
+    A -> xxx -> P -> X
+\end{bulk}
+的长度一定小于等于
+\begin{bulk}
+    A -> xxx -> P -> X -> xxx -> C
+\end{bulk}
+的长度，即下式一定成立：
+\[
+    mind[P] + cost(P, X) <= L\_PATH     // 式2
+\]
+
+于是整理式1式2，有：
+\[
+    cur_mind[X] <= mind[P] + cost(P, X) <= L\_PATH   // 式3
+\]
+
+而事实上C、X均是此时未确定最短路径的顶点，且C是所有$cur\_mind[]$中最小的那个，因此一定有：
+\[
+    cur_mind[C] <= cur_mind[X] // 式4
+\]
+由式3、式4，得：
+\[
+    cur_mind[C] <= cur_mind[X] <= mind[P] + cost(P, X) <= L\_PATH
+\]
+这与我们假设的$L_PATH < cur\_mind[C]$相悖，因此假设不成立，即不存在一条路径，其距离比当前已知的C的
+最小距离$cur\_mind[C]$更小。因此我们可以完全确定当前已知的所有最短路径$cur\_mind[]$中最小的那个一定就是该顶点的全局最短路径。
+
+
+
+
+\bookmark{bookmark:waypoint-8}{waypoint-8}
 
