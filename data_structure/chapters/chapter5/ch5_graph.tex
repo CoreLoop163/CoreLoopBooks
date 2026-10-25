@@ -1107,8 +1107,7 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
 栈保存所经过的路径。回溯时，将顶点从栈顶弹出即可。
 
 对于非递归的DFS或BFS算法，栈或队列中存储的是待访问的节点，但这些节点的访问顺序无法形成一条有效的路径。BFS下，显然顶点访问顺序很可能不是一条合法路径，
-而DFS则存在“瞬移”现象。若使用非递归算法，需要额外维护路径信息，较为复杂。
-
+而DFS则存在“瞬移”现象。若使用非递归算法，需要额外维护路径信息，
 而递归算法一定是一步一个脚印地，沿着合法路径在前进或回溯。回溯时，与非递归算法不同的是，非递归算法的下一个“出发点”是由栈中元素决定的，而递归算法则是顺着
 操作系统调用栈，一个一个地沿着来时的路返回。因此对于非递归算法难以直接将“01”回溯为“0”，而递归算法则非常容易。这里给出递归算法求一条路径的代码。
 \begin{cppcode}
@@ -1172,6 +1171,7 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
         }
     }
 \end{cppcode}
+该算法的性能瓶颈在于DFS，最坏情况下，假设每个顶点都有接近N个邻接点，则DFS被调用接近N次，并且每次调用执行接近N次循环，因此算法最坏时间复杂度为$O(N^2)$。
 
 \vspace{\baselineskip}
 
@@ -1263,11 +1263,23 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
     }
 \end{cppcode}
 
+与上一题大有不同，找到一条可行路径，与找到一条最短路径，是两个难度完全不同的问题。
+只找一条可行路径，可以在找到目标后立即结束搜索。而若要找到最短路径，就要穷举所有可行路径。
+
+最坏情况下，假设N个顶点任意两顶点之间都存在边，边的数量达到了$ \frac{N(N-1)}{2} $（{\color{red}\textbf{见本习题第4题}}），从起点出发，下一步有(N-1)条路，
+这(N-1)个新的起点，每个起点又有(N-2)条路可以选择，......，于是需要辗转的顶点数量为
+\[
+    (N-1)\cdot (N-2)... \cdot 2 \cdot 1
+\]
+时间复杂度为$O(N!)$量级。对于稍微复杂一点的图，这是根本不可能接受的！
+
 事实上，在DFS过程中，可以维护一个变量，记录当前已经找到的所有可行路径的最短长度，在递归到某顶点时，若此时当前路径长度已经大于最短长度，则无需继续递归下去，而是
 直接回溯即可。这种优化策略通常被称为\term{剪枝}，意为在递归树中剪掉一些无意义的路线。
 
 此外，完全可以在DFS搜索过程中只维护和更新“当前已找到的所有路径中最短的那一条路径”，而不必将所有路径都存储起来，这对于存储空间是一个极大的优化。感兴趣的同学
 可以自己尝试写出代码。\\
+
+但是，以上两种优化策略也仅仅是杯水车薪，带来的优化比较有限。在\ref{sec:最短路径}节中，我们将介绍一种极具创造性的算法---迪杰斯特拉算法，来解决单源最短路径问题。
 
 18. 计算所有顶点的度即可。代码如下：
 \begin{cppcode}
@@ -1318,10 +1330,13 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
 
 
 \section{最短路径}
+\label{sec:最短路径}
 王国的故事还在继续。根据指挥官给出的遍历方法，信使无一疏漏地将大敌来犯的消息传遍了王国的每一座城池、每一座要塞。士兵和居民们纷纷武装起来，
 布起防御系统，准备迎接那场即将到来的大战。
 
-接下来，一位指挥官提出了这样一个问题：若某个据点有重兵来犯，从首都派出军队去该据点支援，走哪条路，能够最快到达？
+\subsection{迪杰斯特拉算法求解单源最短路径}
+接下来，一位指挥官提出了这样一个问题：若某个据点有重兵来犯，从首都派出军队去该据点支援，走哪条路，能够最快到达？这种求解从某顶点到图中其他所有顶点
+的最短路径的问题，后来被称为\term{单源最短路径}问题。
 
 为了解决这个问题，指挥官们将王国建模成了一个无向带权图，边的权表示走此路径需要消耗的时间。如图\ref{fig:最短路径王国地图}所示。
 \begin{wrapfigure}{l}{0.35\textwidth}
@@ -1334,7 +1349,8 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
 假设A为首都，如何求A到F的最短路径？一位指挥官指出，最简单的做法就是把所有可能的路径都找出来，然后比较它们的长度。
 这种做法通过DFS进行路径搜索即可实现，如{\color{red}\textbf{习题\ref{exercise:6}第17题}}（
 第\pageref{other:DFS求最短路径}页）所做的那样。但是，这种做法存在一个明显的问题：即使其中许多路径已经不可能成为最短路径，我们仍然要花费时间去搜索它们。
-对图\ref{fig:最短路径王国地图}进行DFS路径搜索的\uwave{搜索树}如图\ref{fig:DFS搜索树}所示。
+对图\ref{fig:最短路径王国地图}进行DFS路径搜索的\uwave{搜索树}如图\ref{fig:DFS搜索树}所示。可以看到每个叶节点即代表了一条路径的终点，
+要么是找到了目标顶点，要么是非目标顶点的死路。
 
 \begin{figure}[htbp]
     \centering
@@ -1343,44 +1359,54 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
     \label{fig:DFS搜索树}
 \end{figure}
 
-可以看到每个叶节点即代表了一条路径的终点，要么是找到了目标顶点，要么是非目标顶点的死路。
-
-要计算首都到其他顶点如B、D等的最短路径，也有类似的情况。DFS效率太差，在顶点数量大、边多时难以接受。
+当我们探索到一条可行的路径ABDF时，就已经知道最短路径
+不可能大于4，于是ABEDF、ACBDEF等路径其实完全没有必要探索，即使使用\term{剪枝策略}（{\color{red}\textbf{见习题\ref{exercise:6}第17题解析}}），
+也要至少探索4个顶点再回头。DFS的穷举过程最差时间复杂度是$O(N!)$量级，对于稍微复杂的图，该算法绝对无法接受。况且如果需要求出A到所有顶点的最短路径，就需要
+再重复如图\ref{fig:DFS搜索树}的搜索过程若干次。
 
 \begin{notebox}{CoreLoop}
-    \hspace{1.6em}我们暂时把思路拉回现实世界。在接下来的内容中，我要尝试做一件事情：与你一起思考并探索迪杰斯特拉算法“诞生”的过程：我们来看一看，当
-    DFS路径搜索绝对无法接受时，问题就摆在我们面前，我们将会有哪些思考和结论？当然，以下的这些内容，已经是站在巨人的肩膀上，相当于
-    “看着图纸研究零件怎么拆”。我想以此过程，向计算机领域的传奇人物——艾兹赫尔·迪杰斯特拉（Edsger W. Dijkstra）致敬。
+    \hspace{1.6em}我们暂时把思路拉回现实世界。
+    
+    \hspace{1.6em}执笔至此，笔者以为，接下来要介绍的迪杰斯特拉算法，大抵是本书中最令人惊叹、最具创造性的算法。
+    我不想直接介绍迪杰斯特拉算法的过程与实现。我要尝试做一件事情：与你一起思考并探索迪杰斯特拉算法“诞生”的过程：当DFS绝对无法接受时，最短路径问题就摆在我们面前，
+    我们将会有哪些思考和结论？以此过程，一方面加深大家对于算法的理解和记忆（而不是枯燥地记住这复杂的过程），另一方面，通过探索过程中的艰难到最后的柳岸花明，
+    来体会算法开创者非凡的创造力，以此向艾兹赫尔·迪杰斯特拉（Edsger W. Dijkstra）---这位计算机领域的传奇人物致敬。
 
     \hspace{1.6em}\textbf{如你对此过程兴趣无多，请直接跳至\bookmarkref{bookmark:waypoint-8}{waypoint-8}处，这不会影响后面的旅途。}
 \end{notebox}
 
-我们依然以那雾的彼端，王国的故事为例。正当所有人一筹莫展时，一位指挥官提出了一个想法：
+首先，我们很容易想到这样一个想法：
 
-假设顶点i正确的事实最短路径为$mind[i]$，那么，一定有：
+\textbf{假设顶点$\boldsymbol{i}$正确的事实最短路径为$\boldsymbol{mind[i]}$}，那么，一定有：
 \[
     mind[i] = min( mind[j_1] + cost(j_1, i), mind[j_2] + cost(j_2, i), ..., mind[j_n] + cost(j_n, i) )
 \] 
-其中，\(j_1, j_2, ..., j_n\)为i的所有邻接点，\(cost(j, i)\)表示顶点j到i的花费。如对于顶点F，一定有：
+其中，\(j_1, j_2, ..., j_n\)为$i$的所有邻接点，\(cost(j, i)\)表示顶点$j$到$i$的花费。
+\begin{wrapfigure}{l}{0.30\textwidth}
+    \includegraphics[width=0.30\textwidth]{assets/pics_and_ppts/ch5/13到达F必然经过D和E.png}
+\end{wrapfigure}
+例如如图\ref{fig:最短路径王国地图}中，要到达F，必然经过D或E，因此对于顶点F，一定有：
 \[
     mind[F] = min( mind[D] + cost(D, F), mind[E] + cost(E, F) )
 \]
-也就是说，要到达F，必然经过D或E，因此F的最短路径就是\Circled{1} D的最短路径 + D到F的花费 与 \Circled{2} E的最短路径 + E到F的花费 这二者之间更小的。
-以上是\textbf{第一个事实}。
 
-那么，D、E的最短路径又如何确定呢？接着，这位指挥官又提出了\textbf{第二个事实}：从起点出发，一定可以一步一步地确认越来越多顶点的最短路径。为什么？请看
-下面的过程。\\
+也就是说，F的最短路径就是\Circled{1} A到D的最短路径 + D到F的花费 与 \Circled{2} A到E的最短路径 + E到F的花费 这二者之间更小的。
+以上是\textbf{第一个事实}。那么只要确定了D、E的最短路径，F的最短路径也就确定了。
 
-首先，顶点A到自身的花费（即$mind[A]$）一定是能确定的：就是0。这是因为路程花费时间不可能为负，所以A -> xxx -> A的花费一定更大。我们将这种思想记为“不绕弯思想”。
+那么我们能不能先确定某些顶点的最短路径呢？\\
 
-同时，知道了mind[A]之后，对于顶点C：
+显然，顶点A到自身的花费（即$mind[A]$）一定是能确定的：就是0。这是因为路程花费时间不可能为负，所以A -> xxx -> A的花费一定更大。我们将这种
+思想记为\textbf{“不绕弯思想”}。
+
+同时，知道了mind[A]为0之后，对于顶点C，他有A、B、E三个邻接点，因此有：
 \[
     mind[C] = min( mind[A] + cost(A, C), mind[B] + cost(B, C), mind[E] + cost(E, C) )
 \]
-其中的\(mind[A] + cost(A, C)\)这一项就能计算得出：\(0 + 5 = 5\)。于是我们可以记录下来当前已知的（并非全局的）C的最短路径\(cur\_mind[C] = 5\)，并在未来
+其中的\(mind[A] + cost(A, C)\)这一项就能计算得出：\(0 + 5 = 5\)。于是我们可以记录下
+来\textbf{当前已知的（并非全局的）C的最短路径$\boldsymbol{cur\_mind[C]} = 5$}，并在未来
 某时刻确定了B、E的\(mind[B]\)和\(mind[E]\)时，若\(mind[B] + cost(B, C) < cur\_mind[C]\) 或 \(mind[E] + cost(E, C) < cur\_mind[C]\)，则可以用B或E
-来更新\(cur\_mind[C]\)，这样最终得到的\(cur\_mind[C]\)一定是全局最短路径。于是我们顺着这个思路，在确定了一个顶点的全局最短路径mind[]时，要尝试更新其所有邻接点的
-最短路径，否则可能错过正确解。
+来更新\(cur\_mind[C]\)，这样最终得到的\(cur\_mind[C]\)一定是全局最短路径。于是我们顺着这个思路会自然地有这样的想法：\textbf{在确定了一个顶点的全局最短
+路径mind[]时，要尝试更新其所有邻接点的最短路径，否则可能错过正确解。}
 
 于是在知道了\(mind[A]\)之后我们更新所有A能到达的邻接点的“当前最短路径\(cur\_mind[]\)”，此时：
 \begin{bulk}
@@ -1389,12 +1415,19 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
         $cur\_mind[C] = 5$
     \end{center}
 \end{bulk}
-而其他顶点暂未找到一条到达A的路径。如图\ref{fig:思考版迪杰斯特拉算法过程} a）所示。
+而其他顶点暂未找到一条到达A的路径。如图\ref{fig:思考版迪杰斯特拉算法过程} a）所示，带下划线的数字表示该顶点当前已知的最短路径$cur\_mind[]$，
+顶点有填充则表示该顶点的全局事实最短路径已经确定。
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.99\textwidth]{assets/pics_and_ppts/ch5/12思考版迪杰斯特拉算法过程.png}
+    \caption{}
+    \label{fig:思考版迪杰斯特拉算法过程}
+\end{figure}
 
-显然，此时\(cur\_mind[B] = 2\)一定是B的全局最短路径（因为B是所有A的邻接点中花费最小的那个，因此 A -> B 一定
-比 A -> 非B 更短，结合“不绕弯思想”，B此时一定全局最短）。我们用集合$T$记录已经找到全局最短路径的顶点，此时
+我们会发现，此时\(cur\_mind[B] = 2\)一定是B的全局最短路径（因为B是所有A的邻接点中花费最小的那个，因此 A -> B 一定
+比 A -> 非B 更短，结合“不绕弯思想”，B此时一定全局最短）。我们用集合$S$记录已经找到全局最短路径的顶点，此时
 \[
-    T = \{A, B\}
+    S = \{A, B\}
 \]
 如前所述，确定了$mind[B]$后，就可以更新与B邻接的C、D、E的当前已知最短路径$cur\_mind[]$信息：
 \begin{bulk}
@@ -1402,20 +1435,11 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
         $cur\_mind[D] = mind[B]+cost(B,D) = 2 + 10 = 12$\\
         $cur\_mind[E] = 2 + 3 = 5$
 \end{bulk}
-如图\ref{fig:思考版迪杰斯特拉算法过程} b）所示。
+如图\ref{fig:思考版迪杰斯特拉算法过程} b）所示。此时所有$cur\_mind[]$中，最小的就是$cur\_mind[C]$。根据“不绕弯思想”，显然此时C已知的当前最短一定
+也是全局最短。可是，如何证明？接下来这部分便是迪杰斯特拉算法最为精彩也是最难理解的部分，还请听我慢慢道来。\\
 
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.99\textwidth]{assets/pics_and_ppts/ch5/12思考版迪杰斯特拉算法过程.png}
-    \caption{}
-    \label{fig:思考版迪杰斯特拉算法过程}
-    
-\end{figure}
-一个重要事实是，当前已知的所有最短路径$cur\_mind[]$中最小的那个一定就是该顶点的全局最短路径。
-也就是说当前$cur\_mind[C] = 3$最小，因此C的全局最短路径mind[C]一定是3。直观地想，A、B的全局最短已经确定了，而C又是“与A、B邻接的所有顶点中的最短”，
-所以直接到C，一定比先到那些还没确定全局最短的顶点（D、E）然后再绕回来更短。
 
-可是，如何证明？还请听我慢慢道来。
+如何证明当前已知的所有最短路径$cur\_mind[]$中最小的那个一定就是该顶点的全局最短路径？
 
 如图\ref{fig:思考版迪杰斯特拉算法过程} b）所示，
 由于A、B已确定全局最短路径，C还未确定，且所有可以到达C的路径中一定至少存在一个还未确定的顶点（至少有一个C还未确定），
@@ -1425,16 +1449,16 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
         PATH: A -> xxx -> P -> X -> xxx -> C
     \end{center}
 \end{bulk}
-我们用X表示路径PATH中的第一个尚未确定最短路径的顶点，则它的前一个顶点P的最短路径一定已经确定。记这条路径PATH的长度为$L\_PATH$，
+我们用X表示路径PATH中的第一个尚未确定全局最短路径的顶点，则它的前一个顶点P的全局最短路径一定已经确定。记这条路径PATH的长度为$L\_PATH$，
 则我们实际上假设了
 \[
     L\_PATH < cur\_mind[C]
 \]
 接下来，我们来一点一点证出该假设与事实相悖，从而推翻该假设。
 
-由于P的最短路径已经确定，因此$cur\_mind[X]$一定已经由P点更新过，即此时一定有：
+由于P的全局最短路径已经确定，因此$cur\_mind[X]$一定已经由P点更新过，即此时一定有：
 \[
-    cur_mind[X] <= mind[P] + cost(P, X)  // 式1
+    cur\_mind[X] <= mind[P] + cost(P, X)  \quad \text{\textbf{// 式（1）}}
 \]
 上不等式右边即是假设的那条路径PATH到X时的长度（A -> xxx -> P -> X的长度）。而由于图没有负权边，因此
 \begin{bulk}
@@ -1446,27 +1470,412 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
 \end{bulk}
 的长度，即下式一定成立：
 \[
-    mind[P] + cost(P, X) <= L\_PATH     // 式2
+    mind[P] + cost(P, X) <= L\_PATH    \quad \text{\textbf{// 式（2）}}
 \]
 
 于是整理式1式2，有：
 \[
-    cur_mind[X] <= mind[P] + cost(P, X) <= L\_PATH   // 式3
+    cur\_mind[X] <= mind[P] + cost(P, X) <= L\_PATH   \quad \text{\textbf{// 式（3）}}
 \]
 
 而事实上C、X均是此时未确定最短路径的顶点，且C是所有$cur\_mind[]$中最小的那个，因此一定有：
 \[
-    cur_mind[C] <= cur_mind[X] // 式4
+    cur\_mind[C] <= cur\_mind[X] \quad \text{\textbf{// 式（4）}}
 \]
 由式3、式4，得：
 \[
-    cur_mind[C] <= cur_mind[X] <= mind[P] + cost(P, X) <= L\_PATH
+    cur\_mind[C] <= cur\_mind[X] <= mind[P] + cost(P, X) <= L\_PATH
 \]
-这与我们假设的$L_PATH < cur\_mind[C]$相悖，因此假设不成立，即不存在一条路径，其距离比当前已知的C的
-最小距离$cur\_mind[C]$更小。因此我们可以完全确定当前已知的所有最短路径$cur\_mind[]$中最小的那个一定就是该顶点的全局最短路径。
+这与我们假设的$L\_PATH < cur\_mind[C]$相悖，因此假设不成立，即不存在一条路径，其距离比当前已知的C的
+最小距离$cur\_mind[C]$更小。
+
+\textbf{由以上的过程，我们就证明了：当前已知的所有最短路径$cur\_mind[]$中最小的那个一定就是该顶点的全局最短路径。}\\
+
+于是，接下来的思路就豁然开朗了：不断地选择当前已知的所有最短路径中最小的那个，作为该顶点的全局最短路径（已由上面的过程证明这是绝对正确的），接下来，
+以该顶点为新的“中介”，去尝试更新其所有邻接点的$cur\_mind[]$，不断重复这个过程，直至所有顶点的全局最短路径都被确定。我们从C开始，看一遍接下来的过程。
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.99\textwidth]{assets/pics_and_ppts/ch5/14思考版迪杰斯特拉，带路径回溯.png}
+    \caption{}
+    \label{fig:思考版迪杰斯特拉，带路径回溯}
+\end{figure}
+如前所述，接下来将C的$cur\_mind[C]$作为C的全局最短，C也就成了“已求解”的顶点。所有已求解的顶点集合S就变成了：
+\[
+    S = \{A, B, C\}
+\]
+并且尝试更新$cur\_mind[E]$，但发现通过C到达E的距离：3 + 8 = 11不会比当前已知的：A -> B -> E（5）更短，因此$cur\_mind[E]$依然是5。如图
+\ref{fig:思考版迪杰斯特拉，带路径回溯} c）所示。这一次我们在图中加入了路径回溯，记录每一个顶点最终的最短路径是由哪个顶点作为“中介”更新来的，如B
+是由A更新来的，因此指向A，C是由B最终更新来的，因此指向B，以此方法记录最短路径本身（B是A -> B, C是A -> B -> C）。
 
 
+继续从图中的 c）开始，此时$cur\_mind[D]=12$， $cur\_mind[E]=5$，最小的是$cur\_mind[E]$，因此E“已成功求解”，记$mind[E] = cur\_mind[E] = 5$，
+并以E作为新的中介，计算：
+\begin{bulk}
+    $mind[E] + cost(E, D) = 5 + 4 = 9$，小于当前的$cur\_mind[D] = 12$，于是更新D\\
+    $mind[E] + cost(E, F) = 5 + 9 = 14$，发现了一条新的到达F的路，所以更新F
+\end{bulk}
+更新后如图d）所示。最后一步，D作为“已成功求解”的顶点，并作为新的中介尝试更新F，但通过D到F不会更小，因此F的路径前驱依然是E，最终F也已成功求解，无其他顶点
+了，如e）所示。
 
+\begin{center}
+    \includegraphics[width=0.99\textwidth]{assets/pics_and_ppts/ch5/14思考版迪杰斯特拉，带路径回溯.png}
+\end{center}
+
+至此，所有顶点到达A的最短路径均已求解，$cur\_mind[i]$中最终保存的就是顶点$i$到A的全局最短路径（事实最短路径），因为它一定已经经过了其所有邻接点的更新操作。
+
+最后，需要注意我们以上讨论，都是基于一个假设：图中不存在负权边。通过上述过程也可以看得出来，若存在负边，“不绕弯思想”将不复存在，因此整个推理过程也将崩塌。
+正是由于这样的道理，我们马上会看到，\textbf{迪杰斯特拉算法无法求解存在负边的图}。并且同时可以看到，若图非连通，迪杰斯特拉算法也可以得出哪些顶点从源点出发
+是不可达的。
 
 \bookmark{bookmark:waypoint-8}{waypoint-8}
+接下来我们正式介绍赫赫有名的迪杰斯特拉算法。我们先给出算法正确、完整的步骤，再由一个具体例子直观地感受一下。
+
+\textbf{迪杰斯特拉算法}用于求解无负边图的单源最短路径问题。设图$G=(V,E)$有$N$个顶点，$cur\_mind[i]$为顶点$i$当前已知的
+最短路径长度，则求解起点$s$到其他任意顶点的最短路径的过程如下：
+
+\begin{enumerate}
+    \item 除起点s距离s为0（$cur\_mind[s]=0$）外，当前不知道任何其他顶点到s的最短路径，暂时认为所有顶点的最短路径都是正无穷+inf，将其他所有$cur\_mind[]$初始化为+inf。
+    此时所有顶点均\textbf{未求解}。
+    \item 从所有\textbf{未求解}顶点中，选出已知的最短路径长度$cur\_mind[]$最小的那个顶点v（第一次选的一定是s），
+    该长度一定就是该顶点v到s的全局最短路径长度，于是v\textbf{“已求解”}。
+    \item 以v为中介点，尝试更新所有v的邻接点的$cur\_mind[]$。具体来说，对于v的某邻接点u，若$cur\_mind[v] + cost(v, u) < cur\_mind[u]$，说明经过v
+    到u比之前已知的u到s的最短路径更短，所以将$cur\_mind[u]$ 更新为$cur\_mind[v] + cost(v, u)$。这一操作通常被称为\term{“松弛操作”}。
+    \item 重复步骤 2 和步骤 3，直到所有可从起点 s 到达的顶点均已确定最短距离。
+\end{enumerate}
+\textbf{事实上迪杰斯特拉算法就是一个不断地“选点”、“更新”的过程}。我们设置一个数组Solved[]来标记哪些顶点已求解，哪些还未求解；并设立一个数组Pre[]标识每个顶点的路径
+前驱，如Pre[1]值为0就表示顶点1的最短路径的上一步是从0走过来的。
+
+我们以图\ref{fig:迪杰斯特拉算法过程演示图} f）所示的图为例来直观地感受一下迪杰斯特拉的过程。
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.40\textwidth]{assets/pics_and_ppts/ch5/15迪杰斯特拉算法过程演示.png}
+    \caption{迪杰斯特拉算法过程演示图}
+    \label{fig:迪杰斯特拉算法过程演示图}
+\end{figure}
+
+我们将$v_0$作为源点s，初始时，所有顶点均未求解，Solved[]为false，除源点s的$cur\_mind[0]=0$外，
+所有其他顶点$cur\_mind[]$都是+inf，并且所有顶点的Pre[]均初始化为-1，表示尚未找到一条路径，暂无前驱，如表\ref{table:迪杰斯特拉算法过程演示}“初始”所示。
+\begin{enumerate}
+    \item
+    \begin{minipage}[t]{0.65\linewidth}
+        \vspace{0pt}
+        从未求解顶点集合
+        \{0,1,2,3,4,5\}
+        中选择当前已知最短路径
+        $cur\_mind[]$ 最小的顶点（0号顶点）。
+        此时0号顶点的当前已知最短路径$cur\_mind[0]$一定也是全局最短路径，
+        于是将$v_0$作为“已求解”顶点，
+        Solved[0] 标记为 true。
+        并且$v_0$就是起点，无前驱，
+        $Pre[]$ 保持 -1 即可。然后以0号顶点为中介，尝试更新其邻接点$v_1$和$v_2$的$cur\_mind[]$:由于 $cur\_mind[v_0] + cost(v_0, v_1) = 0 + 2 = 2 < cur\_mind[v_1] = +inf$，
+        因此将$cur\_mind[v_1]$更新为$cur\_mind[v_0] + cost(v_0, v_1)=2$，同理将$cur\_mind[v_2]$更新为0+5=5，由于$v_1$和$v_2$当前是由$v_0$更新来的，
+        因此将Pre[1]和Pre[2]均设为0。
+        
+        如图a）及表\ref{table:迪杰斯特拉算法过程演示}步骤1所示。
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.30\linewidth}
+        \vspace{0pt}
+        \centering
+        \includegraphics[width=0.67\linewidth]
+        {assets/pics_and_ppts/ch5/16迪杰斯特拉过程a.png}
+    \end{minipage}
+
+    \item 
+    \begin{minipage}[t]{0.65\linewidth}
+        \vspace{0pt}
+        从未求解顶点集合\{1,2,3,4,5\}中选择$cur\_mind[]$最小的顶点$v_1$，将该顶点的全局最短路径确定为2，并标记$v_1$的Solved[1]为true。然后
+        以$v_1$为中介，$v_1$的邻接点有$v_2$、$v_3$、$v_4$，于是分别计算：$cur\_mind[v_1] + cost(v_1, v_2) = 3 < cur\_mind[v_2] = 5$，于是将
+        $cur\_mind[v_2]$更新为3；$cur\_mind[v_1] + cost(v_1, v_3) = 12 < cur\_mind[v_3] = +inf$，于是将$cur\_mind[v_3]$更新为12，类似地，
+        将$cur\_mind[v_4]$更新为5。并且$v_2$、$v_3$、$v_4$此时都是由$v_1$更新来的，因此将Pre[2]、Pre[3]、Pre[4]记为1。
+
+        如图b）及表\ref{table:迪杰斯特拉算法过程演示}步骤2所示。
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.30\linewidth}
+        \vspace{0pt}
+        \centering
+        \includegraphics[width=0.88\linewidth]
+        {assets/pics_and_ppts/ch5/17迪杰斯特拉过程b.png}
+    \end{minipage}
+
+    \item 
+    \begin{minipage}[t]{0.65\linewidth}
+        \vspace{0pt}
+        从未求解顶点集合\{2,3,4,5\}中选择$cur\_mind[]$最小的顶点$v_2$，将Solved[2]标记为true，然后尝试更新$v_4$的$cur\_mind[4]$，但由于
+        $cur\_mind[2] + cost(v_2, v_4) = 3 + 8 = 11 > cur\_mind[4] = 5$，因此无需更新。
+
+        这一步其实只将顶点$v_2$标记为了“已求解”，如图c）及表\ref{table:迪杰斯特拉算法过程演示}步骤3所示。
+
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.30\linewidth}
+        \vspace{0pt}
+        \centering
+        \includegraphics[width=0.90\linewidth]
+        {assets/pics_and_ppts/ch5/18迪杰斯特拉过程c.png}
+    \end{minipage}
+
+    \item 
+    \begin{minipage}[t]{0.65\linewidth}
+        \vspace{0pt}
+        从\{3,4,5\}中，选择顶点$v_4$，标记Solved[4]为true。并以$v_4$为中介，将$cur\_mind[3]$更新为9、Pre[3]更新为4；将$cur\_mind[5]$更新为5+9=14，将Pre[5]更新为4。
+
+        如图d）及表\ref{table:迪杰斯特拉算法过程演示}步骤4所示。
+
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.30\linewidth}
+        \vspace{0pt}
+        \centering
+        \includegraphics[width=0.99\linewidth]
+        {assets/pics_and_ppts/ch5/19迪杰斯特拉过程d.png}
+    \end{minipage}
+
+    \item 
+    \begin{minipage}[t]{0.65\linewidth}
+        \vspace{0pt}
+        从\{3,5\}中，选择顶点$v_3$，标记Solved[3]为true。以$v_3$为中介，发现$cur\_mind[3] + cost(3, 5) = 9+6 = 15 > cur\_mind[5] = 14$，因此无需更新。
+        此时最后一个顶点$v_5$的最短路径显然也已经确定了，为14。
+
+        如图e）及表\ref{table:迪杰斯特拉算法过程演示}步骤5所示。最后，我们将
+        $v_5$标记为已求解顶点即可。
+
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.30\linewidth}
+        \vspace{0pt}
+        \centering
+        \includegraphics[width=0.99\linewidth]
+        {assets/pics_and_ppts/ch5/20迪杰斯特拉过程e.png}
+    \end{minipage}
+
+    \item 将最后的顶点$v_5$标记为已求解。如表\ref{table:迪杰斯特拉算法过程演示}步骤6所示。
+
+\end{enumerate}
+
+
+
+
+
+\begin{table}[htbp]
+    \centering
+    \caption{迪杰斯特拉算法过程演示}
+    \small
+    \sffamily
+    
+
+    {
+    \renewcommand{\arraystretch}{1.6}
+    \setlength{\tabcolsep}{5pt}
+    \setlength{\arrayrulewidth}{0.8pt}
+    \arrayrulecolor{white}
+
+    \begin{tabular}{
+        |>{\columncolor{stepbg}\centering\arraybackslash}m{1.15cm}
+        |>{\columncolor{fieldbg}\raggedright\arraybackslash}m{1.6cm}
+        |*{7}{>{\columncolor{datablue}\color{white}\centering\arraybackslash}m{1.25cm}|}
+    }
+        \hline
+
+        % 表头
+        \multicolumn{2}{|c|}{
+            \cellcolor{headblue}
+            {\color{white}
+            \diagbox[width=3.2cm,height=1.15cm,dir=NW]
+            {\bfseries 步骤}
+            {\bfseries 顶点}}
+        }
+        & \cellcolor{headblue}\textbf{0}
+        & \cellcolor{headblue}\textbf{1}
+        & \cellcolor{headblue}\textbf{2}
+        & \cellcolor{headblue}\textbf{3}
+        & \cellcolor{headblue}\textbf{4}
+        & \cellcolor{headblue}\textbf{5}
+        & \cellcolor{headblue}\textbf{剩余未求解顶点集合}
+        \\
+        \hline
+
+        % 初始状态
+        初始
+        & \shortstack[l]{cur\_mind[]\\Pre[]\\Solved[]}
+        & \shortstack[l]{0\\[0.23em]-1\\[0.23em]false} & \shortstack[l]{+inf\\[0.23em]-1\\[0.23em]false} & \shortstack[l]{+inf\\[0.23em]-1\\[0.23em]false} 
+            & \shortstack[l]{+inf\\[0.23em]-1\\[0.23em]false}
+        & \shortstack[l]{+inf\\[0.23em]-1\\[0.23em]false} & \shortstack[l]{+inf\\[0.23em]-1\\[0.23em]false} & \shortstack[l]{\{0,1,2,\\3,4,5\}}
+        \\
+        \hline
+
+        % 第 1 步
+        1
+        & \shortstack[l]{cur\_mind[]\\Pre[]\\Solved[]}
+        & \shortstack[l]{0\\[0.23em]-1\\[0.23em]\textbf{true}} & \shortstack[l]{\textbf{2}\\[0.23em]\textbf{0}\\[0.23em]false} & \shortstack[l]{\textbf{5}\\[0.23em]\textbf{0}\\[0.23em]false} 
+            & \shortstack[l]{+inf\\[0.23em]-1\\[0.23em]false}
+        & \shortstack[l]{+inf\\[0.23em]-1\\[0.23em]false} & \shortstack[l]{+inf\\[0.23em]-1\\[0.23em]false} & \shortstack[l]{\{1,2,\\3,4,5\}}
+        \\
+        \hline
+
+        % 第 2 步
+        2
+        & \shortstack[l]{cur\_mind[]\\Pre[]\\Solved[]}
+        & \shortstack[l]{0\\[0.23em]-1\\[0.23em]true} & \shortstack[l]{2\\[0.23em]0\\[0.23em]\textbf{true}} & \shortstack[l]{\textbf{3}\\[0.23em]\textbf{1}\\[0.23em]false} 
+            & \shortstack[l]{\textbf{12}\\[0.23em]\textbf{1}\\[0.23em]false}
+        & \shortstack[l]{\textbf{5}\\[0.23em]\textbf{1}\\[0.23em]false} & \shortstack[l]{+inf\\[0.23em]-1\\[0.23em]false} & \{2,3,4,5\}
+        \\
+        \hline
+
+        % 第 3 步
+        3
+        & \shortstack[l]{cur\_mind[]\\Pre[]\\Solved[]}
+        & \shortstack[l]{0\\[0.23em]-1\\[0.23em]true} & \shortstack[l]{2\\[0.23em]0\\[0.23em]true} & \shortstack[l]{3\\[0.23em]1\\[0.23em]\textbf{true}} 
+            & \shortstack[l]{12\\[0.23em]1\\[0.23em]false}
+        & \shortstack[l]{5\\[0.23em]1\\[0.23em]false} & \shortstack[l]{+inf\\[0.23em]-1\\[0.23em]false} & \{3,4,5\}
+        \\
+        \hline
+
+        % 第 4 步
+        4
+        & \shortstack[l]{cur\_mind[]\\Pre[]\\Solved[]}
+        & \shortstack[l]{0\\[0.23em]-1\\[0.23em]true} & \shortstack[l]{2\\[0.23em]0\\[0.23em]true} & \shortstack[l]{3\\[0.23em]1\\[0.23em]true} 
+            & \shortstack[l]{\textbf{9}\\[0.23em]\textbf{4}\\[0.23em]false}
+        & \shortstack[l]{5\\[0.23em]1\\[0.23em]\textbf{true}} & \shortstack[l]{\textbf{14}\\[0.23em]\textbf{4}\\[0.23em]false} & \{3,5\}
+        \\
+        \hline
+
+        % 第 5 步
+        5
+        & \shortstack[l]{cur\_mind[]\\Pre[]\\Solved[]}
+        & \shortstack[l]{0\\[0.23em]-1\\[0.23em]true} & \shortstack[l]{2\\[0.23em]0\\[0.23em]true} & \shortstack[l]{3\\[0.23em]1\\[0.23em]true} 
+            & \shortstack[l]{9\\[0.23em]4\\[0.23em]\textbf{true}}
+        & \shortstack[l]{5\\[0.23em]1\\[0.23em]true} & \shortstack[l]{14\\[0.23em]4\\[0.23em]false} & \{5\}
+        \\
+        \hline
+
+        % 第 6 步
+        6
+        & \shortstack[l]{cur\_mind[]\\Pre[]\\Solved[]}
+        & \shortstack[l]{0\\[0.23em]-1\\[0.23em]true} & \shortstack[l]{2\\[0.23em]0\\[0.23em]true} & \shortstack[l]{3\\[0.23em]1\\[0.23em]true} 
+            & \shortstack[l]{9\\[0.23em]4\\[0.23em]true}
+        & \shortstack[l]{5\\[0.23em]1\\[0.23em]true} & \shortstack[l]{14\\[0.23em]4\\[0.23em]\textbf{true}} & \{\;\}
+        \\
+        \hline
+
+    \end{tabular}
+    }
+    \label{table:迪杰斯特拉算法过程演示}
+\end{table}
+
+可以看到，“选点”就是每次从尚未求解的集合中，“选”出一个当前已知最短路径$cur\_mind[]$最小的顶点v，作为“已求解顶点”，并用它尝试“更新”其所有邻接点的
+最短路径$cur\_mind[]$。每次能确定一个顶点的全局最短路径，重复$N$次操作（其实$N-1$次即可），即可求解所有顶点的全局最短路径，最终$cur\_mind[]$
+中保存的就是各个顶点的全局最短路径的长度，而各顶点的最短路径是什么，顺着Pre[]数组一路向前即可。如$v_5$到$v_0$的最短路径就是
+\begin{bulk}
+    5 -> Pre[5] = 4 -> Pre[4] = 1 -> Pre[1] = 0，即 5 -> 4 -> 1 -> 0    
+\end{bulk}
+这就是赫赫有名的迪杰斯特拉算法。
+
+迪杰斯特拉算法需要$N$次“选点”、“更新”操作，更新时需要找到该顶点的所有邻接点，而对于邻接矩阵和邻接表存储的图，找邻接点的时间复杂度有所区别，因此，迪杰斯特拉
+算法的时间复杂度与图的存储方式有关，下面我们就看看两种存储方式下，迪杰斯特拉算法如何实现。
+
+\minisection{1.迪杰斯特拉算法实现（邻接矩阵版）}
+有了前面的思路，我们可以很轻松地写出迪杰斯特拉算法的代码。唯一需要注意的就是需要正确处理图中存在顶点不可达的情况，详请参见如下代码及注释。
+
+\begin{cppcode}
+    int Matrix[N][N];   // 邻接矩阵，存放边权，若边不存在用-1表示
+    bool Solved[N];     // 已初始化为false
+    int Pre[N];         // 已初始化为-1
+    int cur_mind[N];    // 已初始化为 +inf。
+    const int inf = 0x3fffffff; // +inf
+    // 求解以s为源点的单源最短路径
+    void Dijkstra(int s) {
+        cur_mind[s] = 0;
+        // 该层循环用于执行N次“选点”、“更新”的操作
+        for(int i=0; i<N; i++) {
+            // 选出未求解的顶点中，cur_mind[]最小的顶点v
+            int min_cur_mind = inf;
+            int v = -1;
+            for(int j=0; j<N; j++) {
+                if(Solved[j] == false && cur_mind[j] < min_cur_mind) {
+                    min_cur_mind = cur_mind[j];
+                    v = j;
+                }
+            }
+
+            /* 这里是为了处理图中存在顶点不可达的情况。
+             若存在顶点不可达，则将可达顶点全选完之后，
+             接下来一定会“选不到顶点”，所以若没选到顶点，
+             则v的值是无意义的，不应执行后面的代码。*/
+            if(v == -1) {
+                break;
+            }
+            
+            Solved[v] = true;
+            // 以v为中介，尝试更新其所有邻接点
+            for(int u=0; u<N; u++) {
+                // v到u有路径并且u的全局最短还未确定 不判断Solved[u] == false性能稍差一点，但影响不大。
+                if(Matrix[v][u] != -1 && Solved[u] == false) {    
+                    if(cur_mind[v] + Matrix[v][u] < cur_mind[u]) {
+                        cur_mind[u] = cur_mind[v] + Matrix[v][u];
+                        Pre[u] = v;
+                    }
+                }
+            } 
+        } 
+    }
+    
+\end{cppcode}
+对于以上邻接矩阵版的代码，需要$N$次“选点”、“更新”操作，外层循环时间为$O(N)$，每次选点时遍历一遍cur\_mind[]数组的时间是$O(N)$，更新时需要找到该顶点的所有邻接点，
+时间是$O(N)$，整体的时间复杂度为$O(N^2)$。空间方面，需要额外引入Pre[]、Solved[]、cur\_mind[]三个数组，空间复杂度为$O(N)$。
+
+注意：邻接矩阵是存储图本身所需要的空间，不属于迪杰斯特拉算法带来的空间开销，不能算在算法的空间复杂度中。
+
+\minisection{2.迪杰斯特拉算法实现（邻接表版）}
+邻接表版仅在获取顶点的邻接点信息时代码有所不同。邻接表版代码如下所示。
+\begin{cppcodeHighlight}[1-5,30-36]
+    struct EdgeInfo {
+        int u;      // 邻接点的编号
+        int weight; // 边权
+    };
+    vector<EdgeInfo> AdjList[N];    // 邻接表
+    bool Solved[N];     // 已初始化为false
+    int Pre[N];         // 已初始化为-1
+    int cur_mind[N];    // 已初始化为 +inf。
+    const int inf = 0x3fffffff; // +inf
+    // 求解以s为源点的单源最短路径
+    void Dijkstra(int s) {
+        cur_mind[s] = 0;
+        for(int i=0; i<N; i++) {
+            // 选出未求解的顶点中，cur_mind[]最小的顶点v
+            int min_cur_mind = inf;
+            int v = -1;
+            for(int j=0; j<N; j++) {
+                if(Solved[j] == false && cur_mind[j] < min_cur_mind) {
+                    min_cur_mind = cur_mind[j];
+                    v = j;
+                }
+            }
+
+            if(v == -1) {
+                break;
+            }
+            
+            Solved[v] = true;
+            // 以v为中介，尝试更新其所有邻接点
+            for(int j=0; j<AdjList[v].size(); j++) {
+                int u = AdjList[v][j].u;  // 与v邻接的顶点u
+                if(cur_mind[v] + AdjList[v][j].weight < cur_mind[u]) {
+                    cur_mind[u] = cur_mind[v] + AdjList[v][j].weight;
+                    Pre[u] = v;
+                }
+            }
+        } 
+    }
+\end{cppcodeHighlight}
+对于以上邻接表版的代码，外层循环时间同样为$O(N)$，每次选点时遍历一遍cur\_mind[]数组的时间同样是$O(N)$，而更新时找到该顶点的所有邻接点的操作
+实际上与外层循环无关，是对整个图来说需要进行约$M$次，$M$为图的边数。因此邻接表版时间复杂度为$O(N^2+M)$。
+
+空间方面，与邻接矩阵版本类似，同样是需要额外引入Pre[]、Solved[]、cur\_mind[]三个数组，空间复杂度为$O(N)$。
+
+请注意，上面的代码中，每次寻找当前cur\_mind[]最小的顶点时，我们是遍历一遍数组，为O(N)的时间。事实上，可以使用前面介绍过的数据结构---\textbf{堆}来完成，每次以O(1)时间
+即可返回最小的元素。若图采用邻接表实现，这种堆优化的迪杰斯特拉算法时间复杂度可以达到$O(NlogN+M)$。由于堆在此处的使用涉及稍复杂的C++原理，并且在后面我们将
+介绍另一种算法，通常情况下比堆优化的迪杰斯特拉算法性能更优，因此不在此处给出代码，感兴趣的同学可以自己尝试写出。
+
 

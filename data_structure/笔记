@@ -45,3 +45,9 @@
 引号
 \textquotesingle
 \textquotedbl
+
+
+加粗数学公式
+$\boldsymbol{mind[i]}$
+
+
