@@ -1,0 +1,9 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+c1}{// 定义一条路径}
+\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{track}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{stack}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{nodes}\PYG{p}{;}\PYG{+w}{   }\PYG{c+c1}{// 轨迹序列，如0356}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{length}\PYG{p}{;}\PYG{+w}{         }\PYG{c+c1}{// 该路径的长度}
+\PYG{p}{\PYGZcb{}}\PYG{p}{;}
+\PYG{n}{track}\PYG{+w}{ }\PYG{n}{t}\PYG{p}{;}\PYG{+w}{    }\PYG{c+c1}{// 当前走过的路径}
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{track}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{tracks}\PYG{p}{;}\PYG{+w}{   }\PYG{c+c1}{// 用于保存所有路径}
+\end{MintedVerbatim}

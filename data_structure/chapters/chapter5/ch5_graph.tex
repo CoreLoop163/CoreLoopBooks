@@ -439,7 +439,7 @@ f）访问$v_4$，没发现新的顶点；\\[0.3em]
 g）访问$v_5$，没发现新的顶点。此时所有顶点均已访问过一遍，没有新的层了，结束。\\[0.3em]
 
 以上过程得到的广度优先搜索访问序列是\{$v_0$, $v_1$, $v_3$, $v_2$, $v_6$, $v_4$, $v_5$\}。这就是广度优先搜索，总是先“摸清楚周围
-的环境，再继续向更深处进发”。
+的环境，再继续向更深处进发”。BFS算法可以求解无权图或等权图的最短路径问题，我们将在{\color{red}习题6第16、17题}中详细介绍。
 
 至此，“深”和“广”的语义已经很明确，“深度优先”总是冲到最“深”处，而“广度优先”总是先向“广”阔的四周探索。
 
@@ -819,13 +819,13 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
 
 
 
-【14、15、16、17题基于此背景】传说在《前有数据结构》大陆某处神秘的角落有一片森林，其中有一棵樱花树无时不刻地施展着她的魔法，为世人祈福，带来幸运。可是
+【14、15、16、17、18题基于此背景】传说在《前有数据结构》大陆某处神秘的角落有一片森林，其中有一棵樱花树无时不刻地施展着她的魔法，为世人祈福，带来幸运。可是
 该魔法也无时不刻地侵蚀着她自身，这些痛苦会凝聚成泪滴积于花瓣之上，将其饮下，便能抚平樱树的悲怆，化作自身的庇佑。
 
 火光摇曳中，你在帐篷中沉睡过去。维火女凝视着你满身的疲惫与疮痍，眼底盛满了心疼与依恋。她不再忍心见你独自背负这苦难，便悄然别过营火，
 孤身涉足那片未知的森林，去寻找并带回那代表着祝福与庇佑的樱花之泪。
 
-天亮了。维火女已到达了那片森林，并寄回一封信，上面刻着森林的地图。森林中有N(N<=100)棵树木，编号为0到N-1，一些树木之间通过双向的灵魂通路相连，
+天亮了。维火女已到达了那片森林。你通过火焰之环看到了那片森林的地图。森林中有N(N<=100)棵树木，编号为0到N-1，一些树木之间通过双向的灵魂通路相连，
 而有些树木则无法抵达。\\
 
 
@@ -888,14 +888,42 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
     }
 \end{cppcode}
 
+\vspace{\baselineskip}
 
-\label{other:DFS求最短路径}
-*17. 若上题要求当樱花树可以抵达时，输出所有可行路径中距离最短的一条（经过的边数最少的），并同时输出路径的长度（经过的边的数量）；不可抵达时同样
+
+*17. 若上题条件下，假设所有灵魂通路的通行时间\textbf{相等}，当樱花树可以抵达时，要求输出所有可行路径中距离最短的一条（经过的边数最少的），不可抵达时同样
 输出“......”，请写出代码。
 
 若有多条路径最短，任意输出一条即可。\\
 
-18. （某年408真题）已知无向连通图存在EL路径的充要条件是度为奇数的顶点数为0或2。
+
+\label{other:DFS求最短路径}
+*18. 若16题条件下，假设所有灵魂通路的通行时间\textbf{不等}，当樱花树可以抵达时，要求输出所有可行路径中距离最短的一条（花费时间最少的），不可抵达时同样
+输出“......”，请写出代码。
+
+若有多条路径最短，任意输出一条即可。邻接矩阵中已存储了各灵魂通路的通行时间。
+\begin{cppcode}
+    const int N/* = 7 */;
+    
+    char trees[N] /*= {'F', 'F', 'F', 'F', 'F', 'F', 'T'}*/;    // 保存顶点数据
+    int Matrix[N][N] /*= {    // 邻接矩阵，0表示无路，非0表示通行时间
+        { 0, 3, 2, 2, 0, 0, 0 },
+        { 3, 0, 0, 2, 5, 0, 0 },
+        { 2, 0, 0, 1, 0, 0, 0 },
+        { 2, 2, 5, 0, 0, 6, 0 },
+        { 0, 1, 0, 0, 0, 2, 0 },
+        { 0, 0, 0, 6, 2, 0, 1 },
+        { 0, 0, 0, 0, 0, 1, 0 },
+    }*/;
+    
+    void FindPath(int u) {
+
+    }
+\end{cppcode}
+
+\vspace{\baselineskip}
+
+19. （某年408真题）已知无向连通图存在EL路径的充要条件是度为奇数的顶点数为0或2。
 设无向连通图$G$采用邻接矩阵存储，类型定义如下：
 \begin{cppcode}
     typedef struct {
@@ -910,7 +938,7 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
 2）根据设计思想，采用C或C++语言描述算法，关键之处给出注释；\\
 3）说明你所设计算法的时间和空间复杂度。\\
 
-19. （某年408真题）已知通常将有向图中出度大于入度的顶点称为K顶点。若图采用邻接矩阵存储，类型定义如下：
+20. （某年408真题）已知通常将有向图中出度大于入度的顶点称为K顶点。若图采用邻接矩阵存储，类型定义如下：
 \begin{cppcode}
     typedef struct {
         int numVertices, numEdges;  // 图的顶点数和有向边数
@@ -1098,7 +1126,9 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
 
 \vspace{\baselineskip}
 
-*16. 要将路径记录下来，就要在遍历的过程中按顺序记录每一个走过的顶点，一旦达到目标顶点，一条路径就找到了。本题的难点在于，当走进一条错误的路径之后，
+*16. 本题思路比较简单，通过BFS或DFS从起点开始搜索，当搜索到'T'时即找到了一条路径。问题在于搜索过程中如何将涉足过的轨迹记录下来？
+
+\Circled{1}对于递归的DFS代码，算法一定是一步一个脚印地，沿着合法路径在前进或回溯。当走进一条错误的路径之后，
 如何正确地进行\term{回溯}？如图所示，
 \begin{center}
     \includegraphics[width=0.23\textwidth]{assets/pics_and_ppts/ch5/习题08，任意路径答案图.png}
@@ -1106,11 +1136,79 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
 若从0出发进入了1，此时记录的路径是“01”，回到0后，要将路径回溯到“0”。显然，由于回退时总是将“\uline{后}路过的顶点\uline{先}从路径中拿掉”，因此可以使用一个
 栈保存所经过的路径。回溯时，将顶点从栈顶弹出即可。
 
-对于非递归的DFS或BFS算法，栈或队列中存储的是待访问的节点，但这些节点的访问顺序无法形成一条有效的路径。BFS下，显然顶点访问顺序很可能不是一条合法路径，
-而DFS则存在“瞬移”现象。若使用非递归算法，需要额外维护路径信息，
-而递归算法一定是一步一个脚印地，沿着合法路径在前进或回溯。回溯时，与非递归算法不同的是，非递归算法的下一个“出发点”是由栈中元素决定的，而递归算法则是顺着
-操作系统调用栈，一个一个地沿着来时的路返回。因此对于非递归算法难以直接将“01”回溯为“0”，而递归算法则非常容易。这里给出递归算法求一条路径的代码。
-\begin{cppcode}
+\Circled{2}而对于非递归的BFS或DFS代码，不同的是，非递归算法的下一个“出发点”是由队列（或栈）中元素决定的，顶点的访问顺序未必是一条
+合法路径。所以对于非递归代码，要记录路径，可以设一个Pre[]数组，如Pre[3]值为0就表示顶点3的上一步是顶点0。
+
+我们给出非递归的BFS与递归的DFS代码如下：
+\begin{cppcodeNum}[codetitle={非递归的BFS解法}]
+    const int N/* = 7 */;
+    char trees[N] /*= {'F', 'F', 'F', 'F', 'F', 'F', 'T'}*/;    // 保存顶点数据
+    int Matrix[N][N] /*= {    // 邻接矩阵
+        { 0, 1, 1, 1, 0, 0, 0 },
+        { 1, 0, 0, 1, 1, 0, 0 },
+        { 1, 0, 0, 1, 0, 0, 0 },
+        { 1, 1, 1, 0, 0, 1, 0 },
+        { 0, 1, 0, 0, 0, 1, 0 },
+        { 0, 0, 0, 1, 1, 0, 1 },
+        { 0, 0, 0, 0, 0, 1, 0 },
+    }*/;
+    int Pre[N]; // 记录路径
+    bool visited[N];
+    
+    // 以v为起点，BFS搜索一条找到'T'的路径。若找到了，返回'T'所在顶点的编号。若'T'不可达，返回-1。
+    int BFS(int v) {
+        queue<int> q;
+        int ret = -1;
+        if(trees[v] == 'T') {
+            return v;
+        }
+        q.push(v);
+        visited[v] = true;
+        while(!q.empty()) {
+            int step = q.front();
+            q.pop();
+            for(int i=0; i<N; i++) {
+                if(Matrix[step][i] != 0 && !visited[i]) {
+                    // 记录轨迹的上一个顶点编号
+                    Pre[i] = step;
+                    if(trees[i] == 'T') {
+                        ret = i;
+                        return ret;
+                    }
+                    q.push(i);
+                    visited[i] = true;
+                }
+            }
+        }
+        return ret;
+    }
+
+    void FindPath(int u) {
+        for(int i=0; i<N; i++) {
+            Pre[i] = -1;
+            visited[i] = false;
+        }
+        int flower_idx = BFS(u);
+        if(flower_idx == -1) {
+            cout << "......" << endl;
+            return;
+        }
+        // 从flower_idx向前找到的路径顶点顺序是反的，用一个栈正向打印
+        stack<int> to_print;
+        for(int i=flower_idx; i!=-1; i=Pre[i]) {
+            to_print.push(i);
+        }
+        while(!to_print.empty()) {
+            cout << to_print.top();
+            to_print.pop();
+        }
+        cout << endl;
+    }
+\end{cppcodeNum}
+以上BFS算法要访问约$N$个顶点，访问每个顶点时要遍历该顶点的邻接矩阵以找出邻接点，时间为$O(N)$，因此总的时间复杂度为$O(N^2)$。
+
+递归的DFS代码：
+\begin{cppcodeNum}[codetitle={递归的DFS解法}]
     const int N/* = 7 */;
     char trees[N] /*= {'F', 'F', 'F', 'F', 'F', 'F', 'T'}*/;    // 保存顶点数据
     int Matrix[N][N] /*= {    // 邻接矩阵
@@ -1170,22 +1268,47 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
             cout << "......" << endl;
         }
     }
-\end{cppcode}
+\end{cppcodeNum}
 该算法的性能瓶颈在于DFS，最坏情况下，假设每个顶点都有接近N个邻接点，则DFS被调用接近N次，并且每次调用执行接近N次循环，因此算法最坏时间复杂度为$O(N^2)$。
 
 \vspace{\baselineskip}
 
-*17. 要找到所有可行的路径中最短的那一条，就不能在找到一条后直接返回，而是要回溯，继续找其他路径。一种简单的想法是，在遍历过程中，将
-当前已经找到的每一条路径都记录下来，最后再选择一条最短的。这样，我们通过一个
-\begin{bulk}
-    vector<stack<int> > tracks;
-\end{bulk}
-记录所有路径，当找到\textquotesingle T\textquotesingle 时，就将当前记录的路径track放入tracks尾部：
+*17. 事实上，{\color{red}\textbf{上题}}的非递归BFS解法，求出来的那条路径一定是最短路径。为什么？
+
+
+如图所示，由于 BFS 总是先搜索完当前层的所有顶点，才会进入下一层，因此它一定会按照从近到远的顺序发现顶点。
+所以当 BFS 第一次发现某个顶点时，就已经找到了从起点到达该顶点、经过边数最少的路径。
+\begin{center}
+    \includegraphics[width=0.45\textwidth]{assets/pics_and_ppts/ch5/21BFS求解最短路径原理.png}
+\end{center}
+
+\textbf{当图中所有边的权重都相同时，路径的总权重只取决于它经过了多少条边。而 BFS 恰好能够保证：第一次到达某个顶点时，经过的边数最少。
+因此对于无权图或等权图，BFS可以用于求解\uwave{最短路径}问题。}
+
+而对于带权图，经过的边数最少的路径不一定是总长度最短的路径。因此BFS算法无法求解带权图的最短路径。而DFS可以将所有的路径都探索一遍，通过穷举路径的方式计算出
+路径最短的是哪一条。因此通过DFS方式穷举路径的方法，是一种求带权图最短路径的算法，我们将在{\color{red}\textbf{下一题中体会}}。\\
+
+
+
+*18. 如{\color{red}上题所述}，对于带权图无法使用BFS求解最短路径，但是可以DFS递归地将所有路径穷举一遍。
+在搜索到\textquotesingle T\textquotesingle 后回溯，继续寻找其他路径。
+一种简单的想法是，在DFS过程中，将当前已经找到的每一条路径轨迹及其长度都记录下来，最后再选择一条长度最短的输出其轨迹。我们做如下定义：
+\begin{cppcode}
+    // 定义一条路径
+    struct track {
+        stack<int> nodes;   // 轨迹序列，如0356
+        int length;         // 该路径的长度
+    };
+    track t;    // 当前走过的路径
+    vector<track> tracks;   // 用于保存所有路径
+\end{cppcode}
+于是我们可以在DFS递归过程中动态维护当前走过的路径t（包括轨迹顶点集nodes以及轨迹的长度length），
+当找到\textquotesingle T\textquotesingle 时，就将当前记录的路径t放入tracks尾部：
 \begin{bulk}
     tracks.push\_back(track);
 \end{bulk}
 
-需要注意的是，在寻找路径的过程中，每个顶点有可能被多次访问，因此回溯时不仅要在路径track中将栈顶元素弹出，还要将当前节点重新标记为未访问。比如在下图中，
+需要注意的是，在寻找路径的过程中，每个顶点有可能被多次访问，因此回溯时不仅要维护t.nodes与t.length，还要将当前节点重新标记为未访问。比如在下图中，
 假设已经找到了一条路径01356，回溯时若不把这些顶点的visited[]标记为false，会导致后面重新从0出发时，无法达到1和3，从而错过最短路径：“0356”。
 \begin{center}
     \includegraphics[width=0.30\textwidth]{assets/pics_and_ppts/ch5/习题07救出维火女.png}
@@ -1195,63 +1318,70 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
 \begin{cppcode}
     const int N/* = 7 */;
     char trees[N] /*= {'F', 'F', 'F', 'F', 'F', 'F', 'T'}*/;    // 保存顶点数据
-    int Matrix[N][N] /*= {    // 邻接矩阵
-        { 0, 1, 1, 1, 0, 0, 0 },
-        { 1, 0, 0, 1, 1, 0, 0 },
-        { 1, 0, 0, 1, 0, 0, 0 },
-        { 1, 1, 1, 0, 0, 1, 0 },
-        { 0, 1, 0, 0, 0, 1, 0 },
-        { 0, 0, 0, 1, 1, 0, 1 },
+    int Matrix[N][N] /*= {    // 邻接矩阵，0表示无路，非0表示通行时间
+        { 0, 3, 2, 2, 0, 0, 0 },
+        { 3, 0, 0, 2, 5, 0, 0 },
+        { 2, 0, 0, 1, 0, 0, 0 },
+        { 2, 2, 5, 0, 0, 6, 0 },
+        { 0, 1, 0, 0, 0, 2, 0 },
+        { 0, 0, 0, 6, 2, 0, 1 },
         { 0, 0, 0, 0, 0, 1, 0 },
     }*/;
+    struct track {
+        stack<int> nodes;
+        int length;
+    };
 
-    void DFS(int v, stack<int>& track, bool visited[], vector<stack<int> >& tracks) {
+    void DFS(int v, int pre_v, track& t, bool visited[], vector<track>& tracks) {
         visited[v] = true;
-        track.push(v);
+        t.nodes.push(v);
+        t.length += Matrix[pre_v][v];
         if(trees[v] == 'T') {
-            tracks.push_back(track);
+            tracks.push_back(t);
 
             // 回溯
             visited[v] = false;
-            track.pop();
+            t.nodes.pop();
+            t.length -= Matrix[pre_v][v];
             return ;
         }
 
         for(int i=0; i<N; i++) {
-            if(Matrix[v][i] == 1 && !visited[i]) {
-                DFS(i, track, visited, tracks);
+            if(Matrix[v][i] != 0 && !visited[i]) {
+                DFS(i, v, t, visited, tracks);
             }
         }
 
         // 回溯
         visited[v] = false;
-        track.pop();
+        t.nodes.pop();
     }
 
     void FindPath(int u) {
-        vector<stack<int> > tracks;
-        stack<int> track;
+        vector<track> tracks;
+        track t;
         bool visited[N];
         for(int i=0; i<N; i++) {
             visited[i] = false;
         }
 
-        DFS(u, track, visited, tracks);
+        DFS(u, u, t, visited, tracks);
         // tracks为空说明从未找到过任何一条路径，不可达。
         if(tracks.empty()) {
             cout << "......" << endl;
         } else {
             // 判断一下哪条路径长度最短
-            int min_length = 500;
+            int min_length = 0x3fffffff;
             int ans_idx = -1;   // 最短路径的下标
+            vector<int> min_path;
             for(int i=0; i<tracks.size(); i++) {
-                if(tracks[i].size() < min_length) {
+                if(tracks[i].length < min_length) {
+                    min_length = tracks[i].length;
                     ans_idx = i;
-                    min_length = tracks[i].size();
                 }
             }
             vector<int> to_print;
-            while(!tracks[ans_idx].empty()) {
+            while(!tracks[ans_idx].nodes.empty()) {
                 to_print.push_back(tracks[ans_idx].top());
                 tracks[ans_idx].pop();
             }
@@ -1263,9 +1393,6 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
     }
 \end{cppcode}
 
-与上一题大有不同，找到一条可行路径，与找到一条最短路径，是两个难度完全不同的问题。
-只找一条可行路径，可以在找到目标后立即结束搜索。而若要找到最短路径，就要穷举所有可行路径。
-
 最坏情况下，假设N个顶点任意两顶点之间都存在边，边的数量达到了$ \frac{N(N-1)}{2} $（{\color{red}\textbf{见本习题第4题}}），从起点出发，下一步有(N-1)条路，
 这(N-1)个新的起点，每个起点又有(N-2)条路可以选择，......，于是需要辗转的顶点数量为
 \[
@@ -1273,15 +1400,16 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
 \]
 时间复杂度为$O(N!)$量级。对于稍微复杂一点的图，这是根本不可能接受的！
 
-事实上，在DFS过程中，可以维护一个变量，记录当前已经找到的所有可行路径的最短长度，在递归到某顶点时，若此时当前路径长度已经大于最短长度，则无需继续递归下去，而是
+事实上，在DFS过程中，可以再维护一个变量，记录当前已经找到的所有可行路径的最短长度，在递归到某顶点时，若此时当前路径长度已经大于最短长度，则无需继续递归下去，而是
 直接回溯即可。这种优化策略通常被称为\term{剪枝}，意为在递归树中剪掉一些无意义的路线。
 
 此外，完全可以在DFS搜索过程中只维护和更新“当前已找到的所有路径中最短的那一条路径”，而不必将所有路径都存储起来，这对于存储空间是一个极大的优化。感兴趣的同学
 可以自己尝试写出代码。\\
 
-但是，以上两种优化策略也仅仅是杯水车薪，带来的优化比较有限。在\ref{sec:最短路径}节中，我们将介绍一种极具创造性的算法---迪杰斯特拉算法，来解决单源最短路径问题。
+但是，以上两种优化策略也仅仅是杯水车薪，带来的优化比较有限。在\ref{sec:最短路径}节中，我们将介绍一种极具创造性的算法---迪杰斯特拉算法，来解决
+\term{单源最短路径问题}。\\
 
-18. 计算所有顶点的度即可。代码如下：
+19. 计算所有顶点的度即可。代码如下：
 \begin{cppcode}
     int IsExistEL(MGraph G) {
         int odd_deg_num = 0;    // 计算度为奇数的顶点个数
@@ -1303,7 +1431,7 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
 
 \vspace{\baselineskip}
 
-19. 遍历一遍邻接矩阵，计算各顶点的入度和出度即可。
+20. 遍历一遍邻接矩阵，计算各顶点的入度和出度即可。
 \begin{cppcode}
     int PrintKVertices(MGraph G) {
         int ret = 0;    // 计算K顶点的个数
@@ -1334,7 +1462,7 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
 王国的故事还在继续。根据指挥官给出的遍历方法，信使无一疏漏地将大敌来犯的消息传遍了王国的每一座城池、每一座要塞。士兵和居民们纷纷武装起来，
 布起防御系统，准备迎接那场即将到来的大战。
 
-\subsection{迪杰斯特拉算法求解单源最短路径}
+\subsection{迪杰斯特拉算法}
 接下来，一位指挥官提出了这样一个问题：若某个据点有重兵来犯，从首都派出军队去该据点支援，走哪条路，能够最快到达？这种求解从某顶点到图中其他所有顶点
 的最短路径的问题，后来被称为\term{单源最短路径}问题。
 
@@ -1347,7 +1475,7 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
 \end{wrapfigure}
 
 假设A为首都，如何求A到F的最短路径？一位指挥官指出，最简单的做法就是把所有可能的路径都找出来，然后比较它们的长度。
-这种做法通过DFS进行路径搜索即可实现，如{\color{red}\textbf{习题\ref{exercise:6}第17题}}（
+这种做法通过DFS进行路径搜索即可实现，如{\color{red}\textbf{习题6第18题}}（
 第\pageref{other:DFS求最短路径}页）所做的那样。但是，这种做法存在一个明显的问题：即使其中许多路径已经不可能成为最短路径，我们仍然要花费时间去搜索它们。
 对图\ref{fig:最短路径王国地图}进行DFS路径搜索的\uwave{搜索树}如图\ref{fig:DFS搜索树}所示。可以看到每个叶节点即代表了一条路径的终点，
 要么是找到了目标顶点，要么是非目标顶点的死路。
@@ -1360,7 +1488,7 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
 \end{figure}
 
 当我们探索到一条可行的路径ABDF时，就已经知道最短路径
-不可能大于4，于是ABEDF、ACBDEF等路径其实完全没有必要探索，即使使用\term{剪枝策略}（{\color{red}\textbf{见习题\ref{exercise:6}第17题解析}}），
+不可能大于4，于是ABEDF、ACBDEF等路径其实完全没有必要探索，即使使用\term{剪枝策略}（{\color{red}\textbf{见习题6第18题参考答案}}），
 也要至少探索4个顶点再回头。DFS的穷举过程最差时间复杂度是$O(N!)$量级，对于稍微复杂的图，该算法绝对无法接受。况且如果需要求出A到所有顶点的最短路径，就需要
 再重复如图\ref{fig:DFS搜索树}的搜索过程若干次。
 
@@ -1528,9 +1656,10 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
 是不可达的。
 
 \bookmark{bookmark:waypoint-8}{waypoint-8}
-接下来我们正式介绍赫赫有名的迪杰斯特拉算法。我们先给出算法正确、完整的步骤，再由一个具体例子直观地感受一下。
+接下来我们正式介绍赫赫有名的迪杰斯特拉算法（Dijkstra算法）。我们先给出算法正确、完整的步骤，再由一个具体例子直观地感受一下。
 
-\textbf{迪杰斯特拉算法}用于求解无负边图的单源最短路径问题。设图$G=(V,E)$有$N$个顶点，$cur\_mind[i]$为顶点$i$当前已知的
+\textbf{迪杰斯特拉算法}用于求解无负边图的单源最短路径问题。设图$G=(V,E)$有$N$个顶点，$cost(u, v)$为u到v的权值（路径的长度），我们记
+$cur\_mind[i]$为顶点$i$当前已知的
 最短路径长度，则求解起点$s$到其他任意顶点的最短路径的过程如下：
 
 \begin{enumerate}
@@ -1538,7 +1667,7 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
     此时所有顶点均\textbf{未求解}。
     \item 从所有\textbf{未求解}顶点中，选出已知的最短路径长度$cur\_mind[]$最小的那个顶点v（第一次选的一定是s），
     该长度一定就是该顶点v到s的全局最短路径长度，于是v\textbf{“已求解”}。
-    \item 以v为中介点，尝试更新所有v的邻接点的$cur\_mind[]$。具体来说，对于v的某邻接点u，若$cur\_mind[v] + cost(v, u) < cur\_mind[u]$，说明经过v
+    \item 以v为中介点，尝试更新所有v的邻接点的$cur\_mind[]$。具体来说，对于v的一条指向u的边，若$cur\_mind[v] + cost(v, u) < cur\_mind[u]$，说明经过v
     到u比之前已知的u到s的最短路径更短，所以将$cur\_mind[u]$ 更新为$cur\_mind[v] + cost(v, u)$。这一操作通常被称为\term{“松弛操作”}。
     \item 重复步骤 2 和步骤 3，直到所有可从起点 s 到达的顶点均已确定最短距离。
 \end{enumerate}
@@ -1874,8 +2003,293 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
 
 空间方面，与邻接矩阵版本类似，同样是需要额外引入Pre[]、Solved[]、cur\_mind[]三个数组，空间复杂度为$O(N)$。
 
-请注意，上面的代码中，每次寻找当前cur\_mind[]最小的顶点时，我们是遍历一遍数组，为O(N)的时间。事实上，可以使用前面介绍过的数据结构---\textbf{堆}来完成，每次以O(1)时间
-即可返回最小的元素。若图采用邻接表实现，这种堆优化的迪杰斯特拉算法时间复杂度可以达到$O(NlogN+M)$。由于堆在此处的使用涉及稍复杂的C++原理，并且在后面我们将
-介绍另一种算法，通常情况下比堆优化的迪杰斯特拉算法性能更优，因此不在此处给出代码，感兴趣的同学可以自己尝试写出。
+请注意，上面的代码中，每次寻找当前cur\_mind[]最小的顶点时，我们是遍历一遍数组，为O(N)的时间。事实上，可以使用前面介绍过的数据结构---\textbf{堆}
+（C++中的priority\_queue）来完成，每次以O(1)时间
+即可返回最小的元素。若图采用邻接表实现，这种堆优化的迪杰斯特拉算法的\textbf{最坏}时间复杂度可以达到$O((N+M)logN)$。由于priority\_queue在此处的使用涉及
+稍复杂的C++原理，因此不在此处给出代码，感兴趣的同学可以自己尝试写出。
+
+
+
+\subsection{Bellman-Ford算法}
+几乎在迪杰斯特拉算法诞生的同期，也诞生了另外一个求解单源最短路径的算法：Bellman-Ford 算法。它与 Dijkstra 算法有一个重要区别：只要从源
+点出发能够到达的范围内不存在负权\uline{环}，Bellman-Ford 算法就能够正确求得单源最短路径，即使图中存在负权边也没有问题。\\
+
+Bellman-Ford算法的核心思想是：反复对图中的\uline{所有边}进行松弛操作。具体来说，假设图中有$N$个顶点$M$条边，源点为s，与迪杰斯特拉算法类似，定义：
+cur\_mind[v]为当前已知的从s到v的最短路径长度，初始化cur\_mind[s]为0，其他顶点的cur\_mind[]均为正无穷。
+
+然后，对图中的每一条边$(u, v)$ 进行松弛操作：
+\[
+    dist[v]=\min(dist[v], dist[u] + cost(u,v))
+\]
+其中，\(cost(u,v)\) 表示边 \((u,v)\) 的权值（路径长度）。对所有边完成一轮松弛后，再进行下一轮，则最多进行 \(N-1\) 轮后，所有顶点的cur\_mind[]就已经是
+全局最短路径。
+
+为什么这个算法是正确的？
+
+如图\ref{fig:BellmanFord算法理解}所示，以$v_2$为起点，$v_1$到$v_2$的最短路径是1条边的路径：$v1 -> v2$，因此第一轮操作之后就能考虑到，并将其长度1赋值给
+cur\_mind[1]，此后无论如何cur\_mind[1]也不会再被更新。
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{assets/pics_and_ppts/ch5/22BellmanFord算法理解.png}
+    \caption{}
+    \label{fig:BellmanFord算法理解}
+\end{figure}
+
+$v_0$到$v_2$的最短
+路径是$v_0 -> v_1 -> v_2$、$v_4$到$v_2$的最短路径是$v_4 -> v_1 -> v_2$，都是2条边的最短路径，因此第二轮操作之后就能考虑到这些路径，并且赋值给
+cur\_mind[0]、cur\_mind[4]，之后绝对不会再改变。
+
+Bellman-Ford 算法每完成一轮对所有边的松弛，就能够保证考虑到最多多一条边的路径，因此$N-1$轮之后，就能考虑到最多$N-1$条边的路径。而
+如果源点可达范围不存在负权环，那么任意两个顶点之间的最短路径一定不包含重复顶点，路径最多$N-1$条边。
+
+此外，如果完成 \(N-1\) 轮后，再对所有边进行一轮松弛，仍然能够更新某个顶点的距离，就说明存在从源点可达的负权环。若图存在从源点可达的负环，则显然在负环
+中不断转圈可以让最短路径无限地小下去，直至负无穷。因此，通过以上手段Bellman-Ford算法可以在图不存在负环时给出正确解，并在图存在负环时给出“问题不可解”的结论。
+
+Bellman-Ford 算法需要做约$N$轮操作，每轮操作需要遍历所有边，对于邻接矩阵存储的图，遍历所有边需要遍历邻接矩阵，时间为$O(N^2)$，而对于邻接表，遍历所有边
+需要遍历邻接表，时间为$O(M)$。因此对于邻接矩阵存储的图，Bellman-Ford时间复杂度为$O(N^3)$，对于邻接表存储的图，Bellman-Ford的时间复杂度为$O(NM)$。
+
+对于邻接表存储的图，Bellman-Ford算法的实现如下所示：
+\begin{cppcode}
+    struct EdgeInfo {
+        int u;
+        int weight;
+    };
+    vector<EdgeInfo> AdjList[N]; // 已存储图的邻接表
+    const int inf = 0x3fffffff;
+    int cur_mind[N];    // 已初始化为inf
+    int Pre[N];     // 已初始化为-1
+    bool BellmanFord(int s) {
+        cur_mind[s] = 0;
+        // 做N-1次
+        for(int i=0; i<N-1; i++) {
+            // 遍历所有边
+            for(int v=0; v<N; v++) {
+                // 与v邻接的所有边
+                for(int k=0; k<AdjList[v].size(); k++) {
+                    int u = AdjList[v][k].u;
+                    int weight = AdjList[v][k].weight;
+                    if(cur_mind[v] + weight < cur_mind[u]) {
+                        cur_mind[u] = cur_mind[v] + weight;
+                        Pre[u] = v;
+                    }
+
+                }
+            }
+        }
+
+        // 再做一次，判断是否存在负环
+        for(int v=0; v<N; v++) {
+            for(int k=0; k<AdjList[v].size(); k++) {
+                int u = AdjList[v][k].u;
+                int weight = AdjList[v][k].weight;
+                if(cur_mind[v] + weight < cur_mind[u]) {
+                    return false;
+                }
+
+            }
+        }
+        return true;
+    }
+\end{cppcode}
+当图存在负环时，Bellman-Ford算法返回false，表示存在负环，最短路径问题不可解。否则返回true，cur\_mind[]数组中存放的就是各顶点的最短路径。沿着Pre[]数组
+往回追溯即可得到轨迹。对于邻接矩阵版本仅在于遍历边的方式不同，这里不再给出代码。\\
+
+对于Bellman-Ford算法，我们自然会想到这样一个问题：我们每轮处理的时候，都需要遍历所有边，判断能否更新某个顶点的cur\_mind[]。但事实上，假设第$i-1$轮
+仅有顶点v的cur\_mind[]发生了变化，那么第$i$轮其实我们没有必要遍历所有边，而是只遍历v的出边即可，因为只有距离发生了变化的顶点才可能继续影响其他顶点。这样，
+仅处理距离发生了变化的边，就大大提高了算法的效率。因此对于上面的代码，在以下条件成立时：
+\begin{cppcode}
+    if(cur_mind[v] + weight < cur_mind[u]) {
+        cur_mind[u] = cur_mind[v] + weight;
+        Pre[u] = v;
+    }
+\end{cppcode}
+说明u是一个距离发生了变化的顶点，我们将其放入队列中。
+
+于是思路就是：最初将起点s放入队列，并在每次处理时，将那些距离发生了改变的顶点入队。当队列为空时，说明没有新的顶点距离发生改变，也就处理完了。但是这样做有两个新的问题：
+
+（1）反复入队问题。
+
+\begin{wrapfigure}{r}{0.27\textwidth}
+    \includegraphics[width=0.35\textwidth]{assets/pics_and_ppts/ch5/23SPFA反复入队导致性能雪崩.png}
+    \caption{反复入队问题}
+    \label{fig:SPFA反复入队导致性能雪崩}
+\end{wrapfigure}
+
+如图\ref{fig:SPFA反复入队导致性能雪崩}所示，假设0为起点，向上松弛的若干顶点，将这些顶点入队后，
+取出时，对每一个顶点的处理都可能将顶点1松弛一遍，如果每次都将1入队就造成了重复入队，会出现很多无意义的重复处理，继续向外传导，会造成指数级的性能灾难。因此要
+解决这个问题，就需要引入一个数组in\_queue[N]，标识每一个顶点是否已经在队列中了，顶点此时不在队列中时才将它入队。
+
+
+
+（2）负环判断问题。这种做法一直做到队列为空，若存在负环，则永远会有新的顶点距离变小，队列永远不会空。那怎么办？常见的做法是再记录一个数组
+inq\_cnt[N]，标记每个顶点入队的次数。若某个顶点已经入队了超过$N-1$次（它的距离已经被更新过超过$N-1$次），说明存在负环，问题不可解。
+
+于是我们可以给出这种优化的Bellman-Ford算法代码（邻接表版）如下所示：
+\begin{cppcode}
+    struct EdgeInfo {
+        int u;
+        int weight;
+    };
+    vector<EdgeInfo> AdjList[N]; // 已存储图的邻接表
+    const int inf = 0x3fffffff;
+    int cur_mind[N];    // 已初始化为inf
+    int Pre[N];     // 已初始化为-1
+
+    bool in_queue[N];   // 标记顶点是否当前在队列中，初始化为false
+    int inq_cnt[N];         // 记录顶点入队次数，用于检测负权环，初始化为0
+    bool SPFA(int s) {
+        cur_mind[s] = 0;
+        queue<int> q;
+        q.push(s);
+        in_queue[s] = true;
+
+        while(!q.empty()) {
+            int v = q.front();
+            q.pop();
+            
+            // 弹出后，别忘了将标记改为 false，允许它以后再次入队
+            in_queue[v] = false;
+
+            // 遍历当前顶点的所有出边
+            for(int j = 0; j < AdjList[v].size(); j++) {
+                int u = AdjList[v][j].u;
+                int weight = AdjList[v][j].weight;
+
+                // 松弛操作
+                if(cur_mind[v] + weight < cur_mind[u]) {
+                    cur_mind[u] = cur_mind[v] + weight;
+                    Pre[u] = v;
+
+                    // 如果 u 不在队列中，将其压入队列
+                    if(!in_queue[u]) {
+                        q.push(u);
+                        in_queue[u] = true;
+                        inq_cnt[u]++; // 记录入队次数
+
+                        // 如果某个顶点入队次数超过 N-1 次，说明存在负权环
+                        if(inq_cnt[u] >= N) {
+                            return false; 
+                        }
+                    }
+                }
+            }
+        }
+
+        return true; 
+    }
+\end{cppcode}
+
+这种优化后的Bellman-Ford算法被称为\term{SPFA（Shortest Path Faster Algorithm）算法}。它的平均时间复杂度为O(kM)，k是每个顶点的
+平均入队次数，而最坏时间复杂度为O(NM)。在大多数场景下SPFA算法性能要由于堆优化后的迪杰斯特拉算法，但对于极端情况，迪杰斯特拉算法
+最差也能保证O((N+M)logN)的复杂度，而SPFA算法可能达到O(NM)。
+
+
+\subsection{Floyd算法}
+Floyd 算法（弗洛伊德算法），是一种用于求解图中所有顶点对之间最短路径的算法，即\term{全源最短路径}问题。。
+Floyd算法的核心思想在于：对于任意三个顶点 \(i\)、\(j\)、\(k\)，我们都可以尝试：
+\[
+    d_{ij}=\min(d_{ij},d_{ik}+d_{kj})
+\]
+也就是说，我们原来知道的\(i\) 到 \(j\) 的最短距离是 \(d_{ij}\)，现在尝试让路径经过顶点 \(k\)，如果经过 \(k\) 的距离更短，就更新答案。
+
+顶点到自身的距离初始化为$0$，存在直接边的顶点之间距离初始化为边权，不存在直接边的顶点之间距离初始化为正无穷。算法实现如下：
+\begin{cppcode}
+    const int inf = 0x3fffffff;
+    int d[N][N];
+
+    // 初始化距离矩阵
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            d[i][j] = (i == j ? 0 : inf);
+        }
+    }
+
+    // 根据图中的边更新距离矩阵
+    // 假设存在一条从u到v、权重为w的边
+    degree[u][v] = w;
+    // ...
+
+    // Floyd算法
+    for (int k = 0; k < N; k++) {
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                if (d[i][k] != inf &&
+                    d[k][j] != inf) {
+                    d[i][j] = min(
+                        d[i][j],
+                        d[i][k] + d[k][j]
+                    );
+                }
+            }
+        }
+    }
+\end{cppcode}
+Floyd算法支持存在负权边的图，但要求不存在从源点可达的负权环。其时间复杂度为$O(N^3)$，空间复杂度为$O(N^2)$。
+
+
+
+
+
+
+\chapter*{--- BONFIRE ENCOUNTERED ---}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{exercise}
+1. （某年408真题）使用迪杰斯特拉算法求下图中顶点1到其他各顶点之间的最短路径，则依次确定最短路径的目标定点是\underline{\hspace{1cm}}
+\begin{center}
+    \includegraphics[width=0.41\textwidth]{assets/pics_and_ppts/ch5/习题09，16408最短路径的选点顺序.png}
+\end{center}
+
+\begin{tabular}{llll}
+    A. 5,2,3,4,6 & B. 5,2,3,6,4 & C. 5,2,4,3,6 & D. 5,2,6,3,4
+\end{tabular}
+
+\vspace{\baselineskip}
+
+2. （某年408真题）对下图所示的有向带权图，若采用迪杰斯特拉算法求源点a到其他各顶点的最短路径，则第一个确定全局最短路径的顶点是b，第二个确定全局最短路径
+的顶点是c，后续的顶点依次是\underline{\hspace{1cm}}
+
+\begin{center}
+    \includegraphics[width=0.36\textwidth]{assets/pics_and_ppts/ch5/习题10，12408最短路径选点顺序.png}
+\end{center}
+
+\begin{tabular}{llll}
+    A. d,e,f & B. e,d,f & C. f,d,e & D. f,e,d
+\end{tabular}
+
+\vspace{\baselineskip}
+
+3. （某年408真题）使用迪杰斯特拉算法求下图中从顶点1到其余各顶点的最短路径，将当前找到的从顶点1到顶点2，3，4，5的最短路径
+保存在数组dist[]中，则依次求出两个顶点（不包括源点1）的最短路径后，dist中的内容更新为\underline{\hspace{1cm}}
+
+\begin{center}
+    \includegraphics[width=0.39\textwidth]{assets/pics_and_ppts/ch5/习题11，21408迪杰斯特拉dist内容.png}
+\end{center}
+
+\begin{tabular}{llll}
+    A. 26,3,14,6 & B. 25,3,14,6 & C. 21,3,14,6 & D. 15,3,14,6
+\end{tabular}
+
+
+
+
+
+\end{exercise}
+\clearpage
+
+\begin{exerciseanswer}
+1. 选B。每一步所选的点，及选完该点后所有点的当前已知最短路径cur\_mind[]如下图所示（带下划线的数字表示该顶点的cur\_mind[]）。
+\begin{center}
+    \includegraphics[width=1.02\textwidth]{assets/pics_and_ppts/ch5/习题09，16408最短路径的选点顺序答案图.png}
+\end{center}
+于是选点顺序是1,5,2,3,6,4，选B。\\
+
+2. 选C。需要注意c到f是有一条边的，别看漏了就行。\\
+
+3. 选C。求解前两个顶点（不包括源点）的最短路径过程如下所示。
+\begin{center}
+    \includegraphics[width=0.95\textwidth]{assets/pics_and_ppts/ch5/习题11，21408迪杰斯特拉dist内容答案图.png}
+\end{center}
+
+
+\end{exerciseanswer}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
