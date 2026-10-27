@@ -1,19 +1,9 @@
-    int PrintKVertices(MGraph G) {
-        int ret = 0;    // 计算K顶点的个数
-        for(int i=0; i<G.numVertices; i++) {
-            int out_deg = 0;    // 顶点i的出度
-            int in_deg = 0;     // 入度
-            for(int j=0; j<G.numVertices; j++) {
-                // i到j有路径，i的出度+1
-                if(G.Matrix[i][j] != 0) out_deg += 1;
-                // j到i有路径，i的入度+1
-                if(G.Matrix[j][i] != 0) in_deg += 1;
-            }
-            // 出度大于入度，是一个K顶点，输出
-            if(out_deg > in_deg) {
-                cout << G.VerticesList[i];
-                ret += 1;
-            }
+    for(int j=0; j<AdjList[v].size(); j++) {
+        int u = AdjList[v][j].u;
+        cost c;
+        c.time = AdjList[v][j].time_cost;
+        c.energy = AdjList[v][j].energy_cost;
+        if(cur_minc[v] + c < cur_minc[u]) {
+            cur_minc[u] = cur_minc[v] + c;
         }
-        return ret;
     }

@@ -1,0 +1,20 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{cost}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{time}\PYG{+w}{ }\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{energy}\PYG{p}{;}
+\PYG{+w}{    }\PYG{c+c1}{// 定义cost类型对象的“\PYGZlt{}”比较规则}
+\PYG{+w}{    }\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{k}{operator}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{cost}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{other}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{return}\PYG{+w}{ }\PYG{k}{this}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{time}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{other}\PYG{p}{.}\PYG{n}{time}\PYG{+w}{ }\PYG{o}{|}\PYG{o}{|}
+\PYG{+w}{            }\PYG{p}{(}\PYG{k}{this}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{time}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{n}{other}\PYG{p}{.}\PYG{n}{time}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{k}{this}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{energy}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{other}\PYG{p}{.}\PYG{n}{energy}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{    }\PYG{c+c1}{// 定义两个代价相加规则}
+\PYG{+w}{    }\PYG{n}{cost}\PYG{+w}{ }\PYG{k}{operator}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{cost}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{other}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{cost}\PYG{+w}{ }\PYG{n}{ret}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{ret}\PYG{p}{.}\PYG{n}{time}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{this}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{time}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{other}\PYG{p}{.}\PYG{n}{time}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{ret}\PYG{p}{.}\PYG{n}{energy}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{this}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{n}{energy}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{other}\PYG{p}{.}\PYG{n}{energy}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{ret}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}\PYG{p}{;}
+\PYG{n}{cost}\PYG{+w}{ }\PYG{n}{cur\PYGZus{}minc}\PYG{p}{[}\PYG{n}{N}\PYG{p}{]}\PYG{p}{;}\PYG{+w}{   }\PYG{c+c1}{// 这一个数组就包含了cur\PYGZus{}mint和cur\PYGZus{}mine的功能}
+\end{MintedVerbatim}

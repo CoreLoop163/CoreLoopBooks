@@ -187,7 +187,7 @@
     \end{center}
 \end{insightbox}
 
-以上这种图的存储方式被称为\term{邻接矩阵}法：
+以上这种图的存储方式被称为\term{邻接矩阵}法。使用邻接矩阵法可以将一个图描述如下：
 \begin{cppcode}
 // MAX_VNUM为该结构可存储的图的最大顶点数
     struct MGraph { // M：Matrix版
@@ -197,6 +197,7 @@
         int current_enum;   // 当前边数
     };
 \end{cppcode}
+
 拟用0表示边不存在，格佛莱通过图\ref{fig:邻接矩阵示意图}展示了两个图（Graph）以及其对应的邻接矩阵AdjM。
 
 \begin{figure}[htbp]
@@ -1652,13 +1653,13 @@ D. 广度优先搜索能够访问到起点所在连通块的每一个顶点，�
 至此，所有顶点到达A的最短路径均已求解，$cur\_mind[i]$中最终保存的就是顶点$i$到A的全局最短路径（事实最短路径），因为它一定已经经过了其所有邻接点的更新操作。
 
 最后，需要注意我们以上讨论，都是基于一个假设：图中不存在负权边。通过上述过程也可以看得出来，若存在负边，“不绕弯思想”将不复存在，因此整个推理过程也将崩塌。
-正是由于这样的道理，我们马上会看到，\textbf{迪杰斯特拉算法无法求解存在负边的图}。并且同时可以看到，若图非连通，迪杰斯特拉算法也可以得出哪些顶点从源点出发
-是不可达的。
+正是由于这样的道理，我们马上会看到，\textbf{迪杰斯特拉算法要求图中不存在从源点可达的负权边}。并且由以上思维过程我们知道，若图非连通，
+迪杰斯特拉算法也可以得出哪些顶点从源点出发是不可达的。
 
 \bookmark{bookmark:waypoint-8}{waypoint-8}
 接下来我们正式介绍赫赫有名的迪杰斯特拉算法（Dijkstra算法）。我们先给出算法正确、完整的步骤，再由一个具体例子直观地感受一下。
 
-\textbf{迪杰斯特拉算法}用于求解无负边图的单源最短路径问题。设图$G=(V,E)$有$N$个顶点，$cost(u, v)$为u到v的权值（路径的长度），我们记
+\textbf{迪杰斯特拉算法}可用于求解单源最短路径问题。设图$G=(V,E)$有$N$个顶点，$cost(u, v)$为u到v的权值（路径的长度），我们记
 $cur\_mind[i]$为顶点$i$当前已知的
 最短路径长度，则求解起点$s$到其他任意顶点的最短路径的过程如下：
 
@@ -1893,13 +1894,18 @@ $cur\_mind[i]$为顶点$i$当前已知的
     \label{table:迪杰斯特拉算法过程演示}
 \end{table}
 
+% 恢复表格样式
+\arrayrulecolor{black}
+\setlength{\arrayrulewidth}{0.5pt}
+
 可以看到，“选点”就是每次从尚未求解的集合中，“选”出一个当前已知最短路径$cur\_mind[]$最小的顶点v，作为“已求解顶点”，并用它尝试“更新”其所有邻接点的
 最短路径$cur\_mind[]$。每次能确定一个顶点的全局最短路径，重复$N$次操作（其实$N-1$次即可），即可求解所有顶点的全局最短路径，最终$cur\_mind[]$
 中保存的就是各个顶点的全局最短路径的长度，而各顶点的最短路径是什么，顺着Pre[]数组一路向前即可。如$v_5$到$v_0$的最短路径就是
 \begin{bulk}
     5 -> Pre[5] = 4 -> Pre[4] = 1 -> Pre[1] = 0，即 5 -> 4 -> 1 -> 0    
 \end{bulk}
-这就是赫赫有名的迪杰斯特拉算法。
+这就是赫赫有名的迪杰斯特拉算法。迪杰斯特拉算法可以求解出从源点s到各个与之连通的顶点之间的最短路径，同时也可以确定哪些顶点与s是不连通的。但迪杰斯特拉算法要求
+图中不存在从源点出发可达的负权边，\textbf{若图不满足这一条件，迪杰斯特拉算法将失效}。
 
 迪杰斯特拉算法需要$N$次“选点”、“更新”操作，更新时需要找到该顶点的所有邻接点，而对于邻接矩阵和邻接表存储的图，找邻接点的时间复杂度有所区别，因此，迪杰斯特拉
 算法的时间复杂度与图的存储方式有关，下面我们就看看两种存储方式下，迪杰斯特拉算法如何实现。
@@ -2092,7 +2098,10 @@ Bellman-Ford 算法需要做约$N$轮操作，每轮操作需要遍历所有边�
     }
 \end{cppcode}
 当图存在负环时，Bellman-Ford算法返回false，表示存在负环，最短路径问题不可解。否则返回true，cur\_mind[]数组中存放的就是各顶点的最短路径。沿着Pre[]数组
-往回追溯即可得到轨迹。对于邻接矩阵版本仅在于遍历边的方式不同，这里不再给出代码。\\
+往回追溯即可得到轨迹。对于邻接矩阵版本仅在于遍历边的方式不同，这里不再给出代码。
+
+可以看到，与Dijkstra算法从源点出发，逐渐向外“扩散”地求解各个顶点的最短路径的策略不同，Bellman-Ford算法则是“放眼全局”，一步一步地让全局下的各个cur\_mind[]
+慢慢向正确解“收拢”。\\
 
 对于Bellman-Ford算法，我们自然会想到这样一个问题：我们每轮处理的时候，都需要遍历所有边，判断能否更新某个顶点的cur\_mind[]。但事实上，假设第$i-1$轮
 仅有顶点v的cur\_mind[]发生了变化，那么第$i$轮其实我们没有必要遍历所有边，而是只遍历v的出边即可，因为只有距离发生了变化的顶点才可能继续影响其他顶点。这样，
@@ -2232,10 +2241,13 @@ Floyd算法支持存在负权边的图，但要求不存在从源点可达的负
 
 
 \chapter*{--- BONFIRE ENCOUNTERED ---}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+火光闪烁中，你独自坐在营火旁。
+
+
 \begin{exercise}
 1. （某年408真题）使用迪杰斯特拉算法求下图中顶点1到其他各顶点之间的最短路径，则依次确定最短路径的目标定点是\underline{\hspace{1cm}}
 \begin{center}
-    \includegraphics[width=0.41\textwidth]{assets/pics_and_ppts/ch5/习题09，16408最短路径的选点顺序.png}
+    \includegraphics[width=0.40\textwidth]{assets/pics_and_ppts/ch5/习题09，16408最短路径的选点顺序.png}
 \end{center}
 
 \begin{tabular}{llll}
@@ -2248,7 +2260,7 @@ Floyd算法支持存在负权边的图，但要求不存在从源点可达的负
 的顶点是c，后续的顶点依次是\underline{\hspace{1cm}}
 
 \begin{center}
-    \includegraphics[width=0.36\textwidth]{assets/pics_and_ppts/ch5/习题10，12408最短路径选点顺序.png}
+    \includegraphics[width=0.34\textwidth]{assets/pics_and_ppts/ch5/习题10，12408最短路径选点顺序.png}
 \end{center}
 
 \begin{tabular}{llll}
@@ -2261,14 +2273,73 @@ Floyd算法支持存在负权边的图，但要求不存在从源点可达的负
 保存在数组dist[]中，则依次求出两个顶点（不包括源点1）的最短路径后，dist中的内容更新为\underline{\hspace{1cm}}
 
 \begin{center}
-    \includegraphics[width=0.39\textwidth]{assets/pics_and_ppts/ch5/习题11，21408迪杰斯特拉dist内容.png}
+    \includegraphics[width=0.33\textwidth]{assets/pics_and_ppts/ch5/习题11，21408迪杰斯特拉dist内容.png}
 \end{center}
 
 \begin{tabular}{llll}
     A. 26,3,14,6 & B. 25,3,14,6 & C. 21,3,14,6 & D. 15,3,14,6
 \end{tabular}
 
+\vspace{\baselineskip}
 
+4. 请你说明：迪杰斯特拉算法、Bellman-Ford算法以及SPFA算法应对以下情况的图时会怎样？\\[0.5em]
+a）存在从源点可达的负环；\\
+b）不存在从源点可达的负环，但存在从源点可达的负权边；\\
+
+维火女被邪恶的恶魔、大陆守护神的孪生兄弟LoopCore抓了起来，并关在了监牢的某个牢房里。监牢可以被建模为一个图$G=(V,E)$，顶点表示牢房。
+
+已知该监牢有 $N$ 个牢房，编号为 0 到 $N-1$，牢房之间均存在双向通路，用邻接表存储图模型。你毫不犹豫地动身前往牢房营救维火女，但你破门而入后意外地被魔法传送进了牢房s。\\
+
+5. 已知每个牢房（顶点）的数据类型为char：维火女所在的牢房为\textquotesingle T\textquotesingle，其余牢房均为\textquotesingle F\textquotesingle。
+给出在每两个牢房之间移动所需要花费的时间time\_cost（非负），请你计算从s出发，到达维火女的房间所需要的最短时间是多少，若无法到达，返回-1。
+
+\begin{cppcode}
+    // N 已定义
+    struct EdgeInfo {
+        int u;          // 顶点编号
+        int time_cost;  // 花费时间（边权）
+    };
+    vector<EdgeInfo> AdjList[N];    // 已存储邻接表信息 
+    char ver_info[N];   // 已存储顶点信息
+    // 返回以s为起点到达维火女的房间需要花费的最短时间
+    int MinTime(int s) {
+        
+    }
+\end{cppcode}
+
+\vspace{\baselineskip}
+
+6. 在{\color{red}上题}条件下，假设你在任何两个房间移动时需要和敌人战斗，此时边（Edge）使用如下结构定义：
+\begin{cppcode}
+    struct EdgeInfo {
+        int u;              
+        int time_cost;      // 花费时间
+        int energy_cost;    // 和敌人战斗需要消耗的能量值
+    };
+\end{cppcode}
+保证所有边的time\_cost和energy\_cost均非负。你决定选择所有路线中，消耗时间最少的路线去营救维火女。若有多条路线消耗时间相等，你将选择其中
+消耗能量最少的一条路线。
+
+编写一个函数，返回你所选择的路线所消耗的能量值。若无法到达，返回-1。\\
+
+% *7. 在{\color{red}上题}条件下，若你的初始能量值为$e_1$，并且在你到达维火女的房间后，至少还剩有$e_2$的能量值的前提下，才能带她一起离开监牢。
+% 现要求你找到她后，必须能够带她离开监牢。在此前提下，你将选择时间最短的一条路线，若有多条路线，你将选择消耗能量最少的路线。请返回在此路线下你
+% 到达维火女的房间时剩余的能量值。
+
+% \begin{cppcode}
+%     // N 已定义
+%     struct EdgeInfo {
+%         int u;              
+%         int time_cost;      // 花费时间
+%         int energy_cost;    // 和敌人战斗需要消耗的能量值
+%     };
+%     vector<EdgeInfo> AdjList[N];    // 已存储邻接表信息 
+%     char ver_info[N];   // 已存储顶点信息
+%     // 返回以s为起点到达维火女的房间需要花费的最短时间
+%     int RemainingEnergy(int s, int e1, int e2) {
+        
+%     }
+% \end{cppcode}
 
 
 
@@ -2286,10 +2357,406 @@ Floyd算法支持存在负权边的图，但要求不存在从源点可达的负
 
 3. 选C。求解前两个顶点（不包括源点）的最短路径过程如下所示。
 \begin{center}
-    \includegraphics[width=0.95\textwidth]{assets/pics_and_ppts/ch5/习题11，21408迪杰斯特拉dist内容答案图.png}
+    \includegraphics[width=0.90\textwidth]{assets/pics_and_ppts/ch5/习题11，21408迪杰斯特拉dist内容答案图.png}
 \end{center}
+
+\vspace{\baselineskip}
+
+4. a）若存在从源点可达的负环，则源点s与任何一个顶点v的最短路径，都可以通过“先走到负环，然后一直绕圈，再走到v”的方式，将最短路径“刷到负无穷”，因此若图中
+存在源点可达的负环，通常认为最短路径问题不可解，或者为负无穷；而Bellman-Ford算法可以在图存在负环时给出“不可解”的结论，Dijkstra算法则难以做到这一点。
+
+b）若存在源点可达的负权边，那么迪杰斯特拉算法将失效，求解出可能错误的最短路径；而Bellman-Ford及SPFA算法可以应对存在负权边的图，给出正确的最短路径。
+
+三种算法总结如下：\\
+
+\begin{tabular}{|c|c|c|c|}
+    \hline
+    \textbf{图的特点} &	\textbf{Dijkstra} &	\textbf{Bellman-Ford} &	\textbf{SPFA}\\
+    \hline
+    所有边权非负 &	可以 & 可以 & 可以\\
+    \hline
+    存在负权边，无可达负环 & 不保证正确 & 可以 & 可以 \\
+    \hline
+    存在可达负权环 & 不保证正确，无法可靠检测 & 可以检测 & 可以检测\\
+    \hline
+\end{tabular}
+
+\vspace{\baselineskip}
+
+5. 本题意在给大家练习求解最短路径的迪杰斯特拉算法、SPFA算法的代码。显然，我们使用算法求出各顶点的最短路径，返回维火女所在顶点的最短路径即可。
+使用迪杰斯特拉算法求解的代码如下：
+\begin{cppcode}
+    // N 已定义
+    struct EdgeInfo {
+        int u;          // 顶点编号
+        int time_cost;  // 花费时间（边权）
+    };
+    vector<EdgeInfo> AdjList[N];    // 已存储邻接表信息 
+    char ver_info[N];   // 已存储顶点信息
+    // 返回以s为起点到达维火女的房间需要花费的最短时间
+    int MinTime(int s) {
+        const int inf = 0x3fffffff;
+        int cur_mind[N];
+        bool solved[N];
+        // 记录维火女所在的牢房编号firekeeper_idx，函数最后返回cur_mind[firekeeper_idx]。
+        int firekeeper_idx = -1;
+        
+        // 初始化的过程顺便找一下维火女在哪
+        for(int i=0; i<N; i++) {
+            cur_mind[i] = inf;
+            solved[i] = false;
+            if(ver_info[i] == 'T') {
+                firekeeper_idx = i;
+            }
+        }
+        cur_mind[s] = 0;
+
+        for(int i=0; i<N-1; i++) {
+            // 从尚未求解的顶点中选出一个cur_mind[]最小的顶点v
+            int min_curmind = inf;
+            int v = -1;
+            for(int j=0; j<N; j++) {
+                if(cur_mind[j] < min_curmind && !solved[j]) {
+                    v = j;
+                    min_curmind = cur_mind[j];
+                }
+            }
+
+            if(v == -1) {
+                break;
+            }
+            solved[v] = true;
+            // 已经计算出维火女了，就别再计算其他的了，赶紧去救她吧！
+            if(v == firekeeper_idx) {
+                return cur_mind[v];
+            }
+
+            for(int j=0; j<AdjList[v].size(); j++) {
+                int u = AdjList[v][j].u;
+                int time_cost = AdjList[v][j].time_cost;
+                if(cur_mind[v] + time_cost < cur_mind[u]) {
+                    cur_mind[u] = cur_mind[v] + time_cost;
+                }
+            }
+            
+        }
+        return cur_mind[firekeeper_idx] == inf? -1 : cur_mind[firekeeper_idx];
+    }
+\end{cppcode}
+
+使用SPFA算法求解的代码如下：
+\begin{cppcode}
+    // N 已定义
+    struct EdgeInfo {
+        int u;          // 顶点编号
+        int time_cost;  // 花费时间（边权）
+    };
+    vector<EdgeInfo> AdjList[N];    // 已存储邻接表信息 
+    char ver_info[N];   // 已存储顶点信息
+    // 返回以s为起点到达维火女的房间需要花费的最短时间
+    int MinTime(int s) {
+        const int inf = 0x3fffffff;
+        int cur_mind[N];
+        bool in_queue[N];
+        /* 该场景明确图中无负边，因此无需进行负环
+        检测，也就不需要inq_cnt[]数组，但这里还是
+        以注释给出，帮助大家再次复习若需要检测负环
+        时，代码该怎么写。 */
+        // int inq_cnt[N];  
+        int firekeeper_idx = -1;
+        for(int i=0; i<N; i++) {
+            cur_mind[i] = inf;
+            in_queue[i] = false;
+            // inq_cnt[i] = 0;
+            if(ver_info[i] == 'T') {
+                firekeeper_idx = i;
+            }
+        }
+        cur_mind[s] = 0;
+        queue<int> q;
+        q.push(s);
+        in_queue[s] = true;
+        while(!q.empty()) {
+            int v = q.front();
+            q.pop();
+            in_queue[v] = false;
+            for(int i=0; i<AdjList[v].size(); i++) {
+                int u = AdjList[v][i].u; 
+                int time_cost = AdjList[v][i].time_cost;
+                if(cur_mind[v] + time_cost < cur_mind[u]) {
+                    cur_mind[u] = cur_mind[v] + time_cost;
+                    if(!in_queue[u]) {
+                        in_queue[u] = true;
+                        q.push(u);
+                        // inq_cnt[u] += 1;
+                    }
+
+                    // 若可能存在负环，在此处进行负环判断
+                    
+                }
+            }
+        }
+        return cur_mind[firekeeper_idx] == inf ? -1 : cur_mind[firekeeper_idx];
+    }
+\end{cppcode}
+
+\vspace{\baselineskip}
+
+6. 
+
+\begin{wrapfigure}{r}{0.22\textwidth}  
+    \centering
+    \includegraphics[width=0.80\linewidth]{assets/pics_and_ppts/ch5/习题12营救维火女最短时间、最小能量答案图.png}
+\end{wrapfigure}
+
+若使用迪杰斯特拉算法，就要同时记录每个点的当前已知最短时间及对应最短时间路径的最小能量消耗：cur\_mint[i]为j表示顶点i到s的最短时间为j，并且cur\_mine[i]
+为k表示顶点i到s的最短时间路径下，最小消耗为k。
+
+而且每次“选点”时，就不能只选择时间花费最小的，而是要选的时间花费最小的条件下，能量消耗最小的那个点。如图，
+以$v_0$为起点，若直接选择了$v_1$，则会得到错误答案。在更新时类似，当时间更短，或时间相等但能量消耗更少时更新即可。代码如下：
+
+\begin{cppcodeHighlight}[11-12,17-18,29-30,32-39,53-59]
+    // N 已定义
+    struct EdgeInfo {
+        int u;          
+        int time_cost;      // 花费时间
+        int energy_cost;    // 和敌人战斗需要消耗的能量值
+    };
+    vector<EdgeInfo> AdjList[N];    // 已存储邻接表信息 
+    char ver_info[N];   // 已存储顶点信息
+    // 返回以s为起点到达维火女的房间花费时间最短的路径中，消耗能量最少的那条路径所消耗的能量值
+    int MinEnergyCost(int s) {
+        int cur_mint[N];    // 当前已知的各顶点最短时间
+        int cur_mine[N];    // 对应最短时间路径中的最小能量消耗
+        bool solved[N];
+        const int inf = 0x3fffffff;
+        int firekeeper_idx = -1;
+        for(int i=0; i<N; i++) {
+            cur_mint[i] = inf;
+            cur_mine[i] = inf;
+            solved[i] = false;
+            if(ver_info[i] == 'T') {
+                firekeeper_idx = i;
+            }
+        }
+
+        cur_mint[s] = 0;
+        cur_mine[s] = 0;
+        
+        for(int i=0; i<N-1; i++) {
+            int min_timecost = inf;
+            int min_energycost = inf;
+            int v = -1;
+            for(int j=0; j<N; j++) {
+                if(!solved[j] && (cur_mint[j] < min_timecost || 
+                    cur_mint[j] == min_timecost && cur_mine[j] < min_energycost) 
+                ) {
+                    min_timecost = cur_mint[j];
+                    min_energycost = cur_mine[j];
+                    v = j;
+                }
+            }
+
+            if(v == -1) {
+                break;
+            }
+            solved[v] = true;
+            if(v == firekeeper_idx) {
+                break;
+            }
+            for(int j=0; j<AdjList[v].size(); j++) {
+                int u = AdjList[v][j].u;
+                int time_cost = AdjList[v][j].time_cost;
+                int energy_cost = AdjList[v][j].energy_cost;
+                if(cur_mint[v] + time_cost < cur_mint[u]) {
+                    cur_mint[u] = cur_mint[v] + time_cost;
+                    cur_mine[u] = cur_mine[v] + energy_cost;
+                }
+                else if(cur_mint[v] + time_cost == cur_mint[u] && cur_mine[v] + energy_cost < cur_mine[u]) {
+                    cur_mine[u] = cur_mine[v] + energy_cost;
+                }
+            }
+        }
+        return cur_mine[firekeeper_idx] == inf ? -1 : cur_mine[firekeeper_idx];
+    }
+\end{cppcodeHighlight}
+事实上本题可以从另一个角度去理解：有些时候我们可能在求时间最短的最短路径，有些时候求路程最短，有些时候求花费最少......，时间、路程、花费的大小比较规则就是比数值。
+
+而本题“时间”和“能量”共同组成了某个东西，拟叫它“代价”好了，那么本题其实就是在求“代价”最短的最短路径。只不过“代价”有着不太一样的大小比较规则：对于两个表示
+“代价”的变量a和b，
+
+1）a“小于”b定义为：a的时间比b小，或a与b时间相等并且a的能量比b小；
+
+2）a“等于”b定义为：a与b的时间、能量完全相等；
+
+3）a“大于”b定义为：a的时间比b大，或a与b时间相等并且a的能量比b大；
+
+因此，我们在每次“选点”时，就像要以时间、路程、花费等为标尺选出最小的一样，本题我们就是在选出“代价”最小的；在更新时，是在比较“代价”的大小，若以v为中介，
+能够使得u的“代价”更小，则更新u。这也从另一个角度理解了以上代码实现。
+
+同时，通过C++的运算符重载功能，我们可以对这种结构体的大小比较进行定义：
+\begin{cppcode}
+    struct cost {
+        int time ;
+        int energy;
+        // 定义cost类型对象的“<”比较规则
+        bool operator < (const cost& other) const {
+            return this->time < other.time ||
+                (this->time == other.time && this->energy < other.energy);
+        }
+
+        // 定义两个代价相加规则
+        cost operator + (const cost& other) const {
+            cost ret;
+            ret.time = this->time + other.time;
+            ret.energy = this->energy + other.energy;
+            return ret;
+        }
+    };
+    cost cur_minc[N];   // 这一个数组就包含了cur_mint和cur_mine的功能
+\end{cppcode}
+然后每次“选点”时：
+\begin{cppcode}
+    cost min_cost;
+    min_cost.time = inf;
+    min_cost.energy = inf;
+    int v = -1;
+    for(int j=0; j<N; j++) {
+        if(!solved[j] && cur_minc[j] < min_cost ) {
+            min_cost = cur_minc[j];
+            v = j;
+        }
+    }
+    ...
+\end{cppcode}
+更新时：
+\begin{cppcode}
+    for(int j=0; j<AdjList[v].size(); j++) {
+        int u = AdjList[v][j].u;
+        cost c;
+        c.time = AdjList[v][j].time_cost;
+        c.energy = AdjList[v][j].energy_cost;
+        if(cur_minc[v] + c < cur_minc[u]) {
+            cur_minc[u] = cur_minc[v] + c;
+        }
+    }
+\end{cppcode}
+这种运算符重载规则，可以在我们使用C++标准库提供的排序函数std::sort()时来自定义一些排序规则，{\color{red}我们将在后面的内容中看到。}
+    
+
+
 
 
 \end{exerciseanswer}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+你成功营救出了维火女，你们一同回到大陆中，继续冒险。她手中正是那樱花之泪。
+
+
+
+\section{最小生成树}
+王国的指挥官们解决了最短路径问题之后，又提出了一个新的问题：目前据点之间通信只能通过信使传递，他们希望在据点之间铺设通信线缆，使得信息可以顺着线缆迅速传递。
+指挥官们认为，没有必要在任意两个据点之间都铺设线缆，而是只要能够保证任意两个据点之间都可以通过线缆连通即可。
+这样一来，即使信息需要经过其他据点中转，也能实现整个王国的线缆通信。
+
+然而，铺设线缆需要耗费大量资源。不同据点之间铺设线缆所需的成本各不相同。指挥官们希望找到一种方案：既能保证所有据点都连通，又能使铺设线缆的总成本尽可能低。
+应该如何设计这样的方案呢？这其实就是\term{最小生成树}的问题：
+
+
+给定一个\uline{连通的}无向带权图 \(G=(V,E)\)，如果从图中选择若干条边，使得所有顶点连通且不存在环，
+那么图的所有顶点及这些边构成的子图就是原图的一棵\term{生成树}。在所有生成树中，边权总和最小的生成树称为\term{最小生成树（Minimum Spanning Tree，MST）}。\\
+
+对此问题，格佛莱指出：初始时随意选择一个顶点s，然后选择依附于s的边权最小的一条边，将该边与相连顶点“收进来”，
+此时，当前的生成树中就已经有了2个顶点。然后，继续选择能够连通这2个顶点与其他顶点的一条边权最小的边，并将该边与相连的顶点“收进来”，生成树中就有了3
+个顶点。重复这个操作，直至所有顶点都被“收进来”。这样做，得到的生成树中的所有边，一定是使得顶点连通的所有边的选集中权值之和最小的$N-1$条边。
+如图\ref{fig:Prim算法道理说明}所示，使得三个顶点连通，可选的边集有$\{e_0, e_1\}$、$\{e_0, e_2\}$以及$\{e_1, e_2\}$，权值之和最小的一定是$\{e_0, e_1\}$。
+
+因此得到的树一定就是最小生成树。这就是\term{Prim（普里姆）算法}的核心思想。
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.50\textwidth]{assets/pics_and_ppts/ch5/24Prim算法道理说明.png}
+    \caption{}
+    \label{fig:Prim算法道理说明}
+\end{figure}
+
+可以看出，对于Prim算法，我们需要动态维护当前生成树以及尚未收入的所有顶点到当前生成树的最小代价。详细实现如下。
+\subsection{Prim（普里姆）算法}
+设无向连通图$G=(V,E)$，Prim算法的过程如下：设置集合S保存已经收入当前的生成树中的顶点，cur\_mind[]保存各未收入顶点到集合S的最小代价。
+初始时随意收入一个顶点s（即S=\{s\}），令与s邻接的所有顶点的cur\_mind[]为相应边权，令其他所有顶点的cur\_mind[]为正无穷。然后执行$N-1$次以下两个步骤：
+\begin{enumerate}
+    \item 从集合V-S（还未收入当前生成树的顶点集）中选择距离集合S代价最小的一个顶点（即cur\_mind[]最小）u，将u加入S，并将u以及这条边加入当前生成树中。
+    \item 对于 u 的每个未被收入S的邻接点 v，执行 
+    \[
+        cur\_mind[v] = min(cur\_mind[v], cost(u, v))
+    \] 
+    即如果通过 u 到达 v 的代价比原来记录的更小，则更新 cur\_mind[v]。
+\end{enumerate}
+可以看到这个过程与迪杰斯特拉算法非常像，迪杰斯特拉算法是每次选择与\uline{源点s}最近的顶点，而Prim算法是选择与\uline{已有生成树S}最近的顶点。注意：Prim算法中，
+cur\_mind[v]记录的并不是顶点v到源点s的最短距离，而是顶点v到集合S的最短距离，即v到S中的所有顶点的距离中最小的那个。
+
+我们以图\ref{fig:Prim算法过程演示} a）所示的图，演示一遍Prim算法的过程：
+
+1）任选一个点，假设选A，收入最小生成树，更新A的邻接点B和C的cur\_mind[]，如b）所示；此时集合S为\{A\}。图中带下划线的数字表示还未收入生成树的各个顶点
+距集合S的最小代价（最短距离）；图中虚线表示该顶点最近是被哪条边所更新的，收入该顶点时沿着虚线就能找到边。
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1.01\textwidth]{assets/pics_and_ppts/ch5/25Prim算法过程演示.png}
+    \caption{Prim算法过程演示}
+    \label{fig:Prim算法过程演示}
+\end{figure}
+
+2）未收入的顶点中，到集合S代价最小（最近）的顶点是B，于是收入B，如c）所示，收入B后，
+由于 $cur\_mind[C] = 5 < cost(B, C) = 1$，也就是说对于新的集合S=\{A, B\}，C到B的距离更小了，于是更新C到集合S的距离为1。类似地，更新cur\_mind[E]为3、
+cur\_mind[D]为10。
+
+3）未收入的顶点中，到集合S代价最小（最近）的顶点是C，于是收入C，如d）所示，并且对于C的邻接点E，由于$cur\_mind[E] = 3 < cost(C, E) = 8$，因此无需更新。
+
+4）收入E，然后更新D、F，如e）所示；
+
+5）收入D，然后更新F，如f）所示；
+
+6）收入F，所有顶点均已被收入生成树，此时得到的即是最小生成树，各个边的权值之和即是最小代价：2 + 1 + 3 + 4 + 6 = 16。
+
+
+\subsection{Kruskal（克鲁斯卡尔）算法}
+指挥官麦丽凯给出了一种完全不同的思路：她不喜欢一步一步细致、缜密地规划，而是将注意力放眼全局。
+麦丽凯指出：初始时，没有任何顶点和边被收入生成树，将图看成是$N$个割裂的顶点构成了$N$个连通块。首先挑选整个图中边权最小的边，将它以及它连通的两个顶点
+加入生成树，连通块的数量便还剩$N-1$个。此后，每次选择剩余边中权值最小的，若它所连接的两个顶点处在不同连通块，则将他们连通并收入生成树，直至所有顶点均已连通。
+
+该策略显然是正确的。因为如果两个连通块之间存在一条权值最小的边，那么最优解是一定要包含这条边的。
+这种放眼全局，通过不断地选择边权最小的边将不同连通块合并的策略，这就是\term{Kruskal（克鲁斯卡尔）算法}的核心思想。
+
+
+具体来说，设无向连通图$G=(V,E)$有$N$个顶点，Kruskal算法的过程如下：
+将图看成是$N$个割裂的顶点构成了$N$个连通块。然后反复按边权从小到大检查所有还未被收入生成树的边，
+若被检查的边所连接的两个顶点不在同一个连通块中，则将他们连通，并收入生成树，否则跳过，继续检查下一条边。
+如此重复，直至所有顶点均已连通；
+
+我们以\ref{fig:Kruskal算法过程演示} a）所示的图演示一遍Kruskal算法的过程。
+
+1）所有边中权值最小的是连接BC的边（为1），将其收入，如b）所示，此时B、C已被连通；
+
+2）此时剩余所有边中，边权最小的是连接A、B的边（为2），由于A、B此时不在相同的连通块，因此将他们收入生成树，此时A、B、C已被连通，如c）所示；
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.95\textwidth]{assets/pics_and_ppts/ch5/26Kruskal算法过程演示.png}
+    \caption{Kruskal算法过程演示}
+    \label{fig:Kruskal算法过程演示}
+\end{figure}
+
+3）此时剩余所有边中，边权最小的是连接B、E的边（为3），由于B、E此时不在相同的连通块，因此将他们收入生成树，此时A、B、C、E已被连通，如d）所示；
+
+4）将D收入生成树，此时A、B、C、E、D已被连通，如e）所示；
+
+5）剩余所有边中，边权最小的是连接A、C的边（为5），但A、C已经处于同一个连通块，因此跳过，继续检查下一条边；
+
+6）剩余所有边中，边权最小的是连接D、F的边（为6），并且D、F处在不同的连通块，于是将它们收入生成树，如f）所示，此时所有顶点均已被连通，算法结束。可以看到，
+在这个图的例子中，Kruskal算法得到了与Prim算法相同的最小生成树。
+
+
 
 

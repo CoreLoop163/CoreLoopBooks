@@ -1,0 +1,13 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+c1}{// N 已定义}
+\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{EdgeInfo}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{u}\PYG{p}{;}\PYG{+w}{          }\PYG{c+c1}{// 顶点编号}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{time\PYGZus{}cost}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{// 花费时间（边权）}
+\PYG{p}{\PYGZcb{}}\PYG{p}{;}
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{EdgeInfo}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{AdjList}\PYG{p}{[}\PYG{n}{N}\PYG{p}{]}\PYG{p}{;}\PYG{+w}{    }\PYG{c+c1}{// 已存储邻接表信息}
+\PYG{k+kt}{char}\PYG{+w}{ }\PYG{n}{ver\PYGZus{}info}\PYG{p}{[}\PYG{n}{N}\PYG{p}{]}\PYG{p}{;}\PYG{+w}{   }\PYG{c+c1}{// 已存储顶点信息}
+\PYG{c+c1}{// 返回以s为起点到达维火女的房间需要花费的最短时间}
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{MinTime}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}
