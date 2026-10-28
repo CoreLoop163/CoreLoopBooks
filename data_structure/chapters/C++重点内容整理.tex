@@ -285,3 +285,159 @@ using namespace std; 并不是 C++ 程序必须写的一行代码。即使不写
 \begin{center}
     \includegraphics[width=0.30\textwidth]{assets/pics_and_ppts/C++重点内容整理/C与C++混合输出.png}
 \end{center}
+
+
+\section*{为结构体定义比较规则、std::sort()的使用}
+\phantomsection
+\addcontentsline{toc}{section}{为结构体定义比较规则、std::sort()的使用}
+\label{sec:为结构体定义比较规则、std::sort()的使用}
+
+\subsection*{为结构体定义比较规则、std::sort()的使用}
+
+对于自定义结构体（类），我们可以使用C++提供的\term{运算符重载}功能来自定义结构体对象之间的大小比较规则。
+如以下代码：
+\begin{cppcode}
+    struct Player {
+        string name;
+        long long id;
+        double score;   
+
+        bool operator < (const Player other) {
+            return this->score < other.score;
+        }
+    };
+\end{cppcode}
+其中
+\begin{cppcode}
+    bool operator < (const Player other) {
+        return this->score < other.score;
+    }
+\end{cppcode}
+是Player这个结构体（类）的一个成员函数（看起来可能会有点奇怪，但这确确实实是一个名为“operator <”的函数）
+，该函数定义了Player结构体的“<”运算符规则，或者说，定义了“<”这个二元运算符作用于两个Player对象时的规则。this指针表示调用
+该函数的对象指针，是<运算符的左操作数，而右操作数作为函数参数（other）被传递进来。
+具体来说，对于如下代码：
+\begin{cppcode}
+    Player p1; p1.score = 3.1;
+    Player p2; p2.score = 3.2;
+\end{cppcode}
+当我们调用
+\begin{cppcode}
+    p1 < p2;
+\end{cppcode}
+时，相当于以p1为<运算符的左操作数，p2为右操作数调用函数“operator <”，于是该函数的返回值为
+\begin{cppcode}
+    p1.score < p2.score; // 3.1 < 3.2成立，返回true。
+\end{cppcode}
+
+这样就实现了通过“<”运算符对两个Player对象的大小比较功能。
+
+\minisection{std::sort()的使用}
+标准库<algorithm>中为我们提供了一个函数：sort()，它定义在std命名空间中，作用是对数组或容器进行排序。
+
+但sort()要求数组或容器的元素类型支持“<”运算符（
+事实上这种说法不严谨，但对于初学者来说可以简单这么理解）。如：
+\begin{cppcode}
+    #include <algorithm>
+    #include <iostream>
+    #include <vector>
+
+    int main() {
+        int a[5] = {2,3,1,4,5};
+        vector<int> va = {2,4,5,1,3};
+        std::sort(a, a+4);  // 对a的前4个元素排序，若写(a, a+5)就是对数组a的全部5个元素排序
+        std::sort(va.begin(), va.end());    // 对va的所有元素排序
+
+        for(int i=0; i<5; i++) {
+            cout << a[i];
+        }   // 输出：12345
+        for(int i=0; i<5; i++) {
+            cout << va[i];
+        }   // 输出：12345
+    }
+\end{cppcode}
+
+若Player类重载了<运算符，则sort函数可以按照比较规则对Player对象排序：
+\begin{cppcode}
+    struct Player {
+        // ...
+
+        bool operator < (const Player other) {
+            return this->score < other.score;
+        }
+    };
+
+    Player players[10]; // 假设存储了10个player
+    std::sort(players, players+10); // 将这些player按score从小到大排序
+\end{cppcode}
+
+若某个类不支持<运算符，对该类的数组或容器调用sort函数将导致编译报错。
+
+\subsection*{重载运算符}
+当各种运算符（如+, -, <）等，作用于内置类型时，它的语义是由C++标准定义的，如：
+\begin{cppcode}
+    int a, b;
+    a + b;
+    a - b;  
+    a < b;
+\end{cppcode}
+它们的作用非常明确。事实上，如果我们将一些运算符作用于自定义类型，将导致编译报错，如：
+\begin{cppcode}
+    struct Player {
+        string name;
+        long long id;
+        double score;   
+    };
+    Player p1, p2;
+    p1 + p2;    // 编译报错
+    p1 - p2;    // 编译报错
+\end{cppcode}
+但是，C++提供了一种叫做\term{重载运算符}的机制，允许我们为自定义类型来定义各种运算符的作用。定义一个重载的运算符与定义一个函数非常相似，语法如下：
+\begin{cppcode}
+    <返回类型> operator <你要重载的运算符> (函数参数列表) {
+        // 函数体
+    }
+\end{cppcode}
+
+其中“operator”是关键字。可以看到，这与正常的函数定义：
+\begin{cppcode}
+    <返回类型> <函数名>                   (函数参数列表) {
+        // 函数体
+    }
+\end{cppcode}
+几乎一模一样，可以说：重载运算符就是函数名为“operator xxx”的一个函数。重载运算符可以被定义为\term{成员函数}和\term{非成员函数}。当定义为成员函数时，
+C++规定运算符的第一个运算对象就是调用该函数的对象（this）。运算符的返回值其实就是函数的返回值。
+
+比如，你还可以为Player对象定义+、-等运算符：
+\begin{cppcode}
+    struct Player {
+        string name;
+        long long id;
+        double score;   
+
+        Player operator + (const Player& other) {
+            Player p;
+            p.score = this->score + other.score;
+            return p;
+        }
+
+        Player operator - (const Player& other) {
+            Player p;
+            p.score = this->score - other.score;
+            return p;
+        }
+    };
+    Player p1; p1.score = 3.1;
+    Player p2; p2.score = 3.2;
+    Player p3;
+\end{cppcode}
+以上就为Player定义了两个名字是“operator +”和“operator -”的成员函数。于是你便可以像调用普通函数一样调用它们：
+\begin{cppcode}
+    /* 你可能不相信，这行代码是绝对合法的。就是在调用p1对象的名为“operator +”的函数，函数参数是p2.*/
+    p3 = p1.operator +(p2); 
+    // 上面这行代码可以简写为：
+    p3 = p1 + p2;
+\end{cppcode}
+C++允许我们重载各种一元和二元运算符，如\textquotedbl ++\textquotedbl， \textquotedbl --\textquotedbl， 
+\textquotedbl *\textquotedbl， \textquotedbl !\textquotedbl， 甚至 \textquotedbl ()\textquotedbl（函数调用运算符）等。
+感兴趣的同学可以参考C++相关资料。

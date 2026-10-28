@@ -1,0 +1,6 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+cm}{/* 你可能不相信，这行代码是绝对合法的。就是在调用p1对象的名为“operator +”的函数，函数参数是p2.*/}
+\PYG{n}{p3}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{p1}\PYG{p}{.}\PYG{k}{operator}\PYG{+w}{ }\PYG{o}{+}\PYG{p}{(}\PYG{n}{p2}\PYG{p}{)}\PYG{p}{;}
+\PYG{c+c1}{// 上面这行代码可以简写为：}
+\PYG{n}{p3}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{p1}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{p2}\PYG{p}{;}
+\end{MintedVerbatim}

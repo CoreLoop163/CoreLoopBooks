@@ -45,34 +45,39 @@
 \contentsline {section}{\numberline {4.4}堆}{103}{section.4.4}%
 \contentsline {subsection}{\numberline {4.4.1}堆及其常见操作的实现}{103}{subsection.4.4.1}%
 \contentsline {subsection}{\numberline {4.4.2}堆的经典应用}{109}{subsection.4.4.2}%
-\contentsline {section}{ 习题 4 }{111}{exercise.4}%
-\contentsline {section}{\numberline {4.5}二叉查找树}{115}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}二叉查找树的实现}{116}{subsection.4.5.1}%
-\contentsline {section}{\numberline {4.6}平衡二叉树}{121}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}平衡二叉树的插入操作}{124}{subsection.4.6.1}%
-\contentsline {section}{ 习题 5 }{132}{exercise.5}%
-\contentsline {chapter}{\numberline {第五章\hspace {.3em}}图}{137}{chapter.5}%
-\contentsline {section}{\numberline {5.1}图的存储}{140}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}邻接矩阵}{140}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}邻接表}{141}{subsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.1.3}二者获取邻接信息的对比}{144}{subsection.5.1.3}%
-\contentsline {section}{\numberline {5.2}图的遍历}{146}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}深度优先搜索（DFS）}{146}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}广度优先搜索（BFS）}{148}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.2.3}DFS和BFS的实现}{149}{subsection.5.2.3}%
-\contentsline {section}{ 习题 6 }{155}{exercise.6}%
-\contentsline {section}{\numberline {5.3}最短路径}{162}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}迪杰斯特拉算法}{162}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Bellman-Ford算法}{174}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {5.3.3}Floyd算法}{178}{subsection.5.3.3}%
-\contentsline {section}{ 习题 7 }{181}{exercise.7}%
-\contentsline {section}{\numberline {5.4}最小生成树}{184}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Prim（普里姆）算法}{185}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.4.2}Kruskal（克鲁斯卡尔）算法}{186}{subsection.5.4.2}%
-\contentsline {chapter}{C++重点内容整理}{189}{chapter*.93}%
-\contentsline {section}{vector}{189}{section*.94}%
-\contentsline {section}{引用}{190}{section*.95}%
-\contentsline {section}{stack}{191}{section*.96}%
-\contentsline {section}{queue}{192}{section*.97}%
-\contentsline {section}{C++的Hello, World}{193}{section*.99}%
-\contentsline {chapter}{习题参考答案}{197}{chapter*.102}%
+\contentsline {section}{\numberline {4.5}并查集}{110}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}路径压缩}{113}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}*按秩合并}{113}{subsection.4.5.2}%
+\contentsline {section}{ 习题 4 }{115}{exercise.4}%
+\contentsline {section}{\numberline {4.6}二叉查找树}{119}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}二叉查找树的实现}{120}{subsection.4.6.1}%
+\contentsline {section}{\numberline {4.7}平衡二叉树}{125}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}平衡二叉树的插入操作}{128}{subsection.4.7.1}%
+\contentsline {section}{ 习题 5 }{136}{exercise.5}%
+\contentsline {chapter}{\numberline {第五章\hspace {.3em}}图}{141}{chapter.5}%
+\contentsline {section}{\numberline {5.1}图的存储}{144}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}邻接矩阵}{144}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}邻接表}{145}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}二者获取邻接信息的对比}{148}{subsection.5.1.3}%
+\contentsline {section}{\numberline {5.2}图的遍历}{150}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}深度优先搜索（DFS）}{150}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}广度优先搜索（BFS）}{152}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}DFS和BFS的实现}{153}{subsection.5.2.3}%
+\contentsline {section}{ 习题 6 }{159}{exercise.6}%
+\contentsline {section}{\numberline {5.3}最短路径}{166}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}迪杰斯特拉算法}{166}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Bellman-Ford算法}{178}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}Floyd算法}{182}{subsection.5.3.3}%
+\contentsline {section}{ 习题 7 }{185}{exercise.7}%
+\contentsline {section}{\numberline {5.4}最小生成树}{188}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Prim（普里姆）算法}{189}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Kruskal（克鲁斯卡尔）算法}{190}{subsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.4.3}算法实现}{191}{subsection.5.4.3}%
+\contentsline {chapter}{C++重点内容整理}{195}{chapter*.94}%
+\contentsline {section}{vector}{195}{section*.95}%
+\contentsline {section}{引用}{196}{section*.96}%
+\contentsline {section}{stack}{197}{section*.97}%
+\contentsline {section}{queue}{198}{section*.98}%
+\contentsline {section}{C++的Hello, World}{199}{section*.100}%
+\contentsline {section}{为结构体定义比较规则、std::sort()的使用}{202}{section*.104}%
+\contentsline {chapter}{习题参考答案}{207}{chapter*.107}%

@@ -51,3 +51,9 @@
 $\boldsymbol{mind[i]}$
 
 
+\newcommand{\chapteranypage}[1]{%
+    \begingroup
+    \let\cleardoublepage\clearpage
+    \chapter{#1}
+    \endgroup
+}

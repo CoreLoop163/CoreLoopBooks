@@ -1,0 +1,4 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{Player}\PYG{+w}{ }\PYG{n}{p1}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{p1}\PYG{p}{.}\PYG{n}{score}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mf}{3.1}\PYG{p}{;}
+\PYG{n}{Player}\PYG{+w}{ }\PYG{n}{p2}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{p2}\PYG{p}{.}\PYG{n}{score}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mf}{3.2}\PYG{p}{;}
+\end{MintedVerbatim}
