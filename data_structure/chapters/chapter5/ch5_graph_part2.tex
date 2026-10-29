@@ -505,11 +505,11 @@ $cur\_mind[i]$为顶点$i$当前已知的
 \minisection{2.迪杰斯特拉算法实现（邻接表版）}
 邻接表版仅在获取顶点的邻接点信息时代码有所不同。邻接表版代码如下所示。
 \begin{cppcodeHighlight}[1-5,30-36]
-    struct EdgeInfo {
+    struct AdjEdge {
         int u;      // 邻接点的编号
         int weight; // 边权
     };
-    vector<EdgeInfo> AdjList[N];    // 邻接表
+    vector<AdjEdge> AdjList[N];    // 邻接表
     bool Solved[N];     // 已初始化为false
     int Pre[N];         // 已初始化为-1
     int cur_mind[N];    // 已初始化为 +inf。
@@ -596,11 +596,11 @@ Bellman-Ford 算法需要做约$N$轮操作，每轮操作需要遍历所有边�
 
 对于邻接表存储的图，Bellman-Ford算法的实现如下所示：
 \begin{cppcode}
-    struct EdgeInfo {
+    struct AdjEdge {
         int u;
         int weight;
     };
-    vector<EdgeInfo> AdjList[N]; // 已存储图的邻接表
+    vector<AdjEdge> AdjList[N]; // 已存储图的邻接表
     const int inf = 0x3fffffff;
     int cur_mind[N];    // 已初始化为inf
     int Pre[N];     // 已初始化为-1
@@ -675,11 +675,11 @@ inq\_cnt[N]，标记每个顶点入队的次数。若某个顶点已经入队了
 
 于是我们可以给出这种优化的Bellman-Ford算法代码（邻接表版）如下所示：
 \begin{cppcode}
-    struct EdgeInfo {
+    struct AdjEdge {
         int u;
         int weight;
     };
-    vector<EdgeInfo> AdjList[N]; // 已存储图的邻接表
+    vector<AdjEdge> AdjList[N]; // 已存储图的邻接表
     const int inf = 0x3fffffff;
     int cur_mind[N];    // 已初始化为inf
     int Pre[N];     // 已初始化为-1
@@ -835,11 +835,11 @@ b）不存在从源点可达的负环，但存在从源点可达的负权边；\
 
 \begin{cppcode}
     // N 已定义
-    struct EdgeInfo {
+    struct AdjEdge {
         int u;          // 顶点编号
         int time_cost;  // 花费时间（边权）
     };
-    vector<EdgeInfo> AdjList[N];    // 已存储邻接表信息 
+    vector<AdjEdge> AdjList[N];    // 已存储邻接表信息 
     char ver_info[N];   // 已存储顶点信息
     // 返回以s为起点到达维火女的房间需要花费的最短时间
     int MinTime(int s) {
@@ -849,9 +849,9 @@ b）不存在从源点可达的负环，但存在从源点可达的负权边；\
 
 \vspace{\baselineskip}
 
-6. 在{\color{red}上题}条件下，假设你在任何两个房间移动时需要和敌人战斗，此时边（Edge）使用如下结构定义：
+6. 在{\color{red}上题}条件下，假设你在任何两个房间移动时需要和敌人战斗，此时邻接边（AdjEdge）使用如下结构定义：
 \begin{cppcode}
-    struct EdgeInfo {
+    struct AdjEdge {
         int u;              
         int time_cost;      // 花费时间
         int energy_cost;    // 和敌人战斗需要消耗的能量值
@@ -868,12 +868,12 @@ b）不存在从源点可达的负环，但存在从源点可达的负权边；\
 
 % \begin{cppcode}
 %     // N 已定义
-%     struct EdgeInfo {
+%     struct AdjEdge {
 %         int u;              
 %         int time_cost;      // 花费时间
 %         int energy_cost;    // 和敌人战斗需要消耗的能量值
 %     };
-%     vector<EdgeInfo> AdjList[N];    // 已存储邻接表信息 
+%     vector<AdjEdge> AdjList[N];    // 已存储邻接表信息 
 %     char ver_info[N];   // 已存储顶点信息
 %     // 返回以s为起点到达维火女的房间需要花费的最短时间
 %     int RemainingEnergy(int s, int e1, int e2) {
@@ -927,11 +927,11 @@ b）若存在源点可达的负权边，那么迪杰斯特拉算法将失效，�
 使用迪杰斯特拉算法求解的代码如下：
 \begin{cppcode}
     // N 已定义
-    struct EdgeInfo {
+    struct AdjEdge {
         int u;          // 顶点编号
         int time_cost;  // 花费时间（边权）
     };
-    vector<EdgeInfo> AdjList[N];    // 已存储邻接表信息 
+    vector<AdjEdge> AdjList[N];    // 已存储邻接表信息 
     char ver_info[N];   // 已存储顶点信息
     // 返回以s为起点到达维火女的房间需要花费的最短时间
     int MinTime(int s) {
@@ -987,11 +987,11 @@ b）若存在源点可达的负权边，那么迪杰斯特拉算法将失效，�
 使用SPFA算法求解的代码如下：
 \begin{cppcode}
     // N 已定义
-    struct EdgeInfo {
+    struct AdjEdge {
         int u;          // 顶点编号
         int time_cost;  // 花费时间（边权）
     };
-    vector<EdgeInfo> AdjList[N];    // 已存储邻接表信息 
+    vector<AdjEdge> AdjList[N];    // 已存储邻接表信息 
     char ver_info[N];   // 已存储顶点信息
     // 返回以s为起点到达维火女的房间需要花费的最短时间
     int MinTime(int s) {
@@ -1057,12 +1057,12 @@ b）若存在源点可达的负权边，那么迪杰斯特拉算法将失效，�
 
 \begin{cppcodeHighlight}[11-12,17-18,29-30,32-39,53-59]
     // N 已定义
-    struct EdgeInfo {
+    struct AdjEdge {
         int u;          
         int time_cost;      // 花费时间
         int energy_cost;    // 和敌人战斗需要消耗的能量值
     };
-    vector<EdgeInfo> AdjList[N];    // 已存储邻接表信息 
+    vector<AdjEdge> AdjList[N];    // 已存储邻接表信息 
     char ver_info[N];   // 已存储顶点信息
     // 返回以s为起点到达维火女的房间花费时间最短的路径中，消耗能量最少的那条路径所消耗的能量值
     int MinEnergyCost(int s) {
@@ -1181,9 +1181,8 @@ b）若存在源点可达的负权边，那么迪杰斯特拉算法将失效，�
         }
     }
 \end{cppcode}
-这种运算符重载规则，可以在我们使用C++标准库提供的排序函数std::sort()时来自定义一些排序规则，{\color{red}我们将在后面的内容中看到。}
-    
-
+这种运算符重载规则，可以在我们使用C++标准库提供的排序函数std::sort()时来自定义一些排序规则，我们将在\ref{minisec:Kruskal算法实现}节（
+第\pageref{minisec:Kruskal算法实现}页）中看到。
 
 
 

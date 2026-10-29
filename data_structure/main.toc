@@ -73,11 +73,15 @@
 \contentsline {subsection}{\numberline {5.4.1}Prim（普里姆）算法}{189}{subsection.5.4.1}%
 \contentsline {subsection}{\numberline {5.4.2}Kruskal（克鲁斯卡尔）算法}{190}{subsection.5.4.2}%
 \contentsline {subsection}{\numberline {5.4.3}算法实现}{191}{subsection.5.4.3}%
-\contentsline {chapter}{C++重点内容整理}{195}{chapter*.94}%
-\contentsline {section}{vector}{195}{section*.95}%
-\contentsline {section}{引用}{196}{section*.96}%
-\contentsline {section}{stack}{197}{section*.97}%
-\contentsline {section}{queue}{198}{section*.98}%
-\contentsline {section}{C++的Hello, World}{199}{section*.100}%
-\contentsline {section}{为结构体定义比较规则、std::sort()的使用}{202}{section*.104}%
-\contentsline {chapter}{习题参考答案}{207}{chapter*.107}%
+\contentsline {section}{\numberline {5.5}AOV网与拓扑排序}{194}{section.5.5}%
+\contentsline {section}{\numberline {5.6}AOE网与关键路径}{199}{section.5.6}%
+\contentsline {subsection}{\numberline {5.6.1}关键路径的求解}{199}{subsection.5.6.1}%
+\contentsline {section}{ 习题 8 }{205}{exercise.8}%
+\contentsline {chapter}{C++重点内容整理}{207}{chapter*.101}%
+\contentsline {section}{vector}{207}{section*.102}%
+\contentsline {section}{引用}{208}{section*.103}%
+\contentsline {section}{stack}{209}{section*.104}%
+\contentsline {section}{queue}{210}{section*.105}%
+\contentsline {section}{C++的Hello, World}{211}{section*.107}%
+\contentsline {section}{为结构体定义比较规则、std::sort()的使用}{214}{section*.111}%
+\contentsline {chapter}{习题参考答案}{219}{chapter*.114}%

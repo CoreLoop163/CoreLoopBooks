@@ -6,17 +6,23 @@
 
 然而，铺设线缆需要耗费大量资源。不同据点之间铺设线缆所需的成本各不相同。指挥官们希望找到一种方案：既能保证所有据点都连通，又能使铺设线缆的总成本尽可能低。
 应该如何设计这样的方案呢？这其实就是\term{最小生成树}的问题：
+\begin{quote}
+    给定一个\uline{连通的}无向带权图 \(G=(V,E)\)，如果从图中选择若干条边，使得所有顶点连通且不存在环，
+那么图的所有顶点及这些边构成的子图就是原图的一棵\term{生成树}。在所有生成树中，边权总和最小的生成树称为\term{最小生成树（Minimum Spanning Tree，MST）}。
+\end{quote}
 
+此问题下，图的权即是修建通信线缆的费用。显然，最小生成树问题要求图是连通的。
 
-给定一个\uline{连通的}无向带权图 \(G=(V,E)\)，如果从图中选择若干条边，使得所有顶点连通且不存在环，
-那么图的所有顶点及这些边构成的子图就是原图的一棵\term{生成树}。在所有生成树中，边权总和最小的生成树称为\term{最小生成树（Minimum Spanning Tree，MST）}。\\
+\begin{notebox}{提示}
+    若图不连通，则可以求每个连通块的最小生成树，将它们合在一起，就得到了最小生成森林。
+\end{notebox}
 
 对此问题，格佛莱指出：初始时随意选择一个顶点s，然后选择依附于s的边权最小的一条边，将该边与相连顶点“收进来”，
 此时，当前的生成树中就已经有了2个顶点。然后，继续选择能够连通这2个顶点与其他顶点的一条边权最小的边，并将该边与相连的顶点“收进来”，生成树中就有了3
 个顶点。重复这个操作，直至所有顶点都被“收进来”。这样做，得到的生成树中的所有边，一定是使得顶点连通的所有边的选集中权值之和最小的$N-1$条边。
-如图\ref{fig:Prim算法道理说明}所示，使得三个顶点连通，可选的边集有$\{e_0, e_1\}$、$\{e_0, e_2\}$以及$\{e_1, e_2\}$，权值之和最小的一定是$\{e_0, e_1\}$。
+如图\ref{fig:Prim算法道理说明}所示，使得三个顶点连通，可选的边集有$\{e_0, e_1\}$、$\{e_0, e_2\}$以及$\{e_1, e_2\}$，权值之和最小的一定是$\{e_0, e_2\}$。
 
-因此得到的树一定就是最小生成树。这就是\term{Prim（普里姆）算法}的核心思想。
+因此此方法得到的树一定就是最小生成树。这就是\term{Prim（普里姆）算法}的核心思想。
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.50\textwidth]{assets/pics_and_ppts/ch5/24Prim算法道理说明.png}
@@ -24,7 +30,7 @@
     \label{fig:Prim算法道理说明}
 \end{figure}
 
-可以看出，对于Prim算法，我们需要动态维护当前生成树以及尚未收入的所有顶点到当前生成树的最小代价。详细实现如下。
+
 \subsection{Prim（普里姆）算法}
 设无向连通图$G=(V,E)$，Prim算法的过程如下：设置集合S保存已经收入当前的生成树中的顶点，cur\_mind[]保存各未收入顶点到集合S的最小代价。
 初始时随意收入一个顶点s（即S=\{s\}），令与s邻接的所有顶点的cur\_mind[]为相应边权，令其他所有顶点的cur\_mind[]为正无穷。然后执行$N-1$次以下两个步骤：
@@ -57,22 +63,22 @@ cur\_mind[D]为10。
 
 3）未收入的顶点中，到集合S代价最小（最近）的顶点是C，于是收入C，如d）所示，并且对于C的邻接点E，由于$cur\_mind[E] = 3 < cost(C, E) = 8$，因此无需更新。
 
-4）收入E，然后更新D、F，如e）所示；
+4）收入E，由于$cost(E, D) = 4 < cur\_mind[D] = 10$，于是将$cur\_mind[D]$更新为4，类似地，将$cur\_mind[F]$更新为9。如e）所示；
 
 5）收入D，然后更新F，如f）所示；
 
 6）收入F，所有顶点均已被收入生成树，此时得到的即是最小生成树，各个边的权值之和即是最小代价：2 + 1 + 3 + 4 + 6 = 16。\\
 
-
+可以看到对于连通图，Prim算法每次一定能收入一个顶点到生成树中，因此共收入$N$个顶点（包括源点s）即可完成生成树的建立。
 
 \subsection{Kruskal（克鲁斯卡尔）算法}
 \label{subsec:Kruskal算法}
 指挥官麦丽凯给出了一种完全不同的思路：她不喜欢一步一步细致、缜密地规划，而是将注意力放眼全局。
 麦丽凯指出：初始时，没有任何顶点和边被收入生成树，将图看成是$N$个割裂的顶点构成了$N$个连通块。首先挑选整个图中边权最小的边，将它以及它连通的两个顶点
-加入生成树，连通块的数量便还剩$N-1$个。此后，每次选择剩余边中权值最小的，若它所连接的两个顶点处在不同连通块，则将他们连通并收入生成树，直至所有顶点均已连通。
+加入生成树，连通块的数量便还剩$N-1$个。此后，每次选择剩余边中权值最小的，若它所连接的两个顶点处在\uline{不同}连通块，则将他们连通并收入生成树，直至所有顶点均已连通。
 
 该策略显然是正确的。因为如果两个连通块之间存在一条权值最小的边，那么最优解是一定要包含这条边的。
-这种放眼全局，通过不断地选择边权最小的边将不同连通块合并的策略，这就是\term{Kruskal（克鲁斯卡尔）算法}的核心思想。
+这种放眼全局，通过不断地选择边权最小的边将不同连通块合并的策略，就是\term{Kruskal（克鲁斯卡尔）算法}的核心思想。
 
 
 具体来说，设无向连通图$G=(V,E)$有$N$个顶点，Kruskal算法的过程如下：
@@ -95,22 +101,25 @@ cur\_mind[D]为10。
 
 3）此时剩余所有边中，边权最小的是连接B、E的边（为3），由于B、E此时不在相同的连通块，因此将他们收入生成树，此时A、B、C、E已被连通，如d）所示；
 
-4）将D收入生成树，此时A、B、C、E、D已被连通，如e）所示；
+4）类似地，将D收入生成树，此时A、B、C、E、D已被连通，如e）所示；
 
 5）剩余所有边中，边权最小的是连接A、C的边（为5），但A、C已经处于同一个连通块，因此跳过，继续检查下一条边；
 
 6）剩余所有边中，边权最小的是连接D、F的边（为6），并且D、F处在不同的连通块，于是将它们收入生成树，如f）所示，此时所有顶点均已被连通，算法结束。可以看到，
 在这个图的例子中，Kruskal算法得到了与Prim算法相同的最小生成树。
 
+在第\ref{ch:ch4}章中我们已经知道，具有$N$个顶点的树，边的数量一定是$N-1$条。因此Kruskal算法中，当被收入生成树的边的数量达到$N-1$时，就达成了最小生成树。
+
 \subsection{算法实现}
 \minisection{Prim算法的实现}
+可以看出，对于Prim算法，我们需要动态维护当前生成树以及尚未收入的所有顶点到当前生成树的最小代价。
 Prim算法的代码与Dijkstra算法非常相似。以邻接表为例，Prim算法的实现如下所示（高亮部分是与Dijkstra的区别部分）：
 \begin{cppcodeHighlight}[15,33,39-40]
-    struct EdgeInfo {
+    struct AdjEdge {
         int u;
         int weight;
     };
-    vector<EdgeInfo> AdjList[N];
+    vector<AdjEdge> AdjList[N];
     const int inf = 0x3fffffff;
     bool solved[N]; // 已初始化为false
     int cur_mind[N];    // 已初始化为inf
@@ -158,23 +167,25 @@ Prim算法的代码与Dijkstra算法非常相似。以邻接表为例，Prim算�
 
 
 \minisection{2.Kruskal算法实现}
-Kruskal算法需要每次选择边权最小的边，若每次遍历邻接表或邻接矩阵进行“选边”，代价显然无法接受。因此，要实现Kruskal算法，通常需要将所有边按边权排序，
-排好序后每次按顺序选择即可。这里为大家引入C++中的标准库sort函数。
+\label{minisec:Kruskal算法实现}
+Kruskal算法需要每次选择边权最小的边，若每次遍历邻接表或邻接矩阵进行“选边”，代价显然无法接受。因此实现Kruskal算法通常是使用一个数组直接存储所有“边”，
+并且将所有边按边权排序，排好序后每次按顺序选择即可。这里引入C++标准库中极为重要的一个函数：sort函数。
 
 \begin{cppcode}
-    struct EdgeInfo {
-        int u,v;
-        int weight;
-        // 定义两个EdgeInfo结构体的“<”比较规则
-        bool operator < (const EdgeInfo& other) {
+    // “边”的定义
+    struct Edge {
+        int u,v;    // 边连接的两个顶点u、v
+        int weight; // 边的信息（边权）
+        // 定义两个Edge结构体的“<”比较规则
+        bool operator < (const Edge& other) {
             return this->weight < other.weight;
         }
     };
-    EdgeInfo edges[M];  // 假设已经存储了图G中所有边的信息
+    Edge edges[M];  // 假设已经存储了图G中所有边的信息
     
     
     int Kruskal() {
-        // 按照EdgeInfo的“<”比较规则，对edges数组进行排序。
+        // 按照Edge的“<”比较规则，对edges数组进行排序。
         std::sort(edges, edges+M);
         // ...
     }
@@ -189,7 +200,7 @@ Kruskal算法选边时，需要判断两个顶点是否在同一个连通块中�
 并查集的Find与Union操作。若将所有边遍历一轮之后，收入生成树的边的数量不足$N-1$，说明图不连通。可以写出Kruskal的代码如下：
 \begin{cppcode}
     int Kruskal() {
-        // 按照EdgeInfo的“<”比较规则，对edges数组进行排序。
+        // 按照Edge的“<”比较规则，对edges数组进行排序。
         std::sort(edges, edges+M);
         // 要返回的生成树最小代价
         int min_cost = 0;
@@ -212,6 +223,10 @@ Kruskal算法选边时，需要判断两个顶点是否在同一个连通块中�
                 min_cost += edges[i].weight;
                 // cout << “选择了一条边u->v”
                 edgenum_in_tree += 1;
+                // 已收入了N-1条边，已经达成最小生成树
+                if(edgenum_in_tree == N-1) {
+                    break;
+                }
             }
         }
         /* 原图不连通，不存在包含所有顶点的生成树。*/
@@ -222,3 +237,426 @@ Kruskal算法选边时，需要判断两个顶点是否在同一个连通块中�
     }
 \end{cppcode}
 
+
+
+
+
+
+\begin{firekeeper}{}
+    \begin{wrapfigure}{r}{0.165\textwidth}
+        \vspace{-2cm}
+        \centering
+        \hspace{-3cm}
+        \raisebox{-1.65cm}{%      % 视觉上向上移动 0.5cm (负数则向下)
+            \hspace*{0.10cm}%   % 视觉上向左移动 0.5cm (正数则向右)
+            \scalebox{1.25}{%   % 视觉上缩放 1.25 倍
+                \includegraphics[width=0.30\textwidth]{firekeeper.png}%
+            }%
+        }
+    \end{wrapfigure}
+    恭喜您已经成功度过了本区域最有挑战性的区域。
+\end{firekeeper}
+
+\section{AOV网与拓扑排序}
+某经营策略游戏有多种科技可以解锁，比如要解锁“机械制造”科技必须要先解锁“铁器制造”等。科技的解锁依赖关系被建模成了一棵科技树，如图\ref{fig:科技树}所示。
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.87\textwidth]{assets/pics_and_ppts/ch5/奇幻文明科技树界面裁剪后.png} 
+    \caption{科技树}
+    \label{fig:科技树}
+\end{figure}
+
+显然这是一个有向图，顶点表示解锁某种科技，而 A -> B 的有向边表示要解锁B，就必须要先解锁A。
+
+这种用顶点表示活动、有向边表示活动之间先后依赖关系的有向图被称为\term{AOV网（Activity On Vertex Network，顶点表示活动的网）}。
+具体来说，
+\begin{quote}
+    AOV 网是一个有向图，其中：\\
+- 顶点表示活动或任务。\\
+- 有向边 \(u\to v\) 表示活动 \(u\) 必须先于活动 \(v\) 进行。\\
+\end{quote}
+
+我们将某科技树简化，并将其各个顶点从0开始进行编号，得到一个如图\ref{fig:科技树模型}所示的有向图。
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.29\textwidth]{assets/pics_and_ppts/ch5/科技树模型.png}
+    \caption{科技树模型}
+    \label{fig:科技树模型}
+\end{figure}
+
+显然只要图中不存在环，则一定可以按照某种顺序解锁所有科技。比如对于图\ref{fig:科技树模型}所示的科技树，
+一种可行的科技解锁顺序是：014325，014325这个序列就是一个\term{拓扑序列}。
+
+\begin{definitionbox}
+    由有向无环图的所有顶点构成的序列，若满足如下条件，则称该序列是该图的一个\term{拓扑序列}：\\
+    对图中任意顶点A与B，若存在A到B的路径，则序列中A一定在B的前面。\\
+
+    求解有向无环图的一个拓扑序列的过程，就叫做对这个有向无环图进行\term{拓扑排序}。
+\end{definitionbox}
+    类似将所有顶点按大小排序，“拓扑排序”也是将所有顶点进行排序，得到一个序列，只不过不是依据“大小”，而是依据“拓扑（结构）”，所以叫“拓扑排序”。
+\begin{notebox}{提示}
+    有些地方也会将“拓扑排序”作为名词使用。如：“我们对该图进行拓扑排序，得到的拓扑排序是014325”。
+\end{notebox}
+    
+对于AOV网进行拓扑排序的算法非常简单，也很好理解：
+\begin{enumerate}
+    \item 从图中选择一个入度为0的顶点加入拓扑序列尾部；
+    \item 从图中删除该顶点以及它的所有出边；
+    \item 重复1和2的过程，直到图中不再存在入度为0的顶点。
+\end{enumerate}
+经上述过程后，如果所有顶点都已被加入序列，拓扑排序成功。如果仍有顶点未被加入序列，说明图中存在有向环，拓扑排序失败。
+
+拓扑排序的过程如图\ref{fig:拓扑排序过程演示}所示：
+\begin{enumerate}
+    \item 初始时仅顶点0入度为0，将0加入拓扑序列尾部，并删除顶点0以及它的所有出边，如b）所示；
+    \item 此时仅顶点1入度为0，将1加入拓扑序列尾部，并删除顶点1以及它的所有出边，如c）所示；
+    \item 此时顶点2、4的入度均为0，任选一个顶点，假设选4，将4加入拓扑序列尾部，并进行相应删除，如d）所示；
+    \item 此时顶点2、3的入度均为0，假设选3，如e）所示；
+    \item 此时仅剩顶点2、5，其中2的入度为0，5的入度为1，因此选择2加入序列尾部，如f）所示；
+    \item 此时最后一个顶点5的入度为0，将其加入序列尾部，如g）所示，所有顶点均被加入序列，拓扑排序成功。
+\end{enumerate}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.88\textwidth]{assets/pics_and_ppts/ch5/27拓扑排序过程演示.png}
+    \caption{拓扑排序过程演示}
+    \label{fig:拓扑排序过程演示}
+\end{figure}
+
+
+\minisection{拓扑排序的实现}
+拓扑排序需要多次选取图中入度为0的顶点，若每次遍历邻接表或邻接矩阵，会产生较大的开销。因此通常使用一个数组来维护各顶点的入度值：
+\begin{cppcode}
+    int in_deg[N];  // N为顶点数量
+\end{cppcode}
+
+最初时仅遍历一遍邻接表或邻接矩阵即可得到图最初的in\_deg[]，后面动态维护即可。
+还有一个问题，每次选择入度为0的顶点时，需要遍历一遍in\_deg[]数组吗？事实上是不需要的。我们完全可以采用如下策略：
+
+在最初的in\_deg[]数组中选出所有入度为0的顶点，
+将它们加入一个队列（或栈）中，之后每次出队一个，加入拓扑序列，并且更新in\_deg[]数组，若有新的顶点入度减少后变成0，将它们加入队列即可。这样，重复操作直至队列
+为空，判断序列中元素个数是否等于N即可。
+
+假设AOV网有$N$个顶点，编号为$0$到$N-1$，以邻接表存储为例，拓扑排序的实现代码如下所示：
+
+\begin{cppcode}
+    // AdjList数组已存储某AOV网的邻接表，N为图中顶点数量
+    bool TopologicalSort(vector<int> AdjList[], int N) {
+        int in_deg[N];  
+        for(int i=0; i<N; i++) {
+            in_deg[i] = 0;
+        }
+        // 存储拓扑序列
+        vector<int> topo_seq;
+        for(int i=0; i<N; i++) {
+            for(int j=0; j<AdjList[i].size(); j++) {
+                int u = AdjList[i][j];
+                in_deg[u] += 1;
+            }
+        }
+        // 将初始时所有入度为0的顶点入队
+        queue<int> q;
+        for(int i=0; i<N; i++) {
+            if(in_deg[i] == 0) {
+                q.push(i);
+            }
+        }
+        while(!q.empty()) {
+            // u是当前选出的，入度为0的顶点
+            int u = q.front();
+            q.pop();
+            // 加入拓扑序列
+            topo_seq.push_back(u);
+            // 遍历所有u的邻接点v
+            for(int j=0; j<AdjList[u].size(); j++) {
+                int v = AdjList[u][j];
+                // 将边 u -> v删除，v的入度减一
+                in_deg[v] -= 1;
+                if(in_deg[v] == 0) {
+                    q.push(v);
+                }
+            }
+        }
+
+        // 拓扑序列中元素数量不足N，说明原图存在环
+        if(topo_seq.size() < N) {
+            return false;
+        }
+
+        // cout << "拓扑序列是：";
+        // 打印topo_seq中的元素序列
+
+        return true;
+    }
+\end{cppcode}
+因为每个顶点入队、出队至多一次，每条边也只会被处理一次。因此算法的时间复杂度为：\(O(N+M)\)，空间方面，
+需要 \(O(N)\) 的辅助空间，用于入度数组、队列和拓扑序列。
+
+
+\section{AOE网与关键路径}
+
+
+王国罗德尔的指挥官们将“铺设通信线缆”这一工程使用了如图\ref{fig:王国施工的AOE网}所示的有向带权图来表示。
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.80\textwidth]{assets/pics_and_ppts/ch5/28王国施工的AOE网.png}
+    \caption{铺设线缆工程}
+    \label{fig:王国施工的AOE网}
+\end{figure}
+这个有向带权图有唯一的起点$v_0$表示工程开始以及唯一的终点$v_6$表示工程结束，每条边表示某个活动，边权为该活动需要的时间，并且边的方向表示
+活动之间的先后约束；每个顶点表示一个事件，如顶点$v_2$表示“图纸已设计完成”，顶点$v_5$表示“所有施工准备已完成”。
+
+这种用顶点表示事件，有向边表示活动，边的权值表示完成该活动所需要的时间的有向\uline{带权}图被称为\term{AOE 网（Activity On Edge Network，边表示活动的网）}。
+AOE网规定：
+\begin{enumerate}[label=\arabic*）]
+    \item 只有当某顶点所代表的\uline{事件}发生后，该顶点的各条出边所代表的\uline{活动}才能开始；
+    \item 只有当某顶点的所有入边所代表的\uline{活动}均完成后，该顶点所代表的\uline{事件}才能发生。
+\end{enumerate}
+
+在AOE网中，有且仅有一个入度为0的顶点，称为源点，也称开始顶点，也有且仅有一个出度为0的顶点，称为汇点，也称结束顶点。
+
+显然，AOE网中有些活动是可以并行进行的，
+虽然不同路径上的活动所需要的时间不同，但只有从源点到汇点所有路径上的活动都已完成，整个工程才算完成。因此，整个工程的完成时间取决于源点到汇点所有路径中长度
+最长（时间最长）的那条路径，这条路径便被称为\term{关键路径}，关键路径上的所有活动均被称为\term{关键活动}。若关键活动所需时间加长，则整个工程所需时间都会加长。
+
+\subsection{关键路径的求解}
+为引入关键路径的求解方式，首先请大家思考如下几个问题：
+
+\minisection{各事件最早发生时间的求解}
+如果每项活动一旦具备条件就立刻开始，工程中的每个事件$v_i$最早什么时候能发生？我们记这个时间为$ve(i)$（e, \textbf{e}arliest），称为事件$v_i$的\term{最早发生时间}。
+
+显然对于任意事件$i$，它必须等到它的所有前置活动中，最晚结束的那个结束后才能发生。
+记$j_1$, ..., $j_n$为$i$的$n$条入边对应的顶点，cost为相应边的权（活动花费的事件），则有：
+\[
+    ve(i) = \max \bigl( ve(j_1) + cost(j_1, i), ..., ve(j_n) + cost(j_n, i) \bigr )
+\]
+那么，当$i$的所有前置事件的最早发生时间都已求解之后，事件$i$的最早发生时间也就求解好了。而开始顶点的$ve(0)$显然为0，于是，由源点开始，按照拓扑序列
+的顺序即可逐一求得所有顶点的最早发生时间$ve(i)$。
+
+\begin{notebox}{提示}
+    为什么是拓扑序列？因为在拓扑序列中，每个事件（顶点）都排在其所有前置事件之后，因此当我们处理$v_i$时，
+    它的所有前驱顶点一定都已经处理完毕，其最早发生时间也就都已求得，即等式右边的所有项均已求得：
+    \[
+        ve(i) = \max \bigl( ve(j_1) + cost(j_1, i), ..., ve(j_n) + cost(j_n, i) \bigr )
+    \]
+\end{notebox}
+如图\ref{fig:求解关键路径过程说明}所示，该图的一个拓扑序列是0231456，因此可以逐步求解出：
+\begin{bulk}
+    $ve(0) = 0;$\\
+    $ve(2) = max(ve(0) + cost(0, 2)) = max(0 + 3) = 3$;\\
+    $ve(3) = max(ve(0) + cost(0, 3)) = max(0 + 1) = 1$;\\
+    $ve(1) = max(ve(0) + cost(0, 1), ve(2) + cost(2, 1)) = max(0+1, 3+3) = 6$;\\
+    $ve(4) = max(ve(1) + cost(1, 4)) = 8$;\\
+    $ve(5) = max(ve(4) + cost(4, 5), ve(1) + cost(1, 5), ve(3) + cost(3, 5)) = 10$;\\
+    $ve(6) = max(ve(5) + cost(5, 6)) = 15$;
+\end{bulk}
+也就是说整个工程最早能在第15天结束。
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.78\textwidth]{assets/pics_and_ppts/ch5/29求解关键路径过程说明.png}
+    \caption{}
+    \label{fig:求解关键路径过程说明}
+\end{figure}
+
+\minisection{各事件最迟发生时间的求解}
+现在换一个角度思考：既然工程最早能在第 15 天结束，那么每个事件$v_i$最迟可以拖到什么时候开始，
+才不会导致工程延期？我们记这个时间为$vl(i)$（l, \textbf{l}atest），称为事件$v_i$的\term{最迟发生时间}。
+
+显然对于任意事件$i$，它必须要在所有后置事件中，所要求的最迟开始时间最早的（最小的）事件所允许的时间范围内开始。也就是说，
+记 \(j_1\), ..., \(j_n\) 为事件 \(i\) 的所有出边所指向的顶点，\(cost\) 为相应边的权（活动花费的时间），则一定有：
+\[
+vl(i)=\min\bigl(
+vl(j_1)-cost(i,j_1),\ldots,
+vl(j_n)-cost(i,j_n)
+\bigr)
+\]
+
+那么，当 \(i\) 的所有后继事件的最迟发生时间都已求解之后，事件 \(i\) 的最迟发生时间也就求解好了。而终点的最迟
+发生时间 \(vl(N-1)\) 等于整个工程的最早完成时间，于是，由终点开始，按照\term{逆拓扑序列}的顺序即可逐一求得所有顶点的最迟发生时间 \(vl(i)\)。
+
+\begin{intuitionbox}
+    \term{逆拓扑序列}就是将拓扑序列倒过来。如拓扑序列是0231456，逆拓扑序列就是6541320。
+\end{intuitionbox}
+
+对于图\ref{fig:求解关键路径过程说明}，我们已经根据该图的一个拓扑序列0231456求解出了$ve$，同样地可以根据逆拓扑序列6541320求解出$vl$：
+\begin{bulk}
+    $vl(6) = ve(6) = 15;$\\
+    $vl(5) = \min(vl(6) - cost(5, 6)) = 15 - 5 = 10;$\\
+    $vl(4) = \min(vl(5) - cost(4, 5)) = 10 - 2 = 8;$\\
+    $vl(1) = \min(vl(4) - cost(1, 4), vl(5) - cost(1, 5)) = \min(8 - 2, 10 - 3) = 6;$\\
+    $vl(3) = \min(vl(5) - cost(3, 5)) = 10 - 4 = 6;$\\
+    $vl(2) = \min(vl(1) - cost(2, 1)) = 6 - 3 = 3;$\\
+    $vl(0) = \min(vl(2) - cost(0, 2), vl(3) - cost(0, 3), vl(1) - cost(0, 1)) = \min(3 - 3, 6 - 1, 6 - 1) = 0$;
+\end{bulk}
+
+\minisection{求解关键路径}
+我们现在已经求解出了每个事件的最早发生时间以及最迟发生时间：
+
+\medskip
+\begin{center}
+    \begin{tabular}{cccccccc}
+    \hline
+                  & $v_0$ & $v_1$ & $v_2$ & $v_3$ & $v_4$ & $v_5$ & $v_6$ \\
+    \hline
+    最早发生时间ve & 0 & 6 & 3 & 1 & 8 & 10 & 15\\
+    最迟发生时间vl & 0 & 6 & 3 & 6 & 8 & 10 & 15\\
+    \hline
+\end{tabular}
+\end{center}
+\medskip
+
+显然
+\begin{bulk}
+    \begin{center}
+        最迟发生时间 - 最早发生时间    
+    \end{center}
+\end{bulk}
+的差值就是不延期整个工程的前提下，活动可以推迟的时间数量。所以满足 \(ve(i)=vl(i)\)的所有事件才有可能是关键路径上的顶点。那么如何判断该顶点的哪条出边是关键
+活动，进而构造关键路径？\\
+
+考虑到一条$i$到$j$的边表示的活动的时间余量可以表示为：
+\[
+\begin{aligned}
+\text{余量}(i,j)&=l(i,j)-e(i,j)\\
+&=vl(j)-cost(i,j)-ve(i)
+\end{aligned}
+\]
+其中$l(i,j)$为活动的最迟开始时间，$e(i,j)$为活动的最早开始时间。
+
+若某活动为关键活动，其时间余量为0：
+\[
+vl(j)-cost(i,j)-ve(i)=0
+\]
+
+即
+\[
+    ve(i)=vl(j)-cost(i,j)
+\]
+
+这就是判断关键活动的依据。
+
+
+
+因此我们找出所有满足 \(ve(i)=vl(i)\) 的关键事件，对于这些事件之间的有向边 \(i\rightarrow j\)，进一步判断是否满足：
+\[
+ve(i)=vl(j)-cost(i,j)
+\]
+若满足，说明这个活动是一个关键活动。这样，我们找到所有关键活动，这些关键活动便构成了关键路径。
+注意：AOE网的关键路径可能不唯一，但通过这种方式将所有关键活动连接起来，可以准确求出所有关键路径。
+
+根据以上讨论，对于有$N$个顶点的AOE网，可以写出求解关键路径的代码如下（邻接表为例）。
+\begin{cppcode}
+    struct AdjEdge {
+        int to;         // 活动的终点
+        int duration;   // 活动持续时间
+    };
+
+    // 当图中存在环时，返回-1；否则返回关键路径的长度
+    int CriticalPath(int N, vector<AdjEdge> AdjList[]) {
+        int in_deg[N] = {};
+        // 计算各顶点的入度，为拓扑排序准备
+        for (int u = 0; u < N; u++) {
+            for (int i = 0; i < AdjList[u].size(); i++) {
+                int v = AdjList[u][i].to;
+                in_deg[v]++;
+            }
+        }
+
+        // 第一步：拓扑排序，计算事件最早发生时间 ve
+        vector<int> ve(N, 0);   // 初始有N个元素，值均为0的vector
+        vector<int> topo_seq;
+        queue<int> q;
+        for (int i = 0; i < N; i++) {
+            if (in_deg[i] == 0) {
+                q.push(i);
+            }
+        }
+
+        while (!q.empty()) {
+            int u = q.front();
+            q.pop();
+            topo_seq.push_back(u);
+            for (int i=0; i<AdjList[u].size(); i++) {
+                AdjEdge e = AdjList[u][i];
+                ve[e.to] = max(ve[e.to], ve[u] + e.duration);
+                if (--in_deg[e.to] == 0) {
+                    q.push(e.to);
+                }
+            }
+        }
+
+        // 图中存在环
+        if (topo_seq.size() != N) {
+            return -1;
+        }
+
+        // 假设不确定汇点的编号，只能遍历一遍所有顶点，ve最大的那个就是汇点。
+        int critical_path_length = 0;
+        for (int i = 0; i < N; i++) {
+            critical_path_length = max(critical_path_length, ve[i]);
+        }
+
+        // 第二步：用逆拓扑序列计算事件最迟发生时间 vl
+        vector<int> vl(N, critical_path_length);    // 初始有N个元素，值均为critical_path_length的vector
+        for (int i=N-1; i>=0; i--) {
+            int u = topo_seq[i];
+            for (int j=0; j<AdjList[u].size(); j++) {
+                AdjEdge e = AdjList[u][j];
+                vl[u] = min(vl[u], vl[e.to] - e.duration);
+            }
+        }
+
+        // 第三步：找出关键活动
+        for (int u=0; u<N; u++) {
+            // 若不满足ve(u) == vl(u)说明u不是关键事件，则u发出的边不可能是关键活动
+            if(ve[u] != vl[u]) {
+                continue;
+            }
+            for (int i=0; i<AdjList[u].size(); i++) {
+                AdjEdge e = AdjList[u][i];
+                if (ve[u] == vl[e.to] - e.duration) {
+                    // 找到了一个关键活动：u -> e.to，记录下来
+                }
+            }
+        }
+
+        // 返回关键路径长度
+        return critical_path_length;
+    }
+\end{cppcode}
+注意：假设不需要求出关键路径是什么（轨迹），而只是求出关键路径的长度即可，那么代码到第49行就已经达成任务了。这也是求有向无环图的\term{最长路径长度}的
+常用方法。
+
+对于上述代码，统计所有顶点入度的时间复杂度为$O(N+M)$，计算ve[]、vl[]的过程为$O(N+M)$，找出关键活动的过程复杂度为$O(N+M)$，因此算法整体时间复杂度为$O(N+M)$。
+空间方面，引入了各种长度为$N$的数组以及一个队列，队列的空间最坏情况下为$N$个元素，因此空间复杂度为$O(N)$。
+
+
+
+
+\begingroup
+\let\cleardoublepage\clearpage
+\chapter*{--- BONFIRE ENCOUNTERED ---}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\endgroup
+
+\begin{exercise}
+1. 
+
+
+
+
+\end{exercise}
+\clearpage
+
+
+
+
+\begin{exerciseanswer}
+
+
+
+
+
+
+\end{exerciseanswer}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

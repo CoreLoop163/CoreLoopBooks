@@ -302,14 +302,14 @@ using namespace std; 并不是 C++ 程序必须写的一行代码。即使不写
         long long id;
         double score;   
 
-        bool operator < (const Player other) {
+        bool operator < (const Player& other) {
             return this->score < other.score;
         }
     };
 \end{cppcode}
 其中
 \begin{cppcode}
-    bool operator < (const Player other) {
+    bool operator < (const Player& other) {
         return this->score < other.score;
     }
 \end{cppcode}
@@ -362,7 +362,7 @@ using namespace std; 并不是 C++ 程序必须写的一行代码。即使不写
     struct Player {
         // ...
 
-        bool operator < (const Player other) {
+        bool operator < (const Player& other) {
             return this->score < other.score;
         }
     };
@@ -372,6 +372,8 @@ using namespace std; 并不是 C++ 程序必须写的一行代码。即使不写
 \end{cppcode}
 
 若某个类不支持<运算符，对该类的数组或容器调用sort函数将导致编译报错。
+
+有了这个功能，我们便可以定义两个“玩家”的大小关系，这在许多实际应用中非常有用。
 
 \subsection*{重载运算符}
 当各种运算符（如+, -, <）等，作用于内置类型时，它的语义是由C++标准定义的，如：

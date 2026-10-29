@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.5) (preloaded format=xelatex 2026.9.20)  28 OCT 2026 21:57
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.5) (preloaded format=xelatex 2026.9.20)  29 OCT 2026 20:53
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1754,11 +1754,11 @@ able
 \pydata@fh@0=\write9
 \openout9 = `_FAD58DE7366495DB4650CFEFAC2FCD61.data.minted'.
 
-runsystem(latexminted config  --timestamp 20261028215712 FAD58DE7366495DB4650CF
+runsystem(latexminted config  --timestamp 20261029205311 FAD58DE7366495DB4650CF
 EFAC2FCD61)...executed.
 
  (_FAD58DE7366495DB4650CFEFAC2FCD61.config.minted)
-runsystem(latexminted cleanconfig  --timestamp 20261028215712 FAD58DE7366495DB4
+runsystem(latexminted cleanconfig  --timestamp 20261029205311 FAD58DE7366495DB4
 650CFEFAC2FCD61)...executed.
 
 
@@ -3511,7 +3511,7 @@ Overfull \hbox (29.71332pt too wide) in paragraph at lines 344--435
 \openout8 = `main.listing'.
 
 
-(_minted/CF3BAF9641BC6FB0F230294A2D97666B.highlight.minted) [176]
+(_minted/EBBB068E9C1B882FE72576A105B55C1A.highlight.minted) [176]
 Underfull \hbox (badness 10000) in paragraph at lines 560--562
 
  []
@@ -3522,7 +3522,7 @@ File: assets/pics_and_ppts/ch5/22BellmanFord算法理解.png Graphic file (type 
  [178]
 \openout8 = `main.listing'.
 
- (_minted/E27B955E7861BBF407FC819D89A0A8FD.highlight.minted)
+ (_minted/C0B48C2604D0CB9D73BB20A224C87483.highlight.minted)
 [179]
 Underfull \hbox (badness 10000) in paragraph at lines 643--645
 
@@ -3541,7 +3541,7 @@ Overfull \hbox (31.64018pt too wide) in paragraph at lines 662--663
 [180]
 \openout8 = `main.listing'.
 
- (_minted/F2F2072FC7056C98C534EBF46AE827E6.highlight.minted) [181]
+ (_minted/184887704362628CB0D77EE49DD8E1B6.highlight.minted) [181]
 \openout8 = `main.listing'.
 
 
@@ -3571,11 +3571,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 53--54
 
 \openout8 = `main.listing'.
 
-(_minted/21FD2A7FA8E874E41E588D4302E0EB5C.highlight.minted)
+(_minted/B59AD83E8214DA55A7EBA7DAD3EBD99A.highlight.minted)
 \openout8 = `main.listing'.
 
 
-(_minted/FB6C54AABB3A8977234DD83EC137E649.highlight.minted) [186]
+(_minted/9147161FA8A0FDC5415A866B3604D2E8.highlight.minted) [186]
 Underfull \hbox (badness 10000) in paragraph at lines 85--86
 
  []
@@ -3584,16 +3584,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 85--86
 \openout8 = `main-bookexercise-7-solution-body.tex'.
 
 ) (chapters/chapter5/ch5_graph_part3.tex
-Underfull \hbox (badness 10000) in paragraph at lines 11--13
-
- []
-
 File: assets/pics_and_ppts/ch5/24Prim算法道理说明.png Graphic file (type bmp)
 <assets/pics_and_ppts/ch5/24Prim算法道理说明.png>
-[188
+ [188
 
 ]
-Overfull \hbox (5.58746pt too wide) in paragraph at lines 39--41
+Overfull \hbox (5.58746pt too wide) in paragraph at lines 45--47
 \TU/SimSun(0)/m/n/10.53937 的 顶 点，|  而 \TU/lmr/m/n/10.53937 Prim \TU/SimSun(0)/m
 /n/10.53937 算 法 是 选 择 与|   []最 近 的 顶 点。|  注 意：| \TU/lmr/m/n/10.53937 Prim \TU/S
 imSun(0)/m/n/10.53937 算 法 中，| \TU/lmr/m/n/10.53937 cur_mind[v]
@@ -3602,43 +3598,101 @@ imSun(0)/m/n/10.53937 算 法 中，| \TU/lmr/m/n/10.53937 cur_mind[v]
 File: assets/pics_and_ppts/ch5/25Prim算法过程演示.png Graphic file (type bmp)
 <assets/pics_and_ppts/ch5/25Prim算法过程演示.png>
 
-Overfull \hbox (3.95276pt too wide) in paragraph at lines 49--50
+Overfull \hbox (3.95276pt too wide) in paragraph at lines 55--56
  [][] 
  []
 
 [189]
-Underfull \hbox (badness 10000) in paragraph at lines 64--65
+Underfull \hbox (badness 10000) in paragraph at lines 70--71
 
  []
 
+[190]
 File: assets/pics_and_ppts/ch5/26Kruskal算法过程演示.png Graphic file (type bmp)
 <assets/pics_and_ppts/ch5/26Kruskal算法过程演示.png>
-[190]
 \openout8 = `main.listing'.
 
- (_minted/B1141C2D4D770E017C882221DE8FB96E.highlight.minted) [191]
-Underfull \hbox (badness 10000) in paragraph at lines 156--158
+ (_minted/0F201734FA6ECB15F7DCEA0D422839FB.highlight.minted) [191]
+Underfull \hbox (badness 10000) in paragraph at lines 165--167
 
  []
 
+[192]
 \openout8 = `main.listing'.
 
-(_minted/129061C7292C9CC46D90CB0C06E51B1B.highlight.minted) [192]
-\openout8 = `main.listing'.
-
-
-(_minted/AECCDA6DD197BB853F48472AC88096B5.highlight.minted) [193]))
-(chapters/C++重点内容整理.tex [194]
+ (_minted/AFAC72241A1BAAD5B0FCC22F6EE20861.highlight.minted)
 \openout8 = `main.listing'.
 
 
-(_minted/6812EBA6B2FE4CE5432EAA6093FAB7EA.highlight.minted)
+(_minted/BE29210362182736434980CE6C274B42.highlight.minted) [193]
+File: firekeeper.png Graphic file (type bmp)
+<firekeeper.png>
+File: assets/pics_and_ppts/ch5/奇幻文明科技树界面裁剪后.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch5/奇幻文明科技树界面裁剪后.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 275--278
+
+ []
+
+[194]
+File: assets/pics_and_ppts/ch5/科技树模型.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch5/科技树模型.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 292--294
+
+ []
+
+[195]
+File: assets/pics_and_ppts/ch5/27拓扑排序过程演示.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch5/27拓扑排序过程演示.png>
+ [196]
+\openout8 = `main.listing'.
+
+ (_minted/4BF908B88DD9FCCEFCDE0D3DF13489BB.highlight.minted)
 \openout8 = `main.listing'.
 
 
-(_minted/24A66D29549DA212BC7533D21C257D47.highlight.minted) [195
+(_minted/AFA35AB70CDC6452DFBCCD07938D63B8.highlight.minted) [197]
+File: assets/pics_and_ppts/ch5/28王国施工的AOE网.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch5/28王国施工的AOE网.png>
+ [198]
+[199]
+File: assets/pics_and_ppts/ch5/29求解关键路径过程说明.png Graphic file (type bmp)
+<assets/pics_and_ppts/ch5/29求解关键路径过程说明.png>
+ [200]
+Underfull \hbox (badness 10000) in paragraph at lines 516--518
+
+ []
+
+[201]
+\openout8 = `main.listing'.
+
+ (_minted/55AA759C6BE7B85D2F3EDD9FCCDF6CF1.highlight.minted) [202]
+[203] [204]
+\openout8 = `main-bookexercise-8-exercise-body.tex'.
+
+
+
+LaTeX Warning: Reference `exercise-answer:8' on page 205 undefined on input lin
+e 649.
+
+(main-bookexercise-8-exercise-body.tex) [205
 
 ]
+\openout8 = `main-bookexercise-8-solution-body.tex'.
+
+)) (chapters/C++重点内容整理.tex
+[206
+
+
+]
+\openout8 = `main.listing'.
+
+ (_minted/6812EBA6B2FE4CE5432EAA6093FAB7EA.highlight.minted)
+\openout8 = `main.listing'.
+
+
+(_minted/24A66D29549DA212BC7533D21C257D47.highlight.minted) [207]
 \openout8 = `main.listing'.
 
 
@@ -3658,7 +3712,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 156--158
 \openout8 = `main.listing'.
 
 
-(_minted/33295EB178110851DB17B21562F954CF.highlight.minted) [196]
+(_minted/33295EB178110851DB17B21562F954CF.highlight.minted) [208]
 \openout8 = `main.listing'.
 
 
@@ -3670,7 +3724,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 156--158
 \openout8 = `main.listing'.
 
 
-(_minted/7A2F3D8B7835B26F5EBA1DAA24FF8CDF.highlight.minted) [197]
+(_minted/7A2F3D8B7835B26F5EBA1DAA24FF8CDF.highlight.minted) [209]
 \openout8 = `main.listing'.
 
 
@@ -3690,7 +3744,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 156--158
 \openout8 = `main.listing'.
 
 
-(_minted/140D736E6FE2B5235B8BEBB55143A5A9.highlight.minted) [198]
+(_minted/140D736E6FE2B5235B8BEBB55143A5A9.highlight.minted) [210]
 \openout8 = `main.listing'.
 
 
@@ -3702,7 +3756,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 156--158
 \openout8 = `main.listing'.
 
 
-(_minted/EF95F8DCEA4C5BD8C32A3EA1D83DADD3.highlight.minted) [199]
+(_minted/EF95F8DCEA4C5BD8C32A3EA1D83DADD3.highlight.minted) [211]
 \openout8 = `main.listing'.
 
 
@@ -3713,7 +3767,7 @@ File: assets/pics_and_ppts/C++重点内容整理/数据流向cout.png Graphic fi
 <assets/pics_and_ppts/C++重点内容整理/数据流向cout.png>
 File: assets/pics_and_ppts/C++重点内容整理/cin数据流入a.png Graphic file (type bmp)
 <assets/pics_and_ppts/C++重点内容整理/cin数据流入a.png>
- [200]
+ [212]
 \openout8 = `main.listing'.
 
 
@@ -3729,7 +3783,7 @@ File: assets/pics_and_ppts/C++重点内容整理/cin数据流入a.png Graphic fi
 \openout8 = `main.listing'.
 
 
-(_minted/7425F4C1C721F4D300D2E6DD47F179B2.highlight.minted) [201]
+(_minted/7425F4C1C721F4D300D2E6DD47F179B2.highlight.minted) [213]
 Underfull \hbox (badness 10000) in paragraph at lines 267--270
 
  []
@@ -3742,11 +3796,11 @@ File: assets/pics_and_ppts/C++重点内容整理/C与C++混合输出.png Graphic
 \openout8 = `main.listing'.
 
 
-(_minted/96FEC28AC10DAC964DF40F253176306A.highlight.minted) [202]
+(_minted/D147EEE78BEBEA8076E15E469EE23BD1.highlight.minted) [214]
 \openout8 = `main.listing'.
 
 
-(_minted/3474DCB181666DBA230DFA2BE2108B98.highlight.minted)
+(_minted/A863EEFA8DA9A240050AB13CF714BC06.highlight.minted)
 \openout8 = `main.listing'.
 
 
@@ -3762,19 +3816,19 @@ File: assets/pics_and_ppts/C++重点内容整理/C与C++混合输出.png Graphic
 \openout8 = `main.listing'.
 
 
-(_minted/DD50348151D0ADDF3276CE5608117097.highlight.minted) [203]
+(_minted/DD50348151D0ADDF3276CE5608117097.highlight.minted) [215]
 \openout8 = `main.listing'.
 
 
-(_minted/EE3A3EDAA1EDA1D5677AF0524AAAB37E.highlight.minted)
+(_minted/39711084D349DCDF7E915B1FCC18324E.highlight.minted)
 \openout8 = `main.listing'.
 
 
-(_minted/53023619F3CE6C983198FA5F96A13E43.highlight.minted)
+(_minted/53023619F3CE6C983198FA5F96A13E43.highlight.minted) [216]
 \openout8 = `main.listing'.
 
 
-(_minted/45B2DBCAE6FBFA18746798A8266C7B31.highlight.minted) [204]
+(_minted/45B2DBCAE6FBFA18746798A8266C7B31.highlight.minted)
 \openout8 = `main.listing'.
 
 
@@ -3786,11 +3840,11 @@ File: assets/pics_and_ppts/C++重点内容整理/C与C++混合输出.png Graphic
 \openout8 = `main.listing'.
 
 
-(_minted/4E533964607F312C069FAE947A49B030.highlight.minted) [205]
+(_minted/4E533964607F312C069FAE947A49B030.highlight.minted) [217]
 \openout8 = `main.listing'.
 
 
-(_minted/9AF6A13B21394B065B2F478083D017E4.highlight.minted)) [206] [207
+(_minted/9AF6A13B21394B065B2F478083D017E4.highlight.minted)) [218] [219
 
 
 ]
@@ -3823,7 +3877,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--35
 
 \openout8 = `main.listing'.
 
-(_minted/C84CC9D6B04CB47AB056D30A0AC3933B.highlight.minted) [208
+(_minted/C84CC9D6B04CB47AB056D30A0AC3933B.highlight.minted) [220
 
 ]
 \openout8 = `main.listing'.
@@ -3836,7 +3890,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 74--75
 
 \openout8 = `main.listing'.
 
-(_minted/63ED7D6272672BC6B67C5FE4F2A1E320.highlight.minted) [209]
+(_minted/63ED7D6272672BC6B67C5FE4F2A1E320.highlight.minted) [221]
 \openout8 = `main.listing'.
 
 
@@ -3844,7 +3898,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 74--75
 \openout8 = `main.listing'.
 
 
-(_minted/BDFF3E54B5334CA5D57D73502D60C884.highlight.minted) [210]
+(_minted/BDFF3E54B5334CA5D57D73502D60C884.highlight.minted) [222]
 \openout8 = `main.listing'.
 
 
@@ -3852,11 +3906,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 74--75
 \openout8 = `main.listing'.
 
 
-(_minted/85FFD4595827520FBFA514756D7ECE83.highlight.minted) [211]
+(_minted/85FFD4595827520FBFA514756D7ECE83.highlight.minted) [223]
 \openout8 = `main.listing'.
 
 
-(_minted/243B3D3F07B9CC0226C9543007525726.highlight.minted) [212]
+(_minted/243B3D3F07B9CC0226C9543007525726.highlight.minted) [224]
 Underfull \hbox (badness 10000) in paragraph at lines 239--240
 
  []
@@ -3871,7 +3925,7 @@ m/n/10.53937 ，|  若 \TU/lmr/m/n/10.53937 arr[i] > k\TU/SimSun(0)/m/n/10.53937
 
 \openout8 = `main.listing'.
 
-(_minted/B8D94A680A8AF831D48B762FD88FD7D8.highlight.minted) [213]) [214]
+(_minted/B8D94A680A8AF831D48B762FD88FD7D8.highlight.minted) [225]) [226]
 (main-bookexercise-2-solution-body.tex
 Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
@@ -3917,7 +3971,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--34
 
  []
 
-[215
+[227
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 35--36
@@ -3954,10 +4008,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 52--53
 
  []
 
-[216]
+[228]
 \openout8 = `main.listing'.
 
- (_minted/8DAAFB68F61BA50492B05C6C4D3BFF01.highlight.minted) [217]
+ (_minted/8DAAFB68F61BA50492B05C6C4D3BFF01.highlight.minted) [229]
 Underfull \hbox (badness 10000) in paragraph at lines 111--113
 
  []
@@ -3969,7 +4023,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 114--116
 
 \openout8 = `main.listing'.
 
-(_minted/5D2E311A209E233BFD851EEF2CF34972.highlight.minted) [218]) [219]
+(_minted/5D2E311A209E233BFD851EEF2CF34972.highlight.minted) [230]) [231]
 (main-bookexercise-3-solution-body.tex
 Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
@@ -3995,7 +4049,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 43--47
 
  []
 
-[220
+[232
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 48--50
@@ -4032,7 +4086,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 84--86
 
  []
 
-[221]
+[233]
 File: assets/pics_and_ppts/ch4/09年408选择.png Graphic file (type bmp)
 <assets/pics_and_ppts/ch4/09年408选择.png>
 
@@ -4060,7 +4114,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 106--108
 
  []
 
-[222]
+[234]
 Underfull \hbox (badness 10000) in paragraph at lines 113--115
 
  []
@@ -4076,7 +4130,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 116--118
 \openout8 = `main.listing'.
 
 
-(_minted/CD7CFA84A243E656E7A62AC6A8FC0DCF.highlight.minted) [223]
+(_minted/CD7CFA84A243E656E7A62AC6A8FC0DCF.highlight.minted) [235]
 Underfull \hbox (badness 10000) in paragraph at lines 150--151
 
  []
@@ -4090,7 +4144,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 165--166
 
 \openout8 = `main.listing'.
 
-(_minted/F5C02BEFEBF05911B4B8764AF2E16414.highlight.minted) [224]) [225]
+(_minted/F5C02BEFEBF05911B4B8764AF2E16414.highlight.minted) [236]) [237]
 (main-bookexercise-4-solution-body.tex
 Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
@@ -4118,7 +4172,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--20
 
 \openout8 = `main.listing'.
 
-(_minted/5DAB63A4671D94CDF85833CA4BF87481.highlight.minted) [226
+(_minted/5DAB63A4671D94CDF85833CA4BF87481.highlight.minted) [238
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 67--68
@@ -4129,18 +4183,18 @@ File: assets/pics_and_ppts/ch4/21408_哈夫曼树构造过程.png Graphic file (
 <assets/pics_and_ppts/ch4/21408_哈夫曼树构造过程.png>
 \openout8 = `main.listing'.
 
-(_minted/0002A310DC72EA8D700CD759E50417B7.highlight.minted) [227]
+(_minted/0002A310DC72EA8D700CD759E50417B7.highlight.minted) [239]
 Underfull \hbox (badness 10000) in paragraph at lines 101--102
 
  []
 
 \openout8 = `main.listing'.
 
-(_minted/6B0184A3F19510114552C0AE6F9A128C.highlight.minted) [228]
+(_minted/6B0184A3F19510114552C0AE6F9A128C.highlight.minted) [240]
 \openout8 = `main.listing'.
 
 
-(_minted/A0BB0ABF5D95BC93B37F121FB4CE9A18.highlight.minted)) [229]
+(_minted/A0BB0ABF5D95BC93B37F121FB4CE9A18.highlight.minted)) [241]
 (main-bookexercise-5-solution-body.tex
 Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
@@ -4168,7 +4222,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--24
 File: assets/pics_and_ppts/ch4/10408_平衡二叉树插入后37的左右孩子值答案图.png Graphic file (type
  bmp)
 <assets/pics_and_ppts/ch4/10408_平衡二叉树插入后37的左右孩子值答案图.png>
-[230
+[242
 
 ]
 File: assets/pics_and_ppts/ch4/20408哪一个序列不能生成图示二叉排序树答案图.png Graphic file (type 
@@ -4184,7 +4238,7 @@ bmp)
 \openout8 = `main.listing'.
 
 
-(_minted/4B91EE1B4FFBFFE83434D056FA4C96DF.highlight.minted) [231]
+(_minted/4B91EE1B4FFBFFE83434D056FA4C96DF.highlight.minted) [243]
 Underfull \hbox (badness 10000) in paragraph at lines 96--98
 
  []
@@ -4196,7 +4250,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 105--109
 
  []
 
-[232]
+[244]
 Underfull \hbox (badness 10000) in paragraph at lines 122--124
 
  []
@@ -4208,7 +4262,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 133--135
 
 \openout8 = `main.listing'.
 
-(_minted/D1FF214F21045421EA5918142803D36B.highlight.minted) [233]
+(_minted/D1FF214F21045421EA5918142803D36B.highlight.minted) [245]
 \openout8 = `main.listing'.
 
 
@@ -4222,11 +4276,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 191--192
 
 \openout8 = `main.listing'.
 
-(_minted/6DAF516EE6B1B8ED1BD4C30B5F04EEFB.highlight.minted) [234]
+(_minted/6DAF516EE6B1B8ED1BD4C30B5F04EEFB.highlight.minted) [246]
 \openout8 = `main.listing'.
 
 
-(_minted/6AF4291B68C931EA02DECDB32B7044E7.highlight.minted) [235]) [236]
+(_minted/6AF4291B68C931EA02DECDB32B7044E7.highlight.minted) [247]) [248]
 (main-bookexercise-6-solution-body.tex
 Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
@@ -4242,7 +4296,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--18
 File: assets/pics_and_ppts/ch5/习题03，09408无向连通图特性答案图.png Graphic file (type bmp)
 
 <assets/pics_and_ppts/ch5/习题03，09408无向连通图特性答案图.png>
-[237
+[249
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 40--44
@@ -4281,7 +4335,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 64--65
 
  []
 
-[238]
+[250]
 File: assets/pics_and_ppts/ch5/习题06，树上的广度优先答案图.png Graphic file (type bmp)
 <assets/pics_and_ppts/ch5/习题06，树上的广度优先答案图.png>
 
@@ -4295,7 +4349,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 71--72
 \openout8 = `main.listing'.
 
 
-(_minted/6D3E8363C2340EEE49029150C41FF290.highlight.minted) [239]
+(_minted/6D3E8363C2340EEE49029150C41FF290.highlight.minted) [251]
 Underfull \hbox (badness 10000) in paragraph at lines 108--110
 
  []
@@ -4306,18 +4360,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 108--110
 \openout8 = `main.listing'.
 
 
-(_minted/02434969D178CE39F35BF81D0C5DAB93.highlight.minted) [240]
+(_minted/02434969D178CE39F35BF81D0C5DAB93.highlight.minted) [252]
 File: assets/pics_and_ppts/ch5/习题08，任意路径答案图.png Graphic file (type bmp)
 <assets/pics_and_ppts/ch5/习题08，任意路径答案图.png>
- [241]
+ [253]
 \openout8 = `main.listing'.
 
 
-(_minted/4EF1A2A183488238F60A82A5D6DAFD4B.highlight.minted) [242]
+(_minted/4EF1A2A183488238F60A82A5D6DAFD4B.highlight.minted) [254]
 \openout8 = `main.listing'.
 
 
-(_minted/03B542148DC7A82C4652F90D902D4278.highlight.minted) [243] [244]
+(_minted/03B542148DC7A82C4652F90D902D4278.highlight.minted) [255] [256]
 File: assets/pics_and_ppts/ch5/21BFS求解最短路径原理.png Graphic file (type bmp)
 <assets/pics_and_ppts/ch5/21BFS求解最短路径原理.png>
 
@@ -4327,13 +4381,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 338--340
 
 \openout8 = `main.listing'.
 
-(_minted/AF27DA0F1E4D3059909138B34BCD32FE.highlight.minted) [245]
+(_minted/AF27DA0F1E4D3059909138B34BCD32FE.highlight.minted) [257]
 File: assets/pics_and_ppts/ch5/习题07救出维火女.png Graphic file (type bmp)
 <assets/pics_and_ppts/ch5/习题07救出维火女.png>
 \openout8 = `main.listing'.
 
 
-(_minted/E560622B2EE4F86E5C8F45D9B07C2CFD.highlight.minted) [246] [247]
+(_minted/E560622B2EE4F86E5C8F45D9B07C2CFD.highlight.minted) [258] [259]
 Underfull \hbox (badness 10000) in paragraph at lines 456--458
 
  []
@@ -4345,11 +4399,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 459--461
 
 \openout8 = `main.listing'.
 
-(_minted/B4433695CD455C0E9D7860DB3A2EA3C1.highlight.minted) [248]
+(_minted/B4433695CD455C0E9D7860DB3A2EA3C1.highlight.minted) [260]
 \openout8 = `main.listing'.
 
 
-(_minted/2B1DBB681BB2CFB66056155E28D47A58.highlight.minted)) [249]
+(_minted/2B1DBB681BB2CFB66056155E28D47A58.highlight.minted)) [261]
 (main-bookexercise-7-solution-body.tex
 File: assets/pics_and_ppts/ch5/习题09，16408最短路径的选点顺序答案图.png Graphic file (type bm
 p)
@@ -4372,7 +4426,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--17
 File: assets/pics_and_ppts/ch5/习题11，21408迪杰斯特拉dist内容答案图.png Graphic file (type 
 bmp)
 <assets/pics_and_ppts/ch5/习题11，21408迪杰斯特拉dist内容答案图.png>
-[250
+[262
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 30--31
@@ -4386,23 +4440,23 @@ Overfull \hbox (40.71654pt too wide) in paragraph at lines 32--43
 
 \openout8 = `main.listing'.
 
-(_minted/F123E2DB1423AF9C55B4B736CB20B00B.highlight.minted) [251]
+(_minted/1028FBFEC77EA4FB1D116B3FEE862DC1.highlight.minted) [263]
 \openout8 = `main.listing'.
 
 
-(_minted/AC8B070155850AD8C9554B9EB7FDE1A5.highlight.minted) [252]
+(_minted/A66888E3370CF12B88A848B5C53A13E6.highlight.minted) [264]
 File: assets/pics_and_ppts/ch5/习题12营救维火女最短时间、最小能量答案图.png Graphic file (type bmp
 )
 <assets/pics_and_ppts/ch5/习题12营救维火女最短时间、最小能量答案图.png>
- [253]
+ [265]
 \openout8 = `main.listing'.
 
 
-(_minted/631266DE92DDB1D1A35EFB35647829D2.highlight.minted) [254]
+(_minted/66C8D1F22A6EF81447C6EEA0D5A7C916.highlight.minted) [266]
 \openout8 = `main.listing'.
 
 
-(_minted/75E7D3BDEEF92AF52D98DC5B86649E7A.highlight.minted) [255]
+(_minted/75E7D3BDEEF92AF52D98DC5B86649E7A.highlight.minted) [267]
 \openout8 = `main.listing'.
 
 
@@ -4410,8 +4464,8 @@ File: assets/pics_and_ppts/ch5/习题12营救维火女最短时间、最小能�
 \openout8 = `main.listing'.
 
 
-(_minted/56C12D70CA367018DF64A23F11543A23.highlight.minted) [256])
-(chapters/the_end.tex [257] [258
+(_minted/56C12D70CA367018DF64A23F11543A23.highlight.minted) [268]) [269]
+(main-bookexercise-8-solution-body.tex) (chapters/the_end.tex [270
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 11--12
@@ -4429,7 +4483,9 @@ File: assets/pics_and_ppts/others/毕业考试01扑克牌输入示例二.png Gra
 <assets/pics_and_ppts/others/毕业考试01扑克牌输入示例二.png>
 File: assets/pics_and_ppts/others/毕业考试01扑克牌输入示例三.png Graphic file (type bmp)
 <assets/pics_and_ppts/others/毕业考试01扑克牌输入示例三.png>
-[259]) [260] (main.aux (main.xsim))
+[271
+
+]) [272] (main.aux (main.xsim))
  ***********
 LaTeX2e <2026-06-01>
 L3 programming layer <2026/08/21>
@@ -4438,16 +4494,22 @@ L3 programming layer <2026/08/21>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: FA268B62C380A58E60549C2D1BA6311A;8980.
+(rerunfilecheck)             Checksum: B0EA9302A261CAB1782325AB11CCAB1D;9444.
  ) 
 Here is how much of TeX's memory you used:
- 51665 strings out of 402560
- 1325825 string characters out of 5445169
- 1737242 words of memory out of 5000000
- 79087 multiletter control sequences out of 15000+600000
+ 51818 strings out of 402560
+ 1332256 string characters out of 5445169
+ 1739349 words of memory out of 5000000
+ 79220 multiletter control sequences out of 15000+600000
  640974 words of font info for 159 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  106i,16n,118p,1299b,1904s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (268 pages).
+Output written on main.pdf (280 pages).
