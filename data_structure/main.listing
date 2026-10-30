@@ -1,9 +1,8 @@
-    for(int j=0; j<AdjList[v].size(); j++) {
-        int u = AdjList[v][j].u;
-        cost c;
-        c.time = AdjList[v][j].time_cost;
-        c.energy = AdjList[v][j].energy_cost;
-        if(cur_minc[v] + c < cur_minc[u]) {
-            cur_minc[u] = cur_minc[v] + c;
+    for (int i=0; i<AdjList[u].size(); i++) {
+        int v = AdjList[u][i];
+        done[v] = max(done[v], done[u] + T[v]);
+        in_deg[v] -= 1;
+        if(in_deg[v] == 0) {
+            q.push(v);
         }
     }

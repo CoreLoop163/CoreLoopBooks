@@ -1,4 +1,8 @@
 你成功营救出了维火女，你们一同回到大陆中，继续冒险。她手中正是那樱花之泪。
+
+
+
+
 \section{最小生成树}
 王国的指挥官们解决了最短路径问题之后，又提出了一个新的问题：目前据点之间通信只能通过信使传递，他们希望在据点之间铺设通信线缆，使得信息可以顺着线缆迅速传递。
 指挥官们认为，没有必要在任意两个据点之间都铺设线缆，而是只要能够保证任意两个据点之间都可以通过线缆连通即可。
@@ -11,7 +15,7 @@
 那么图的所有顶点及这些边构成的子图就是原图的一棵\term{生成树}。在所有生成树中，边权总和最小的生成树称为\term{最小生成树（Minimum Spanning Tree，MST）}。
 \end{quote}
 
-此问题下，图的权即是修建通信线缆的费用。显然，最小生成树问题要求图是连通的。
+此问题下，边的权即是修建通信线缆的费用。
 
 \begin{notebox}{提示}
     若图不连通，则可以求每个连通块的最小生成树，将它们合在一起，就得到了最小生成森林。
@@ -239,24 +243,6 @@ Kruskal算法选边时，需要判断两个顶点是否在同一个连通块中�
 
 
 
-
-
-
-\begin{firekeeper}{}
-    \begin{wrapfigure}{r}{0.165\textwidth}
-        \vspace{-2cm}
-        \centering
-        \hspace{-3cm}
-        \raisebox{-1.65cm}{%      % 视觉上向上移动 0.5cm (负数则向下)
-            \hspace*{0.10cm}%   % 视觉上向左移动 0.5cm (正数则向右)
-            \scalebox{1.25}{%   % 视觉上缩放 1.25 倍
-                \includegraphics[width=0.30\textwidth]{firekeeper.png}%
-            }%
-        }
-    \end{wrapfigure}
-    恭喜您已经成功度过了本区域最有挑战性的区域。
-\end{firekeeper}
-
 \section{AOV网与拓扑排序}
 某经营策略游戏有多种科技可以解锁，比如要解锁“机械制造”科技必须要先解锁“铁器制造”等。科技的解锁依赖关系被建模成了一棵科技树，如图\ref{fig:科技树}所示。
 
@@ -420,8 +406,12 @@ AOE网规定：
 虽然不同路径上的活动所需要的时间不同，但只有从源点到汇点所有路径上的活动都已完成，整个工程才算完成。因此，整个工程的完成时间取决于源点到汇点所有路径中长度
 最长（时间最长）的那条路径，这条路径便被称为\term{关键路径}，关键路径上的所有活动均被称为\term{关键活动}。若关键活动所需时间加长，则整个工程所需时间都会加长。
 
+对于一个AOE网，关键路径可能有多条。
+
 \subsection{关键路径的求解}
-为引入关键路径的求解方式，首先请大家思考如下几个问题：
+事实上，\textbf{对于顶点数量不多的AOE网，人工求解关键路径最简单的办法就是观察法}，直接看哪条路径上边的权值之和最大，谨慎些不要看错即可。
+
+对于需要计算机解决的复杂图，为引入关键路径的求解方式，首先请大家思考如下几个问题：
 
 \minisection{各事件最早发生时间的求解}
 如果每项活动一旦具备条件就立刻开始，工程中的每个事件$v_i$最早什么时候能发生？我们记这个时间为$ve(i)$（e, \textbf{e}arliest），称为事件$v_i$的\term{最早发生时间}。
@@ -429,7 +419,7 @@ AOE网规定：
 显然对于任意事件$i$，它必须等到它的所有前置活动中，最晚结束的那个结束后才能发生。
 记$j_1$, ..., $j_n$为$i$的$n$条入边对应的顶点，cost为相应边的权（活动花费的事件），则有：
 \[
-    ve(i) = \max \bigl( ve(j_1) + cost(j_1, i), ..., ve(j_n) + cost(j_n, i) \bigr )
+    ve(i) = \max \bigl( ve(j_1) + cost(j_1, i), ..., ve(j_n) + cost(j_n, i) \bigr)
 \]
 那么，当$i$的所有前置事件的最早发生时间都已求解之后，事件$i$的最早发生时间也就求解好了。而开始顶点的$ve(0)$显然为0，于是，由源点开始，按照拓扑序列
 的顺序即可逐一求得所有顶点的最早发生时间$ve(i)$。
@@ -438,7 +428,7 @@ AOE网规定：
     为什么是拓扑序列？因为在拓扑序列中，每个事件（顶点）都排在其所有前置事件之后，因此当我们处理$v_i$时，
     它的所有前驱顶点一定都已经处理完毕，其最早发生时间也就都已求得，即等式右边的所有项均已求得：
     \[
-        ve(i) = \max \bigl( ve(j_1) + cost(j_1, i), ..., ve(j_n) + cost(j_n, i) \bigr )
+        ve(i) = \max \bigl( ve(j_1) + cost(j_1, i), ..., ve(j_n) + cost(j_n, i) \bigr)
     \]
 \end{notebox}
 如图\ref{fig:求解关键路径过程说明}所示，该图的一个拓扑序列是0231456，因此可以逐步求解出：
@@ -547,7 +537,7 @@ ve(i)=vl(j)-cost(i,j)
 注意：AOE网的关键路径可能不唯一，但通过这种方式将所有关键活动连接起来，可以准确求出所有关键路径。
 
 根据以上讨论，对于有$N$个顶点的AOE网，可以写出求解关键路径的代码如下（邻接表为例）。
-\begin{cppcode}
+\begin{cppcodeNum}[codetitle={拓扑排序求解关键路径}, label={code:拓扑排序求解关键路径}]
     struct AdjEdge {
         int to;         // 活动的终点
         int duration;   // 活动持续时间
@@ -556,7 +546,7 @@ ve(i)=vl(j)-cost(i,j)
     // 当图中存在环时，返回-1；否则返回关键路径的长度
     int CriticalPath(int N, vector<AdjEdge> AdjList[]) {
         int in_deg[N] = {};
-        // 计算各顶点的入度，为拓扑排序准备
+        // 计算各顶点的入度，为拓扑排序做准备
         for (int u = 0; u < N; u++) {
             for (int i = 0; i < AdjList[u].size(); i++) {
                 int v = AdjList[u][i].to;
@@ -625,14 +615,35 @@ ve(i)=vl(j)-cost(i,j)
         // 返回关键路径长度
         return critical_path_length;
     }
-\end{cppcode}
-注意：假设不需要求出关键路径是什么（轨迹），而只是求出关键路径的长度即可，那么代码到第49行就已经达成任务了。这也是求有向无环图的\term{最长路径长度}的
-常用方法。
+\end{cppcodeNum}
+注意：假设不需要求出关键路径是什么（轨迹），而只是求出关键路径的长度即可，那么代码到第49行就已经达成任务了。
+另外，数组ve[]是各个顶点的最早发生时间，换个说法，对于有向无环图（DAG），以上代码求解出的ve[]数组也是源点到各个顶点的\term{最长路径长度}。
+
+\begin{insightbox}
+    \hspace{1.5em}前49行求解最长路径长度的过程其实是一种\term{动态规划}的思想：
+    将一个较大的问题拆分成若干个较小的子问题，通过求解子问题来推导出更大的子问题的解，最终推导出原问题的解。它的核心是：
+    找到问题的子问题结构，以及子问题答案之间的依赖关系。
+    如上述求最长路径长度的问题，假设汇点为$N$，那么原问题的解$ve[N]$可以由若干个子问题的解推导出来：
+    \[
+        ve(N) = \max \bigl( ve(j_1) + cost(j_1, N), ..., ve(j_n) + cost(j_n, N) \bigr)
+    \]
+    其中$j_1, j_2, ..., j_n$是所有$N$的入边对应的顶点。这些子问题的解又可以由它们的子问题的解推导出来。而ve[0]则是边界条件，是最小的不可再分的子问题。
+    于是根据ve[0]一步一步向后推导，就能逐步得出更大的子问题的解，直至得出原问题的解。
+
+    \hspace{1.5em}在代码实现上，动态规划通常有两条路径：
+
+    \hspace{1.5em}- 自顶向下 + 记忆化搜索：从原问题出发，采用递归形式。当遇到一个子问题时，先去缓存（记忆）里查一下算过没有，算过了直接返回，
+    没算过就递归计算并将结果存入缓存（记忆下来）。
+
+    \hspace{1.5em}- 自底向上 + 状态转移表：从最小的子问题开始算起，一步步迭代推导到原问题。这是最经典、最常用的动态规划写法。代码\ref{code:拓扑排序求解关键路径}
+    求解关键路径正是这种方式，拓扑排序解决的是“先计算谁”，动态规划解决的是“如何计算”。
+\end{insightbox}
 
 对于上述代码，统计所有顶点入度的时间复杂度为$O(N+M)$，计算ve[]、vl[]的过程为$O(N+M)$，找出关键活动的过程复杂度为$O(N+M)$，因此算法整体时间复杂度为$O(N+M)$。
 空间方面，引入了各种长度为$N$的数组以及一个队列，队列的空间最坏情况下为$N$个元素，因此空间复杂度为$O(N)$。
 
 
+{\color{red}经过一场大战，王国成功击退了入侵者，虽然保住了所有据点，但王国的一些道路已经被摧毁，他们决定重新修建道路，将所有城镇连通。}
 
 
 \begingroup
@@ -641,9 +652,177 @@ ve(i)=vl(j)-cost(i,j)
 \endgroup
 
 \begin{exercise}
-1. 
+1. 对于一个有$N$（$N>0$）个顶点的无向连通图，下列说法错误的是\underline{\hspace{1cm}}\\[0.5em]
+A. 其最小生成树一定唯一\\
+B. 其最小生成树可能不唯一\\
+C. 其最小生成树一定有$N$个顶点\\
+D. 其最小生成树一定有$N-1$条边\\
+
+2. 下列说法正确的是\underline{\hspace{1cm}}\\[0.5em]
+A. 对同一个图，Kruskal算法和Prim算法得到的最小生成树一定相同\\
+B. 只要无向连通图中没有权值相同的边，其最小生成树一定唯一\\
+C. 只要无向连通图中有权值相同的边，其最小生成树一定不唯一\\
+D. 地球的体积比太阳大\\
+
+3. 使用Kruskal算法求解下图的最小生成树，依次选取的边的顺序是什么？
+
+\begin{center}
+    \includegraphics[width=0.39\textwidth]{assets/pics_and_ppts/ch5/习题13Kruskal选边顺序.png}
+\end{center}
+
+4. 下图是某个隐去了边权的无向连通图，现在用Kruskal算法求解其最小生成树，假设现在已经收入了(A, B)和(A, C)两条边，
+则下一个收入的边绝不可能是\underline{\hspace{1cm}}\\[0.5em]
+\begin{center}
+    \includegraphics[width=0.33\textwidth]{assets/pics_and_ppts/ch5/习题14Kruskal不选已连通.png}
+\end{center}
+
+\begin{tabular}{llll}
+    A. (B,C) & B. (B,D) & C. (C,D) & D. (D,E)
+\end{tabular}
+
+\vspace{\baselineskip}
+
+5. （某年408真题）下列关于最小生成树的说法中，正确的是\underline{\hspace{1cm}}\\[0.5em]
+\(\mathrm{I}\). 最小生成树的代价唯一\\
+\(\mathrm{II}\). 所有权值最小的边一定会出现在所有的最小生成树中\\
+\(\mathrm{III}\). 使用Prim算法从不同顶点开始得到的最小生成树一定相同\\
+\(\mathrm{IV}\). 使用Prim算法和Kruskal算法得到的最小生成树总不相同\\
+
+\noindent A. 仅\(\mathrm{I}\) \;\;\; B. 仅\(\mathrm{II}\) \;\;\; C. 仅\(\mathrm{I}\)、\(\mathrm{III}\) \;\;\; D. 仅\(\mathrm{II}\)、\(\mathrm{IV}\)
+
+\vspace{\baselineskip}
+
+6. （某年408真题）求下面带权图的最小生成树时，可能是Kruskal算法第2次选中但一定不是Prim算法（从d开始）第2次选中的边的是\underline{\hspace{1cm}}\\[0.5em]
+
+\begin{center}
+    \includegraphics[width=0.20\textwidth]{assets/pics_and_ppts/ch5/习题16，15408Prim与Kruskal第二次选边.png}
+\end{center}
+
+\begin{tabular}{llll}
+    A. (a, c) & B. (a, d) & C. (b, c) & D. (c, d)
+\end{tabular}
+
+\vspace{\baselineskip}
+
+7. 对下图所示的有向无环图进行拓扑排序，不可能得到的拓扑序列是\underline{\hspace{1cm}}\\
+
+\begin{center}
+    \includegraphics[width=0.25\textwidth]{assets/pics_and_ppts/ch5/习题16，拓扑排序可能的序列.png}
+\end{center}
+
+\begin{tabular}{ll}
+    A. $v_0, v_1, v_2, v_3, v_4, v_5$ & B. $v_1, v_0, v_4, v_3, v_2, v_5$ \\
+    C. $v_0, v_1, v_4, v_3, v_2, v_5$ & D. $v_1, v_0, v_5, v_4, v_3, v_2$
+\end{tabular}
+
+\vspace{\baselineskip}
+
+8. （某年408真题）对下图所示的有向无环图进行拓扑排序，可能得到\underline{\hspace{1cm}}个不同的拓扑序列\\
+
+\begin{center}
+    \includegraphics[width=0.35\textwidth]{assets/pics_and_ppts/ch5/习题17，21408拓扑排序可能的序列数量.png}
+\end{center}
+
+\begin{tabular}{llll}
+    A. 1 & B. 2 & C. 3 & D. 4
+\end{tabular}
+
+\vspace{\baselineskip}
+
+9. 对于有向图无环图$G$的一个拓扑序列，若顶点$v_1$在顶点$v_3$之前，请判断下列命题的正确性。\\[0.5em]
+A. 一定存在有向边：$(v_1, v_3)$\\
+B. 可能存在有向边：$(v_3, v_1)$\\
+C. 一定存在一条从$v_1$到$v_3$的路径\\
+D. 可能存在一条从$v_3$到$v_1$的路径\\
+E. 可能存在一条从$v_1$到$v_3$的路径\\
+
+10. 对于下图所示的AOE网，其关键路径长度的是\underline{\hspace{1cm}}\\[0.5em]
+\begin{center}
+    \includegraphics[width=0.40\textwidth]{assets/pics_and_ppts/ch5/习题19关键路径长度练习.png}
+\end{center}
+\begin{tabular}{llll}
+    A. 6 & B. 7 & C. 8 & D. 9
+\end{tabular}
+
+\vspace{\baselineskip}
+
+11. （某年408真题）若使用AOE网估算工程进度，下列叙述中正确的是\underline{\hspace{1cm}}\\[0.5em]
+A. 关键路径是从源点到汇点边数最多的一条路径\\
+B. 关键路径是从源点到汇点路径长度最长的一条路径\\
+C. 增加任意一个关键活动的时间不会延长工程的工期\\
+D. 缩短任意一个关键活动的时间将会缩短工程的工期\\
 
 
+12. （某年408真题）下列AOE网表示一项包含8个活动的工程。则同时加快\underline{\hspace{1cm}}中的两个活动就可以缩短工程工期\\[0.5em]
+
+\begin{center}
+    \includegraphics[width=0.36\textwidth]{assets/pics_and_ppts/ch5/习题20，13408同时加快活动缩短工期.png}
+\end{center}
+
+\begin{tabular}{llll}
+    A. c和e & B. d和c & C. f和d & D. f和h
+\end{tabular}
+
+\vspace{\baselineskip}
+
+13. 经历了一场战争后，王国的一些道路遭到了严重破坏。国王决定重建城市之间的道路，使得所有城市重新连通。
+王国共有 N 座城市，编号为 0 到 N-1。工程师经过地质考察，给出了 M 条可以修建的道路，每条道路连接两座不同的城市，并给出了修建这条道路所需的费用。
+此外，部分城市之间已经存在完好的旧道路。这些旧道路可以直接使用，不需要重新修建。
+
+给出所有尚存的旧道路（保证不存在环）和可以修建的道路，请你帮助国王计算：在保证任意两座城市之间都能够互相到达的前提下，至少还需要花费多少费用？
+如果无论如何都无法使所有城市连通，则返回 -1。
+
+\begin{cppcode}
+    struct Road {
+        int u, v;   // 道路连通的两个城市编号  
+    };
+    struct NewRoad {
+        int u, v;   // 修建该道路后，将连通的两个城市的编号
+        int weight; // 修建该道路需要的花费
+    };
+    int minimumCost(
+        int N,
+        vector<Road>& existing_roads,
+        vector<NewRoad> new_roads
+    ) {
+        
+    }
+\end{cppcode}
+
+\vspace{\baselineskip}
+
+14. 
+王国的重建工程被划分为 N 项任务，编号为 0 到 N-1。
+然而，部分任务之间存在先后依赖关系。例如，必须先完成地基施工，才能开始墙体建设；必须先完成墙体建设，才能安装城堡屋顶。
+工程师整理出了 M 条任务依赖关系。每条依赖关系由两个整数 u 和 v 表示，意味着任务 u 必须在任务 v 之前完成。
+请你帮助国王安排这 N 项任务的执行顺序，使得所有任务都能按照依赖关系完成，返回代表任务执行顺序的数组。
+如果存在任务依赖关系上的矛盾，导致所有任务无法安排出一个合法的执行顺序，则返回一个空数组。
+如果存在多种合法的执行顺序，返回其中任意一种即可。
+
+\begin{cppcode}
+    // v1、v2的长度均为M，用于表示任务的依赖关系：对于 0 <= i < M, 任务 v1[i] 必须在 v2[i]之前完成。
+    vector<int> TopologicalSort(int N, int M, vector<int>& v1, vector<int>& v2) {
+
+    }
+\end{cppcode}
+
+\vspace{\baselineskip}
+
+*15. 王国的重建工程有 N 项任务，编号为 $1,2,\ldots,N$。为了尽快完成不同任务，各方工作人员可以同时进行多项互不冲突的任务。
+对于第 $i$ 项任务：\\
+- 完成它需要花费 $T_i$ 个时间单位。\\
+- 在开始第 $i$ 项任务之前，必须先完成若干项指定的任务。\\
+- 如果某项任务没有前置依赖，那么它可以立即开始。
+
+给出$T[]$以及每项任务的直接前置依赖Pre[]，请你计算：完成全部 $N$ 项任务，最少需要多少时间（保证依赖关系不存在矛盾）？
+
+
+\begin{cppcode}
+    // T[]与Pre[]长度均为N，T[i]表示任务 i 的花费时间；Pre[i] 表示任务 i 的所有直接前置依赖
+    int MinTime(int N, int T[], vector<int> Pre[]) {
+
+    }
+\end{cppcode}
 
 
 \end{exercise}
@@ -651,12 +830,265 @@ ve(i)=vl(j)-cost(i,j)
 
 
 
-
 \begin{exerciseanswer}
+1. 选A。极限思维，若所有边权值都相等，任选$N-1$条无回路的边，构成的一定是最小生成树。C、D显然正确。\\
 
+2. 选B。D显然错误；考虑B，无论Prim算法还是Kruskal算法，每次选边时，选择的都是距离或权值最小的一条边，因此若图中不存在权值相同的边，每次选择的边一定是
+唯一的，最终得到的最小生成树就是唯一的，因此B正确；对于A和C则很容易举出反例。\\
 
+3. 依次选取权值为：1,2,3,5,6的边。选了1、2、3后不能选4，会有环。\\
+
+4. 选A选项。顶点B和C此时已经处在同一个连通块了，根据Kruakal算法，不能选。\\
+
+5. 选A选项。对于\(\mathrm{II}\)，考虑所有边权值相等的情况，若图中存在环则一定有些边不会出现在最小生成树中，错误；对于\(\mathrm{III}\)，考虑下图：
+\begin{center}
+    \includegraphics[width=0.68\textwidth]{assets/pics_and_ppts/ch5/习题1512408Prim不同起点树不同.png}
+\end{center}
+
+\(\mathrm{III}\)错误；对于\(\mathrm{IV}\)，考虑仅有两个顶点、一条边的图，其最小生成树只可能是它本身，两种算法得到的一定相同。\\
+
+6. 选C。容易得知Kruskal算法第二次选择的边一定是三条权值为8的边之一：(b,c)、(a,c)、(d,c)。而Prim算法从d开始，
+第一次选择的一定是(d, a)，第二次可能选择(a, c)或(d, c)，
+因此(b,c)、(a,c)、(d,c)中，Prim算法一定不会选择的就是(b,c)。\\
+
+7. 选D。$v_2$、$v_3$、$v_4$均存在一条到$v_5$的路径，因此拓扑序列中不能排在$v_5$的后面。\\
+
+8. 选C。由每一步可选的顶点构成的\uwave{选择树}如下所示：
+
+\begin{center}
+    \includegraphics[width=0.60\textwidth]{assets/pics_and_ppts/ch5/习题17，21408拓扑排序可能的序列数量答案图.png}
+\end{center}
+
+\vspace{\baselineskip}
+
+9. A、B、C、D均错误，仅E正确。
+
+对于A、C，{\color{red}考虑本习题第7题的图}的A选项的拓扑序列，$v_1$排在$v_3$前面，但是不存在$v_1$到$v_3$的路径，因此A、C错误；对于B、D，
+拓扑排序要求若$v$到$u$有一条路径，则$u$一定排在$v$的后面，因此B、D错误。E显然正确。\\
+
+10. 选C。观察法很容易看出关键路径有2条，长度是8。\\
+
+11. 选B。A显然错误；AOE网中关键路径可能存在多条，但增加关键活动的时间一定会增加工程的工期，而减小关键活动的时间则不一定会减少工程的工期，如下图：
+
+\begin{center}
+    \includegraphics[width=0.26\textwidth]{assets/pics_and_ppts/ch5/习题18，20408关键路径工期答案图.png}
+\end{center}
+
+上下两条路都是关键路径，边$(a,c)$是关键活动，但减少$(a,c)$的时间不会减少工程的工期。因此C错误、D错误。\\
+
+12. 选C。通过观察法可以看出图中存在3条关键路径：bdcg、bdeh和bfh。仅f和d组合到一起能够构成三条路径的必经之路，因此加快f和d能使得三条路径同时变短。
+其余三种组合都至少有一条它们不能使之变短的关键路径。\\
+
+13. 这显然是求最小生成树的问题，只不过已经选好了一些边，这些边不计入花费。我们根据Kruskal算法从剩下的边中进行选择即可。本题意在帮助大家
+复习并查集实现以及Kruskal算法。代码如下：
+\begin{cppcode}
+    struct Road {
+        int u, v;   // 道路连通的两个城市编号  
+    };
+    struct NewRoad {
+        int u, v;   // 修建该道路后，将连通的两个城市的编号
+        int weight; // 修建该道路需要的花费
+    };
+
+    bool CmpNewRoad(NewRoad& r1, NewRoad& r2) {
+        return r1.weight < r2.weight;
+    }
+    
+    int Find(int father[], int x) {
+        int ret = x;
+        while(ret != father[ret]) {
+            ret = father[ret];
+        }
+        int to_adjust = x;
+        while(to_adjust != ret) {
+            int fa = father[to_adjust];
+            father[to_adjust] = ret;
+            to_adjust = fa;
+        }
+        return ret;
+    }
+
+    int Union(int father[], int x, int y) {
+        int x_id = Find(father, x); 
+        int y_id = Find(father, y); 
+        if(x_id != y_id) {
+            father[x_id] = y_id;
+            return 1;
+        }
+        return 0;
+    }
+
+    int minimumCost(
+        int N,
+        vector<Road>& existing_roads,
+        vector<NewRoad> new_roads
+    ) {
+        int ret = 0;
+        int father[N];
+        for(int i=0; i<N; i++) {
+            father[i] = i;
+        }
+        int edge_num = 0;
+        // 根据尚存道路计算已有的边数，并合并这些道路连通的顶点
+        for(int i=0; i<existing_roads.size(); i++) {
+            Union(father, existing_roads[i].u, existing_roads[i].v);
+            edge_num += 1;
+        }
+        sort(new_roads.begin(), new_roads.end(), CmpNewRoad);
+        
+        // 按从小到大遍历边
+        for(int i=0; i<new_roads.size(); i++) {
+            int fau = Find(father, new_roads[i].u);
+            int fav = Find(father, new_roads[i].v);
+            if(fau != fav) {
+                Union(father, new_roads[i].u, new_roads[i].v);
+                ret += new_roads[i].weight;
+                edge_num += 1;
+            }
+        }
+        if(edge_num < N-1) {
+            return -1;
+        }
+        return ret;
+
+    }
+\end{cppcode}
+在尚存的旧道路保证不存在环的前提下，通过边数是否等于$N-1$即可判断连通性。若尚存的旧道路有可能存在环，则可以通过并查集判断所有城市是否处于同一个连通块：
+\begin{cppcode}
+    // 所有顶点处于同一个连通分量<=>所有顶点与0号顶点的连通分量编号相同
+    int root = Find(father, 0);
+    for(int i = 1; i < N; i++) {
+        if(Find(father, i) != root) {
+            return -1;
+        }
+    }
+\end{cppcode}
+
+\vspace{\baselineskip}
+
+14. 本题意在帮助大家练习拓扑排序的代码实现。没有什么难度，灵活处理输入数据即可。代码如下。
+\begin{cppcode}
+    // v1、v2的长度均为M，用于表示任务的依赖关系：对于 0 <= i <= M, 任务 v1[i] 必须在 v2[i]之前完成。
+    vector<int> TopologicalSort(int N, int M, vector<int>& v1, vector<int>& v2) {
+        vector<int> ret;
+        vector<int> AdjList[N];
+        int in_deg[N];
+        for(int i=0; i<N; i++) {
+            in_deg[i] = 0;
+        }
+        queue<int> q;
+        for(int i=0; i<M; i++) {
+            int u = v1[i];
+            int v = v2[i];
+            AdjList[u].push_back(v);
+            in_deg[v] += 1;
+        }
+        for(int i=0; i<N; i++) {
+            if(in_deg[i] == 0) {
+                q.push(i);
+            }
+        }
+        while(!q.empty()) {
+            int vertex = q.front();
+            q.pop();
+            ret.push_back(vertex);
+            for(int i=0; i<AdjList[vertex].size(); i++) {
+                int u = AdjList[vertex][i];
+                in_deg[u] -= 1;
+                if(in_deg[u] == 0) {
+                    q.push(u);
+                }
+            }
+        }
+        if(ret.size() < N) {
+            return vector<int>();
+        }
+        return ret;
+    }
+\end{cppcode}
+
+\vspace{\baselineskip}
+
+15. 需要注意的是，与求解关键路径长度不同，本题未必只有一个源点，但动态规划的思想仍然是成立的：我们依然可以根据拓扑序列的顺序，递推地从所有无前置任务的顶点
+推出各个任务的完成时间。具体来说，我们设置数组max\_len[]，max\_len[i]表示完成 i 的所有前置任务所需的时间。那么任务i的完成时间
+就是max\_len[i] + T[i]。
+\begin{cppcode}
+    // T[]与Pre[]长度均为N，T[i]表示任务 i 的花费时间；Pre[i] 表示任务 i 的所有直接前置依赖
+    int MinTime(int N, int T[], vector<int> Pre[]) {
+        struct AdjEdge {
+            int u;
+            int weight;
+            // 如果你一路走到了这里，相信构造函数对你来说应该很简单了。
+            AdjEdge(int u, int weight) : u(u), weight(weight) {}
+        };
+        vector<AdjEdge> AdjList[N];
+        int in_deg[N];
+        for(int i=0; i<N; i++) {
+            in_deg[i] = 0;
+        }   
+        // 遍历所有有向边，建立邻接表
+        for(int i=0; i<N; i++) {
+            vector<int> pres = Pre[i];
+            for(int j=0; j<pres.size(); j++) {
+                int u = pres[j];
+                AdjList[u].push_back(AdjEdge(i, T[u]));
+                in_deg[i] += 1;
+            }   
+        }
+        // 求解各顶点的最长路径长度（从任意源点到该顶点的路径长度中最长的那个）
+        int max_len[N];
+        // 数组初始化为0
+        memset(max_len, 0, sizeof(max_len));
+        queue<int> q;
+        for(int i=0; i<N; i++) {
+            if(in_deg[i] == 0) {
+                q.push(i);
+                max_len[i] = 0;
+            }
+        }
+        
+        while(!q.empty()) {
+            int u = q.front();
+            q.pop();
+            for(int i=0; i<AdjList[u].size(); i++) {
+                int v = AdjList[u][i].u;
+                int weight = AdjList[u][i].weight;
+                max_len[v] = max(max_len[v], max_len[u] + weight);
+                in_deg[v] -= 1;
+                if(in_deg[v] == 0) {
+                    q.push(v);
+                }
+            }
+        }
+        /* 注意：顶点的最长路径长度表示的是，完成该顶点（任务）的所有前置任务
+        所需的最长时间，因此最长路径长度再加上该任务所需时间才是该任务的最早
+        完成时间*/
+        int ret = 0;
+        for(int i=0; i<N; i++) {
+            ret = max(ret, max_len[i]+T[i]);
+        }
+        return ret;
+        
+    }
+\end{cppcode}
+事实上本题的图模型更接近AOV网，用顶点表示活动，而非AOE网。u的邻接表中的权值可以理解为u的点权（活动需要的时间）。动态规划的过程也可以直接设置数组
+done[]，直接表示各个任务完成的最早时间，将数组初始化为各个任务所需的时间T[i]，之后进行递推，这样是更简洁的：
+
+\begin{cppcode}
+    for (int i=0; i<AdjList[u].size(); i++) {
+        int v = AdjList[u][i];
+        done[v] = max(done[v], done[u] + T[v]);
+        in_deg[v] -= 1;
+        if(in_deg[v] == 0) {
+            q.push(v);
+        }
+    }
+\end{cppcode}
+
+\vspace{\baselineskip}
 
 
 
 
 \end{exerciseanswer}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
